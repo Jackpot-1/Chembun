@@ -1,2 +1,5 @@
 # Chembun
-funni chemistry game made with godot
+Chembun is a chemistry themed 3D platformer game aimed towards students to get them familiarized with the concepts associated with chemical bonds and their reactions.
+
+
+Dimitry was here UWU 🤓🤓🤓🤓🤓🤓🤓
