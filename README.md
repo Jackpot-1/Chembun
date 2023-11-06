@@ -4,12 +4,13 @@ Chembun is a chemistry themed 3D platformer game aimed towards students to get t
 
 Dimitry wuz here uwu  Lalala dimtr :3333 🤓
 
--What the project does?
+# What do Chembun do?
+Chembun is a 3D platforming game like old nintendo games but it implements chemistry elements and puzzles.
 
-# Chembun Usefulness
+# Chembun Usefulness?
 Chembun will try to teach its target audience, students about the basics of chemistry!
 We will attempt to do this through a chemistry based platformer.
 
--How users can get started with the project
+# Getting started with Chembun?
 
 Samuel Apodaca, 
