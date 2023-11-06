@@ -12,5 +12,7 @@ Chembun will try to teach its target audience, students about the basics of chem
 We will attempt to do this through a chemistry based platformer.
 
 # Getting started with Chembun?
+The users can get help with Chembun through the Documentation
 
-Samuel Apodaca, 
+# Contributers
+VanitasAzul, TweakSzn, NN77296, Jackpot-1
