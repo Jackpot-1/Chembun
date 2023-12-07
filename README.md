@@ -1,18 +1,10 @@
-# Chembun
-Chembun is a chemistry themed 3D platformer game aimed towards students to get them familiarized with the concepts associated with chemical bonds and their reactions.
+# ThirdPersonController
+ This addon includes 3rd person perspective locomotion and blockout materials, sky.
+
+https://www.youtube.com/watch?v=_nEolccutWw
 
 
-Dimitry wuz here uwu  Lalala dimtr :3333 🤓
+3D Model is provided by GDQuest: https://github.com/GDQuest/godot-3d-mannequin
 
-# What do Chembun do?
-Chembun is a 3D platforming game like old nintendo games but it implements chemistry elements and puzzles.
-
-# Chembun Usefulness?
-Chembun will try to teach its target audience, students about the basics of chemistry!
-We will attempt to do this through a chemistry based platformer.
-
-# Getting started with Chembun?
-The users can get help with Chembun through the Documentation
-
-# Contributers
-VanitasAzul, TweakSzn, NN77296, Jackpot-1
+This project also uses a character controller and camera script from this repository: 
+https://github.com/pemguin005/Third-Person-Controller--SoulsLIke-Godot4
