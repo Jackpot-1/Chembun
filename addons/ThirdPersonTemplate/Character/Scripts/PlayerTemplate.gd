@@ -43,23 +43,24 @@ var movement_speed = int()
 var angular_acceleration = int()
 var acceleration = int()
 
-#Womp Womp - Sammy
+# misc
 var jumpjump = int()
 
+
 func _ready(): # Camera based Rotation
+	
 	direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
 
 func _input(event): # All major mouse and button input events
 	if event is InputEventMouseMotion:
 		aim_turn = -event.relative.x * 0.015 # animates player with mouse movement while aiming 
-	#
+	
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
 	elif event.is_action_released("aim"):
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
-		#
 
 func sprint_and_roll():
 ## Dodge button input with dash and interruption to basic actions
@@ -114,7 +115,7 @@ func _physics_process(delta):
 	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
 	
 	movement_speed = 0
-	angular_acceleration = 10
+	angular_acceleration = 20
 	acceleration = 15
 
 	# Gravity mechanics and prevent slope-sliding
@@ -142,20 +143,14 @@ func _physics_process(delta):
 	else: 
 		is_rolling = false
 	
-#	Jump input and Mechanics v Original v
-	##if Input.is_action_just_pressed("jump") and ((is_attacking != true) and (is_rolling != true)) and is_on_floor():
-		##vertical_velocity = Vector3.UP * jump_force
-		
-	##	^ Original ^
-		
+#	Jump input and Mechanics
 	if Input.is_action_just_pressed("jump") and ((is_attacking != true) and (is_rolling != true)):
-		
 		if is_on_floor():
 			jumpjump = 0
 			vertical_velocity = Vector3.UP * jump_force
 			jumpjump += 1
-		elif jumpjump == 1:
-			vertical_velocity = Vector3.UP * (jump_force - 2)
+		elif jumpjump == 1 || jumpjump == 0:
+			vertical_velocity = Vector3.UP * (jump_force + 2)
 			jumpjump += 1
 		elif jumpjump == 2:
 			jumpjump += 1
@@ -178,10 +173,10 @@ func _physics_process(delta):
 	else: 
 		is_walking = false
 		is_running = false
-	
 	if Input.is_action_pressed("aim"):  # Aim/Strafe input and  mechanics
 		angular_acceleration = 60
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $Camroot/h.rotation.y, delta * angular_acceleration)
+		
 
 	else: # Normal turn movement mechanics
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, atan2(direction.x, direction.z) - rotation.y, delta * angular_acceleration)
@@ -213,4 +208,3 @@ func _physics_process(delta):
 	animation_tree["parameters/conditions/IsNotRunning"] = !is_running
 	# Attacks and roll don't use these boolean conditions, instead
 	# they use "travel" or "start" to one-shot their animations.
-	
