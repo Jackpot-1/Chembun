@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuv0hq6oda51l"]
+[gd_scene load_steps=10 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
@@ -117,3 +117,36 @@ material = ExtResource("6_7xeo2")
 
 [node name="PlayerTemplate" parent="." instance=ExtResource("8_fimwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.8399)
+
+[node name="GUI" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+layout_mode = 2
+
+[node name="Bars" type="VBoxContainer" parent="GUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="Bar" type="HBoxContainer" parent="GUI/HBoxContainer/Bars"]
+layout_mode = 2
+
+[node name="Count" type="MarginContainer" parent="GUI/HBoxContainer/Bars/Bar"]
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="GUI/HBoxContainer/Bars/Bar/Count"]
+layout_mode = 2
+
+[node name="Title" type="TextureRect" parent="GUI/HBoxContainer/Bars/Bar/Count"]
+layout_mode = 2
+
+[node name="Number" type="Label" parent="GUI/HBoxContainer/Bars/Bar/Count"]
+layout_mode = 2
+
+[node name="Counters" type="HBoxContainer" parent="GUI/HBoxContainer"]
+layout_mode = 2

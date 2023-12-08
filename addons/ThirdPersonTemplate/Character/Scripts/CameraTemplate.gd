@@ -20,7 +20,7 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventMouseMotion:
-#		global_translate(-1, 2, 1)
+	
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += event.relative.y * v_sensitivity
 		
@@ -30,7 +30,7 @@ func _joystick_input():
 		joyview.x = Input.get_action_strength("lookleft") - Input.get_action_strength("lookright")
 		joyview.y = Input.get_action_strength("lookup") - Input.get_action_strength("lookdown")
 		camrot_h += joyview.x * joystick_sensitivity * h_sensitivity
-		camrot_v += joyview.y * joystick_sensitivity * v_sensitivity
+		camrot_v += joyview.y * joystick_sensitivity * v_sensitivity 
 		
 func _physics_process(delta):
 	# JoyPad Controls
@@ -49,4 +49,3 @@ func _physics_process(delta):
 #		#MOUSE CAMERA
 	$h.rotation.y = lerpf($h.rotation.y, camrot_h, delta * h_acceleration)
 	$h/v.rotation.x = lerpf($h/v.rotation.x, camrot_v, delta * v_acceleration)
-	
