@@ -1,0 +1,143 @@
+[gd_scene load_steps=25 format=3 uid="uid://bry8mxiawyyc8"]
+
+[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/Scripts/PlayerTemplate.gd" id="1_rrqok"]
+[ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://addons/ThirdPersonTemplate/Character/misc_nodes/camroot.tscn" id="2_pc00b"]
+[ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://addons/ThirdPersonTemplate/Character/misc_nodes/camRightTank.tscn" id="3_nbdst"]
+[ext_resource type="PackedScene" uid="uid://ck5ehjwxiv8my" path="res://addons/ThirdPersonTemplate/Character/misc_nodes/mannequiny_0_4_0.tscn" id="4_3hyjm"]
+[ext_resource type="PackedScene" uid="uid://cwitd30jow5rb" path="res://addons/ThirdPersonTemplate/Character/bun/node/chembun_rig.tscn" id="5_h5r7c"]
+[ext_resource type="Animation" uid="uid://cxkey1b5eyxq5" path="res://addons/ThirdPersonTemplate/Character/bun/animations/Armature_001mixamo_comLayer0.res" id="6_aot1e"]
+[ext_resource type="Animation" uid="uid://00ngkucw3ko0" path="res://addons/ThirdPersonTemplate/Character/bun/animations/idle_001.res" id="7_ai2eb"]
+[ext_resource type="Animation" uid="uid://dq610g81hjsir" path="res://addons/ThirdPersonTemplate/Character/bun/animations/flair.res" id="8_4pmlo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
+radius = 0.296973
+height = 1.61267
+
+[sub_resource type="AnimationNodeAnimation" id="20"]
+animation = &"idle_001"
+
+[sub_resource type="AnimationNodeAnimation" id="21"]
+animation = &"Armature_001|mixamo_com|Layer0"
+
+[sub_resource type="AnimationNodeAnimation" id="23"]
+animation = &"flair"
+
+[sub_resource type="AnimationNodeAnimation" id="24"]
+animation = &"flair"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="28"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="31"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsNotRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="42"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="43"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsOnFloor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="44"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="27"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="32"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsNotWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="45"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u47nw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kmv6c"]
+states/End/position = Vector2(869.333, 169.333)
+states/Idle/node = SubResource("20")
+states/Idle/position = Vector2(375, 211.519)
+states/Jump/node = SubResource("21")
+states/Jump/position = Vector2(566, 326.667)
+states/Run/node = SubResource("23")
+states/Run/position = Vector2(741, 211.025)
+states/Start/position = Vector2(255, 213)
+states/Walk/node = SubResource("24")
+states/Walk/position = Vector2(566, 213)
+transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Jump", "Walk", SubResource("43"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw")]
+graph_offset = Vector2(37.997, 112.628)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1yps"]
+_data = {
+"Armature_001|mixamo_com|Layer0": ExtResource("6_aot1e"),
+"flair": ExtResource("8_4pmlo"),
+"idle_001": ExtResource("7_ai2eb")
+}
+
+[node name="PlayerTemplate" type="CharacterBody3D"]
+script = ExtResource("1_rrqok")
+PlayerCharacterMesh = NodePath("chembun rig")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, 0)
+shape = SubResource("CapsuleShape3D_83d0r")
+
+[node name="AnimationTree(old)" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
+anim_player = NodePath("../mannequiny-0_4_0/AnimationPlayer")
+active = true
+parameters/conditions/IsInAir = false
+parameters/conditions/IsNotRunning = false
+parameters/conditions/IsNotWalking = false
+parameters/conditions/IsOnFloor = false
+parameters/conditions/IsRunning = false
+parameters/conditions/IsWalking = false
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
+anim_player = NodePath("../chembun rig/AnimationPlayer2")
+active = true
+parameters/conditions/IsInAir = false
+parameters/conditions/IsNotRunning = false
+parameters/conditions/IsNotWalking = false
+parameters/conditions/IsOnFloor = false
+parameters/conditions/IsRunning = false
+parameters/conditions/IsWalking = false
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Camroot" parent="." instance=ExtResource("2_pc00b")]
+visible = true
+
+[node name="CamRightTank" parent="." instance=ExtResource("3_nbdst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="mannequiny-0_4_0" parent="." instance=ExtResource("4_3hyjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.165)
+visible = false
+
+[node name="chembun rig" parent="." instance=ExtResource("5_h5r7c")]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="chembun rig"]
+libraries = {
+"": SubResource("AnimationLibrary_i1yps")
+}
+
+[editable path="mannequiny-0_4_0"]
