@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=12 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://addons/ThirdPersonTemplate/Character/misc_nodes/PlayerTemplate.tscn" id="8_fimwp"]
 [ext_resource type="PackedScene" uid="uid://k717q0xsvum2" path="res://addons/ThirdPersonTemplate/Character/salt_block/node/salt_enemy_dev.tscn" id="9_pldjq"]
+[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/salt_block/node/salt_enemy_dev.gd" id="10_m766a"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -119,8 +120,9 @@ material = ExtResource("6_7xeo2")
 [node name="PlayerTemplate" parent="." instance=ExtResource("8_fimwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.8399)
 
-[node name="salt enemy dev" parent="." instance=ExtResource("9_pldjq")]
+[node name="SaltCube" parent="." instance=ExtResource("9_pldjq")]
 transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -7.17874, 10.2037, 3.88088)
+script = ExtResource("10_m766a")
 
 [node name="GUI" type="MarginContainer" parent="."]
 anchors_preset = 10
