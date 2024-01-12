@@ -18,3 +18,4 @@ func _process(delta):
 #		transform.origin = Vector3(x, y, z)
 #	else :
 #		transform.origin = Vector3(x, y, 3.881)
+	pass

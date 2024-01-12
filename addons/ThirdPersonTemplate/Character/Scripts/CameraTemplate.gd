@@ -29,7 +29,8 @@ func _joystick_input():
 		
 		#joyview.x = Input.get_action_strength("lookleft") - Input.get_action_strength("lookright")
 		joyview.x = Input.get_action_strength("LeftTurn") - Input.get_action_strength("RightTurn")
-		joyview.y = Input.get_action_strength("DownTurn") - Input.get_action_strength("UpTurn")
+		joyview.y = Input.get_action_strength("UpTurn") - Input.get_action_strength("DownTurn")
+
 		camrot_h += (joyview.x / 2) * joystick_sensitivity * h_sensitivity
 		camrot_v += (joyview.y / 2) * joystick_sensitivity * v_sensitivity
 		

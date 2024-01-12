@@ -12,8 +12,8 @@ extends CharacterBody3D
 # Gamplay mechanics and Inspector tweakables
 @export var gravity = 9.8
 @export var jump_force = 9
-@export var walk_speed = 1.3
-@export var run_speed = 5.5
+@export var walk_speed = 4
+@export var run_speed = 6
 @export var dash_power = 12 # Controls roll and big attack speed boosts
 
 # Animation node names
@@ -22,7 +22,7 @@ var idle_node_name = "Idle"
 var walk_node_name = "Walk"
 var run_node_name = "Run"
 var jump_node_name = "Jump"
-var attack1_node_name = "Attack1"
+var attack1_node_name = "kungfu-mixamo" #original name is Attack1
 var attack2_node_name = "Attack2"
 var bigattack_node_name = "BigAttack"
 var rollattack_node_name = "RollAttack"
