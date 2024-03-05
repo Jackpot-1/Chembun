@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="chembun alpha"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://StartingScreen.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+InventorySystem="*res://addons/inventory-system/core/inventory_system.tscn"
 
 [display]
 
 window/handheld/orientation=4
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/inventory-system/plugin.cfg")
 
 [input]
 

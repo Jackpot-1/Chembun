@@ -14,7 +14,7 @@
 [ext_resource type="Animation" uid="uid://be3yoygvibrib" path="res://addons/ThirdPersonTemplate/Character/bun/animations/walk-mixamo.res" id="12_7scyy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
-radius = 0.296973
+radius = 0.346507
 height = 1.61267
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -113,7 +113,7 @@ script = ExtResource("1_rrqok")
 PlayerCharacterMesh = NodePath("chembun rig")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, -0.0582154)
 shape = SubResource("CapsuleShape3D_83d0r")
 
 [node name="AnimationTree(old)" type="AnimationTree" parent="."]

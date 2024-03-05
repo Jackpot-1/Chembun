@@ -1,21 +1,64 @@
-extends Node3D
+extends  CharacterBody3D
+@onready var player_path : NodePath
+@onready var animation_Tree = $AnimationTree
+@onready var saltCube = $"."
+@onready var player = $"../PlayerTemplate"
+@onready var playback = animation_Tree.get("parameters/playback")
 
-var salt = Vector3()
-var x = -7.179
-var y = 10.204
-var z = 3.881
+var playerFinding = null
+const speed = 4.0
+@onready var nav_agent = $NavigationAgent3D
 
-# Called when the node enters the scene tree for the first time.
+var saltDamage = "metadata/Damage"
+var tween = Tween.new()
+#Animations
+var walking = "Walk"
+var suprise = "Salt_Surprise"
+var dive_start = "dive_start"
+var dive_hold = "Dive_Hold"
+var movementVector = Vector3(-1, 0, 0)
+var moveSpeed = 5
+var movement
+
+
+#var healthWomp = player.get_meta("health")
+#healthWomp = player.get_meta("health") - saltDamage
+
+#var healthWomp = player.get_meta("health")
+
+#func _physics_process(delta):
+#
+
+#func attack(body):
+#		playback.travel(dive_hold)
+#		var check_plr_hit = _on_hit_box_body_entered(body)
+#		if check_plr_hit == true:
+#			var healthWomp = player.get_meta("health")
+#			healthWomp -= 1
+#			#healthWomp -= saltDamage uncomment this to crash game on touch
+#			player.set_meta("health", healthWomp)
+#			playback.travel(dive_hold)
+#			print(player.get_meta("health"))
+#		saltCube.queue_free()
+
 func _ready():
-	
-	pass
+	playback.travel(walking)
 
+func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
+		print("Check")
+#		#transform.origin += Vector3(-1, 0, 0)
+		playback.travel(dive_start)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-#		z += 1
-#	if z > 10 :
-#		transform.origin = Vector3(x, y, z)
-#	else :
-#		transform.origin = Vector3(x, y, 3.881)
-	pass
+func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
+	playback.travel(dive_hold)
+	var healthWomp = $"../../PlayerTemplate".get_meta("health")
+	healthWomp -= 1
+	#healthWomp -= saltDamage uncomment this to crash game on touch
+	$"../../PlayerTemplate".set_meta("health", healthWomp)
+#	playback.travel(dive_hold)
+	saltCube.queue_free()
+
+func _on_detection_range_body_entered(body):
+	playback.travel(suprise)
+	print("suprise")
+	#run to player
