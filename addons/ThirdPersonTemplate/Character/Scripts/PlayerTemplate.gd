@@ -51,7 +51,7 @@ var jumpjump = int()
 #var health = player.get_meta("health")
 
 func testing():
-	print(player.get_meta("health"))
+	print(player.get_meta("health"), " getmetahelth")
 
 func _ready(): # Camera based Rotation
 	
@@ -222,42 +222,49 @@ func _physics_process(delta):
 #var health = player.get_meta("health")
 
 func _process(delta):
-	if player.get_meta("health") == 4:
+	print(healthwomp, ":healthwomp ", player.get_meta("health"), ":health")
+	if player.get_meta("health") == 4 and healthwomp != 4:
 		$"../CanvasLayer/TextureRect5".visible = false
 		regen()
-		healthwomp = healthwomp - 1
-	if player.get_meta("health") == 3:
+		healthwomp = 4
+	elif player.get_meta("health") == 3 and healthwomp != 3:
 		$"../CanvasLayer/TextureRect4".visible = false
 		regen()
-		healthwomp = healthwomp - 1
-	if player.get_meta("health") == 2:
+		healthwomp = 3
+	elif player.get_meta("health") == 2 and healthwomp != 2:
 		$"../CanvasLayer/TextureRect3".visible = false
 		regen()
-		healthwomp = healthwomp - 1
-	if player.get_meta("health") == 1:
+		healthwomp = 2
+	elif player.get_meta("health") == 1 and healthwomp != 1:
 		$"../CanvasLayer/TextureRect2".visible = false
 		regen()
-		healthwomp = healthwomp - 1
-	if player.get_meta("health") == 0:
-		healthwomp = healthwomp - 1
+		healthwomp = 1
+	elif player.get_meta("health") == 0 and healthwomp != 0:
+		healthwomp = 0
 		get_tree().quit()
-		
+#	if player.get_meta("health") != 5:
+#		regen()
+#
 
 func regen():
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(10).timeout
 	if player.get_meta("health") == 4:
+		
+		healthwomp = 5
+		player.set_meta("health", healthwomp)
 		$"../CanvasLayer/TextureRect5".visible = true
-		healthwomp = healthwomp + 1
+	elif player.get_meta("health") == 3:
+		
+		healthwomp = 4
 		player.set_meta("health", healthwomp)
-	if player.get_meta("health") == 3:
 		$"../CanvasLayer/TextureRect4".visible = true
-		healthwomp = healthwomp + 1
+	elif player.get_meta("health") == 2:
+		
+		healthwomp = 3
 		player.set_meta("health", healthwomp)
-	if player.get_meta("health") == 2:
 		$"../CanvasLayer/TextureRect3".visible = true
-		healthwomp = healthwomp + 1
+	elif player.get_meta("health") == 1:
+		
+		healthwomp = 2
 		player.set_meta("health", healthwomp)
-	if player.get_meta("health") == 1:
 		$"../CanvasLayer/TextureRect2".visible = true
-		healthwomp = healthwomp + 1
-		player.set_meta("health", healthwomp)
