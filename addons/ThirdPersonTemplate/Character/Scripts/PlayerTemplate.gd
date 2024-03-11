@@ -243,16 +243,24 @@ func health_checker(damage_taken):
 	for i in range(damage_taken):
 		old_health = old_health-1
 		carrotDir[old_health].visible = false
-	if regenIsRunning == false:
-		regen()
+	#if regenIsRunning == false:
+		#regen()
+	regentimer()
 		
+func regentimer():
+	$RegenTimer.start()
 
 func regen():
 	regenIsRunning = true
 	var old_health = player.get_meta("health")
-	while old_health != 9: # for the 0-9 indexes in the array. full health is 10 though.
-		await get_tree().create_timer(10).timeout
-		old_health = player.get_meta("health")
-		carrotDir[old_health].visible = true
-		player.set_meta("health", old_health+1) # +1 because arrays go from 0-9 but health goes from 1-10 
+	#while old_health != 9: # for the 0-9 indexes in the array. full health is 10 though.
+	old_health = player.get_meta("health")
+	carrotDir[old_health].visible = true
+	player.set_meta("health", old_health+1) # +1 because arrays go from 0-9 but health goes from 1-10
+	if player.get_meta("health") != 10:
+		regentimer()
+		
+		
 	regenIsRunning = false
+
+

@@ -282,9 +282,9 @@ transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011
 metadata/Damage = 1
 
 [node name="salt enemy dev7" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011, 12.0194, 0.389535, -12.4722)
+transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011, 12.019, 0.2, -12.472)
 metadata/Damage = 1
 
 [node name="salt enemy dev" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 7.59062, 0.412467, -15.1765)
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 7.591, 0.313, -15.177)
 metadata/Damage = 1

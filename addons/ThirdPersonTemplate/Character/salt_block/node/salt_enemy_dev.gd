@@ -9,7 +9,7 @@ var playerFinding = null
 const speed = 4.0
 @onready var nav_agent = $NavigationAgent3D
 
-var saltDamage = 2
+@export var saltDamage = 2
 var tween = Tween.new()
 #Animations
 var walking = "Walk"
