@@ -3,7 +3,7 @@
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
 [ext_resource type="Material" uid="uid://c1u020xb37y6n" path="res://addons/ThirdPersonTemplate/Environments/Materials/Blue.material" id="3_ugxud"]
-[ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/carrot.png" id="4_kiab8"]
+[ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/Carrot.png" id="4_kiab8"]
 [ext_resource type="Material" uid="uid://d3up41bo0vjj0" path="res://addons/ThirdPersonTemplate/Environments/Materials/OrangeGrid.material" id="4_kii6k"]
 [ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="5_a0840"]
 [ext_resource type="Material" uid="uid://ddpgp1pyklffr" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreenGrid.material" id="6_5rtke"]
@@ -42,7 +42,6 @@ environment = SubResource("Environment_qyvd4")
 
 [node name="PlayerTemplate" parent="." instance=ExtResource("8_fimwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.643052, -19.8399)
-metadata/health = 10
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerTemplate"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.946084, -0.0960503)

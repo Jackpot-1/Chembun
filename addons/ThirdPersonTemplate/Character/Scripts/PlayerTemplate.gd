@@ -6,6 +6,8 @@ extends CharacterBody3D
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var player = $"."
 
+@export var health = 10
+
 @onready var carrotDir = [
 	$"../CanvasLayer/carrotHalf",
 	$"../CanvasLayer/carrot",
@@ -63,9 +65,6 @@ var acceleration = int()
 # misc
 var jumpjump = int()
 var regenIsRunning = false
-
-func testing():
-	print(player.get_meta("health"), " getmetahelth")
 
 func _ready(): # Camera based Rotation
 	
@@ -166,7 +165,6 @@ func _physics_process(delta):
 #	Jump input and Mechanics
 	if Input.is_action_just_pressed("jump") and ((is_attacking != true) and (is_rolling != true)):
 		if is_on_floor():
-			testing()
 			jumpjump = 0
 			vertical_velocity = Vector3.UP * jump_force
 			jumpjump += 1
@@ -174,9 +172,6 @@ func _physics_process(delta):
 			vertical_velocity = Vector3.UP * (jump_force + 3)
 			jumpjump += 1
 		elif jumpjump == 2:
-			var thingy = player.get_meta("health")
-			thingy -= 10
-			player.set_meta("health", thingy)
 			jumpjump += 1
 		
 	# Movement input, state and mechanics. *Note: movement stops if attacking
@@ -238,8 +233,10 @@ func _process(delta):
 	pass
 
 func health_checker(damage_taken):
-	var old_health = player.get_meta("health") #default health is 10
-	player.set_meta("health", old_health - damage_taken)
+	#var old_health = player.get_meta("health") #default health is 10
+	var old_health = health
+	#player.set_meta("health", old_health - damage_taken)
+	health = old_health - damage_taken
 	for i in range(damage_taken):
 		old_health = old_health-1
 		carrotDir[old_health].visible = false
@@ -251,16 +248,15 @@ func regentimer():
 	$RegenTimer.start()
 
 func regen():
-	regenIsRunning = true
-	var old_health = player.get_meta("health")
+	#var old_health = player.get_meta("health")
+	var old_health = health
 	#while old_health != 9: # for the 0-9 indexes in the array. full health is 10 though.
-	old_health = player.get_meta("health")
+	#old_health = player.get_meta("health")
+	old_health = health
 	carrotDir[old_health].visible = true
-	player.set_meta("health", old_health+1) # +1 because arrays go from 0-9 but health goes from 1-10
-	if player.get_meta("health") != 10:
+	#player.set_meta("health", old_health+1) # +1 because arrays go from 0-9 but health goes from 1-10
+	health = old_health + 1
+	if health != 10:
 		regentimer()
-		
-		
-	regenIsRunning = false
 
 
