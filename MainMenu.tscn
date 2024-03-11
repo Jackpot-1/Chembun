@@ -1,9 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b488hpdodaok"]
+[gd_scene load_steps=4 format=3 uid="uid://cbbukwx72poyn"]
 
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_bqmto"]
-[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="1_uebbu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxrya"]
+[ext_resource type="Texture2D" uid="uid://cm5vw28hwttuq" path="res://appIcons/menubackground.png" id="1_lalti"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_o8wsv"]
+[ext_resource type="Texture2D" uid="uid://jnncprsjh8fp" path="res://appIcons/menubuttons.png" id="2_u1u1s"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,75 +11,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bqmto")
+script = ExtResource("1_o8wsv")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1160.0
-offset_bottom = 656.0
-color = Color(0.258824, 0.0745098, 0.439216, 1)
+offset_right = 1156.0
+offset_bottom = 650.0
+texture = ExtResource("1_lalti")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1157.0
+offset_bottom = 651.0
+texture = ExtResource("2_u1u1s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="StartButton" type="Button" parent="TextureRect/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 73.0
+offset_top = 107.0
+offset_right = 288.0
+offset_bottom = 184.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("1_uebbu")
-theme_override_font_sizes/font_size = 75
-text = "ChemBun"
-horizontal_alignment = 1
+[node name="SettingsButton" type="Button" parent="TextureRect/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 75.0
+offset_top = 190.0
+offset_right = 336.0
+offset_bottom = 267.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="CreditsButton" type="Button" parent="TextureRect/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 73.0
+offset_top = 273.0
+offset_right = 297.0
+offset_bottom = 350.0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 0
+[node name="QuitButton" type="Button" parent="TextureRect/TextureRect"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 73.0
+offset_top = 355.0
+offset_right = 297.0
+offset_bottom = 432.0
 
-[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 0.06)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_uebbu")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_lxrya")
-text = "Play"
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 0
-
-[node name="CreditButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_uebbu")
-theme_override_font_sizes/font_size = 50
-text = "Credits"
-
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 50
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_uebbu")
-theme_override_font_sizes/font_size = 50
-text = "Quit"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/CreditButton" to="." method="_on_credit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect/QuitButton" to="." method="_on_quit_button_pressed"]

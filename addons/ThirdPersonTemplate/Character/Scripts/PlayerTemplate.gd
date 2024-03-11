@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var PlayerAnimationTree = $AnimationTree.get_path()
 @onready var animation_tree = get_node(PlayerAnimationTree)
 @onready var playback = animation_tree.get("parameters/playback")
+@onready var player = $"."
 
 # Allows to pick your chracter's mesh from the inspector
 @export_node_path("Node3D") var PlayerCharacterMesh: NodePath
@@ -15,6 +16,8 @@ extends CharacterBody3D
 @export var walk_speed = 4
 @export var run_speed = 6
 @export var dash_power = 12 # Controls roll and big attack speed boosts
+var health_check = 5
+var healthwomp = 5
 
 # Animation node names
 var roll_node_name = "Roll"
@@ -45,7 +48,10 @@ var acceleration = int()
 
 # misc
 var jumpjump = int()
+#var health = player.get_meta("health")
 
+func testing():
+	print(player.get_meta("health"), " getmetahelth")
 
 func _ready(): # Camera based Rotation
 	
@@ -146,13 +152,17 @@ func _physics_process(delta):
 #	Jump input and Mechanics
 	if Input.is_action_just_pressed("jump") and ((is_attacking != true) and (is_rolling != true)):
 		if is_on_floor():
+			testing()
 			jumpjump = 0
 			vertical_velocity = Vector3.UP * jump_force
 			jumpjump += 1
 		elif jumpjump == 1 || jumpjump == 0:
-			vertical_velocity = Vector3.UP * (jump_force + 2)
+			vertical_velocity = Vector3.UP * (jump_force + 3)
 			jumpjump += 1
 		elif jumpjump == 2:
+			var thingy = player.get_meta("health")
+			thingy -= 10
+			player.set_meta("health", thingy)
 			jumpjump += 1
 		
 	# Movement input, state and mechanics. *Note: movement stops if attacking
@@ -208,3 +218,53 @@ func _physics_process(delta):
 	animation_tree["parameters/conditions/IsNotRunning"] = !is_running
 	# Attacks and roll don't use these boolean conditions, instead
 	# they use "travel" or "start" to one-shot their animations.
+
+#var health = player.get_meta("health")
+
+func _process(delta):
+	print(healthwomp, ":healthwomp ", player.get_meta("health"), ":health")
+	if player.get_meta("health") == 4 and healthwomp != 4:
+		$"../CanvasLayer/TextureRect5".visible = false
+		regen()
+		healthwomp = 4
+	elif player.get_meta("health") == 3 and healthwomp != 3:
+		$"../CanvasLayer/TextureRect4".visible = false
+		regen()
+		healthwomp = 3
+	elif player.get_meta("health") == 2 and healthwomp != 2:
+		$"../CanvasLayer/TextureRect3".visible = false
+		regen()
+		healthwomp = 2
+	elif player.get_meta("health") == 1 and healthwomp != 1:
+		$"../CanvasLayer/TextureRect2".visible = false
+		regen()
+		healthwomp = 1
+	elif player.get_meta("health") == 0 and healthwomp != 0:
+		healthwomp = 0
+		get_tree().quit()
+#	if player.get_meta("health") != 5:
+#		regen()
+#
+
+func regen():
+	await get_tree().create_timer(10).timeout
+	if player.get_meta("health") == 4:
+		
+		healthwomp = 5
+		player.set_meta("health", healthwomp)
+		$"../CanvasLayer/TextureRect5".visible = true
+	elif player.get_meta("health") == 3:
+		
+		healthwomp = 4
+		player.set_meta("health", healthwomp)
+		$"../CanvasLayer/TextureRect4".visible = true
+	elif player.get_meta("health") == 2:
+		
+		healthwomp = 3
+		player.set_meta("health", healthwomp)
+		$"../CanvasLayer/TextureRect3".visible = true
+	elif player.get_meta("health") == 1:
+		
+		healthwomp = 2
+		player.set_meta("health", healthwomp)
+		$"../CanvasLayer/TextureRect2".visible = true
