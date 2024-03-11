@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dkwtmkmwvpges"
-path="res://.godot/imported/chembun rig.glb-4fcd10a3063256efbd5a79b4f2df0ae7.scn"
+uid="uid://cea38dl2vpn8g"
+path="res://.godot/imported/salt_block.glb-e513c015c84dbe3c75fca2967d0f2f3d.scn"
 
 [deps]
 
-source_file="res://addons/ThirdPersonTemplate/Character/bun/model/chembun rig.glb"
-dest_files=["res://.godot/imported/chembun rig.glb-4fcd10a3063256efbd5a79b4f2df0ae7.scn"]
+source_file="res://assets/characters/salt_block/model/salt_block.glb"
+dest_files=["res://.godot/imported/salt_block.glb-e513c015c84dbe3c75fca2967d0f2f3d.scn"]
 
 [params]
 
@@ -22,6 +22,7 @@ meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
@@ -29,4 +30,5 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
+gltf/naming_version=0
 gltf/embedded_image_handling=1

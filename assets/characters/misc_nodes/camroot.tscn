@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://drwdy1k04ag05"]
 
-[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/Scripts/CameraTemplate.gd" id="1_tiond"]
+[ext_resource type="Script" path="res://assets/CameraController.gd" id="1_tiond"]
+
 
 [node name="Camroot" type="Node3D"]
 visible = false

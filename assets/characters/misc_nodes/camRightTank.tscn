@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cr7x0cw7d5o6t"]
 
-[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/Scripts/CameraTemplate.gd" id="1_ae3s0"]
+[ext_resource type="Script" path="res://assets/CameraController.gd" id="1_ae3s0"]
 
 [node name="CamRightTank" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.5)
@@ -10,6 +10,7 @@ script = ExtResource("1_ae3s0")
 
 [node name="v" type="SpringArm3D" parent="h"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.3, 0.5)
+collision_mask = 2
 spring_length = -3.0
 
 [node name="Camera3D" type="Camera3D" parent="h/v"]

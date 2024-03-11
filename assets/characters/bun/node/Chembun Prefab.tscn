@@ -1,0 +1,156 @@
+[gd_scene load_steps=31 format=3 uid="uid://bry8mxiawyyc8"]
+
+[ext_resource type="Script" path="res://assets/BunController.gd" id="1_rrqok"]
+[ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/characters/misc_nodes/camroot.tscn" id="2_pc00b"]
+[ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://assets/characters/misc_nodes/camRightTank.tscn" id="3_nbdst"]
+[ext_resource type="PackedScene" uid="uid://cwitd30jow5rb" path="res://assets/characters/bun/node/chembun_rig.tscn" id="5_h5r7c"]
+[ext_resource type="Animation" uid="uid://bfw0to4kad1cv" path="res://assets/characters/bun/animations/kungfu-mixamo.res" id="5_kpy15"]
+[ext_resource type="Animation" uid="uid://dfp5dfgufx84u" path="res://assets/characters/bun/animations/jump-i-think-mixamo.res" id="6_833xo"]
+[ext_resource type="Animation" uid="uid://cxkey1b5eyxq5" path="res://assets/characters/bun/animations/Armature_001mixamo_comLayer0.res" id="6_aot1e"]
+[ext_resource type="Animation" uid="uid://00ngkucw3ko0" path="res://assets/characters/bun/animations/idle_001.res" id="7_ai2eb"]
+[ext_resource type="Animation" uid="uid://dq610g81hjsir" path="res://assets/characters/bun/animations/flair.res" id="8_4pmlo"]
+[ext_resource type="Animation" uid="uid://bsx8d8rtdfo7u" path="res://assets/characters/bun/animations/runActual-mixamo.res" id="11_xurj2"]
+[ext_resource type="Animation" uid="uid://be3yoygvibrib" path="res://assets/characters/bun/animations/walk-mixamo.res" id="12_7scyy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
+radius = 0.346507
+height = 1.61267
+
+[sub_resource type="AnimationNodeAnimation" id="20"]
+animation = &"idle_001"
+
+[sub_resource type="AnimationNodeAnimation" id="21"]
+animation = &"jump-i-think-mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="23"]
+animation = &"run-mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="24"]
+animation = &"walk-mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xcvv4"]
+animation = &"kungfu-mixamo"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="28"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="31"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsNotRunning"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="42"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="43"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsOnFloor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="44"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="27"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="32"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsNotWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="45"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u47nw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mt7me"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_om658"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kmv6c"]
+states/End/position = Vector2(869.333, 169.333)
+states/Idle/node = SubResource("20")
+states/Idle/position = Vector2(375, 211.519)
+states/Jump/node = SubResource("21")
+states/Jump/position = Vector2(566, 326.667)
+states/Run/node = SubResource("23")
+states/Run/position = Vector2(771.667, 211.659)
+states/Start/position = Vector2(255, 213)
+states/Walk/node = SubResource("24")
+states/Walk/position = Vector2(566, 213)
+states/kungfu-mixamo/node = SubResource("AnimationNodeAnimation_xcvv4")
+states/kungfu-mixamo/position = Vector2(375.557, 116.295)
+transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Jump", "Walk", SubResource("43"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw"), "Idle", "kungfu-mixamo", SubResource("AnimationNodeStateMachineTransition_mt7me"), "kungfu-mixamo", "Idle", SubResource("AnimationNodeStateMachineTransition_om658")]
+graph_offset = Vector2(-13.003, 93.628)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1yps"]
+_data = {
+"Armature_001|mixamo_com|Layer0": ExtResource("6_aot1e"),
+"flair": ExtResource("8_4pmlo"),
+"idle_001": ExtResource("7_ai2eb"),
+"jump-i-think-mixamo": ExtResource("6_833xo"),
+"kungfu-mixamo": ExtResource("5_kpy15"),
+"run-mixamo": ExtResource("11_xurj2"),
+"walk-mixamo": ExtResource("12_7scyy")
+}
+
+[node name="PlayerTemplate" type="CharacterBody3D"]
+script = ExtResource("1_rrqok")
+PlayerCharacterMesh = NodePath("chembun rig")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, -0.0582154)
+shape = SubResource("CapsuleShape3D_83d0r")
+
+[node name="AnimationTree(old)" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
+parameters/conditions/IsInAir = false
+parameters/conditions/IsNotRunning = false
+parameters/conditions/IsNotWalking = false
+parameters/conditions/IsOnFloor = false
+parameters/conditions/IsRunning = false
+parameters/conditions/IsWalking = false
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../chembun rig")
+libraries = {
+"": SubResource("AnimationLibrary_i1yps")
+}
+tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
+anim_player = NodePath("../chembun rig/AnimationPlayer2")
+parameters/conditions/IsInAir = false
+parameters/conditions/IsNotRunning = false
+parameters/conditions/IsNotWalking = false
+parameters/conditions/IsOnFloor = false
+parameters/conditions/IsRunning = false
+parameters/conditions/IsWalking = false
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Camroot" parent="." instance=ExtResource("2_pc00b")]
+visible = true
+
+[node name="CamRightTank" parent="." instance=ExtResource("3_nbdst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="chembun rig" parent="." instance=ExtResource("5_h5r7c")]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="chembun rig"]
+libraries = {
+"": SubResource("AnimationLibrary_i1yps")
+}

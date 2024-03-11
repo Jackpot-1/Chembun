@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cwitd30jow5rb"]
 
-[ext_resource type="PackedScene" uid="uid://dkwtmkmwvpges" path="res://addons/ThirdPersonTemplate/Character/bun/model/chembun rig.glb" id="1_w7urn"]
+[ext_resource type="PackedScene" uid="uid://dkwtmkmwvpges" path="res://assets/characters/bun/model/chembun_rig.glb" id="1_w7urn"]
 
 [node name="chembun rig" instance=ExtResource("1_w7urn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
