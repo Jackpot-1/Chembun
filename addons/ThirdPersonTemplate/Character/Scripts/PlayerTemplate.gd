@@ -32,7 +32,6 @@ extends CharacterBody3D
 @export var run_speed = 6
 @export var dash_power = 12 # Controls roll and big attack speed boosts
 var health_check = null
-var healthwomp = 10
 
 # Animation node names
 var roll_node_name = "Roll"
@@ -63,8 +62,6 @@ var acceleration = int()
 
 # misc
 var jumpjump = int()
-#var health = player.get_meta("health")
-var regenQueue = 0
 var regenIsRunning = false
 
 func testing():
@@ -236,42 +233,8 @@ func _physics_process(delta):
 	# Attacks and roll don't use these boolean conditions, instead
 	# they use "travel" or "start" to one-shot their animations.
 
-#var health = player.get_meta("health")
 
 func _process(delta):
-	#print(healthwomp, ":healthwomp ", player.get_meta("health"), ":health")
-	#var counter = 0
-	#for i in range(len(carrotDir)):
-		#print(i)
-		#if i == healthwomp:
-			#healthwomp = counter + 1
-			#player.get_meta("health", healthwomp)
-			#carrotDir[i].visible = false
-			#print("first print")
-			#carrotDir(i).visable false
-			#regen()
-		#counter = counter + 1
-#	if player.get_meta("health") == 4 and healthwomp != 4:
-#		$"../CanvasLayer/carrot5".visible = false
-#		regen()
-#		healthwomp = 4
-#	elif player.get_meta("health") == 3 and healthwomp != 3:
-#		$"../CanvasLayer/carrot4".visible = false
-#		regen()
-#		healthwomp = 3
-#	elif player.get_meta("health") == 2 and healthwomp != 2:
-#		$"../CanvasLayer/carrot3".visible = false
-#		regen()
-#		healthwomp = 2
-#	elif player.get_meta("health") == 1 and healthwomp != 1:
-#		$"../CanvasLayer/carrot2".visible = false
-#		regen()
-#		healthwomp = 1
-#	elif player.get_meta("health") == 0 and healthwomp != 0:
-#		healthwomp = 0
-#		get_tree().quit()
-#	if player.get_meta("health") != 5:
-#		regen()
 	pass
 
 func health_checker(damage_taken):
@@ -282,51 +245,14 @@ func health_checker(damage_taken):
 		carrotDir[old_health].visible = false
 	if regenIsRunning == false:
 		regen()
-
-
+		
 
 func regen():
 	regenIsRunning = true
 	var old_health = player.get_meta("health")
-	print(old_health, " 1")
 	while old_health != 9: # for the 0-9 indexes in the array. full health is 10 though.
 		await get_tree().create_timer(10).timeout
 		old_health = player.get_meta("health")
-		print(old_health, " 2")
 		carrotDir[old_health].visible = true
 		player.set_meta("health", old_health+1) # +1 because arrays go from 0-9 but health goes from 1-10 
 	regenIsRunning = false
-	
-	
-	#health_check = player.get_meta("health")
-	#await get_tree().create_timer(10).timeout
-	#print("check1")
-	#if healthwomp != health_check:
-		#healthwomp = healthwomp + 1
-	#else:
-		#var counter = 0
-		#for i in carrotDir:
-			#
-			#if counter == healthwomp:
-				#healthwomp = counter + 1
-				#player.get_meta("health", healthwomp)
-				#i.visible = true
-				####dont need anything below
-			#counter = counter + 1
-#		if player.get_meta("health") == 4:
-#			healthwomp = 5
-#			player.set_meta("health", healthwomp)
-#			$"../CanvasLayer/carrot5".visible = true
-#		elif player.get_meta("health") == 3:
-#			healthwomp = 4
-#			player.set_meta("health", healthwomp)
-#			$"../CanvasLayer/carrot4".visible = true
-#		elif player.get_meta("health") == 2:
-#			healthwomp = 3
-#			player.set_meta("health", healthwomp)
-#			$"../CanvasLayer/carrot3".visible = true
-#		elif player.get_meta("health") == 1:
-#			healthwomp = 2
-#			player.set_meta("health", healthwomp)
-
-			#$"../CanvasLayer/carrot2".visible = true
