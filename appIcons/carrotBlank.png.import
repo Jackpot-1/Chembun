@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsgl7mu3i4syx"
-path="res://.godot/imported/carrot_redone.svg-c16acad7b7cee72f78ea6425ea2d075b.ctex"
+uid="uid://dt3p51ycc3nc6"
+path="res://.godot/imported/carrotBlank.png-cf53d5df0540f8a1cb7bfabdcd880a94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://appIcons/carrot_redone.svg"
-dest_files=["res://.godot/imported/carrot_redone.svg-c16acad7b7cee72f78ea6425ea2d075b.ctex"]
+source_file="res://appIcons/carrotBlank.png"
+dest_files=["res://.godot/imported/carrotBlank.png-cf53d5df0540f8a1cb7bfabdcd880a94.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

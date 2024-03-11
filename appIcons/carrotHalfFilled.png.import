@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xxpt4dedxdak"
-path="res://.godot/imported/carrot.png-c3fc87124216c440ff4067d8bee06518.ctex"
+uid="uid://dld1oq00arrqx"
+path="res://.godot/imported/carrotHalfFilled.png-a839c4d19c1a2eacd49d1ba59136e0c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://appIcons/carrot.png"
-dest_files=["res://.godot/imported/carrot.png-c3fc87124216c440ff4067d8bee06518.ctex"]
+source_file="res://appIcons/carrotHalfFilled.png"
+dest_files=["res://.godot/imported/carrotHalfFilled.png-a839c4d19c1a2eacd49d1ba59136e0c8.ctex"]
 
 [params]
 
