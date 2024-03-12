@@ -154,3 +154,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 libraries = {
 "": SubResource("AnimationLibrary_i1yps")
 }
+
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="RegenTimer" to="." method="regen"]
