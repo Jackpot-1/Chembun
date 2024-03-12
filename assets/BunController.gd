@@ -65,6 +65,7 @@ var acceleration = int()
 # misc
 var jumpjump = int()
 var regenIsRunning = false
+var ispaused = false
 
 func _ready(): # Camera based Rotation
 	
@@ -80,6 +81,13 @@ func _input(event): # All major mouse and button input events
 	elif event.is_action_released("aim"):
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
+	#if event.is_action_pressed("menu"):
+		#if ispaused == false:
+			#get_tree().paused = true #this will pause the game, but there is no way to unpause it
+			#ispaused = true
+		#else:
+			#get_tree().paused = false
+			#ispaused = false
 
 func sprint_and_roll():
 ## Dodge button input with dash and interruption to basic actions
@@ -235,7 +243,7 @@ func _process(delta):
 func health_checker(damage_taken):
 	var old_health = health
 	health = old_health - damage_taken
-	if health == 0:
+	if health <= 0:
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://deathScreen.tscn")
 	else:
