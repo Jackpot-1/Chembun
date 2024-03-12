@@ -236,6 +236,7 @@ func health_checker(damage_taken):
 	var old_health = health
 	health = old_health - damage_taken
 	if health == 0:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://deathScreen.tscn")
 	else:
 		for i in range(damage_taken):
