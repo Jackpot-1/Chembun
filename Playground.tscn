@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=18 format=3 uid="uid://dmp7kbr2vbstm"]
 
+[ext_resource type="Script" path="res://Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
 [ext_resource type="Material" uid="uid://c1u020xb37y6n" path="res://addons/ThirdPersonTemplate/Environments/Materials/Blue.material" id="3_ugxud"]
@@ -9,8 +10,9 @@
 [ext_resource type="Material" uid="uid://ddpgp1pyklffr" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreenGrid.material" id="6_5rtke"]
 [ext_resource type="Material" uid="uid://bquocw2a8n271" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreyGrid.material" id="6_7xeo2"]
 [ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
-[ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://addons/ThirdPersonTemplate/Character/misc_nodes/PlayerTemplate.tscn" id="8_fimwp"]
-[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://ThirdPersonTemplate/Character/salt_block/node/salt_enemy.tscn" id="10_piha5"]
+[ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
+[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/characters/salt_block/node/SaltBlock Prefab.tscn" id="10_piha5"]
+[ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://checkpoint.tscn" id="12_beaci"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -32,6 +34,7 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 
 [node name="Scene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0815773, -1.43051e-06, 0.163605)
+script = ExtResource("1_5anqr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.892271, -0.274443, 0.358516, 2.02684e-08, 0.794054, 0.607847, -0.451501, 0.542364, -0.708511, 0, 2.76815, 9.26053)
@@ -42,6 +45,7 @@ environment = SubResource("Environment_qyvd4")
 
 [node name="PlayerTemplate" parent="." instance=ExtResource("8_fimwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.643052, -19.8399)
+metadata/health = 10
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerTemplate"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.946084, -0.0960503)
@@ -260,30 +264,45 @@ operation = 2
 size = Vector3(22, 10, 14)
 material = ExtResource("6_7xeo2")
 
-[node name="salt enemy dev6" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011, 0.826905, 0.312964, -6.58553)
-metadata/Damage = 2
-
 [node name="salt enemy dev5" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011, -7.76974, 10.4992, 2.06504)
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 8.92556, 0.199745, -15.2203)
 metadata/Damage = 1
 
-[node name="salt enemy dev4" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(0.964205, 0, -0.265152, 0, 1, 0, 0.265152, 0, 0.964205, 15.97, 0.231993, -5.49784)
-metadata/Damage = 1
-
-[node name="salt enemy dev3" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(0.199915, 0, 0.979812, 0, 1, 0, -0.979812, 0, 0.199915, 19.5645, 0.224396, 6.02291)
-metadata/Damage = 1
-
-[node name="salt enemy dev2" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011, 20.5464, 0.259973, -1.90781)
+[node name="salt enemy dev6" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 8.92556, 0.199745, -12.9242)
 metadata/Damage = 1
 
 [node name="salt enemy dev7" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.991011, 0, 0.133779, 0, 1, 0, -0.133779, 0, -0.991011, 12.019, 0.2, -12.472)
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 8.92556, 0.199745, -10.3778)
 metadata/Damage = 1
 
-[node name="salt enemy dev" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 7.591, 0.313, -15.177)
+[node name="salt enemy dev8" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 8.92556, 0.199745, -8.46539)
 metadata/Damage = 1
+
+[node name="salt enemy dev9" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 4.12918, 0.199745, -8.46539)
+metadata/Damage = 1
+
+[node name="salt enemy dev10" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0, 1, 0, 0.99775, 0, -0.0670401, 4.12918, 0.199745, -12.1199)
+metadata/Damage = 1
+
+[node name="salt enemy dev11" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0.178486, 0.983869, -0.0119927, 0.981656, -0.178888, -0.0659587, 4.19967, 0.3759, -15.3069)
+metadata/Damage = 1
+
+[node name="salt enemy dev12" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0.178486, 0.983869, -0.0119927, 0.981656, -0.178888, -0.0659587, 4.19967, 0.3759, -18.0547)
+metadata/Damage = 1
+
+[node name="salt enemy dev13" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0.178486, 0.983869, -0.0119927, 0.981656, -0.178888, -0.0659587, 8.19675, 0.3759, -18.0547)
+metadata/Damage = 1
+
+[node name="salt enemy dev14" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
+transform = Transform3D(-0.0670401, 0, -0.99775, 0.178486, 0.983869, -0.0119927, 0.981656, -0.178888, -0.0659587, 8.19675, 0.3759, -20.6445)
+metadata/Damage = 1
+
+[node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.1948, -0.707526)

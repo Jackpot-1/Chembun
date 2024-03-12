@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhjsw2soruboq"]
+
+[ext_resource type="Script" path="res://deathScreen.gd" id="1_bmeho"]
+[ext_resource type="Texture2D" uid="uid://cm5vw28hwttuq" path="res://appIcons/menubackground.png" id="1_rgof3"]
+[ext_resource type="FontFile" uid="uid://buq1xebcecp7j" path="res://fonts/Kalam/Kalam-Bold.ttf" id="2_ymr1s"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bmeho")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1156.0
+offset_bottom = 650.0
+texture = ExtResource("1_rgof3")
+
+[node name="ContinueButton" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 107.0
+offset_right = 312.0
+offset_bottom = 211.0
+theme_override_fonts/font = ExtResource("2_ymr1s")
+theme_override_font_sizes/font_size = 60
+text = "Continue"
+
+[node name="MainMenuButton" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 382.0
+offset_right = 327.0
+offset_bottom = 486.0
+theme_override_fonts/font = ExtResource("2_ymr1s")
+theme_override_font_sizes/font_size = 60
+text = "MainMenu"
+
+[node name="DeathMessage" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 247.0
+offset_right = 1178.0
+offset_bottom = 358.0
+rotation = -0.0872665
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_ymr1s")
+theme_override_font_sizes/font_size = 60
+text = "So.. you come here often?"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[connection signal="pressed" from="TextureRect/ContinueButton" to="." method="ContinueButton"]
+[connection signal="pressed" from="TextureRect/MainMenuButton" to="." method="MainMenuButton"]
