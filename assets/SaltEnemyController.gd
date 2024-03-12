@@ -1,4 +1,4 @@
-extends  CharacterBody3D
+extends CharacterBody3D
 @onready var player_path : NodePath
 @onready var animation_Tree = $AnimationTree
 @onready var saltCube = $"."

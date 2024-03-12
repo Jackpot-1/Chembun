@@ -1,9 +1,9 @@
 [gd_scene load_steps=25 format=3 uid="uid://dbj7ukcbayuna"]
 
-[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/salt_block/node/salt_enemy_dev.gd" id="1_l8igf"]
-[ext_resource type="Animation" uid="uid://c52h3m2icw2dn" path="res://ThirdPersonTemplate/Character/salt_block/animations/Dive_Hold.res" id="2_rpuek"]
-[ext_resource type="Animation" uid="uid://d11xwyy58kjup" path="res://ThirdPersonTemplate/Character/salt_block/animations/dive_start.res" id="3_uybrg"]
-[ext_resource type="Animation" uid="uid://cs12w1m1lutq2" path="res://ThirdPersonTemplate/Character/salt_block/animations/Salt_Surprise.res" id="4_tayje"]
+[ext_resource type="Script" path="res://assets/SaltEnemyController.gd" id="1_krwcq"]
+[ext_resource type="Animation" uid="uid://c52h3m2icw2dn" path="res://assets/characters/salt_block/animations/Dive_Hold.res" id="2_piyvs"]
+[ext_resource type="Animation" uid="uid://cs12w1m1lutq2" path="res://assets/characters/salt_block/animations/Salt_Surprise.res" id="3_5cajg"]
+[ext_resource type="Animation" uid="uid://d11xwyy58kjup" path="res://assets/characters/salt_block/animations/dive_start.res" id="4_4nt5e"]
 
 [sub_resource type="Animation" id="Animation_pb2h4"]
 resource_name = "SaltCubeWalk"
@@ -33,10 +33,10 @@ tracks/2/keys = PackedFloat32Array(0, 1, 0.0257076, 0, 0.999669, 4.33845e-10, 0.
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sm5tr"]
 _data = {
-"Dive_Hold": ExtResource("2_rpuek"),
+"Dive_Hold": ExtResource("2_piyvs"),
 "SaltCubeWalk": SubResource("Animation_pb2h4"),
-"Salt_Surprise": ExtResource("4_tayje"),
-"dive_start": ExtResource("3_uybrg")
+"Salt_Surprise": ExtResource("3_5cajg"),
+"dive_start": ExtResource("4_4nt5e")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jwy50"]
@@ -185,7 +185,7 @@ size = Vector3(0.536733, 0.473359, 0.563826)
 radius = 8.00158
 
 [node name="saltEnemyDev" type="CharacterBody3D"]
-script = ExtResource("1_l8igf")
+script = ExtResource("1_krwcq")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
@@ -202,7 +202,7 @@ bones/0/name = "Parent"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.68693e-05, 5.30854e-08)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0.0909528, 5.30854e-08)
+bones/0/position = Vector3(0, 0.0846283, 5.30854e-08)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Foot_R"
@@ -210,14 +210,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(-1, -2.54822e-15, 1.50996e-07, 2.54822e-15, -1, -1.92386e-22, 1.50996e-07, 1.92386e-22, 1, -0.32685, 0.496672, -8.3819e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.32685, 0.496672, -8.3819e-09)
-bones/1/rotation = Quaternion(7.48054e-08, 0.13513, 0.990828, 2.79421e-08)
+bones/1/rotation = Quaternion(6.88494e-08, -0.410326, 0.911939, -4.77901e-08)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Foot_L"
 bones/2/parent = 0
 bones/2/rest = Transform3D(-0.998678, -8.67402e-10, 0.0513982, 8.67402e-10, -1, -2.23062e-11, 0.0513982, 2.23062e-11, 0.998678, 0.32685, 0.496672, -8.3819e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(0.32685, 0.496672, -8.3819e-09)
-bones/2/rotation = Quaternion(0.0247215, -0.274225, 0.961322, -0.00705199)
+bones/2/rotation = Quaternion(0.0251738, 0.202655, 0.978913, 0.0052115)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Body_1"
 bones/3/parent = 0
