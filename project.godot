@@ -28,6 +28,12 @@ window/handheld/orientation=4
 
 enabled=PackedStringArray("res://addons/inventory-system/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red"
+}
+
 [input]
 
 sprint={
