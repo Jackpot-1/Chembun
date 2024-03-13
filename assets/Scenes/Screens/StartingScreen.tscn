@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b488hpdodaok"]
 
-[ext_resource type="Script" path="res://StartingScreen.gd" id="1_xnadk"]
-[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="2_oue7n"]
-[ext_resource type="Texture2D" uid="uid://nduepfjtp4b1" path="res://appIcons/ChemBum Presentation December edition.png" id="3_up7b1"]
+[ext_resource type="Script" path="res://assets/Scripts/Screens/StartingScreen.gd" id="1_8p7ja"]
+[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="2_2ah86"]
+[ext_resource type="Texture2D" uid="uid://nduepfjtp4b1" path="res://appIcons/ChemBum Presentation December edition.png" id="3_j12j7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxrya"]
 
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xnadk")
+script = ExtResource("1_8p7ja")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -34,7 +34,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_oue7n")
+theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 75
 text = "ChemBun"
 horizontal_alignment = 1
@@ -53,7 +53,7 @@ theme_override_constants/margin_bottom = 0
 [node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 0.06)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_oue7n")
+theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_lxrya")
 text = "Play"
@@ -67,7 +67,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="CreditButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_oue7n")
+theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 
@@ -80,7 +80,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_oue7n")
+theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
@@ -88,7 +88,7 @@ text = "Quit"
 layout_mode = 0
 offset_right = 1157.0
 offset_bottom = 654.0
-texture = ExtResource("3_up7b1")
+texture = ExtResource("3_j12j7")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/CreditButton" to="." method="_on_credit_button_pressed"]

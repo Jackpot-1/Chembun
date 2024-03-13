@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbbukwx72poyn"]
 
-[ext_resource type="Texture2D" uid="uid://cm5vw28hwttuq" path="res://appIcons/menubackground.png" id="1_lalti"]
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_o8wsv"]
-[ext_resource type="Texture2D" uid="uid://jnncprsjh8fp" path="res://appIcons/menubuttons.png" id="2_u1u1s"]
+[ext_resource type="Script" path="res://assets/Scripts/Screens/MainMenuScreen.gd" id="1_7r1pe"]
+[ext_resource type="Texture2D" uid="uid://cm5vw28hwttuq" path="res://appIcons/menubackground.png" id="2_elof5"]
+[ext_resource type="Texture2D" uid="uid://jnncprsjh8fp" path="res://appIcons/menubuttons.png" id="3_8t60r"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,19 +11,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_o8wsv")
+script = ExtResource("1_7r1pe")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 1156.0
 offset_bottom = 650.0
-texture = ExtResource("1_lalti")
+texture = ExtResource("2_elof5")
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 0
 offset_right = 1157.0
 offset_bottom = 651.0
-texture = ExtResource("2_u1u1s")
+texture = ExtResource("3_8t60r")
 
 [node name="StartButton" type="Button" parent="TextureRect/TextureRect"]
 show_behind_parent = true
