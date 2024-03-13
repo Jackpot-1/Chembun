@@ -1,17 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj1d34wdy4vk"]
+[gd_scene load_steps=2 format=3 uid="uid://drwdy1k04ag05"]
 
-[ext_resource type="Script" path="res://assets/CameraController.gd" id="1_u26gp"]
+[ext_resource type="Script" path="res://assets/Scripts/CameraController.gd" id="1_tiond"]
 
 
 [node name="Camroot" type="Node3D"]
-script = ExtResource("1_u26gp")
+visible = false
+script = ExtResource("1_tiond")
 
 [node name="h" type="Node3D" parent="."]
 
 [node name="v" type="SpringArm3D" parent="h"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+collision_mask = 2
 spring_length = -3.0
 
 [node name="Camera3D" type="Camera3D" parent="h/v"]
 transform = Transform3D(-1, 1.45794e-08, -8.61985e-08, 0, 0.985996, 0.166769, 8.74228e-08, 0.166769, -0.985996, 0, 0, 0)
 keep_aspect = 0
+fov = 100.0

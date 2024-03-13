@@ -1,16 +1,17 @@
 [gd_scene load_steps=31 format=3 uid="uid://bry8mxiawyyc8"]
 
-[ext_resource type="Script" path="res://assets/BunController.gd" id="1_rrqok"]
-[ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/characters/misc_nodes/camroot.tscn" id="2_pc00b"]
-[ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://assets/characters/misc_nodes/camRightTank.tscn" id="3_nbdst"]
-[ext_resource type="PackedScene" uid="uid://cwitd30jow5rb" path="res://assets/characters/bun/node/chembun_rig.tscn" id="5_h5r7c"]
-[ext_resource type="Animation" uid="uid://bfw0to4kad1cv" path="res://assets/characters/bun/animations/kungfu-mixamo.res" id="5_kpy15"]
-[ext_resource type="Animation" uid="uid://dfp5dfgufx84u" path="res://assets/characters/bun/animations/jump-i-think-mixamo.res" id="6_833xo"]
-[ext_resource type="Animation" uid="uid://cxkey1b5eyxq5" path="res://assets/characters/bun/animations/Armature_001mixamo_comLayer0.res" id="6_aot1e"]
-[ext_resource type="Animation" uid="uid://00ngkucw3ko0" path="res://assets/characters/bun/animations/idle_001.res" id="7_ai2eb"]
-[ext_resource type="Animation" uid="uid://dq610g81hjsir" path="res://assets/characters/bun/animations/flair.res" id="8_4pmlo"]
-[ext_resource type="Animation" uid="uid://bsx8d8rtdfo7u" path="res://assets/characters/bun/animations/runActual-mixamo.res" id="11_xurj2"]
-[ext_resource type="Animation" uid="uid://be3yoygvibrib" path="res://assets/characters/bun/animations/walk-mixamo.res" id="12_7scyy"]
+[ext_resource type="Script" path="res://assets/Scripts/BunController.gd" id="1_rrqok"]
+[ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/Camera/camroot.tscn" id="2_pc00b"]
+[ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://assets/Camera/camRightTank.tscn" id="3_nbdst"]
+[ext_resource type="PackedScene" uid="uid://cwitd30jow5rb" path="res://assets/Characters/bun/node/chembun_rig.tscn" id="5_h5r7c"]
+[ext_resource type="Animation" uid="uid://bfw0to4kad1cv" path="res://assets/Characters/bun/animations/kungfu-mixamo.res" id="5_kpy15"]
+[ext_resource type="Animation" uid="uid://dfp5dfgufx84u" path="res://assets/Characters/bun/animations/jump-i-think-mixamo.res" id="6_833xo"]
+[ext_resource type="Animation" uid="uid://cxkey1b5eyxq5" path="res://assets/Characters/bun/animations/Armature_001mixamo_comLayer0.res" id="6_aot1e"]
+[ext_resource type="Animation" uid="uid://00ngkucw3ko0" path="res://assets/Characters/bun/animations/idle_001.res" id="7_ai2eb"]
+[ext_resource type="Animation" uid="uid://dq610g81hjsir" path="res://assets/Characters/bun/animations/flair.res" id="8_4pmlo"]
+[ext_resource type="Animation" uid="uid://bsx8d8rtdfo7u" path="res://assets/Characters/bun/animations/runActual-mixamo.res" id="11_xurj2"]
+[ext_resource type="Animation" uid="uid://be3yoygvibrib" path="res://assets/Characters/bun/animations/walk-mixamo.res" id="12_7scyy"]
+
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
 radius = 0.346507
