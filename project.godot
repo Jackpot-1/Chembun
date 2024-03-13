@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InventorySystem="*res://addons/inventory-system/core/inventory_system.tscn"
 Checkpoints="*res://autoloads/Checkpoints.gd"
 
 [display]
@@ -26,7 +25,7 @@ window/handheld/orientation=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/inventory-system/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
