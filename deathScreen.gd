@@ -14,7 +14,9 @@ var rng = RandomNumberGenerator.new()
 	"MR.ELECTRIC SEND THIS...",
 	"Mushoku Tensei is peak",
 	"monster musume",
-	"UwU"
+	"UwU",
+	"Should've used Unreal Engine",
+	"KleinShaker was here!"
 ]
 
 
