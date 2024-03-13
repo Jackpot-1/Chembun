@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b621em6a0e78g"]
 
-[ext_resource type="Script" path="res://CreditMenu.gd" id="1_nuft0"]
-[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="2_m78he"]
+[ext_resource type="Script" path="res://assets/Scripts/Screens/CreditScreen.gd" id="1_1ify2"]
+[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="2_eejxc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nuft0")
+script = ExtResource("1_1ify2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -29,7 +29,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_m78he")
+theme_override_fonts/font = ExtResource("2_eejxc")
 theme_override_font_sizes/font_size = 75
 text = "ChemBun"
 horizontal_alignment = 1
@@ -47,7 +47,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_m78he")
+theme_override_fonts/font = ExtResource("2_eejxc")
 theme_override_font_sizes/font_size = 25
 text = "Christian Willis
 Samuel Apodaca
@@ -64,7 +64,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_m78he")
+theme_override_fonts/font = ExtResource("2_eejxc")
 theme_override_font_sizes/font_size = 50
 text = "Return"
 

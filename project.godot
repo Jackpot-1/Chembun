@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="chembun alpha"
-run/main_scene="res://StartingScreen.tscn"
+run/main_scene="res://assets/Scenes/Screens/StartingScreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
