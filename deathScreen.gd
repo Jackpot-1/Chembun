@@ -15,7 +15,6 @@ var rng = RandomNumberGenerator.new()
 	"Mushoku Tensei is peak",
 	"monster musume",
 	"UwU",
-	"Should've used Unreal Engine",
 	"KleinShaker was here!"
 ]
 
