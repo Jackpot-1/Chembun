@@ -25,10 +25,10 @@ func _ready():
 	deathMessage.text = messages[my_random_number]
 
 func ContinueButton():
-	get_tree().change_scene_to_file("res://Playground.tscn")
+	get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")
 
 func MainMenuButton():
-	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	get_tree().change_scene_to_file("res://assets/Scenes/Screens/MainMenuScreen.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

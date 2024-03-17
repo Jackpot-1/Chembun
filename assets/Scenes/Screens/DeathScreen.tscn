@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhjsw2soruboq"]
 
-[ext_resource type="Script" path="res://deathScreen.gd" id="1_bmeho"]
+[ext_resource type="Script" path="res://assets/Scripts/Screens/DeathScreen.gd" id="1_bmeho"]
 [ext_resource type="Texture2D" uid="uid://cm5vw28hwttuq" path="res://appIcons/menubackground.png" id="1_rgof3"]
 [ext_resource type="FontFile" uid="uid://buq1xebcecp7j" path="res://fonts/Kalam/Kalam-Bold.ttf" id="2_ymr1s"]
 

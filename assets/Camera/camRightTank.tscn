@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cr7x0cw7d5o6t"]
 
-[ext_resource type="Script" path="res://assets/CameraController.gd" id="1_ae3s0"]
+[ext_resource type="Script" path="res://assets/Scripts/CameraController.gd" id="1_ae3s0"]
 
 [node name="CamRightTank" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.5)

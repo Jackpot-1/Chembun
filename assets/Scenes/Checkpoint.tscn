@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://kd27ra2cjyas"]
 
-[ext_resource type="Script" path="res://CheckpointPlate.gd" id="1_l6len"]
+[ext_resource type="Script" path="res://assets/Scripts/CheckpointPlate.gd" id="1_ngdev"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q8hs8"]
 
 [node name="Checkpoint" type="Area3D"]
-script = ExtResource("1_l6len")
+script = ExtResource("1_ngdev")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.282761, 0)

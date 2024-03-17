@@ -251,7 +251,7 @@ func health_checker(damage_taken):
 	health = old_health - damage_taken
 	if health <= 0:
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
-		get_tree().change_scene_to_file("res://deathScreen.tscn")
+		get_tree().change_scene_to_file("res://assets/Scenes/Screens/DeathScreen.tscn")
 	else:
 		for i in range(damage_taken):
 			old_health = old_health-1
@@ -260,7 +260,6 @@ func health_checker(damage_taken):
 
 func regentimer():
 	$RegenTimer.start()
-		
 
 func regen():
 	var old_health = health
