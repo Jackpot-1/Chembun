@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=19 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
 [ext_resource type="Material" uid="uid://c1u020xb37y6n" path="res://addons/ThirdPersonTemplate/Environments/Materials/Blue.material" id="3_ugxud"]
-[ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/Carrot.png" id="4_kiab8"]
+[ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/carrot.png" id="4_kiab8"]
 [ext_resource type="Material" uid="uid://d3up41bo0vjj0" path="res://addons/ThirdPersonTemplate/Environments/Materials/OrangeGrid.material" id="4_kii6k"]
 [ext_resource type="Script" path="res://assets/GUI.gd" id="4_ukkbc"]
 [ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="5_a0840"]
@@ -12,8 +12,8 @@
 [ext_resource type="Material" uid="uid://bquocw2a8n271" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreyGrid.material" id="6_7xeo2"]
 [ext_resource type="PackedScene" uid="uid://dkfn8qojbtud4" path="res://examples/inventory_grid_ex_transfer.tscn" id="6_wknf2"]
 [ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
-[ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
-[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
+[ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
+[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
