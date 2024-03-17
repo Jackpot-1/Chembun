@@ -19,18 +19,19 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and $"../../CanvasLayer".isinventory == false:
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += event.relative.y * v_sensitivity
 		
 func _joystick_input():
 	if (Input.is_action_pressed("LeftTurn") || Input.is_action_pressed("RightTurn") || Input.is_action_pressed("UpTurn") || Input.is_action_pressed("DownTurn")):
-		#joyview.x = Input.get_action_strength("lookleft") - Input.get_action_strength("lookright")
-		joyview.x = Input.get_action_strength("LeftTurn") - Input.get_action_strength("RightTurn")
-		joyview.y = Input.get_action_strength("DownTurn") - Input.get_action_strength("UpTurn")
+		if($"../../CanvasLayer".isinventory == false):
+			#joyview.x = Input.get_action_strength("lookleft") - Input.get_action_strength("lookright")
+			joyview.x = Input.get_action_strength("LeftTurn") - Input.get_action_strength("RightTurn")
+			joyview.y = Input.get_action_strength("DownTurn") - Input.get_action_strength("UpTurn")
 
-		camrot_h += (joyview.x / 2) * joystick_sensitivity * h_sensitivity
-		camrot_v += (joyview.y / 2) * joystick_sensitivity * v_sensitivity
+			camrot_h += (joyview.x / 2) * joystick_sensitivity * h_sensitivity
+			camrot_v += (joyview.y / 2) * joystick_sensitivity * v_sensitivity
 		
 func _physics_process(delta):
 	# JoyPad Controls

@@ -65,29 +65,22 @@ var acceleration = int()
 # misc
 var jumpjump = int()
 var regenIsRunning = false
-var ispaused = false
 
 func _ready(): # Camera based Rotation
 	
 	direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
 
 func _input(event): # All major mouse and button input events
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and $"../CanvasLayer".isinventory == false:
 		aim_turn = -event.relative.x * 0.015 # animates player with mouse movement while aiming
 	
-	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
+	if event.is_action_pressed("aim") and $"../CanvasLayer".isinventory == false: # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
-	elif event.is_action_released("aim"):
+	elif event.is_action_released("aim") and $"../CanvasLayer".isinventory == false:
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
-	#if event.is_action_pressed("menu"):
-		#if ispaused == false:
-			#get_tree().paused = true #this will pause the game, but there is no way to unpause it
-			#ispaused = true
-		#else:
-			#get_tree().paused = false
-			#ispaused = false
+		
 
 func sprint_and_roll():
 ## Dodge button input with dash and interruption to basic actions
@@ -105,7 +98,7 @@ func sprint_and_roll():
 		
 func attack1(): # If not doing other things, start attack1
 	if (idle_node_name in playback.get_current_node() or walk_node_name in playback.get_current_node()) and is_on_floor():
-		if Input.is_action_just_pressed("attack"):
+		if Input.is_action_just_pressed("attack") and $"../CanvasLayer".isinventory == false:
 			if (is_attacking == false):
 				playback.travel(attack1_node_name)
 				
@@ -140,11 +133,19 @@ func _physics_process(delta):
 	
 	var on_floor = is_on_floor() # State control for is jumping/falling/landing
 	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
+	var isinventory = $"../CanvasLayer".isinventory
+	
 	
 	movement_speed = 0
 	angular_acceleration = 20
 	acceleration = 15
-
+	
+	if($"../CanvasLayer".isinventory == false):
+		#var Input = 0
+		#print(Input)
+		#print("hey man, I know you've been having some issues with making friends lately, but I just want you to know, that I'm here for you man, and I always will be, we've been through so much, through thick and through thin, but sometimes, we just need a little rest")
+		pass
+	
 	# Gravity mechanics and prevent slope-sliding
 	if not is_on_floor():
 		vertical_velocity += Vector3.DOWN * gravity * 2 * delta
@@ -152,6 +153,7 @@ func _physics_process(delta):
 		#vertical_velocity = -get_floor_normal() * gravity / 3
 		vertical_velocity = Vector3.DOWN * gravity / 10
 	
+	#if($"../CanvasLayer".isinventory == false): #so we can't move when the inventory is open
 	# Defining attack state: Add more attacks animations here as you add more!
 	if (attack1_node_name in playback.get_current_node()) or (attack2_node_name in playback.get_current_node()) or (rollattack_node_name in playback.get_current_node()) or (bigattack_node_name in playback.get_current_node()):
 		is_attacking = true
@@ -171,7 +173,7 @@ func _physics_process(delta):
 		is_rolling = false
 	
 #	Jump input and Mechanics
-	if Input.is_action_just_pressed("jump") and ((is_attacking != true) and (is_rolling != true)):
+	if Input.is_action_just_pressed("jump") and ((is_attacking != true) and (is_rolling != true)) and !isinventory:
 		if is_on_floor():
 			jumpjump = 0
 			vertical_velocity = Vector3.UP * jump_force
@@ -184,23 +186,27 @@ func _physics_process(delta):
 		
 	# Movement input, state and mechanics. *Note: movement stops if attacking
 	if (Input.is_action_pressed("forward") ||  Input.is_action_pressed("backward") ||  Input.is_action_pressed("left") ||  Input.is_action_pressed("right")):
-		direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"),
-			0,
-			Input.get_action_strength("forward") - Input.get_action_strength("backward"))
-		direction = direction.rotated(Vector3.UP, h_rot).normalized()
-		is_walking = true
-		
-	# Sprint input, dash state and movement speed
-		if Input.is_action_pressed("sprint") and $DashTimer.is_stopped() and (is_walking == true ):
-			movement_speed = run_speed
-			is_running = true
-		else: # Walk State and speed
-			movement_speed = walk_speed
+		if(!isinventory):
+			direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"),
+				0,
+				Input.get_action_strength("forward") - Input.get_action_strength("backward"))
+			direction = direction.rotated(Vector3.UP, h_rot).normalized()
+			is_walking = true
+			
+		# Sprint input, dash state and movement speed
+			if Input.is_action_pressed("sprint") and $DashTimer.is_stopped() and (is_walking == true ):
+				movement_speed = run_speed
+				is_running = true
+			else: # Walk State and speed
+				movement_speed = walk_speed
+				is_running = false
+		else:
+			is_walking = false
 			is_running = false
 	else:
 		is_walking = false
 		is_running = false
-	if Input.is_action_pressed("aim"):  # Aim/Strafe input and  mechanics
+	if Input.is_action_pressed("aim") and !isinventory:  # Aim/Strafe input and  mechanics
 		angular_acceleration = 60
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $Camroot/h.rotation.y, delta * angular_acceleration)
 		
