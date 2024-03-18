@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Checkpoints="*res://autoloads/Checkpoints.gd"
+GGS="*res://addons/ggs/classes/global/ggs.tscn"
 
 [display]
 
@@ -25,12 +26,13 @@ window/handheld/orientation=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/gloot/plugin.cfg")
+enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/gloot/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://assets/": "red"
+"res://assets/": "red",
+"res://game_settings/": "yellow"
 }
 
 [input]
