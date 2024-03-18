@@ -49,6 +49,8 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 		print("Check")
 #		#transform.origin += Vector3(-1, 0, 0)
 		playback.travel(dive_start)
+		await get_tree().create_timer(2).timeout
+		saltCube.queue_free()
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
 	playback.travel(dive_hold)
