@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=26 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -12,9 +12,16 @@
 [ext_resource type="Material" uid="uid://bquocw2a8n271" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreyGrid.material" id="6_7xeo2"]
 [ext_resource type="PackedScene" uid="uid://dkfn8qojbtud4" path="res://examples/inventory_grid_ex_transfer.tscn" id="6_wknf2"]
 [ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
+[ext_resource type="Texture2D" uid="uid://cehe77vdrg3ro" path="res://assets/Scenes/hex_ver_1.png" id="8_3q2t4"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
+[ext_resource type="Texture2D" uid="uid://cixdp3cact12s" path="res://assets/images/elements/1H.png" id="12_b0dk0"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
+[ext_resource type="Texture2D" uid="uid://d3lx4e6xsquji" path="res://assets/images/elements/2He.png" id="13_3b6x2"]
+[ext_resource type="Texture2D" uid="uid://chm33u32hnrp6" path="res://assets/images/elements/3Li.png" id="14_2rn6w"]
+[ext_resource type="Texture2D" uid="uid://eek0kdxgij4n" path="res://assets/images/elements/4Be.png" id="15_6he1f"]
+[ext_resource type="Texture2D" uid="uid://dgaau045wv5l3" path="res://assets/images/elements/5B.png" id="16_iurn6"]
+[ext_resource type="Texture2D" uid="uid://cmllqxnsaq1gr" path="res://assets/images/elements/6C.png" id="17_tegij"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -135,6 +142,74 @@ offset_top = 168.0
 offset_right = 716.0
 offset_bottom = 365.0
 scale = Vector2(1.69, 1.69)
+
+[node name="LblInfo" parent="CanvasLayer/InventoryGridTransfer" index="2"]
+visible = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 261.0
+offset_top = 32.0
+offset_right = 891.0
+offset_bottom = 613.0
+texture = ExtResource("8_3q2t4")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 853.0
+offset_bottom = 574.0
+scale = Vector2(1.07178, 1.07178)
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 6.53101
+offset_top = 208.998
+offset_right = 546.531
+offset_bottom = 747.998
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("12_b0dk0")
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 145.552
+offset_top = 417.996
+offset_right = 685.552
+offset_bottom = 956.996
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("13_3b6x2")
+
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 358.283
+offset_top = 417.996
+offset_right = 898.283
+offset_bottom = 956.996
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("14_2rn6w")
+
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 493.571
+offset_top = 211.797
+offset_right = 1033.57
+offset_bottom = 750.797
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("15_6he1f")
+
+[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 358.283
+offset_top = 13.0624
+offset_right = 898.283
+offset_bottom = 552.062
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("16_iurn6")
+
+[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 145.552
+offset_top = 13.0624
+offset_right = 685.552
+offset_bottom = 552.062
+scale = Vector2(0.18, 0.18)
+texture_normal = ExtResource("17_tegij")
 
 [node name="Area3D" type="Area3D" parent="."]
 
