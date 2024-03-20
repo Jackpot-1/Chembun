@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cphx5y201u0g6"
-path="res://.godot/imported/chembun_mixamo (1).glb-8d5c725c4091a3742df05884bf9f6300.scn"
+path="res://.godot/imported/chembun_mixamo (1).glb-4eb3a229025c6a4435e04d3f39b3806c.scn"
 
 [deps]
 
-source_file="res://assets/Characters/bun/model/chembun_mixamo (1).glb"
-dest_files=["res://.godot/imported/chembun_mixamo (1).glb-8d5c725c4091a3742df05884bf9f6300.scn"]
+source_file="res://assets/characters/bun/model/chembun_mixamo (1).glb"
+dest_files=["res://.godot/imported/chembun_mixamo (1).glb-4eb3a229025c6a4435e04d3f39b3806c.scn"]
 
 [params]
 
@@ -22,7 +22,6 @@ meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
-meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
@@ -30,5 +29,4 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
-gltf/naming_version=0
 gltf/embedded_image_handling=1

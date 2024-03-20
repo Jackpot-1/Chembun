@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwitd30jow5rb"]
+[gd_scene load_steps=5 format=3 uid="uid://cwitd30jow5rb"]
 
 [ext_resource type="PackedScene" uid="uid://dkwtmkmwvpges" path="res://assets/Characters/bun/model/chembun_rig.glb" id="1_w7urn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwv28"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.607843, 0.607843, 0.607843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opxng"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.470588, 0.0313726, 0.517647, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm64o"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(1, 0.913725, 1, 1)
+roughness = 0.0
 
 [node name="chembun rig" instance=ExtResource("1_w7urn")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -33,3 +51,13 @@ bones/20/rotation = Quaternion(0.234994, 0.198878, -0.912751, 0.268533)
 bones/21/rotation = Quaternion(-0.677471, -0.669338, -0.0763091, 0.295292)
 bones/22/rotation = Quaternion(-0.581785, -0.652669, 0.0150137, 0.485102)
 bones/23/rotation = Quaternion(0.326835, -0.55472, 0.251339, 0.722698)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_jwv28")
+
+[node name="Cube_003" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_opxng")
+
+[node name="Cube_004" parent="Armature/Skeleton3D" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mm64o")

@@ -10,14 +10,16 @@ config_version=5
 
 [application]
 
-config/name="chembun alpha"
+config/name="chembun-Settings"
 run/main_scene="res://assets/Scenes/Screens/StartingScreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Checkpoints="*res://autoloads/Checkpoints.gd"
+Checkpoints="*res://assets/Scripts/autoloads/Checkpoints.gd"
+GGS="*res://addons/ggs/classes/global/ggs.tscn"
+Globals="*res://assets/Scripts/autoloads/Globals.gd"
 
 [display]
 
@@ -25,12 +27,13 @@ window/handheld/orientation=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/gloot/plugin.cfg")
+enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/gloot/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://assets/": "red"
+"res://assets/": "red",
+"res://game_settings/": "yellow"
 }
 
 [input]
@@ -117,6 +120,11 @@ inventory={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+element={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194328,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 
