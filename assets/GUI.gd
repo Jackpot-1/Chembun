@@ -50,5 +50,6 @@ func _input(event):
 	elif event.is_action_released("element") && iselement == true && playerStopped == true:
 		iselement = false
 		$Control.recipe = ""
+		$Control/VBoxContainer/RichTextLabel.text = ""
 		$Control.visible = false
 		unstop_player_input()

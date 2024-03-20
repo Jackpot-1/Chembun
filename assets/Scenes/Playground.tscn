@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
 [ext_resource type="Texture2D" uid="uid://bivce6vt34vdb" path="res://assets/images/elements/8O.png" id="12_sf1ok"]
 [ext_resource type="Texture2D" uid="uid://c6o8y6k7r6k14" path="res://assets/images/elements/11Na.png" id="13_6fgy0"]
-[ext_resource type="Texture2D" uid="uid://dgaau045wv5l3" path="res://assets/images/elements/5B.png" id="16_iurn6"]
-[ext_resource type="Texture2D" uid="uid://cmllqxnsaq1gr" path="res://assets/images/elements/6C.png" id="17_tegij"]
+[ext_resource type="Texture2D" uid="uid://b6ckffo6rcg56" path="res://assets/images/elements/7N.png" id="14_vllld"]
+[ext_resource type="Texture2D" uid="uid://dvcmwtl3rmwyu" path="res://assets/images/elements/26Fe.png" id="15_1m2so"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -156,7 +156,6 @@ offset_bottom = 613.0
 texture = ExtResource("8_3q2t4")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 256.0
@@ -165,6 +164,20 @@ offset_right = 853.0
 offset_bottom = 574.0
 scale = Vector2(1.07178, 1.07178)
 script = ExtResource("9_0oo2h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -239.0
+offset_top = 202.0
+offset_right = 836.0
+offset_bottom = 299.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=70][center]"
+fit_content = true
+autowrap_mode = 0
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -209,7 +222,7 @@ offset_top = 13.0624
 offset_right = 898.283
 offset_bottom = 552.062
 scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("16_iurn6")
+texture_normal = ExtResource("14_vllld")
 
 [node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Control"]
 layout_mode = 0
@@ -218,7 +231,7 @@ offset_top = 13.0624
 offset_right = 685.552
 offset_bottom = 552.062
 scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("17_tegij")
+texture_normal = ExtResource("15_1m2so")
 
 [node name="Area3D" type="Area3D" parent="."]
 

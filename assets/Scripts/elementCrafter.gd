@@ -1,6 +1,13 @@
 extends Control
 
 var recipe = ""
+var cookbook = {
+	"H2 + O":"Water",
+	"Na + Cl":"Salt",
+	"N + H3":"Ammonia",
+	"Fe2 + O3":"Rust",
+	"C + O":"Carbon Monoxide"
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +35,10 @@ func element_adder(element):
 	elif(len(recipe)) > 0:
 		recipe = recipe + " + " + element
 	print(recipe)
+	$VBoxContainer/RichTextLabel.text = "[font_size=70][center]" + recipe
+	if cookbook.has(recipe):
+		print(cookbook[recipe])
+		$VBoxContainer/RichTextLabel.text = "[font_size=70][center]" + cookbook[recipe]
 
 
 func _on_texture_button_pressed():
@@ -47,8 +58,8 @@ func _on_texture_button_4_pressed():
 
 
 func _on_texture_button_5_pressed():
-	element_adder("B")
+	element_adder("N")
 
 
 func _on_texture_button_6_pressed():
-	element_adder("C")
+	element_adder("Fe")
