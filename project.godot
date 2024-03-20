@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="chembun-Settings"
+config/name="ChemChem"
 run/main_scene="res://assets/Scenes/Screens/StartingScreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
