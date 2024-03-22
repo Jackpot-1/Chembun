@@ -15,7 +15,7 @@ var movementVector = Vector3(-1, 0, 0)
 var moveSpeed = 5
 var movement
 var playerTargeting = false
-var spent = false
+#var spent = false
 
 @export var movement_speed: float = 4.0
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
@@ -26,7 +26,11 @@ func set_movement_target(movement_target: Vector3):
 func _physics_process(delta):
 	if !playerTargeting:
 		return
-	look_at(globals.player.transform.origin)
+	#var plr = $"../../PlayerTemplate"
+	look_at(globals.player.transform.origin, Vector3(0, 1, 0))
+	self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+	#look_at(plr.transform.origin)
+	#look_at($"../../PlayerTemplate".transform.origin)
 	set_movement_target(globals.player.transform.origin)
 	if navigation_agent.is_navigation_finished():
 		return
@@ -46,13 +50,14 @@ func _ready():
 	playback.travel(walking)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
-	spent = true
+	#spent = true
 	playback.travel(dive_start)
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
 	if body != globals.player:
 		return
 	globals.player.health_checker(saltDamage)
+	position = Vector3(2, 0, 0) #dash
 	playback.travel(dive_hold)
 	saltCube.queue_free()
 

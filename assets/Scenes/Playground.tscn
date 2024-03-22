@@ -58,12 +58,6 @@ walk_speed = 6
 run_speed = 8
 metadata/health = 10
 
-[node name="Camroot" parent="PlayerTemplate" index="4"]
-joystick_sensitivity = 50
-
-[node name="CamRightTank" parent="PlayerTemplate" index="5"]
-joystick_sensitivity = 50
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 script = ExtResource("4_ukkbc")
@@ -251,6 +245,7 @@ shape = SubResource("BoxShape3D_b0ysw")
 navigation_mesh = SubResource("NavigationMesh_hktkl")
 
 [node name="Level" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370755, 0)
 
 [node name="FloorAlt" type="CSGBox3D" parent="NavigationRegion3D/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14287, 0)
