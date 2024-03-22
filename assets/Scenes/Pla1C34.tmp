@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=27 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -15,10 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cehe77vdrg3ro" path="res://assets/Scenes/hex_ver_1.png" id="8_3q2t4"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
 [ext_resource type="Script" path="res://assets/Scripts/elementCrafter.gd" id="9_0oo2h"]
-[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="10_h6ocq"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
 [ext_resource type="Texture2D" uid="uid://d2vxn3wl3igpm" path="res://assets/images/elements/17Cl.png" id="11_3uqjq"]
-[ext_resource type="FontFile" uid="uid://buq1xebcecp7j" path="res://fonts/Kalam/Kalam-Bold.ttf" id="11_4vbf0"]
 [ext_resource type="Texture2D" uid="uid://8t6phigr1pse" path="res://assets/images/elements/1H.png" id="12_b0dk0"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
 [ext_resource type="Texture2D" uid="uid://eluekndkuujm" path="res://assets/images/elements/8O.png" id="12_sf1ok"]
@@ -158,7 +156,6 @@ offset_bottom = 613.0
 texture = ExtResource("8_3q2t4")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 256.0
@@ -177,13 +174,6 @@ offset_bottom = 299.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("10_h6ocq")
-theme_override_fonts/bold_font = ExtResource("11_4vbf0")
-theme_override_font_sizes/normal_font_size = 100
-theme_override_font_sizes/bold_font_size = 35
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
@@ -347,28 +337,8 @@ operation = 2
 size = Vector3(22, 10, 14)
 material = ExtResource("6_7xeo2")
 
-[node name="salt enemy dev13" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.99798, 0, 0.0635221, 0, 0.999999, 0, -0.0635221, 0, -0.99798, 5.01097, 0.214126, -10.0574)
-metadata/Damage = 1
-
 [node name="salt enemy dev12" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.203409, -13.3312)
-metadata/Damage = 1
-
-[node name="salt enemy dev14" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 17.0799, 0.203409, -6.32358)
-metadata/Damage = 1
-
-[node name="salt enemy dev15" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.203409, 2.85963)
-metadata/Damage = 1
-
-[node name="salt enemy dev16" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 18.1121, 0.203409, -0.839416)
-metadata/Damage = 1
-
-[node name="salt enemy dev17" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 20.2059, 0.203409, 3.32913)
+transform = Transform3D(-0.0670401, 0, -0.99775, 0.178486, 0.983869, -0.0119927, 0.981656, -0.178888, -0.0659587, 4.19967, 0.3759, -18.0547)
 metadata/Damage = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]

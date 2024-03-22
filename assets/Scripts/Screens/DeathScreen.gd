@@ -11,11 +11,20 @@ var rng = RandomNumberGenerator.new()
 	"First time?",
 	"So.. you come here often?",
 	"Get good kid",
-	"MR.ELECTRIC SEND THIS...",
+	"Mr Electric send him to the principal's ofﬁce and have him EXPELLED!",
 	"Mushoku Tensei is peak",
 	"monster musume",
 	"UwU",
-	"KleinShaker was here!"
+	"KleinShaker was here!",
+	"Gotta get the Ca+Fe+P+Na+K+Mg+Cu+Zn",
+	"when the imposter is sus",
+	"ඞ",
+	"Skill issue",
+	"Fatality",
+	"U mad bro",
+	"your dad would be disapointed",
+	"Hey guys, did you know that in terms of male human and female Pokémon breeding, Vaporeon is the most compatible Pokémon for humans? Not only are they in the field egg group, which is mostly comprised of mammals, Vaporeon are an average of 3”03’ tall and 63.9 pounds, this means they’re large enough to be able handle human...",
+	"joe mama"
 ]
 
 

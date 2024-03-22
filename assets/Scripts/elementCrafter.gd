@@ -2,11 +2,12 @@ extends Control
 
 var recipe = ""
 var cookbook = {
-	"H2 + O":"Water",
-	"Na + Cl":"Salt",
-	"N + H3":"Ammonia",
-	"Fe2 + O3":"Rust",
-	"C + O":"Carbon Monoxide"
+	"H[b]2[/b]+O":"Water",
+	"Na+Cl":"Salt",
+	"N+H[b]3[/b]":"Ammonia",
+	"Fe[b]2[/b]+O[b]3[/b]":"Rust",
+	"C+O":"Carbon Monox	ide"
+	#fire = carbon dioxide, water vapor, oxygen, nitrogen
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -19,27 +20,34 @@ func _process(delta):
 	pass
 	
 func element_adder(element):
-	var index_calc = len(element)
-	var ingredient = recipe.split(" + ")
+	var ingredient = recipe.split("+")
 	ingredient = ingredient[-1]
 	if(len(recipe) == 0):
-		recipe = recipe + element
-	elif(ingredient[-1].is_valid_int() and ingredient.left(-1) == element):
-		if(ingredient[-1] == "9"):
-			recipe = recipe.left(-1)
-		else:
-			var num = (recipe[-1]).to_int() + 1
-			recipe = recipe.left(-1) + str(num)
+		recipe = element
 	elif(ingredient == element):
-		recipe = recipe + str(2)
-	elif(len(recipe)) > 0:
-		recipe = recipe + " + " + element
+		recipe = recipe + "[b]2[/b]" #[b] is bold
+	elif(ingredient.left(-8) != element):
+		print(ingredient, " ingredient")
+		print(recipe, " recipe")
+		print(len(recipe))
+		recipe = recipe + "+" + element
+		print(recipe)
+	if len(ingredient) >= 8:
+		if(ingredient[-5].is_valid_int() and ingredient.left(-8) == element):
+			if(ingredient[-5] == "9"):
+				recipe = recipe.left(-8) # sets recipe back to element without the number
+			else:
+				var num = (recipe[-5]).to_int() + 1
+				recipe = recipe.left(-8) + "[b]" + str(num) + "[/b]"
+	
+	
 	print(recipe)
-	$VBoxContainer/RichTextLabel.text = "[font_size=70][center]" + recipe
+	$VBoxContainer/RichTextLabel.text = "[center]" + recipe
+	#$VBoxContainer/RichTextLabel.text = "[font_size=70][center]" + recipe.replace_all("\\d", "[font_size=40][b][color=gray]\\0[/color][/b][font_size=70]")
 	if cookbook.has(recipe):
 		print(cookbook[recipe])
-		$VBoxContainer/RichTextLabel.text = "[font_size=70][center]" + cookbook[recipe]
-
+		$VBoxContainer/RichTextLabel.text = "[center]" + cookbook[recipe]
+#[font_size=70][center]He[font_size=40][b][color=gray]2[/color][/b][font_size=70]C[font_size=40][b][color=gray]3[/color][/b]
 
 func _on_texture_button_pressed():
 	element_adder("H")

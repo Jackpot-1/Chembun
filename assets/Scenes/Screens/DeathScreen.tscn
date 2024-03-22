@@ -41,18 +41,19 @@ text = "MainMenu"
 
 [node name="DeathMessage" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 374.0
-offset_top = 247.0
-offset_right = 1178.0
-offset_bottom = 358.0
+offset_left = 367.0
+offset_top = 169.0
+offset_right = 1171.0
+offset_bottom = 442.0
 rotation = -0.0872665
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_ymr1s")
 theme_override_font_sizes/font_size = 60
-text = "So.. you come here often?"
+text = "test message"
 horizontal_alignment = 1
-vertical_alignment = 3
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="TextureRect/ContinueButton" to="." method="ContinueButton"]
 [connection signal="pressed" from="TextureRect/MainMenuButton" to="." method="MainMenuButton"]
