@@ -15,7 +15,8 @@ var movementVector = Vector3(-1, 0, 0)
 var moveSpeed = 5
 var movement
 var playerTargeting = false
-#var spent = false
+var runOnce = false
+var hasDived = false
 
 @export var movement_speed: float = 4.0
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
@@ -24,6 +25,13 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
+	if hasDived:
+		if dive_hold in playback.get_current_node():
+			playerTargeting = false
+			await get_tree().create_timer(1).timeout
+			saltCube.queue_free()
+	if suprise in playback.get_current_node():
+		return
 	if !playerTargeting:
 		return
 	#var plr = $"../../PlayerTemplate"
@@ -32,7 +40,11 @@ func _physics_process(delta):
 	#look_at(plr.transform.origin)
 	#look_at($"../../PlayerTemplate".transform.origin)
 	set_movement_target(globals.player.transform.origin)
-	if navigation_agent.is_navigation_finished():
+	if navigation_agent.is_navigation_finished(): #USED THIS INSTEAD OF COLISIONS
+		globals.player.health_checker(saltDamage)
+	
+		playback.travel(dive_hold)
+		saltCube.queue_free()
 		return
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector3 = global_position.direction_to(next_path_position) * movement_speed
@@ -40,6 +52,7 @@ func _physics_process(delta):
 		navigation_agent.set_velocity(new_velocity)
 	else:
 		_on_velocity_computed(new_velocity)
+	
 
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
@@ -50,22 +63,31 @@ func _ready():
 	playback.travel(walking)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
-	#spent = true
-	playback.travel(dive_start)
-
-func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
 	if body != globals.player:
 		return
-	globals.player.health_checker(saltDamage)
-	position = Vector3(2, 0, 0) #dash
-	playback.travel(dive_hold)
-	saltCube.queue_free()
+	hasDived = true
+	#set_movement_target(globals.player.transform.origin)
+	#print(globals.player.transform.origin)
+	playback.travel(dive_start)
+
+# THIS DIDN'T WORK SO I MADE IT SO IT WOULD CHECK IF IT HAS REACHED ITS DESTINATION (THE PLAYER) INSTEAD OF COLISIONS
+#func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
+	#if body != globals.player:
+		#return
+	#print("IM RUNNING")
+	#globals.player.health_checker(saltDamage)
+	#
+	#playback.travel(dive_hold)
+	#saltCube.queue_free()
 
 func _on_detection_range_body_entered(body):
 	if body != globals.player:
 		return
+	if runOnce:
+		return
 	playback.travel(suprise)
 	playerTargeting = true
+	runOnce = true
 	#run to player
 
 func _on_detection_range_body_exited(body):

@@ -343,27 +343,39 @@ size = Vector3(22, 10, 14)
 material = ExtResource("6_7xeo2")
 
 [node name="salt enemy dev13" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.99798, 0, 0.0635221, 0, 0.999999, 0, -0.0635221, 0, -0.99798, 5.01097, 0.585, -10.0574)
+transform = Transform3D(-0.99798, 0, 0.0635221, 0, 0.999999, 0, -0.0635221, 0, -0.99798, 5.01097, 0.214126, -10.0574)
+saltDamage = 2
+movement_speed = 4.0
 metadata/Damage = 1
 
 [node name="salt enemy dev12" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.585, -13.3312)
+transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.203409, -13.3312)
+saltDamage = 2
+movement_speed = 4.0
 metadata/Damage = 1
 
 [node name="salt enemy dev14" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 17.0799, 0.585, -6.32358)
+transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 17.0799, 0.203409, -6.32358)
+saltDamage = 2
+movement_speed = 4.0
 metadata/Damage = 1
 
 [node name="salt enemy dev15" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.585, 2.85963)
+transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.203409, 2.85963)
+saltDamage = 2
+movement_speed = 4.0
 metadata/Damage = 1
 
 [node name="salt enemy dev16" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 18.1121, 0.585, -0.839416)
+transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 18.1121, 0.203409, -0.839416)
+saltDamage = 2
+movement_speed = 4.0
 metadata/Damage = 1
 
 [node name="salt enemy dev17" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 20.2059, 0.585, 3.32913)
+transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 20.2059, 0.203409, 3.32913)
+saltDamage = 2
+movement_speed = 4.0
 metadata/Damage = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
