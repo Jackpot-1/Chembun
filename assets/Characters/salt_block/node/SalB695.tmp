@@ -179,7 +179,7 @@ bind/4/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02553, -5.30854e-08)
 size = Vector3(1.78057, 0.892678, 1.266)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwhln"]
-size = Vector3(0.683341, 0.473359, 0.763923)
+size = Vector3(0.536733, 0.473359, 0.563826)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
 radius = 8.00158
@@ -203,7 +203,7 @@ bones/0/name = "Parent"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.68693e-05, 5.30854e-08)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0.0226075, 5.30854e-08)
+bones/0/position = Vector3(0, 0.0381514, 5.30854e-08)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Foot_R"
@@ -211,14 +211,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(-1, -2.54822e-15, 1.50996e-07, 2.54822e-15, -1, -1.92386e-22, 1.50996e-07, 1.92386e-22, 1, -0.32685, 0.496672, -8.3819e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.32685, 0.496672, -8.3819e-09)
-bones/1/rotation = Quaternion(7.50629e-08, -0.107197, 0.994238, -7.48848e-08)
+bones/1/rotation = Quaternion(7.54948e-08, -0.00911336, 0.999959, -8.18529e-08)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Foot_L"
 bones/2/parent = 0
 bones/2/rest = Transform3D(-0.998678, -8.67402e-10, 0.0513982, 8.67402e-10, -1, -2.23062e-11, 0.0513982, 2.23062e-11, 0.998678, 0.32685, 0.496672, -8.3819e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(0.32685, 0.496672, -8.3819e-09)
-bones/2/rotation = Quaternion(0.0254821, -0.132097, 0.990903, -0.003397)
+bones/2/rotation = Quaternion(0.0249976, -0.233316, 0.972061, -0.00599997)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Body_1"
 bones/3/parent = 0
@@ -257,7 +257,7 @@ shape = SubResource("BoxShape3D_8tycy")
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, -0.00600926, 0.480468, 0.149781)
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, 0.00184631, 0.480468, 0.00971353)
 shape = SubResource("BoxShape3D_cwhln")
 
 [node name="DetectionRange" type="Area3D" parent="."]
@@ -267,7 +267,6 @@ collision_layer = 0
 shape = SubResource("SphereShape3D_35i6e")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 0.1
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -30,21 +30,25 @@ func _physics_process(delta):
 			playerTargeting = false
 			await get_tree().create_timer(1).timeout
 			saltCube.queue_free()
+	else:
+		set_movement_target(globals.player.transform.origin)
+		look_at(globals.player.transform.origin, Vector3(0, 1, 0))
+		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
 	if suprise in playback.get_current_node():
 		return
 	if !playerTargeting:
 		return
 	#var plr = $"../../PlayerTemplate"
-	look_at(globals.player.transform.origin, Vector3(0, 1, 0))
-	self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+	
+	#self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
 	#look_at(plr.transform.origin)
 	#look_at($"../../PlayerTemplate".transform.origin)
-	set_movement_target(globals.player.transform.origin)
-	if navigation_agent.is_navigation_finished(): #USED THIS INSTEAD OF COLISIONS
-		globals.player.health_checker(saltDamage)
 	
-		playback.travel(dive_hold)
-		saltCube.queue_free()
+	if navigation_agent.is_navigation_finished(): #USED THIS INSTEAD OF COLISIONS
+		#globals.player.health_checker(saltDamage)
+	#
+		#playback.travel(dive_hold)
+		#saltCube.queue_free()
 		return
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector3 = global_position.direction_to(next_path_position) * movement_speed
@@ -65,20 +69,19 @@ func _ready():
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
 	if body != globals.player:
 		return
+	movement_speed = 6
+	if !hasDived:
+		playback.travel(dive_start)
 	hasDived = true
-	#set_movement_target(globals.player.transform.origin)
-	#print(globals.player.transform.origin)
-	playback.travel(dive_start)
 
 # THIS DIDN'T WORK SO I MADE IT SO IT WOULD CHECK IF IT HAS REACHED ITS DESTINATION (THE PLAYER) INSTEAD OF COLISIONS
-#func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
-	#if body != globals.player:
-		#return
-	#print("IM RUNNING")
-	#globals.player.health_checker(saltDamage)
-	#
-	#playback.travel(dive_hold)
-	#saltCube.queue_free()
+func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
+	if body != globals.player:
+		return
+	globals.player.health_checker(saltDamage)
+	
+	playback.travel(dive_hold)
+	saltCube.queue_free()
 
 func _on_detection_range_body_entered(body):
 	if body != globals.player:
