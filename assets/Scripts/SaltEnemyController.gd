@@ -25,14 +25,15 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
+	
 	if hasDived:
 		if dive_hold in playback.get_current_node():
 			playerTargeting = false
 			await get_tree().create_timer(1).timeout
 			saltCube.queue_free()
-	else:
+	elif playerTargeting:
 		set_movement_target(globals.player.transform.origin)
-		look_at(globals.player.transform.origin, Vector3(0, 1, 0))
+		look_at(globals.player.transform.origin * Vector3(1, 0, 1))
 		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
 	if suprise in playback.get_current_node():
 		return
@@ -69,7 +70,7 @@ func _ready():
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
 	if body != globals.player:
 		return
-	movement_speed = 6
+	movement_speed = 7
 	if !hasDived:
 		playback.travel(dive_start)
 	hasDived = true
