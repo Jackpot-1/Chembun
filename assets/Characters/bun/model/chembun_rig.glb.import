@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cphx5y201u0g6"
-path="res://.godot/imported/chembun_mixamo (1).glb-4eb3a229025c6a4435e04d3f39b3806c.scn"
+uid="uid://dkwtmkmwvpges"
+path="res://.godot/imported/chembun_rig.glb-a540664a4daab23b4b62b78b1f61c486.scn"
 
 [deps]
 
-source_file="res://assets/characters/bun/model/chembun_mixamo (1).glb"
-dest_files=["res://.godot/imported/chembun_mixamo (1).glb-4eb3a229025c6a4435e04d3f39b3806c.scn"]
+source_file="res://assets/Characters/bun/model/chembun_rig.glb"
+dest_files=["res://.godot/imported/chembun_rig.glb-a540664a4daab23b4b62b78b1f61c486.scn"]
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true

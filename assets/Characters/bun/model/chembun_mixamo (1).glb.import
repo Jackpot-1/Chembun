@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cea38dl2vpn8g"
-path="res://.godot/imported/salt_block.glb-e513c015c84dbe3c75fca2967d0f2f3d.scn"
+uid="uid://cphx5y201u0g6"
+path="res://.godot/imported/chembun_mixamo (1).glb-8d5c725c4091a3742df05884bf9f6300.scn"
 
 [deps]
 
-source_file="res://assets/characters/salt_block/model/salt_block.glb"
-dest_files=["res://.godot/imported/salt_block.glb-e513c015c84dbe3c75fca2967d0f2f3d.scn"]
+source_file="res://assets/Characters/bun/model/chembun_mixamo (1).glb"
+dest_files=["res://.godot/imported/chembun_mixamo (1).glb-8d5c725c4091a3742df05884bf9f6300.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
