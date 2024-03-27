@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cphx5y201u0g6"
-path="res://.godot/imported/chembun_mixamo (1).glb-8d5c725c4091a3742df05884bf9f6300.scn"
+path="res://.godot/imported/chembun_mixamo (1).glb-4eb3a229025c6a4435e04d3f39b3806c.scn"
 
 [deps]
 
-source_file="res://assets/Characters/bun/model/chembun_mixamo (1).glb"
-dest_files=["res://.godot/imported/chembun_mixamo (1).glb-8d5c725c4091a3742df05884bf9f6300.scn"]
+source_file="res://assets/characters/bun/model/chembun_mixamo (1).glb"
+dest_files=["res://.godot/imported/chembun_mixamo (1).glb-4eb3a229025c6a4435e04d3f39b3806c.scn"]
 
 [params]
 

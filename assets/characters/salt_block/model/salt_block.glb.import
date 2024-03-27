@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cea38dl2vpn8g"
-path="res://.godot/imported/salt_block.glb-042f47656564ba53011d1c755693c746.scn"
+path="res://.godot/imported/salt_block.glb-e513c015c84dbe3c75fca2967d0f2f3d.scn"
 
 [deps]
 
-source_file="res://assets/Characters/salt_block/model/salt_block.glb"
-dest_files=["res://.godot/imported/salt_block.glb-042f47656564ba53011d1c755693c746.scn"]
+source_file="res://assets/characters/salt_block/model/salt_block.glb"
+dest_files=["res://.godot/imported/salt_block.glb-e513c015c84dbe3c75fca2967d0f2f3d.scn"]
 
 [params]
 
