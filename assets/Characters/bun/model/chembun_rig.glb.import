@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dkwtmkmwvpges"
-path="res://.godot/imported/chembun_rig.glb-15a29b0473682e6e535b89d79b2060f7.scn"
+path="res://.godot/imported/chembun_rig.glb-a540664a4daab23b4b62b78b1f61c486.scn"
 
 [deps]
 
-source_file="res://assets/characters/bun/model/chembun_rig.glb"
-dest_files=["res://.godot/imported/chembun_rig.glb-15a29b0473682e6e535b89d79b2060f7.scn"]
+source_file="res://assets/Characters/bun/model/chembun_rig.glb"
+dest_files=["res://.godot/imported/chembun_rig.glb-a540664a4daab23b4b62b78b1f61c486.scn"]
 
 [params]
 
