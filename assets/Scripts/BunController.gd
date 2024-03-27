@@ -135,12 +135,6 @@ func _physics_process(delta):
 	angular_acceleration = 20
 	acceleration = 15
 	
-	if(not playerStopped):
-		#var Input = 0
-		#print(Input)
-		#print("hey man, I know you've been having some issues with making friends lately, but I just want you to know, that I'm here for you man, and I always will be, we've been through so much, through thick and through thin, but sometimes, we just need a little rest")
-		pass
-	
 	# Gravity mechanics and prevent slope-sliding
 	if not states.grounded:
 		vertical_velocity += Vector3.DOWN * gravity * 2 * delta
