@@ -159,4 +159,9 @@ libraries = {
 wait_time = 10.0
 one_shot = true
 
+[node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="RegenTimer" to="." method="regen"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="knockback_timeout"]
