@@ -80,6 +80,7 @@ func _on_hit_box_body_entered(body): #If it touches this then the player will ta
 	if body != globals.player:
 		return
 	globals.player.health_checker(saltDamage)
+	globals.player.knockback_enter(saltDamage, rotation)
 	
 	playback.travel(dive_hold)
 	saltCube.queue_free()
