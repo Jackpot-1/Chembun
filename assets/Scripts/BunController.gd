@@ -249,7 +249,7 @@ func regen():
 		$RegenTimer.start()
 
 func knockback_enter(strength:int, direction:Vector3):
-	knockback = Vector3(0,0,strength*10).rotated(Vector3.UP, direction.y)
+	knockback = Vector3(0,strength*3,strength*5).rotated(Vector3.UP, direction.y)
 	$KnockbackTimer.start()
 
 func knockback_timeout():
