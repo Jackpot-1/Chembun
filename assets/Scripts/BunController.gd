@@ -170,20 +170,19 @@ func _physics_process(delta):
 			jump_counter += 1
 		
 	# Movement input, state and mechanics. *Note: movement stops if attacking
-	if (Input.is_action_pressed("forward") || Input.is_action_pressed("backward") || Input.is_action_pressed("left") || Input.is_action_pressed("right")):
-		if(!canvas.playerStopped):
-			states.moving = true;
-			direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"), 0, Input.get_action_strength("forward") - Input.get_action_strength("backward"))
-			direction = direction.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y).normalized()
-			# Sprint input, dash state and movement speed
-			if Input.is_action_pressed("sprint") && $DashTimer.is_stopped():
-				movement_speed = run_speed
-				states.running = true
-				states.walking = true
-			else: # Walk State and speed
-				movement_speed = walk_speed
-				states.running = false
-				states.walking = true
+	if ((Input.is_action_pressed("forward") || Input.is_action_pressed("backward") || Input.is_action_pressed("left") || Input.is_action_pressed("right")) && !canvas.playerStopped):
+		states.moving = true;
+		direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"), 0, Input.get_action_strength("forward") - Input.get_action_strength("backward"))
+		direction = direction.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y).normalized()
+		# Sprint input, dash state and movement speed
+		if Input.is_action_pressed("sprint") && $DashTimer.is_stopped():
+			movement_speed = run_speed
+			states.running = true
+			states.walking = true
+		else: # Walk State and speed
+			movement_speed = walk_speed
+			states.running = false
+			states.walking = true
 	else:
 		states.walking = false
 		states.running = false
@@ -248,8 +247,8 @@ func regen():
 	if !(health == 10):
 		$RegenTimer.start()
 
-func knockback_enter(strength:int, direction:Vector3):
-	knockback = Vector3(0,0,strength*10).rotated(Vector3.UP, direction.y)
+func knockback_enter(direction:Vector3):
+	knockback = Vector3(0,0,1).rotated(Vector3.UP, direction.y)
 	$KnockbackTimer.start()
 
 func knockback_timeout():

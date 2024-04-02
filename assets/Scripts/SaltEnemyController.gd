@@ -75,12 +75,11 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 		playback.travel(dive_start)
 	hasDived = true
 
-# THIS DIDN'T WORK SO I MADE IT SO IT WOULD CHECK IF IT HAS REACHED ITS DESTINATION (THE PLAYER) INSTEAD OF COLISIONS
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
 	if body != globals.player:
 		return
 	globals.player.health_checker(saltDamage)
-	globals.player.knockback_enter(saltDamage, rotation)
+	globals.player.knockback_enter(rotation)
 	
 	playback.travel(dive_hold)
 	saltCube.queue_free()

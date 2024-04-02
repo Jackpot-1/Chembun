@@ -54,12 +54,8 @@ environment = SubResource("Environment_qyvd4")
 
 [node name="PlayerTemplate" parent="." instance=ExtResource("8_fimwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.643052, -19.8399)
-health = 10
-gravity = 9.8
-jump_force = 9
 walk_speed = 6
 run_speed = 8
-dash_power = 12
 metadata/health = 10
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -144,7 +140,7 @@ offset_right = 716.0
 offset_bottom = 365.0
 scale = Vector2(1.69, 1.69)
 
-[node name="LblInfo" parent="CanvasLayer/InventoryGridTransfer" index="2"]
+[node name="LblInfo" parent="CanvasLayer/InventoryGridTransfer" index="3"]
 visible = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
