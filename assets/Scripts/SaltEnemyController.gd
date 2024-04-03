@@ -1,5 +1,4 @@
 extends CharacterBody3D
-@onready var globals = $"/root/Globals"
 @onready var player_path : NodePath
 @onready var animation_Tree = $AnimationTree
 @onready var saltCube = $"."
@@ -32,8 +31,8 @@ func _physics_process(delta):
 			await get_tree().create_timer(1).timeout
 			saltCube.queue_free()
 	elif playerTargeting:
-		set_movement_target(globals.player.transform.origin)
-		look_at(globals.player.transform.origin * Vector3(1, 0, 1))
+		set_movement_target(Globals.player.transform.origin)
+		look_at(Globals.player.transform.origin * Vector3(1, 0, 1))
 		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
 	if suprise in playback.get_current_node():
 		return
@@ -68,7 +67,7 @@ func _ready():
 	playback.travel(walking)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
-	if body != globals.player:
+	if body != Globals.player:
 		return
 	movement_speed = 7
 	if !hasDived:
@@ -76,16 +75,16 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 	hasDived = true
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
-	if body != globals.player:
+	if body != Globals.player:
 		return
-	globals.player.health_checker(saltDamage)
-	globals.player.knockback_enter(rotation)
+	Globals.player.health_checker(saltDamage)
+	Globals.player.knockback_enter(rotation)
 	
 	playback.travel(dive_hold)
 	saltCube.queue_free()
 
 func _on_detection_range_body_entered(body):
-	if body != globals.player:
+	if body != Globals.player:
 		return
 	if runOnce:
 		return
@@ -95,6 +94,6 @@ func _on_detection_range_body_entered(body):
 	#run to player
 
 func _on_detection_range_body_exited(body):
-	if body!= globals.player:
+	if body!= Globals.player:
 		return
 	playerTargeting = false
