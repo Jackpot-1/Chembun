@@ -21,9 +21,14 @@ class Enemy extends CharacterBody3D:
 	var move_speed: float
 	var vulnerable_to: Array
 	var animations: Dictionary
+	var targeting_player: bool
+	
+	
 	
 	func _init(enemy_id):
 		var data = Globals.EnemyDatabase[enemy_id]
 		damage = data.damage
 		move_speed = data.move_speed
 		vulnerable_to = data.vulnerable_to
+		targeting_player = false
+		

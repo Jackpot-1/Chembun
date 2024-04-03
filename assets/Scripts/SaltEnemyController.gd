@@ -6,10 +6,8 @@ extends CharacterBody3D
 @export var saltDamage = 2
 var tween = Tween.new()
 #Animations
-var walking = "Walk"
-var suprise = "Salt_Surprise"
-var dive_start = "dive_start"
-var dive_hold = "Dive_Hold"
+var animations = {"walking":"Walk", "alert":"Salt_Surprise", "attack1":"dive_start", "attack2":"Dive_Hold"}
+
 var movementVector = Vector3(-1, 0, 0)
 var moveSpeed = 5
 var movement
@@ -24,9 +22,8 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
-	
 	if hasDived:
-		if dive_hold in playback.get_current_node():
+		if animations.attack2 in playback.get_current_node():
 			playerTargeting = false
 			await get_tree().create_timer(1).timeout
 			saltCube.queue_free()
@@ -34,7 +31,7 @@ func _physics_process(delta):
 		set_movement_target(Globals.player.transform.origin)
 		look_at(Globals.player.transform.origin * Vector3(1, 0, 1))
 		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
-	if suprise in playback.get_current_node():
+	if animations.alert in playback.get_current_node():
 		return
 	if !playerTargeting:
 		return
@@ -64,14 +61,14 @@ func _on_velocity_computed(safe_velocity: Vector3):
 	
 func _ready():
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-	playback.travel(walking)
+	playback.travel(animations.walking)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
 	if body != Globals.player:
 		return
 	movement_speed = 7
 	if !hasDived:
-		playback.travel(dive_start)
+		playback.travel(animations.attack1)
 	hasDived = true
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
@@ -80,7 +77,7 @@ func _on_hit_box_body_entered(body): #If it touches this then the player will ta
 	Globals.player.health_checker(saltDamage)
 	Globals.player.knockback_enter(rotation)
 	
-	playback.travel(dive_hold)
+	playback.travel(animations.attack2)
 	saltCube.queue_free()
 
 func _on_detection_range_body_entered(body):
@@ -88,7 +85,7 @@ func _on_detection_range_body_entered(body):
 		return
 	if runOnce:
 		return
-	playback.travel(suprise)
+	playback.travel(animations.alert)
 	playerTargeting = true
 	runOnce = true
 	#run to player
