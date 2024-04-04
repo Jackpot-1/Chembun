@@ -7,11 +7,10 @@ var data = Globals.EnemyDatabase.SaltBlock
 @export var saltDamage = 2
 var tween = Tween.new()
 #Animations
-var animations = {"walking":"Walk", "alert":"Salt_Surprise", "attack1":"dive_start", "attack2":"Dive_Hold"}
+var animations = {"walk":"Walk", "alert":"Salt_Surprise", "attack1":"dive_start", "attack2":"Dive_Hold"}
 
 var movementVector = Vector3(-1, 0, 0)
 var moveSpeed = 5
-var movement
 var playerTargeting = false
 var runOnce = false
 var hasDived = false
@@ -62,7 +61,7 @@ func _on_velocity_computed(safe_velocity: Vector3):
 	
 func _ready():
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-	playback.travel(animations.walking)
+	playback.travel(animations.walk)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
 	if body != Globals.player:
