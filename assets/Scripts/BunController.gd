@@ -247,8 +247,8 @@ func regen():
 	if !(health == 10):
 		$RegenTimer.start()
 
-func knockback_enter(direction:Vector3):
-	knockback = Vector3(0,1,1).rotated(Vector3.UP, direction.y)
+func knockback_enter(direction:Vector3, strength: Vector3):
+	knockback = strength.rotated(Vector3.UP, direction.y)
 	$KnockbackTimer.start()
 
 func knockback_timeout():

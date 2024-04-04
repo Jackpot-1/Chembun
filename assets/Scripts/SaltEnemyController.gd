@@ -1,4 +1,5 @@
 extends CharacterBody3D
+var data = Globals.EnemyDatabase.SaltBlock
 @onready var player_path : NodePath
 @onready var animation_Tree = $AnimationTree
 @onready var saltCube = $"."
@@ -66,7 +67,7 @@ func _ready():
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
 	if body != Globals.player:
 		return
-	movement_speed = 7
+	movement_speed = 10
 	if !hasDived:
 		playback.travel(animations.attack1)
 	hasDived = true
@@ -75,7 +76,7 @@ func _on_hit_box_body_entered(body): #If it touches this then the player will ta
 	if body != Globals.player:
 		return
 	Globals.player.health_checker(saltDamage)
-	Globals.player.knockback_enter(rotation)
+	Globals.player.knockback_enter(rotation, data.knockback)
 	
 	playback.travel(animations.attack2)
 	saltCube.queue_free()
