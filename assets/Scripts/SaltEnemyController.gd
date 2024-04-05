@@ -1,5 +1,5 @@
 extends CharacterBody3D
-var data = Globals.EnemyDatabase.SaltBlock
+var data = Globals.EnemyDatabase.SaltBlock # test of globals data
 @onready var player_path : NodePath
 @onready var animation_Tree = $AnimationTree
 @onready var saltCube = $"."
@@ -74,7 +74,7 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
 	if body != Globals.player:
 		return
-	Globals.player.health_checker(saltDamage)
+	Globals.player.hurt(saltDamage)
 	Globals.player.knockback_enter(rotation, data.knockback)
 	
 	playback.travel(animations.attack2)

@@ -3,8 +3,8 @@ extends CharacterBody3D
 # Grabs the prebuilt AnimationTree 
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
+var pb_node
 @onready var player = $"."
-@onready var globals = $"/root/Globals"
 @onready var canvas = $"../CanvasLayer"
 @export var health = 10
 
@@ -60,7 +60,6 @@ var states = {
 # Physics values
 var direction: Vector3
 var horizontal_velocity: Vector3
-var aim_turn: float
 var movement: Vector3
 var vertical_velocity: Vector3
 var movement_speed: int
@@ -70,17 +69,17 @@ var acceleration: int
 var jump_counter: int
 var knockback: Vector3
 
-func _ready(): # Camera based Rotation
-	globals.player = $"."
-	direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
+func _ready():
+	Globals.player = $"."
+	#direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
 
 func _input(event): # All major mouse and button input events
-	if event is InputEventMouseMotion && !canvas.playerStopped:
-		aim_turn = -event.relative.x * 0.015 # animates player with mouse movement while aiming
-	if event.is_action_pressed("aim") && !canvas.playerStopped: # Aim button triggers a strafe walk and camera mechanic
+	if(canvas.playerStopped):
+		return
+	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
-	elif event.is_action_released("aim") && !canvas.playerStopped:
+	if event.is_action_released("aim"):
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
 
@@ -96,32 +95,6 @@ func sprint_and_roll():
 		horizontal_velocity = direction * dash_power
 		states.rolling = true
 
-func attack1(): # If not doing other things, start attack1
-	if (animations.idle in playback.get_current_node() || animations.walk in playback.get_current_node()) && is_on_floor():
-		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
-			playback.travel(animations.attack1)
-
-func attack2(): # If attack1 is animating, combo into attack 2
-	if animations.attack1 in playback.get_current_node(): # Big Attack if sprinting, adds a dash
-		if Input.is_action_just_pressed("attack"):
-			playback.travel(animations.attack2)
-
-func attack3(): # If attack2 is animating, combo into attack 3. This is a template.
-	if animations.attack2 in playback.get_current_node():
-		if Input.is_action_just_pressed("attack"):
-			pass #no current animation, but add it's playback here!
-
-func rollattack(): # If attack pressed while rolling, do a special attack afterwards.
-	if animations.roll in playback.get_current_node():
-		if Input.is_action_just_pressed("attack"):
-			playback.travel(animations.rollattack) #change this animation for a different attack
-
-func bigattack(): # If attack pressed while springing, do a special attack
-	if animations.run in playback.get_current_node(): # Big Attack if sprinting, adds a dash
-		if Input.is_action_just_pressed("attack"):
-			horizontal_velocity = direction * dash_power
-			playback.travel(animations.bigattack) #Add and Change this animation node for a different attack
-
 func _physics_process(delta):
 	rollattack()
 	bigattack()
@@ -130,14 +103,20 @@ func _physics_process(delta):
 	attack3()
 	sprint_and_roll()
 	
+	pb_node = playback.get_current_node()
+	
 	movement_speed = 0
 	angular_acceleration = 20
 	acceleration = 15
 	
-	# State control for is jumping/falling/landing
+	#moving defined elsewhere
 	states.grounded = is_on_floor() 
-	# Defining attack state: Add more attacks animations here as you add more!
-	states.attacking = (animations.attack1 in playback.get_current_node() || animations.attack2 in playback.get_current_node() || animations.rollattack in playback.get_current_node() || animations.bigattack in playback.get_current_node())
+	states.attacking = animations.attack1 in pb_node || animations.attack2 in pb_node || animations.rollattack in pb_node || animations.bigattack in pb_node
+	#states.running = animations.run in pb_node || animations.bigattack in pb_node
+	#states.walking = animations.walk in pb_node
+	states.jumping = animations.jump in pb_node
+	states.rolling = animations.roll in pb_node || animations.rollattack in pb_node
+	
 	# Gravity mechanics and prevent slope-sliding
 	if !states.grounded:
 		vertical_velocity += Vector3.DOWN * gravity * 2 * delta
@@ -146,16 +125,13 @@ func _physics_process(delta):
 		vertical_velocity = Vector3.DOWN * gravity / 10
 
 	# Giving BigAttack some Slide
-	if animations.bigattack in playback.get_current_node():
-		acceleration = 3346
+	if animations.bigattack in pb_node:
+		acceleration = 300
 		
 	# Defining Roll state and limiting movment during rolls
-	if animations.roll in playback.get_current_node():
-		states.rolling = true
+	if animations.roll in pb_node:
 		acceleration = 2
 		angular_acceleration = 2
-	else:
-		states.rolling = false
 	
 	# Jump input and Mechanics
 	if Input.is_action_just_pressed("jump") && !canvas.playerStopped && !states.attacking && !states.rolling:
@@ -174,7 +150,6 @@ func _physics_process(delta):
 		states.moving = true;
 		direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"), 0, Input.get_action_strength("forward") - Input.get_action_strength("backward"))
 		direction = direction.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y).normalized()
-		# Sprint input, dash state and movement speed
 		if Input.is_action_pressed("sprint") && $DashTimer.is_stopped():
 			movement_speed = run_speed
 			states.running = true
@@ -201,11 +176,10 @@ func _physics_process(delta):
 		horizontal_velocity = horizontal_velocity.lerp(direction.normalized() * movement_speed, acceleration * delta)
 	
 	# The Physics Sauce. Movement, gravity and velocity in a perfect dance.
-	# Except, this literally makes knockback impossible goofies
+	# Stirred with love and care by Chef Dimitry
 	velocity.z = horizontal_velocity.z + vertical_velocity.z
 	velocity.x = horizontal_velocity.x + vertical_velocity.x
 	velocity.y = vertical_velocity.y
-	
 	velocity += knockback
 	
 	move_and_slide()
@@ -224,12 +198,37 @@ func _physics_process(delta):
 	animation_tree["parameters/conditions/IsNotRunning"] = !states.running
 	# Attacks and roll don't use these boolean conditions, instead
 	# they use "travel" or "start" to one-shot their animations.
-	# health stuff
 
-func _process(delta):
-	pass
+func attack1():
+	if not states.attacking && not states.running && not states.rolling && states.grounded:
+		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
+			playback.travel(animations.attack1)
 
-func health_checker(damage_taken):
+func attack2():
+	if animations.attack1 in playback.get_current_node(): 
+		if Input.is_action_just_pressed("attack"):
+			#playback.start(animations.attack2) #There's currently no attack2
+			pass
+
+func attack3():
+	if animations.attack2 in playback.get_current_node():
+		if Input.is_action_just_pressed("attack"):
+			#playback.start(animations.attack3) #There's currently no attack3
+			pass
+
+func rollattack(): # If attack pressed while rolling, do a special attack afterwards.
+	if animations.roll in playback.get_current_node() and not states.attacking:
+		if Input.is_action_just_pressed("attack"):
+			#playback.start(animations.rollattack)
+			pass
+
+func bigattack(): # If attack pressed while sprinting, do a special attack
+	if animations.run in playback.get_current_node() and not states.attacking and not states.rolling: # Big Attack if sprinting, adds a dash
+		if Input.is_action_just_pressed("attack"):
+			horizontal_velocity = direction * dash_power
+			#playback.start(animations.bigattack) #Add and Change this animation node for a different attack
+
+func hurt(damage_taken):
 	var old_health = health
 	health -= damage_taken
 	if health <= 0:
@@ -249,8 +248,9 @@ func regen():
 
 func knockback_enter(direction:Vector3, strength: Vector3):
 	knockback = strength.rotated(Vector3.UP, direction.y)
+	states.knockback = true
 	$KnockbackTimer.start()
 
-func knockback_timeout():
+func knockback_exit():
 	states.knockback = false
 	knockback = Vector3.ZERO
