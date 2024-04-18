@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b488hpdodaok"]
+[gd_scene load_steps=5 format=3 uid="uid://b488hpdodaok"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Screens/StartingScreen.gd" id="1_8p7ja"]
 [ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="2_2ah86"]
-[ext_resource type="Script" path="res://assets/Scenes/Screens/GUIControllerHandler.gd" id="3_glpwx"]
 [ext_resource type="Texture2D" uid="uid://nduepfjtp4b1" path="res://appIcons/ChemBum Presentation December edition.png" id="3_j12j7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxrya"]
@@ -58,7 +57,6 @@ theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_lxrya")
 text = "Play"
-script = ExtResource("3_glpwx")
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -72,7 +70,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
-script = ExtResource("3_glpwx")
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -86,7 +83,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_2ah86")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
-script = ExtResource("3_glpwx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

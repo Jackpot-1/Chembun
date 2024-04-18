@@ -1,5 +1,9 @@
 extends Control
 
+#func _ready():
+	#$MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Quit.grab_focus()
+	#$MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/CreditButton.grab_focus()
+	#$MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/PlayButton.grab_focus()
 
 #func _on_play_button_pressed():
 #	get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")

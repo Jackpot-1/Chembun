@@ -1,30 +1,20 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=19 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
 [ext_resource type="Material" uid="uid://c1u020xb37y6n" path="res://addons/ThirdPersonTemplate/Environments/Materials/Blue.material" id="3_ugxud"]
-[ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="4_kiab8"]
+[ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="4_hgv50"]
 [ext_resource type="Material" uid="uid://d3up41bo0vjj0" path="res://addons/ThirdPersonTemplate/Environments/Materials/OrangeGrid.material" id="4_kii6k"]
-[ext_resource type="Script" path="res://assets/GUI.gd" id="4_ukkbc"]
-[ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="5_a0840"]
+[ext_resource type="Script" path="res://addons/gloot/core/inventory_item.gd" id="5_m8wyw"]
+[ext_resource type="Resource" uid="uid://ddrmqwl3guset" path="res://tests/data/item_definitions_grid.tres" id="6_1viyf"]
 [ext_resource type="Material" uid="uid://ddpgp1pyklffr" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreenGrid.material" id="6_5rtke"]
 [ext_resource type="Material" uid="uid://bquocw2a8n271" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreyGrid.material" id="6_7xeo2"]
-[ext_resource type="PackedScene" uid="uid://dkfn8qojbtud4" path="res://examples/inventory_grid_ex_transfer.tscn" id="6_wknf2"]
+[ext_resource type="Script" path="res://assets/Scripts/hotbar.gd" id="7_qe162"]
 [ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
-[ext_resource type="Texture2D" uid="uid://cehe77vdrg3ro" path="res://assets/Scenes/hex_ver_1.png" id="8_3q2t4"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
-[ext_resource type="Script" path="res://assets/Scripts/elementCrafter.gd" id="9_0oo2h"]
-[ext_resource type="FontFile" uid="uid://yw0aqj6y760f" path="res://fonts/Kalam/Kalam-Regular.ttf" id="10_h6ocq"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
-[ext_resource type="Texture2D" uid="uid://d2vxn3wl3igpm" path="res://assets/images/elements/17Cl.png" id="11_3uqjq"]
-[ext_resource type="FontFile" uid="uid://buq1xebcecp7j" path="res://fonts/Kalam/Kalam-Bold.ttf" id="11_4vbf0"]
-[ext_resource type="Texture2D" uid="uid://8t6phigr1pse" path="res://assets/images/elements/1H.png" id="12_b0dk0"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
-[ext_resource type="Texture2D" uid="uid://eluekndkuujm" path="res://assets/images/elements/8O.png" id="12_sf1ok"]
-[ext_resource type="Texture2D" uid="uid://cp7m0rf840tdq" path="res://assets/images/elements/11Na.png" id="13_6fgy0"]
-[ext_resource type="Texture2D" uid="uid://c2b286hhglh0v" path="res://assets/images/elements/7N.png" id="14_vllld"]
-[ext_resource type="Texture2D" uid="uid://dllqbbgkb360y" path="res://assets/images/elements/26Fe.png" id="15_1m2so"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -58,183 +48,62 @@ walk_speed = 6
 run_speed = 8
 metadata/health = 10
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-script = ExtResource("4_ukkbc")
+[node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
-[node name="carrot" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_kiab8")
+[node name="CtrlInventoryGridLeft" parent="CanvasLayer/InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" index="0"]
+custom_minimum_size = Vector2(288, 160)
 
-[node name="carrot2" type="TextureRect" parent="CanvasLayer"]
-offset_left = 56.0
-offset_right = 596.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_kiab8")
+[node name="InventoryGridLeft" parent="CanvasLayer/InventoryGridTransfer" index="1"]
+size = Vector2i(9, 5)
 
-[node name="carrot3" type="TextureRect" parent="CanvasLayer"]
-offset_left = 112.0
-offset_right = 652.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_kiab8")
+[node name="_Node_50997" type="Node" parent="CanvasLayer/InventoryGridTransfer/InventoryGridLeft" index="0"]
+script = ExtResource("5_m8wyw")
+protoset = ExtResource("6_1viyf")
+prototype_id = "item_2x2"
+properties = {
+"grid_position": Vector2i(1, 2)
+}
 
-[node name="carrot4" type="TextureRect" parent="CanvasLayer"]
-offset_left = 168.0
-offset_right = 708.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_kiab8")
+[node name="hotbar" type="Node" parent="CanvasLayer"]
+script = ExtResource("7_qe162")
 
-[node name="carrot5" type="TextureRect" parent="CanvasLayer"]
-offset_left = 224.0
-offset_right = 764.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_kiab8")
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/hotbar"]
+offset_left = 672.0
+offset_top = 536.0
+offset_right = 992.0
+offset_bottom = 600.0
 
-[node name="carrotHalf" type="TextureRect" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_a0840")
-
-[node name="carrotHalf2" type="TextureRect" parent="CanvasLayer"]
-offset_left = 56.0
-offset_right = 596.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_a0840")
-
-[node name="carrotHalf3" type="TextureRect" parent="CanvasLayer"]
-offset_left = 112.0
-offset_right = 652.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_a0840")
-
-[node name="carrotHalf4" type="TextureRect" parent="CanvasLayer"]
-offset_left = 168.0
-offset_right = 708.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_a0840")
-
-[node name="carrotHalf5" type="TextureRect" parent="CanvasLayer"]
-offset_left = 224.0
-offset_right = 764.0
-offset_bottom = 540.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_a0840")
-
-[node name="InventoryGridTransfer" parent="CanvasLayer" instance=ExtResource("6_wknf2")]
-visible = false
-
-[node name="VBoxContainer" parent="CanvasLayer/InventoryGridTransfer" index="0"]
-offset_left = 304.0
-offset_top = 168.0
-offset_right = 716.0
-offset_bottom = 365.0
-scale = Vector2(1.69, 1.69)
-
-[node name="LblInfo" parent="CanvasLayer/InventoryGridTransfer" index="3"]
-visible = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
-offset_left = 261.0
-offset_top = 32.0
-offset_right = 891.0
-offset_bottom = 613.0
-texture = ExtResource("8_3q2t4")
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 256.0
-offset_top = 32.0
-offset_right = 853.0
-offset_bottom = 574.0
-scale = Vector2(1.07178, 1.07178)
-script = ExtResource("9_0oo2h")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = -239.0
-offset_top = 202.0
-offset_right = 836.0
-offset_bottom = 299.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/hotbar/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_fonts/normal_font = ExtResource("10_h6ocq")
-theme_override_fonts/bold_font = ExtResource("11_4vbf0")
-theme_override_font_sizes/normal_font_size = 100
-theme_override_font_sizes/bold_font_size = 35
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 5.59802
-offset_top = 208.998
-offset_right = 545.598
-offset_bottom = 747.998
-scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("12_b0dk0")
+offset_right = 80.0
+offset_bottom = 80.0
 
-[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/Control"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 145.552
-offset_top = 417.996
-offset_right = 685.552
-offset_bottom = 956.996
-scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("11_3uqjq")
+offset_left = 80.0
+offset_right = 160.0
+offset_bottom = 80.0
 
-[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/Control"]
+[node name="Panel3" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 358.283
-offset_top = 417.996
-offset_right = 898.283
-offset_bottom = 956.996
-scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("12_sf1ok")
+offset_left = 160.0
+offset_right = 240.0
+offset_bottom = 80.0
 
-[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/Control"]
+[node name="Panel4" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 493.571
-offset_top = 211.797
-offset_right = 1033.57
-offset_bottom = 750.797
-scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("13_6fgy0")
+offset_left = 240.0
+offset_right = 320.0
+offset_bottom = 80.0
 
-[node name="TextureButton5" type="TextureButton" parent="CanvasLayer/Control"]
+[node name="Panel5" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 358.283
-offset_top = 13.0624
-offset_right = 898.283
-offset_bottom = 552.062
-scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("14_vllld")
-
-[node name="TextureButton6" type="TextureButton" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 145.552
-offset_top = 13.0624
-offset_right = 685.552
-offset_bottom = 552.062
-scale = Vector2(0.18, 0.18)
-texture_normal = ExtResource("15_1m2so")
+offset_left = 320.0
+offset_right = 400.0
+offset_bottom = 80.0
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -367,14 +236,8 @@ transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.0013
 metadata/Damage = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.1948, -0.707526)
-
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton" to="CanvasLayer/Control" method="_on_texture_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton2" to="CanvasLayer/Control" method="_on_texture_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton3" to="CanvasLayer/Control" method="_on_texture_button_3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton4" to="CanvasLayer/Control" method="_on_texture_button_4_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton5" to="CanvasLayer/Control" method="_on_texture_button_5_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/TextureButton6" to="CanvasLayer/Control" method="_on_texture_button_6_pressed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
 
 [editable path="PlayerTemplate"]
+[editable path="CanvasLayer"]
 [editable path="CanvasLayer/InventoryGridTransfer"]

@@ -6,7 +6,7 @@ var cookbook = {
 	"Na+Cl":"Salt",
 	"N+H[b]3[/b]":"Ammonia",
 	"Fe[b]2[/b]+O[b]3[/b]":"Rust",
-	"C+O":"Carbon Monox	ide",
+	"C+O":"Carbon Monoxide",
 	"H[b]2[/b]+O[b]2[/b]": "Hydrogen Peroxide",
 	"C+H[b]4[/b]" : "Methane",
 	"C[b]6[/b]+H[b]12[/b]+O[b]6[/b]" : "Glucose", # can't make this cause number can't go above 9

@@ -18,6 +18,19 @@ var EnemyDatabase = {
 	}
 }
 
+var items = [
+	{
+		"name" : "carrot",
+		"icon" : "res://appIcons/ccarrot.png",
+		"attributes" : "food"
+	},
+	{
+		"name" : "water",
+		"icon" : "",
+		"attributes" : "water"
+	}
+]
+
 class Enemy extends CharacterBody3D:
 	var damage: float
 	var move_speed: float

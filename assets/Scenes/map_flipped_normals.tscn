@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmo7536cpqx56"]
+
+[ext_resource type="PackedScene" uid="uid://bocnlawfe6v44" path="res://assets/Scenes/map_flipped_normals.glb" id="1_yagsm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygii3"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="map_flipped_normals" instance=ExtResource("1_yagsm")]
+
+[node name="Plane_004" parent="." index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ygii3")

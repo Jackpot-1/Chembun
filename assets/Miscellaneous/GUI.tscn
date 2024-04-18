@@ -1,0 +1,555 @@
+[gd_scene load_steps=14 format=3 uid="uid://4g6wadcburcy"]
+
+[ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
+[ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
+[ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="3_42wmp"]
+[ext_resource type="PackedScene" uid="uid://dkfn8qojbtud4" path="res://examples/inventory_grid_ex_transfer.tscn" id="4_bpkxj"]
+[ext_resource type="Texture2D" uid="uid://bpmdtgysdm2tp" path="res://images/field_background.png" id="5_n1jfs"]
+[ext_resource type="Script" path="res://addons/gloot/ui/ctrl_inventory_item_rect.gd" id="6_gy2eq"]
+[ext_resource type="Texture2D" uid="uid://wh7hsc1iyady" path="res://images/item_armour_silver.png" id="7_gyyie"]
+[ext_resource type="Texture2D" uid="uid://marv3em7xope" path="res://images/item_book_blue.png" id="8_108mm"]
+[ext_resource type="Script" path="res://addons/gloot/ui/ctrl_drop_zone.gd" id="9_8sp04"]
+[ext_resource type="Texture2D" uid="uid://cehe77vdrg3ro" path="res://assets/Scenes/hex_ver_1.png" id="10_me4o0"]
+[ext_resource type="PackedScene" uid="uid://3slhmycnigfl" path="res://assets/Miscellaneous/elementWheel.tscn" id="11_h8j02"]
+
+[sub_resource type="StyleBoxTexture" id="1"]
+texture = ExtResource("5_n1jfs")
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="7"]
+texture = ExtResource("5_n1jfs")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_r3ly4")
+
+[node name="carrot" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lyaqe")
+
+[node name="carrot2" type="TextureRect" parent="."]
+offset_left = 56.0
+offset_right = 596.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lyaqe")
+
+[node name="carrot3" type="TextureRect" parent="."]
+offset_left = 112.0
+offset_right = 652.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lyaqe")
+
+[node name="carrot4" type="TextureRect" parent="."]
+offset_left = 168.0
+offset_right = 708.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lyaqe")
+
+[node name="carrot5" type="TextureRect" parent="."]
+offset_left = 224.0
+offset_right = 764.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lyaqe")
+
+[node name="carrotHalf" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_42wmp")
+
+[node name="carrotHalf2" type="TextureRect" parent="."]
+offset_left = 56.0
+offset_right = 596.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_42wmp")
+
+[node name="carrotHalf3" type="TextureRect" parent="."]
+offset_left = 112.0
+offset_right = 652.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_42wmp")
+
+[node name="carrotHalf4" type="TextureRect" parent="."]
+offset_left = 168.0
+offset_right = 708.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_42wmp")
+
+[node name="carrotHalf5" type="TextureRect" parent="."]
+offset_left = 224.0
+offset_right = 764.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_42wmp")
+
+[node name="InventoryGridTransfer" parent="." instance=ExtResource("4_bpkxj")]
+
+[node name="VBoxContainer" parent="InventoryGridTransfer" index="0"]
+offset_left = 304.0
+offset_top = 168.0
+offset_right = 716.0
+offset_bottom = 365.0
+scale = Vector2(1.69, 1.69)
+
+[node name="_Control_23133" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft" index="1"]
+anchors_preset = 0
+
+[node name="_Panel_23134" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23135" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23136" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 32.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23137" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_top = 96.0
+offset_right = 32.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23138" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23139" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23140" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23141" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 64.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23142" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 96.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23143" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23144" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23145" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23146" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 128.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23147" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23148" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23149" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23150" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 160.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23151" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23152" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 160.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23153" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23154" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 192.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23155" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 192.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23156" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23157" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 192.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23158" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 224.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23159" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23160" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 224.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23161" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23162" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 224.0
+offset_right = 256.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23163" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23164" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23165" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 96.0
+offset_right = 256.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23166" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 288.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23167" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 32.0
+offset_right = 288.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23168" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 288.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Panel_23169" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_23133"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("1")
+
+[node name="_Control_22931" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft" index="2"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="_Control_23121" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931"]
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("6_gy2eq")
+
+[node name="_ColorRect_23122" type="ColorRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23121"]
+visible = false
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="_TextureRect_23123" type="TextureRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23121"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = ExtResource("7_gyyie")
+expand_mode = 1
+
+[node name="_Label_23124" type="Label" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23121"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="_Control_23125" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931"]
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
+script = ExtResource("6_gy2eq")
+
+[node name="_ColorRect_23126" type="ColorRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23125"]
+visible = false
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="_TextureRect_23127" type="TextureRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23125"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = ExtResource("7_gyyie")
+expand_mode = 1
+
+[node name="_Label_23128" type="Label" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23125"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="_Control_23129" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931"]
+anchors_preset = 0
+offset_left = 224.0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 64.0
+script = ExtResource("6_gy2eq")
+
+[node name="_ColorRect_23130" type="ColorRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23129"]
+visible = false
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="_TextureRect_23131" type="TextureRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23129"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("8_108mm")
+expand_mode = 1
+
+[node name="_Label_23132" type="Label" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft/_Control_22931/_Control_23129"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="_Control_22932" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/CtrlInventoryGridLeft" index="3"]
+anchors_preset = 0
+offset_right = 288.0
+offset_bottom = 128.0
+mouse_filter = 2
+script = ExtResource("9_8sp04")
+
+[node name="_Panel_22929" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot" index="0"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("7")
+
+[node name="_HBoxContainer_22970" type="HBoxContainer" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot" index="1"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="_Control_22971" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot/_HBoxContainer_22970"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6_gy2eq")
+
+[node name="_ColorRect_22972" type="ColorRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot/_HBoxContainer_22970/_Control_22971"]
+visible = false
+layout_mode = 0
+mouse_filter = 2
+color = Color(0.745098, 0.745098, 0.745098, 1)
+
+[node name="_TextureRect_22973" type="TextureRect" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot/_HBoxContainer_22970/_Control_22971"]
+layout_mode = 0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 3
+
+[node name="_Label_22974" type="Label" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot/_HBoxContainer_22970/_Control_22971"]
+layout_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="_Label_22976" type="Label" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot/_HBoxContainer_22970"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="_Control_22975" type="Control" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot" index="2"]
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+script = ExtResource("9_8sp04")
+
+[node name="@Panel@23429" type="Panel" parent="InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/CtrlItemSlot" index="3"]
+layout_mode = 0
+theme_override_styles/panel = SubResource("7")
+
+[node name="LblInfo" parent="InventoryGridTransfer" index="2"]
+visible = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = 261.0
+offset_top = 32.0
+offset_right = 891.0
+offset_bottom = 613.0
+texture = ExtResource("10_me4o0")
+
+[node name="Control" parent="." instance=ExtResource("11_h8j02")]
+
+[editable path="InventoryGridTransfer"]

@@ -1,5 +1,11 @@
 extends Control
 
+func _ready():
+	$TextureRect/TextureRect/QuitButton.grab_focus()
+	$TextureRect/TextureRect/CreditsButton.grab_focus()
+	$TextureRect/TextureRect/SettingsButton.grab_focus()
+	$TextureRect/TextureRect/StartButton.grab_focus()
+
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")
 
