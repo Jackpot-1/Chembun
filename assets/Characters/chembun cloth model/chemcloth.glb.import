@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bx722bbws1jyb"
-path="res://.godot/imported/chemcloth.glb-b63a87dd04a7781669d954e5f69534f6.scn"
+path="res://.godot/imported/chemcloth.glb-2ab76499c6ded0f63f04544117cd66f9.scn"
 
 [deps]
 
-source_file="res://CHEMBUN/chemcloth.glb"
-dest_files=["res://.godot/imported/chemcloth.glb-b63a87dd04a7781669d954e5f69534f6.scn"]
+source_file="res://assets/Characters/chembun cloth model/chemcloth.glb"
+dest_files=["res://.godot/imported/chemcloth.glb-2ab76499c6ded0f63f04544117cd66f9.scn"]
 
 [params]
 
