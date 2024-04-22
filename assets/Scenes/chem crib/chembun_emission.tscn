@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmfpp43v0i2xn"]
+
+[ext_resource type="PackedScene" uid="uid://buhn3g37o51v6" path="res://chembun_emission.glb" id="1_t654q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg52h"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.960784, 0.945098, 0.968627, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxupl"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.262745, 0.141176, 0.431373, 1)
+roughness = 0.0
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.46
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi5t5"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.203922, 0.054902, 0.231373, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6dta"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 16.0
+
+[node name="chembun_emission" instance=ExtResource("1_t654q")]
+
+[node name="chembun" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -25.906, -42.2093, -17.2474)
+surface_material_override/0 = SubResource("StandardMaterial3D_jg52h")
+surface_material_override/1 = SubResource("StandardMaterial3D_sxupl")
+surface_material_override/2 = SubResource("StandardMaterial3D_xi5t5")
+surface_material_override/3 = SubResource("StandardMaterial3D_k6dta")

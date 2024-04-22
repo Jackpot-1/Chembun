@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://bvn8xu3mr8j1d"]
+
+[ext_resource type="PackedScene" uid="uid://xhck4fog52k4" path="res://Room/chembun crib.glb" id="1_3e4cd"]
+[ext_resource type="PackedScene" uid="uid://dmfpp43v0i2xn" path="res://chembun_emission.tscn" id="2_h0c11"]
+[ext_resource type="Texture2D" uid="uid://brlrbyugcu1kc" path="res://Tv_Screen/1.png" id="2_pylgw"]
+[ext_resource type="Texture2D" uid="uid://e0b8n3fx2q06" path="res://Tv_Screen/2.png" id="3_hmful"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy0a4"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.270588, 0.0862745, 0.215686, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_273dv"]
+cull_mode = 1
+depth_draw_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.392157, 0.345098, 0.360784, 1)
+albedo_texture_msdf = true
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uotr"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.156863, 0.0392157, 0.0980392, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ceogk"]
+blend_mode = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.286275, 0.247059, 0.211765, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aiuvk"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.517647, 0.454902, 0.341176, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_facmg"]
+albedo_color = Color(0.113725, 0.14902, 0.188235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ridy"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.305882, 0.109804, 0.215686, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auplo"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.188235, 0, 0.368627, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8046l"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0.223529, 0, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oche7"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.392157, 0.215686, 0.117647, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fafda"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.482353, 0.45098, 0.4, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etkvi"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.176471, 0.45098, 0.498039, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dif12"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.105882, 0.101961, 0.109804, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qq1xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pylgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hmful")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="chembun crib" instance=ExtResource("1_3e4cd")]
+
+[node name="Cylinder_007" parent="." index="0"]
+transform = Transform3D(1.11863, 0, 0, 0, 1.11863, 0, 0, 0, 1.11863, -0.0261526, 0.105097, 0.905523)
+surface_material_override/0 = SubResource("StandardMaterial3D_wy0a4")
+surface_material_override/1 = SubResource("StandardMaterial3D_273dv")
+surface_material_override/3 = SubResource("StandardMaterial3D_4uotr")
+surface_material_override/4 = SubResource("StandardMaterial3D_ceogk")
+surface_material_override/5 = SubResource("StandardMaterial3D_aiuvk")
+surface_material_override/6 = SubResource("StandardMaterial3D_facmg")
+surface_material_override/7 = SubResource("StandardMaterial3D_4ridy")
+surface_material_override/8 = SubResource("StandardMaterial3D_auplo")
+surface_material_override/10 = SubResource("StandardMaterial3D_8046l")
+surface_material_override/11 = SubResource("StandardMaterial3D_oche7")
+surface_material_override/12 = SubResource("StandardMaterial3D_fafda")
+surface_material_override/13 = SubResource("StandardMaterial3D_etkvi")
+surface_material_override/14 = SubResource("StandardMaterial3D_dif12")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Cylinder_007" index="0"]
+transform = Transform3D(-0.0155856, -3.13781e-09, 0.0341784, -4.52987e-09, 0.04, -1.11022e-16, 0.0256338, 5.16079e-09, 0.0207808, -0.269, 0.279, -0.483)
+sprite_frames = SubResource("SpriteFrames_qq1xn")
+autoplay = "default"
+frame_progress = 0.680547
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422467, 2.26656, 1.01403)
+light_color = Color(1, 0.768627, 0.698039, 1)
+light_energy = 16.0
+light_indirect_energy = 1.225
+omni_range = 2.777
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.47676, 0.879034, 0, -0.879034, 0.47676, 0, 2.59041, 2.83454)
+light_energy = 5.835
+light_indirect_energy = 1.162
+
+[node name="chembun_emission" parent="." index="3" instance=ExtResource("2_h0c11")]
+transform = Transform3D(0.00199957, 0, 4.13614e-05, 0, 0.002, 0, -4.13614e-05, 0, 0.00199957, 0.690112, 0.220358, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." index="4"]
+transform = Transform3D(-0.98852, 0.075341, -0.130963, 0.0173988, 0.917797, 0.396669, 0.150082, 0.389836, -0.908572, -0.0261526, 1.4116, -1.35051)
