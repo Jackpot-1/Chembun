@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://cj437v53xp0ip"]
+
+[ext_resource type="PackedScene" uid="uid://bx722bbws1jyb" path="res://Bun/chemcloth.glb" id="1_gerk4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tees"]
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.603922, 0.254902, 0.909804, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1lmp"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.898039, 1, 1, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swvmg"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw22k"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.54902, 0.0941176, 0.505882, 1)
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j02vq"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.458824, 0.458824, 0.458824, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo4ii"]
+albedo_color = Color(0.333333, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kktw6"]
+blend_mode = 1
+cull_mode = 1
+albedo_color = Color(0.67451, 1, 1, 1)
+
+[node name="chemcloth" instance=ExtResource("1_gerk4")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-1.0679e-08, 0.882102, 0.180482)
+bones/1/rotation = Quaternion(-0.121701, -0.246088, 0.0105994, 0.961518)
+bones/2/rotation = Quaternion(-0.0882075, 0.312801, 0.051311, 0.944321)
+bones/3/rotation = Quaternion(-0.354968, -0.282885, 0.762624, 0.460845)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.5832, -0.45416, -0.12212, 0.662347)
+bones/6/rotation = Quaternion(0.0272463, 0.0144195, -0.822272, 0.56826)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.55482, 0.118989, 0.070743, 0.820373)
+bones/9/position = Vector3(-0.357486, 0.34567, 0.343065)
+bones/9/rotation = Quaternion(0.0318028, 0.420195, 0.894001, 0.15227)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.624675, 0.260954, -0.0964042, 0.729651)
+bones/10/scale = Vector3(1.07448, 1.07448, 1.07448)
+bones/11/position = Vector3(0.468956, 0.163828, -0.0408929)
+bones/11/rotation = Quaternion(-0.045825, -0.227476, 0.964494, -0.126117)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.145275, 0.0435567, -0.161773, 0.975104)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/13/scale = Vector3(0, 0, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/14/scale = Vector3(0, 0, 0)
+
+[node name="Cube_002" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4tees")
+surface_material_override/1 = SubResource("StandardMaterial3D_p1lmp")
+surface_material_override/2 = SubResource("StandardMaterial3D_swvmg")
+surface_material_override/3 = SubResource("StandardMaterial3D_pw22k")
+
+[node name="Icosphere_001" parent="Armature/Skeleton3D" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j02vq")
+surface_material_override/1 = SubResource("StandardMaterial3D_fo4ii")
+surface_material_override/2 = SubResource("StandardMaterial3D_kktw6")
