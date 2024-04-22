@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvn8xu3mr8j1d"]
+[gd_scene load_steps=20 format=3 uid="uid://bvn8xu3mr8j1d"]
 
 [ext_resource type="PackedScene" uid="uid://xhck4fog52k4" path="res://assets/Scenes/chem crib/Room/chembun crib.glb" id="1_3e4cd"]
 [ext_resource type="PackedScene" uid="uid://dmfpp43v0i2xn" path="res://assets/Scenes/chem crib/chembun_emission.tscn" id="2_h0c11"]
 [ext_resource type="Texture2D" uid="uid://brlrbyugcu1kc" path="res://assets/Scenes/chem crib/Tv_Screen/1.png" id="2_pylgw"]
 [ext_resource type="Texture2D" uid="uid://e0b8n3fx2q06" path="res://assets/Scenes/chem crib/Tv_Screen/2.png" id="3_hmful"]
+[ext_resource type="Environment" path="res://default_env.tres" id="5_sjd7t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy0a4"]
 cull_mode = 2
@@ -127,15 +128,18 @@ autoplay = "default"
 frame_progress = 0.680547
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422467, 2.26656, 1.01403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422467, 2.3614, 1.01403)
 light_color = Color(1, 0.768627, 0.698039, 1)
-light_energy = 16.0
-light_indirect_energy = 1.225
+light_energy = 0.709
+light_specular = 16.0
 shadow_enabled = true
-omni_range = 2.777
+shadow_opacity = 0.6
+shadow_blur = 2.0
+omni_range = 3.271
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.47676, 0.879034, 0, -0.879034, 0.47676, 0, 2.59041, 2.83454)
+visible = false
 light_energy = 5.835
 light_indirect_energy = 1.162
 shadow_enabled = true
@@ -145,3 +149,6 @@ transform = Transform3D(0.00199957, 0, 4.13614e-05, 0, 0.002, 0, -4.13614e-05, 0
 
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
 transform = Transform3D(-0.98852, 0.075341, -0.130963, 0.0173988, 0.917797, 0.396669, 0.150082, 0.389836, -0.908572, -0.0261526, 1.4116, -1.35051)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="5"]
+environment = ExtResource("5_sjd7t")
