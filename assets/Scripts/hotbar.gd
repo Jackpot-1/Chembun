@@ -3,6 +3,7 @@ extends Node
 var slots = []
 var scroll = false
 var scrollAdder = 0
+#var zoom = 0 # this variable and the things that use it will make it so you can zoom with the scroll wheel
 
 var path1 = 0
 # Called when the node enters the scene tree for the first time.
@@ -59,11 +60,11 @@ func _process(delta):
 	
 	path1 = $Quarter/Path2D/PathFollow2D.get_progress_ratio()
 	
-		
+	# I'm sorry
 	if path1 <= 0.21 and path1 >= 0.19 or path1 <= 0.41 and path1 >= 0.39 or path1 <= 0.61 and path1 >= 0.59 or path1 <= 0.81 and path1 >= 0.79 or path1 <= 0.1 and path1 >= 0.99 or path1 == 1 or path1 == 0:
 		scrollAdder = 0
-		print(path1, " yes")
-	else: print(path1, " no")
+		#print(path1, " yes")
+	#else: print(path1, " no")
 
 
 func _input(event):
@@ -71,9 +72,13 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			scroll = true
 			scrollAdder = 0.05
+			#zoom += 0.1
+			#$"../../PlayerTemplate/Camroot".zoom_set($"../../PlayerTemplate/Camroot".zoom_get()+zoom)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			scroll = true
 			scrollAdder = -0.05
+			#zoom -= 0.1
+			#$"../../PlayerTemplate/Camroot".zoom_set($"../../PlayerTemplate/Camroot".zoom_get()+zoom)
 			
 func slot_mover():
 	pass

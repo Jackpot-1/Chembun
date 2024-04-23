@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://assets/Scripts/CameraController.gd" id="1_tiond"]
 
-
 [node name="Camroot" type="Node3D"]
 visible = false
 script = ExtResource("1_tiond")
