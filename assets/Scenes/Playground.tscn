@@ -63,32 +63,32 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="PlayerTemplate/ChemBun Rig/Armature" index="0"]
-bones/0/position = Vector3(-1.00853, -3.97466, -87.8024)
-bones/0/rotation = Quaternion(-0.711162, -0.0345947, 0.00635539, 0.702147)
-bones/1/rotation = Quaternion(-0.0987867, 0.0167411, -0.0293623, 0.994534)
-bones/2/rotation = Quaternion(-0.0331155, 0.00606606, -0.0056587, 0.999417)
-bones/3/rotation = Quaternion(-0.0331647, 0.006123, -0.00565687, 0.999415)
-bones/4/rotation = Quaternion(0.138885, 0.0392009, -0.0517954, 0.988176)
-bones/5/rotation = Quaternion(-0.129885, -0.0408905, -0.0312046, 0.990194)
-bones/7/rotation = Quaternion(-0.583131, -0.363129, 0.684865, -0.243011)
-bones/8/rotation = Quaternion(0.288605, 0.152771, 0.0311686, 0.944667)
+bones/0/position = Vector3(-1.88848, -3.39876, -88.8526)
+bones/0/rotation = Quaternion(-0.713603, 0.0233832, -0.0167781, 0.699959)
+bones/1/rotation = Quaternion(-0.09448, 0.00649549, -0.0142067, 0.995404)
+bones/2/rotation = Quaternion(-0.0333824, 0.00235259, 0.00216902, 0.999438)
+bones/3/rotation = Quaternion(-0.033371, 0.00240697, 0.00215984, 0.999438)
+bones/4/rotation = Quaternion(0.0794238, -0.0121205, 0.00559373, 0.996752)
+bones/5/rotation = Quaternion(-0.0697769, -0.103979, -0.0015267, 0.992128)
+bones/7/rotation = Quaternion(-0.57198, -0.387674, 0.66626, -0.280438)
+bones/8/rotation = Quaternion(0.348845, 0.170889, -0.0928653, 0.916777)
 bones/9/position = Vector3(3.5451e-06, 48.2364, 3.33977e-06)
-bones/9/rotation = Quaternion(0.0140264, -0.0163921, 0.0593036, 0.998007)
+bones/9/rotation = Quaternion(0.0220863, -0.0163467, 0.0933825, 0.995251)
 bones/10/position = Vector3(-4.76838e-07, 59.1562, -7.74861e-06)
-bones/11/rotation = Quaternion(0.558486, -0.418286, 0.639271, 0.323206)
-bones/12/rotation = Quaternion(0.438627, -0.00873423, 0.208862, 0.874017)
-bones/13/rotation = Quaternion(0.0307902, 0.0112681, -0.120753, 0.992141)
+bones/11/rotation = Quaternion(0.554546, -0.410474, 0.664112, 0.288001)
+bones/12/rotation = Quaternion(0.394746, 0.0284376, 0.160415, 0.904231)
+bones/13/rotation = Quaternion(0.0233862, 0.0113057, -0.0917169, 0.995446)
 bones/14/position = Vector3(-4.54747e-13, 59.1881, 2.38418e-06)
-bones/15/rotation = Quaternion(0.330534, -0.337553, 0.88121, -0.0165376)
-bones/16/rotation = Quaternion(0.51975, 0.247648, 0.529803, 0.622767)
-bones/17/rotation = Quaternion(-0.187203, -0.887149, 0.0466305, 0.419222)
-bones/18/rotation = Quaternion(0.34778, 0.513627, -0.247087, 0.744436)
+bones/15/rotation = Quaternion(0.269841, -0.265171, 0.92528, 0.0269712)
+bones/16/rotation = Quaternion(0.476902, 0.292944, 0.554451, 0.615899)
+bones/17/rotation = Quaternion(-0.217244, -0.874151, 0.0688293, 0.428869)
+bones/18/rotation = Quaternion(0.335832, 0.532319, -0.242103, 0.738404)
 bones/19/position = Vector3(-3.12924e-06, 44.7667, 2.5332e-06)
-bones/20/rotation = Quaternion(-0.285569, -0.102163, 0.950173, -0.0720024)
-bones/21/rotation = Quaternion(-0.679932, -0.635497, -0.22075, 0.291728)
-bones/22/rotation = Quaternion(-0.374473, -0.722503, -0.201892, 0.544976)
+bones/20/rotation = Quaternion(-0.250041, -0.122107, 0.960474, 0.00763929)
+bones/21/rotation = Quaternion(-0.611533, -0.731454, 0.243599, 0.177936)
+bones/22/rotation = Quaternion(-0.53922, -0.450188, 0.0569797, 0.709455)
 bones/23/position = Vector3(2.6565e-06, 80.3806, -1.49808e-06)
-bones/23/rotation = Quaternion(0.327335, -0.55396, 0.251563, 0.722977)
+bones/23/rotation = Quaternion(0.339403, -0.535333, 0.256946, 0.729523)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -152,6 +152,7 @@ offset_right = 400.0
 offset_bottom = 80.0
 
 [node name="Quarter2" type="TextureRect" parent="CanvasLayer/hotbar"]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
