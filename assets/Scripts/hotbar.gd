@@ -59,8 +59,11 @@ func _process(delta):
 	
 	path1 = $Quarter/Path2D/PathFollow2D.get_progress_ratio()
 	
-	if path1 <= 0.151 and path1 >= 0.149 or path1 <= 0.351 and path1 >= 0.349 or path1 <= 0.551 and path1 >= 0.549 or path1 <= 0.751 and path1 >= 0.749 or path1 <= 0.951 and path1 >= 0.949:
+		
+	if path1 <= 0.21 and path1 >= 0.19 or path1 <= 0.41 and path1 >= 0.39 or path1 <= 0.61 and path1 >= 0.59 or path1 <= 0.81 and path1 >= 0.79 or path1 <= 0.1 and path1 >= 0.99 or path1 == 1 or path1 == 0:
 		scrollAdder = 0
+		print(path1, " yes")
+	else: print(path1, " no")
 
 
 func _input(event):
