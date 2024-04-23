@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cayeme4eqoudh"]
-
-[ext_resource type="Shader" path="res://assets/TEST/sphere.gdshader" id="1_he0nf"]
-
-[resource]
-render_priority = 0
-shader = ExtResource("1_he0nf")
-shader_parameter/albedo = Color(0, 0, 0, 1)
