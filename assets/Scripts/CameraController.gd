@@ -9,6 +9,7 @@ var camrot_v = 0
 @export var cam_v_max = 75 # 75 recommended
 @export var cam_v_min = -55 # -55 recommended
 @export var joystick_sensitivity = 20
+@export var zoom = 0 #0 is default
 var h_sensitivity = .01
 var v_sensitivity = .01
 var h_acceleration = 10
@@ -17,6 +18,7 @@ var joyview = Vector2()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	zoom_set(zoom)
 	
 func _input(event):
 	if event is InputEventMouseMotion and $"../../CanvasLayer".isinventory == false:
@@ -32,7 +34,17 @@ func _joystick_input():
 
 			camrot_h += (joyview.x / 2) * joystick_sensitivity * h_sensitivity
 			camrot_v += (joyview.y / 2) * joystick_sensitivity * v_sensitivity
-		
+			
+func zoom_set(zoom):
+	if zoom <= 0: return
+	$".".position.y = zoom/3
+	print($".".position.y)
+	#$h/v.scale = Vector3(zoom+1, zoom+1, zoom+1)
+	$h/v.spring_length = -zoom - 3
+	
+func zoom_get():
+	return zoom
+	
 func _physics_process(delta):
 	# JoyPad Controls
 	_joystick_input()
