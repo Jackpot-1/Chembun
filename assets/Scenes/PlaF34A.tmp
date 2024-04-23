@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=23 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -33,9 +33,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0ck8"]
-blend_mode = 1
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nebek"]
 blend_mode = 2
 
@@ -63,32 +60,32 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="PlayerTemplate/ChemBun Rig/Armature" index="0"]
-bones/0/position = Vector3(-1.00853, -3.97466, -87.8024)
-bones/0/rotation = Quaternion(-0.711162, -0.0345947, 0.00635539, 0.702147)
-bones/1/rotation = Quaternion(-0.0987867, 0.0167411, -0.0293623, 0.994534)
-bones/2/rotation = Quaternion(-0.0331155, 0.00606606, -0.0056587, 0.999417)
-bones/3/rotation = Quaternion(-0.0331647, 0.006123, -0.00565687, 0.999415)
-bones/4/rotation = Quaternion(0.138885, 0.0392009, -0.0517954, 0.988176)
-bones/5/rotation = Quaternion(-0.129885, -0.0408905, -0.0312046, 0.990194)
-bones/7/rotation = Quaternion(-0.583131, -0.363129, 0.684865, -0.243011)
-bones/8/rotation = Quaternion(0.288605, 0.152771, 0.0311686, 0.944667)
+bones/0/position = Vector3(-1.52675, -3.43882, -88.8812)
+bones/0/rotation = Quaternion(-0.71279, -0.0113941, -0.000173157, 0.701285)
+bones/1/rotation = Quaternion(-0.108122, 0.000422012, -0.0183977, 0.993967)
+bones/2/rotation = Quaternion(-0.0335236, 0.000805087, -0.000722759, 0.999437)
+bones/3/rotation = Quaternion(-0.033523, 0.000855721, -0.000727548, 0.999437)
+bones/4/rotation = Quaternion(0.0941066, -0.0022035, -0.00405503, 0.995552)
+bones/5/rotation = Quaternion(-0.0671945, -0.0499876, -0.0791349, 0.99334)
+bones/7/rotation = Quaternion(-0.575144, -0.379026, 0.674659, -0.2653)
+bones/8/rotation = Quaternion(0.331623, 0.196496, -0.0353289, 0.922045)
 bones/9/position = Vector3(3.5451e-06, 48.2364, 3.33977e-06)
-bones/9/rotation = Quaternion(0.0140264, -0.0163921, 0.0593036, 0.998007)
+bones/9/rotation = Quaternion(0.0177017, -0.0163739, 0.074843, 0.996904)
 bones/10/position = Vector3(-4.76838e-07, 59.1562, -7.74861e-06)
-bones/11/rotation = Quaternion(0.558486, -0.418286, 0.639271, 0.323206)
-bones/12/rotation = Quaternion(0.438627, -0.00873423, 0.208862, 0.874017)
-bones/13/rotation = Quaternion(0.0307902, 0.0112681, -0.120753, 0.992141)
+bones/11/rotation = Quaternion(0.552207, -0.41498, 0.659916, 0.295583)
+bones/12/rotation = Quaternion(0.399698, -0.000791114, 0.153504, 0.903702)
+bones/13/rotation = Quaternion(0.0309489, 0.0112672, -0.121375, 0.99206)
 bones/14/position = Vector3(-4.54747e-13, 59.1881, 2.38418e-06)
-bones/15/rotation = Quaternion(0.330534, -0.337553, 0.88121, -0.0165376)
-bones/16/rotation = Quaternion(0.51975, 0.247648, 0.529803, 0.622767)
-bones/17/rotation = Quaternion(-0.187203, -0.887149, 0.0466305, 0.419222)
-bones/18/rotation = Quaternion(0.34778, 0.513627, -0.247087, 0.744436)
+bones/15/rotation = Quaternion(0.291568, -0.323986, 0.899974, 0.008218)
+bones/16/rotation = Quaternion(0.486898, 0.280733, 0.541689, 0.625054)
+bones/17/rotation = Quaternion(-0.180225, -0.898429, 0.0750272, 0.393339)
+bones/18/rotation = Quaternion(0.335832, 0.532319, -0.242103, 0.738404)
 bones/19/position = Vector3(-3.12924e-06, 44.7667, 2.5332e-06)
-bones/20/rotation = Quaternion(-0.285569, -0.102163, 0.950173, -0.0720024)
-bones/21/rotation = Quaternion(-0.679932, -0.635497, -0.22075, 0.291728)
-bones/22/rotation = Quaternion(-0.374473, -0.722503, -0.201892, 0.544976)
+bones/20/rotation = Quaternion(-0.254887, -0.107525, 0.959895, -0.0455238)
+bones/21/rotation = Quaternion(-0.684595, -0.681898, -0.0109138, 0.257344)
+bones/22/rotation = Quaternion(-0.45702, -0.614973, -0.0926431, 0.635891)
 bones/23/position = Vector3(2.6565e-06, 80.3806, -1.49808e-06)
-bones/23/rotation = Quaternion(0.327335, -0.55396, 0.251563, 0.722977)
+bones/23/rotation = Quaternion(0.326073, -0.555874, 0.250997, 0.722275)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -188,14 +185,13 @@ rotates = false
 cubic_interp = false
 
 [node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D"]
-material = SubResource("CanvasItemMaterial_q0ck8")
 position = Vector2(1.23978e-05, 2.38419e-05)
 rotation = 1.19281
 scale = Vector2(0.270822, 0.250546)
 texture = ExtResource("8_7hari")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(-4.46786, 103.648)
+position = Vector2(-4.46768, 103.648)
 rotation = -1.19281
 progress = 125.841
 rotates = false
@@ -208,7 +204,7 @@ scale = Vector2(0.270822, 0.250546)
 texture = ExtResource("8_7hari")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(44.8766, 52.4044)
+position = Vector2(44.8771, 52.4041)
 rotation = -1.19281
 progress = 197.75
 rotates = false
@@ -221,7 +217,7 @@ scale = Vector2(0.270822, 0.250546)
 texture = ExtResource("8_7hari")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(111.486, 26.4803)
+position = Vector2(111.485, 26.4804)
 rotation = -1.19281
 progress = 269.66
 rotates = false

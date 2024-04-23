@@ -22,11 +22,13 @@ var items = [
 	{
 		"name" : "carrot",
 		"icon" : "res://appIcons/ccarrot.png",
+		"composition" : "",
 		"attributes" : "food"
 	},
 	{
 		"name" : "water",
 		"icon" : "",
+		"composition" : "H2O",
 		"attributes" : "water"
 	}
 ]
