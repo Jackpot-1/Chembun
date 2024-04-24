@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://smu6f5kk7j2n"
-path="res://.godot/imported/ass grass.glb-db0ae47e3e958be08df6c628b7b837bf.scn"
+uid="uid://0242u3ehx8ot"
+path="res://.godot/imported/ProGrass.glb-69a0ff19eaa171886d6d36efe0309703.scn"
 
 [deps]
 
-source_file="res://assets/Grass/ass grass.glb"
-dest_files=["res://.godot/imported/ass grass.glb-db0ae47e3e958be08df6c628b7b837bf.scn"]
+source_file="res://assets/Grass/ProGrass.glb"
+dest_files=["res://.godot/imported/ProGrass.glb-69a0ff19eaa171886d6d36efe0309703.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
-"ass grass_Plane_006": {
+"ProGrass_Plane_004": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -39,7 +39,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/Grass/mesh/ass grass.res"
+"save_to_file/path": "res://assets/Grass/ProGrass.res"
 }
 }
 }
