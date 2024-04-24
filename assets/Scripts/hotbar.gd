@@ -108,3 +108,17 @@ func slotUpdater(item):
 	#if scroll == false:
 		#scrollAdder = 0
 		
+	
+	
+func _on_area_2d_body_entered(body):
+	print(body, " entered")
+	
+
+
+
+func _on_area_2d_body_exited(body):
+	print(body, " exited")
+
+
+func _on_area_2d_area_entered(area):
+	print(area)

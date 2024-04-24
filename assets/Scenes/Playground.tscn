@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=27 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -37,8 +37,14 @@ point_count = 6
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0ck8"]
 blend_mode = 1
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cj2ed"]
+radius = 95.5599
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nebek"]
 blend_mode = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0rfs"]
+radius = 3.84619
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b0ysw"]
 
@@ -64,27 +70,32 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="PlayerTemplate/ChemBun Rig/Armature" index="0"]
-bones/0/position = Vector3(-2.21293, -3.91091, -88.4816)
-bones/0/rotation = Quaternion(-0.70894, 0.00573143, -0.00740183, 0.705207)
-bones/1/rotation = Quaternion(-0.0997208, 0.0157268, -0.0151416, 0.994776)
-bones/2/rotation = Quaternion(-0.0327135, 0.00513734, 0.000769643, 0.999451)
-bones/3/rotation = Quaternion(-0.0327096, 0.00516758, 0.000770159, 0.999451)
-bones/4/rotation = Quaternion(0.0780709, -0.00493407, 0.00492197, 0.996924)
-bones/5/rotation = Quaternion(-0.0647183, -0.0544459, 0.00213313, 0.996415)
-bones/7/rotation = Quaternion(-0.565521, -0.388564, 0.675842, -0.269151)
-bones/8/rotation = Quaternion(0.29377, 0.133877, -0.111768, 0.939832)
-bones/9/rotation = Quaternion(0.013232, -0.0163953, 0.055944, 0.998212)
-bones/11/rotation = Quaternion(0.556791, -0.412167, 0.656353, 0.298836)
-bones/12/rotation = Quaternion(0.405324, 0.0131931, 0.166973, 0.898698)
-bones/13/rotation = Quaternion(0.0452739, 0.0111643, -0.177555, 0.983005)
-bones/15/rotation = Quaternion(0.280262, -0.281891, 0.917534, 0.0110757)
-bones/16/rotation = Quaternion(0.502481, 0.26331, 0.530335, 0.630021)
-bones/17/rotation = Quaternion(-0.207848, -0.868733, 0.0769312, 0.442926)
-bones/18/rotation = Quaternion(0.336502, 0.531286, -0.242384, 0.73875)
-bones/20/rotation = Quaternion(-0.298853, -0.16262, 0.937968, -0.0667739)
-bones/21/rotation = Quaternion(-0.616186, -0.602801, -0.32406, 0.389783)
-bones/22/rotation = Quaternion(-0.336296, -0.77086, -0.230617, 0.489382)
-bones/23/rotation = Quaternion(0.327885, -0.553125, 0.251809, 0.723282)
+bones/0/position = Vector3(-1.99145, -2.21276, -88.8787)
+bones/0/rotation = Quaternion(-0.707471, 0.0122497, -0.0234384, 0.706248)
+bones/1/rotation = Quaternion(-0.106057, 0.0262258, -0.031062, 0.993529)
+bones/2/rotation = Quaternion(-0.031112, 0.00841713, -0.00250995, 0.999477)
+bones/3/rotation = Quaternion(-0.0311541, 0.00846871, -0.00251466, 0.999476)
+bones/4/rotation = Quaternion(0.087953, -0.00665881, 0.00497495, 0.99609)
+bones/5/rotation = Quaternion(-0.0850216, -0.0734709, 0.0179814, 0.993504)
+bones/7/rotation = Quaternion(-0.564841, -0.383724, 0.684457, -0.255402)
+bones/8/rotation = Quaternion(0.261204, 0.162809, 0.0426083, 0.9505)
+bones/9/position = Vector3(3.5451e-06, 48.2364, 3.33977e-06)
+bones/9/rotation = Quaternion(0.0221849, -0.0163461, 0.0937985, 0.99521)
+bones/10/position = Vector3(-4.76838e-07, 59.1562, -7.74861e-06)
+bones/11/rotation = Quaternion(0.568888, -0.401954, 0.651835, 0.299851)
+bones/12/rotation = Quaternion(0.375952, 0.0902648, 0.225265, 0.894297)
+bones/13/rotation = Quaternion(0.012263, 0.0113427, -0.0480935, 0.998703)
+bones/14/position = Vector3(-4.54747e-13, 59.1881, 2.38418e-06)
+bones/15/rotation = Quaternion(0.270527, -0.277177, 0.921947, -0.00100064)
+bones/16/rotation = Quaternion(0.482009, 0.284325, 0.537914, 0.630456)
+bones/17/rotation = Quaternion(-0.200122, -0.883151, 0.0699876, 0.418446)
+bones/18/rotation = Quaternion(0.34919, 0.511382, -0.247672, 0.745126)
+bones/19/position = Vector3(-3.12924e-06, 44.7667, 2.5332e-06)
+bones/20/rotation = Quaternion(-0.262406, -0.119434, 0.95641, -0.0464572)
+bones/21/rotation = Quaternion(-0.666102, -0.691651, 0.0736717, 0.269259)
+bones/22/rotation = Quaternion(-0.4839, -0.581334, -0.0445015, 0.652619)
+bones/23/position = Vector3(2.6565e-06, 80.3806, -1.49808e-06)
+bones/23/rotation = Quaternion(0.324345, -0.550741, 0.253271, 0.72618)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -107,16 +118,6 @@ properties = {
 
 [node name="hotbar" type="Node" parent="CanvasLayer"]
 script = ExtResource("7_qe162")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/hotbar"]
-offset_left = 672.0
-offset_top = 536.0
-offset_right = 992.0
-offset_bottom = 600.0
-
-[node name="Control" type="Control" parent="CanvasLayer/hotbar/HBoxContainer"]
-visible = false
-layout_mode = 2
 
 [node name="Quarter2" type="TextureRect" parent="CanvasLayer/hotbar"]
 visible = false
@@ -175,6 +176,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
+
 [node name="PathFollow2D2" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(9.20616, 83.4994)
 progress = 161.891
@@ -200,6 +206,11 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(74.4206, 36.8992)
@@ -227,6 +238,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
+
 [node name="PathFollow2D4" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(153.472, 22.3971)
 progress = 323.783
@@ -252,6 +268,11 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
 
 [node name="PathFollow2D5" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(230.768, 44.1422)
@@ -279,6 +300,25 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
+position = Vector2(-19.2319, 229.39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/Area2D"]
+position = Vector2(-1.19209e-07, -1.78123)
+shape = SubResource("CircleShape2D_a0rfs")
+
+[node name="Area2D2" type="Area2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
+position = Vector2(223.076, 40.5798)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/Area2D2"]
+position = Vector2(0.961538, 0.890615)
+shape = SubResource("CircleShape2D_a0rfs")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -412,6 +452,11 @@ metadata/Damage = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
+
+[connection signal="area_entered" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D" to="CanvasLayer/hotbar" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D" to="CanvasLayer/hotbar" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D" to="CanvasLayer/hotbar" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D2" to="CanvasLayer/hotbar" method="_on_area_2d_body_entered"]
 
 [editable path="PlayerTemplate"]
 [editable path="CanvasLayer"]
