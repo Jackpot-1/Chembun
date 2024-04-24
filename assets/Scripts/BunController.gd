@@ -32,6 +32,11 @@ var pb_node
 @export var run_speed = 6
 @export var dash_power = 12 # Controls roll and big attack speed boosts
 
+##Combat Throwing Stuff
+var tankMode = false
+const flaskPreload = preload("res://assets/Miscellaneous/Flask.tscn")
+var curFlask
+
 var animations = {
 	"roll": "Roll",
 	"idle": "Idle",
@@ -96,11 +101,11 @@ func sprint_and_roll():
 		states.rolling = true
 
 func _physics_process(delta):
-	rollattack()
-	bigattack()
+	#rollattack()
+	#bigattack()
 	attack1()
-	attack2()
-	attack3()
+	#attack2()
+	#attack3()
 	sprint_and_roll()
 	
 	pb_node = playback.get_current_node()
@@ -164,10 +169,14 @@ func _physics_process(delta):
 		states.moving = false
 
 	if Input.is_action_pressed("aim") && !canvas.playerStopped:  # Aim/Strafe input and  mechanics
+		tankMode = true
 		angular_acceleration = 60
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $CamRightTank/h.rotation.y, delta * angular_acceleration)
 	else: # Normal turn movement mechanics
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, atan2(direction.x, direction.z) - rotation.y, delta * angular_acceleration)
+	
+	if Input.is_action_just_released("aim"):
+		tankMode = false
 	
 	# Movment mechanics with limitations during rolls/attacks
 	if (states.attacking || states.rolling):
@@ -202,31 +211,39 @@ func _physics_process(delta):
 func attack1():
 	if not states.attacking && not states.running && not states.rolling && states.grounded:
 		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
-			playback.travel(animations.attack1)
+			if tankMode == true:
+				print("in tank mode and attacked")
+				print("")
+				#create new instance and set its position to Chembun with the instance slightly infront of it
+				
+				
+			else:
+				print("not in tank mode")
+			#playback.travel(animations.attack1)
 
-func attack2():
-	if animations.attack1 in playback.get_current_node(): 
-		if Input.is_action_just_pressed("attack"):
-			#playback.start(animations.attack2) #There's currently no attack2
-			pass
-
-func attack3():
-	if animations.attack2 in playback.get_current_node():
-		if Input.is_action_just_pressed("attack"):
-			#playback.start(animations.attack3) #There's currently no attack3
-			pass
-
-func rollattack(): # If attack pressed while rolling, do a special attack afterwards.
-	if animations.roll in playback.get_current_node() and not states.attacking:
-		if Input.is_action_just_pressed("attack"):
-			#playback.start(animations.rollattack)
-			pass
-
-func bigattack(): # If attack pressed while sprinting, do a special attack
-	if animations.run in playback.get_current_node() and not states.attacking and not states.rolling: # Big Attack if sprinting, adds a dash
-		if Input.is_action_just_pressed("attack"):
-			horizontal_velocity = direction * dash_power
-			#playback.start(animations.bigattack) #Add and Change this animation node for a different attack
+#func attack2():
+	#if animations.attack1 in playback.get_current_node(): 
+		#if Input.is_action_just_pressed("attack"):
+			##playback.start(animations.attack2) #There's currently no attack2
+			#pass
+#
+#func attack3():
+	#if animations.attack2 in playback.get_current_node():
+		#if Input.is_action_just_pressed("attack"):
+			##playback.start(animations.attack3) #There's currently no attack3
+			#pass
+#
+#func rollattack(): # If attack pressed while rolling, do a special attack afterwards.
+	#if animations.roll in playback.get_current_node() and not states.attacking:
+		#if Input.is_action_just_pressed("attack"):
+			##playback.start(animations.rollattack)
+			#pass
+#
+#func bigattack(): # If attack pressed while sprinting, do a special attack
+	#if animations.run in playback.get_current_node() and not states.attacking and not states.rolling: # Big Attack if sprinting, adds a dash
+		#if Input.is_action_just_pressed("attack"):
+			#horizontal_velocity = direction * dash_power
+			##playback.start(animations.bigattack) #Add and Change this animation node for a different attack
 
 func hurt(damage_taken):
 	var old_health = health
