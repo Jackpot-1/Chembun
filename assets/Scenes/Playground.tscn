@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=25 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="8_7hari"]
 [ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_dw3sa"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
+[ext_resource type="Script" path="res://assets/Scripts/slot.gd" id="9_wot0r"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
 
@@ -63,27 +64,27 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="PlayerTemplate/ChemBun Rig/Armature" index="0"]
-bones/0/position = Vector3(-0.917655, -4.49329, -88.1722)
-bones/0/rotation = Quaternion(-0.705921, -0.0443656, 0.0176102, 0.706681)
-bones/1/rotation = Quaternion(-0.103054, 0.01094, -0.0367447, 0.993937)
-bones/2/rotation = Quaternion(-0.0322325, 0.00483744, -0.00878507, 0.99943)
-bones/3/rotation = Quaternion(-0.0322846, 0.00490207, -0.00878563, 0.999428)
-bones/4/rotation = Quaternion(0.157604, 0.0545678, -0.0738905, 0.983221)
-bones/5/rotation = Quaternion(-0.182777, -0.0357098, -0.0681528, 0.980139)
-bones/7/rotation = Quaternion(-0.591348, -0.348006, 0.692016, -0.224307)
-bones/8/rotation = Quaternion(0.240076, 0.230728, 0.108598, 0.936661)
-bones/9/rotation = Quaternion(0.0318625, -0.0162645, 0.134717, 0.990238)
-bones/11/rotation = Quaternion(0.554687, -0.421058, 0.64162, 0.321493)
-bones/12/rotation = Quaternion(0.438574, 7.42991e-05, 0.249887, 0.863255)
-bones/13/rotation = Quaternion(0.0252062, 0.0112974, -0.0988549, 0.994718)
-bones/15/rotation = Quaternion(0.32525, -0.345938, 0.880066, -0.00478255)
-bones/16/rotation = Quaternion(0.522638, 0.242791, 0.522325, 0.628553)
-bones/17/rotation = Quaternion(-0.172155, -0.889985, 0.062473, 0.417596)
-bones/18/rotation = Quaternion(0.348791, 0.51202, -0.247506, 0.744931)
-bones/20/rotation = Quaternion(-0.288665, -0.113636, 0.946142, -0.0926006)
-bones/21/rotation = Quaternion(0.522096, 0.548911, 0.501738, -0.417577)
-bones/22/rotation = Quaternion(-0.212939, -0.875296, -0.289778, 0.323331)
-bones/23/rotation = Quaternion(0.325996, -0.555993, 0.250962, 0.72223)
+bones/0/position = Vector3(-2.21293, -3.91091, -88.4816)
+bones/0/rotation = Quaternion(-0.70894, 0.00573143, -0.00740183, 0.705207)
+bones/1/rotation = Quaternion(-0.0997208, 0.0157268, -0.0151416, 0.994776)
+bones/2/rotation = Quaternion(-0.0327135, 0.00513734, 0.000769643, 0.999451)
+bones/3/rotation = Quaternion(-0.0327096, 0.00516758, 0.000770159, 0.999451)
+bones/4/rotation = Quaternion(0.0780709, -0.00493407, 0.00492197, 0.996924)
+bones/5/rotation = Quaternion(-0.0647183, -0.0544459, 0.00213313, 0.996415)
+bones/7/rotation = Quaternion(-0.565521, -0.388564, 0.675842, -0.269151)
+bones/8/rotation = Quaternion(0.29377, 0.133877, -0.111768, 0.939832)
+bones/9/rotation = Quaternion(0.013232, -0.0163953, 0.055944, 0.998212)
+bones/11/rotation = Quaternion(0.556791, -0.412167, 0.656353, 0.298836)
+bones/12/rotation = Quaternion(0.405324, 0.0131931, 0.166973, 0.898698)
+bones/13/rotation = Quaternion(0.0452739, 0.0111643, -0.177555, 0.983005)
+bones/15/rotation = Quaternion(0.280262, -0.281891, 0.917534, 0.0110757)
+bones/16/rotation = Quaternion(0.502481, 0.26331, 0.530335, 0.630021)
+bones/17/rotation = Quaternion(-0.207848, -0.868733, 0.0769312, 0.442926)
+bones/18/rotation = Quaternion(0.336502, 0.531286, -0.242384, 0.73875)
+bones/20/rotation = Quaternion(-0.298853, -0.16262, 0.937968, -0.0667739)
+bones/21/rotation = Quaternion(-0.616186, -0.602801, -0.32406, 0.389783)
+bones/22/rotation = Quaternion(-0.336296, -0.77086, -0.230617, 0.489382)
+bones/23/rotation = Quaternion(0.327885, -0.553125, 0.251809, 0.723282)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -117,35 +118,6 @@ offset_bottom = 600.0
 visible = false
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 80.0
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
-layout_mode = 0
-offset_left = 80.0
-offset_right = 160.0
-offset_bottom = 80.0
-
-[node name="Panel3" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
-layout_mode = 0
-offset_left = 160.0
-offset_right = 240.0
-offset_bottom = 80.0
-
-[node name="Panel4" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
-layout_mode = 0
-offset_left = 240.0
-offset_right = 320.0
-offset_bottom = 80.0
-
-[node name="Panel5" type="Panel" parent="CanvasLayer/hotbar/HBoxContainer/Control"]
-layout_mode = 0
-offset_left = 320.0
-offset_right = 400.0
-offset_bottom = 80.0
-
 [node name="Quarter2" type="TextureRect" parent="CanvasLayer/hotbar"]
 visible = false
 anchors_preset = 3
@@ -178,7 +150,6 @@ curve = SubResource("Curve2D_j0mir")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(-22.3606, 156.994)
-rotation = -1.19281
 progress = 80.9456
 rotates = false
 cubic_interp = false
@@ -186,52 +157,104 @@ cubic_interp = false
 [node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D"]
 material = SubResource("CanvasItemMaterial_q0ck8")
 position = Vector2(1.23978e-05, 2.38419e-05)
-rotation = 1.19281
-scale = Vector2(0.3, 0.278)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_7hari")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_wot0r")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(9.20616, 83.4994)
-rotation = -1.19281
 progress = 161.891
 rotates = false
 cubic_interp = false
 
 [node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2"]
 position = Vector2(1.23978e-05, 2.38419e-05)
-rotation = 1.19281
-scale = Vector2(0.3, 0.278)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_7hari")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_wot0r")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(74.4206, 36.8992)
-rotation = -1.19281
 progress = 242.837
 rotates = false
 cubic_interp = false
 
 [node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3"]
 position = Vector2(1.23978e-05, 2.38419e-05)
-rotation = 1.19281
-scale = Vector2(0.3, 0.278)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_7hari")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_wot0r")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(153.472, 22.3971)
-rotation = -1.19281
 progress = 323.783
 rotates = false
 cubic_interp = false
 
 [node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4"]
 position = Vector2(1.23978e-05, 2.38419e-05)
-rotation = 1.19281
-scale = Vector2(0.3, 0.278)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_7hari")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_wot0r")
 
 [node name="PathFollow2D5" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(230.768, 44.1422)
-rotation = -1.19281
 progress = 404.728
 rotates = false
 cubic_interp = false
@@ -239,9 +262,23 @@ cubic_interp = false
 [node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5"]
 material = SubResource("CanvasItemMaterial_nebek")
 position = Vector2(1.23978e-05, 2.38419e-05)
-rotation = 1.19281
-scale = Vector2(0.3, 0.278)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_7hari")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_wot0r")
 
 [node name="Area3D" type="Area3D" parent="."]
 

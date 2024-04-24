@@ -3,6 +3,7 @@ extends Node
 var slots = []
 var scroll = false
 var scrollAdder = 0
+var itemClass = preload("res://assets/Miscellaneous/item.tscn")
 #var zoom = 0 # this variable and the things that use it will make it so you can zoom with the scroll wheel
 
 var path1 = 0
@@ -10,26 +11,28 @@ var path1 = 0
 func _ready():
 	slots = [
 		{
-			"position" : $HBoxContainer/Control/Panel.position,
+			"position" : $Quarter/Path2D/PathFollow2D.position,
 			"item" : null
 		},
 		{
-			"position" : $HBoxContainer/Control/Panel2.position,
+			"position" : $Quarter/Path2D/PathFollow2D2.position,
 			"item" : null
 		},
 		{
-			"position" : $HBoxContainer/Control/Panel3.position,
+			"position" : $Quarter/Path2D/PathFollow2D3.position,
 			"item" : null
 		},
 		{
-			"position" : $HBoxContainer/Control/Panel4.position,
+			"position" : $Quarter/Path2D/PathFollow2D4.position,
 			"item" : null
 		},
 		{
-			"position" : $HBoxContainer/Control/Panel5.position,
+			"position" : $Quarter/Path2D/PathFollow2D5.position,
 			"item" : null
 		}
 	]
+	slots[1]["item"] = itemClass.instantiate()
+	slots[1]["item"].Image(Globals.items[1])
 	
 	
 
