@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://xbsavwp7fw0w"]
+[gd_scene load_steps=5 format=3 uid="uid://xbsavwp7fw0w"]
 
 [ext_resource type="Script" path="res://assets/Scripts/item.gd" id="1_st7p7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_34fi1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ul55l"]
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_di00q"]
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_st7p7")
@@ -9,3 +17,12 @@ script = ExtResource("1_st7p7")
 offset_right = 172.0
 offset_bottom = 172.0
 expand_mode = 1
+
+[node name="DefaultFlask" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultFlask"]
+shape = SubResource("CapsuleShape3D_34fi1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DefaultFlask"]
+material_override = SubResource("StandardMaterial3D_ul55l")
+mesh = SubResource("CapsuleMesh_di00q")

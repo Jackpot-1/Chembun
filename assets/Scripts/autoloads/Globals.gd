@@ -56,3 +56,4 @@ class Enemy extends CharacterBody3D:
 		vulnerable_to = data.vulnerable_to
 		
 		
+	var selectedItem

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqtu1alyuv2ks"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Flask.gd" id="1_hee5y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kahb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1ed7j"]
+
+[node name="DefaultFlask" type="Area3D"]
+script = ExtResource("1_hee5y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_7kahb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_1ed7j")
+skeleton = NodePath("")
