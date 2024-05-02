@@ -1,39 +1,31 @@
 extends Node
 
-var slots = []
+@export var Items: Array[InvItem]
+
+#var slots = []
 var scroll = false
 var scrollAdder = 0
 var itemClass = preload("res://assets/Miscellaneous/item.tscn")
+@onready var slots: Array = [
+	$Quarter/Path2D/PathFollow2D/Circle/Panel,
+	$Quarter/Path2D/PathFollow2D2/Circle/Panel,
+	$Quarter/Path2D/PathFollow2D3/Circle/Panel,
+	$Quarter/Path2D/PathFollow2D4/Circle/Panel,
+	$Quarter/Path2D/PathFollow2D5/Circle/Panel
+]
 #var zoom = 0 # this variable and the things that use it will make it so you can zoom with the scroll wheel
 
 var path1 = 0
+var path2 = 0
+var path3 = 0
+var path4 = 0
+var path5 = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	slots = [
-		{
-			"position" : $Quarter/Path2D/PathFollow2D.position,
-			"item" : null
-		},
-		{
-			"position" : $Quarter/Path2D/PathFollow2D2.position,
-			"item" : null
-		},
-		{
-			"position" : $Quarter/Path2D/PathFollow2D3.position,
-			"item" : null
-		},
-		{
-			"position" : $Quarter/Path2D/PathFollow2D4.position,
-			"item" : null
-		},
-		{
-			"position" : $Quarter/Path2D/PathFollow2D5.position,
-			"item" : null
-		}
-	]
-	slots[1]["item"] = itemClass.instantiate()
-	slots[1]["item"].Image(Globals.items[1])
-	
+	slotUpdater()
+	#slots[1]["item"] = itemClass.instantiate()
+	#slots[1]["item"].Image(Globals.items[1])
+	pass
 	
 
 
@@ -68,6 +60,16 @@ func _process(delta):
 		scrollAdder = 0
 		#print(path1, " yes")
 	#else: print(path1, " no")
+	#if path1 == 0 or path1 == 1:
+		#selectedSlot(Globals.slots[0]["item"])
+	#elif path2 == 0 or path2 == 1:
+		#selectedSlot(Globals.slots[1]["item"])
+	#elif path3 == 0 or path3 == 1:
+		#selectedSlot(Globals.slots[2]["item"])
+	#elif path4 == 0 or path4 == 1:
+		#selectedSlot(Globals.slots[3]["item"])
+	#elif path5 == 0 or path5 == 1:
+		#selectedSlot(Globals.slots[4]["item"])
 
 
 func _input(event):
@@ -83,25 +85,28 @@ func _input(event):
 			#zoom -= 0.1
 			#$"../../PlayerTemplate/Camroot".zoom_set($"../../PlayerTemplate/Camroot".zoom_get()+zoom)
 			
-func slot_mover():
-	pass
+func selectedSlot(item):
+	if item == null: return
 	
-func slotUpdater(item):
-	if slots[0]["item"] == null:
-		slots[0]["item"] = item
-		# draw the item to the slot here
-	elif slots[1]["item"] == null:
-		slots[1]["item"] = item
-		# draw the item to the slot here
-	elif slots[2]["item"] == null:
-		slots[2]["item"] = item
-		# draw the item to the slot here
-	elif slots[3]["item"] == null:
-		slots[3]["item"] = item
-		# draw the item to the slot here
-	elif slots[4]["item"] == null:
-		slots[4]["item"] = item
-		# draw the item to the slot here
+func slotUpdater():
+	for i in range(min(Items.size(), slots.size())):
+		slots[i].update(Items[i])
+	#if slots[0]["item"] == null:
+		#slots[0]["item"] = item
+		## draw the item to the slot here
+	#elif slots[1]["item"] == null:
+		#slots[1]["item"] = item
+		## draw the item to the slot here
+	#elif slots[2]["item"] == null:
+		#slots[2]["item"] = item
+		## draw the item to the slot here
+	#elif slots[3]["item"] == null:
+		#slots[3]["item"] = item
+		## draw the item to the slot here
+	#elif slots[4]["item"] == null:
+		#slots[4]["item"] = item
+		## draw the item to the slot here
+		
 		
 	
 #func _on_timer_timeout():
@@ -118,7 +123,3 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	print(body, " exited")
-
-
-func _on_area_2d_area_entered(area):
-	print(area)

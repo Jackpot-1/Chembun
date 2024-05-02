@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=27 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="8_7hari"]
 [ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_dw3sa"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
-[ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Potion.tres" id="8_kok1g"]
 [ext_resource type="Script" path="res://assets/Scripts/slot.gd" id="9_wot0r"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
@@ -38,8 +37,14 @@ point_count = 6
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0ck8"]
 blend_mode = 1
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cj2ed"]
+radius = 95.5599
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nebek"]
 blend_mode = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0rfs"]
+radius = 3.84619
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b0ysw"]
 
@@ -65,32 +70,32 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="PlayerTemplate/ChemBun Rig/Armature" index="0"]
-bones/0/position = Vector3(-1.91723, -3.44393, -87.8862)
-bones/0/rotation = Quaternion(-0.710668, 0.0049262, -0.00520847, 0.703491)
-bones/1/rotation = Quaternion(-0.0997652, 0.0159817, -0.0217693, 0.994644)
-bones/2/rotation = Quaternion(-0.0344062, 0.00561232, -0.00147489, 0.999391)
-bones/3/rotation = Quaternion(-0.0344181, 0.0056498, -0.00147837, 0.999391)
-bones/4/rotation = Quaternion(0.0840441, 0.00196976, -0.00517637, 0.996447)
-bones/5/rotation = Quaternion(-0.0660226, -0.0458599, -0.0217553, 0.996526)
-bones/7/rotation = Quaternion(-0.567975, -0.387298, 0.673713, -0.271139)
-bones/8/rotation = Quaternion(0.283562, 0.13135, -0.112249, 0.94326)
+bones/0/position = Vector3(-2.59476, -3.0313, -87.4189)
+bones/0/rotation = Quaternion(-0.71648, -0.0758735, 0.0378321, 0.692436)
+bones/1/rotation = Quaternion(-0.110147, -0.00770965, -0.0263925, 0.993535)
+bones/2/rotation = Quaternion(-0.0334369, -0.00128067, -0.00499699, 0.999427)
+bones/3/rotation = Quaternion(-0.0335216, -0.00124456, -0.00495977, 0.999425)
+bones/4/rotation = Quaternion(0.140057, 0.0379724, -0.0590779, 0.98765)
+bones/5/rotation = Quaternion(-0.169603, -0.0351927, -0.136742, 0.975345)
+bones/7/rotation = Quaternion(-0.594789, -0.358479, 0.672625, -0.255528)
+bones/8/rotation = Quaternion(0.228551, 0.0866364, 0.0315695, 0.969155)
 bones/9/position = Vector3(3.5451e-06, 48.2364, 3.33977e-06)
-bones/9/rotation = Quaternion(0.0101899, -0.0164064, 0.0430822, 0.998885)
+bones/9/rotation = Quaternion(0.0112008, -0.0164031, 0.0473564, 0.998681)
 bones/10/position = Vector3(-4.76838e-07, 59.1562, -7.74861e-06)
-bones/11/rotation = Quaternion(0.549703, -0.420797, 0.653077, 0.306996)
-bones/12/rotation = Quaternion(0.409275, -0.000347326, 0.174457, 0.895577)
-bones/13/rotation = Quaternion(0.051223, 0.0111099, -0.200886, 0.978212)
+bones/11/rotation = Quaternion(0.558031, -0.416675, 0.64404, 0.316536)
+bones/12/rotation = Quaternion(0.385633, 0.0946414, 0.232635, 0.887812)
+bones/13/rotation = Quaternion(0.0142614, 0.0113377, -0.0559312, 0.998268)
 bones/14/position = Vector3(-4.54747e-13, 59.1881, 2.38418e-06)
-bones/15/rotation = Quaternion(0.294937, -0.288834, 0.910762, 0.0100098)
-bones/16/rotation = Quaternion(0.495522, 0.274587, 0.549489, 0.614103)
-bones/17/rotation = Quaternion(-0.216852, -0.878391, 0.057087, 0.422072)
-bones/18/rotation = Quaternion(0.35013, 0.509882, -0.248061, 0.745584)
+bones/15/rotation = Quaternion(0.353717, -0.443116, 0.822882, -0.0373834)
+bones/16/rotation = Quaternion(0.522433, 0.240431, 0.5148, 0.635797)
+bones/17/rotation = Quaternion(-0.13668, -0.930681, 0.0490806, 0.335771)
+bones/18/rotation = Quaternion(0.345909, 0.516594, -0.24631, 0.743511)
 bones/19/position = Vector3(-3.12924e-06, 44.7667, 2.5332e-06)
-bones/20/rotation = Quaternion(-0.320202, -0.163204, 0.931897, -0.0490183)
-bones/21/rotation = Quaternion(-0.641101, -0.623938, -0.297003, 0.333886)
-bones/22/rotation = Quaternion(-0.351689, -0.733554, -0.235129, 0.53191)
+bones/20/rotation = Quaternion(-0.305866, -0.181689, 0.927193, -0.117258)
+bones/21/rotation = Quaternion(-0.262197, -0.459906, -0.704011, 0.4734)
+bones/22/rotation = Quaternion(-0.0458788, -0.948535, -0.293818, 0.108847)
 bones/23/position = Vector3(2.6565e-06, 80.3806, -1.49808e-06)
-bones/23/rotation = Quaternion(0.332625, -0.545867, 0.25393, 0.725885)
+bones/23/rotation = Quaternion(0.329058, -0.551337, 0.252335, 0.72393)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -113,7 +118,6 @@ properties = {
 
 [node name="hotbar" type="Node" parent="CanvasLayer"]
 script = ExtResource("7_qe162")
-Items = Array[Resource("res://assets/images/items/ItemScript.gd")]([null, null, ExtResource("8_kok1g"), null, null])
 
 [node name="Quarter2" type="TextureRect" parent="CanvasLayer/hotbar"]
 visible = false
@@ -172,8 +176,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel"]
-centered = false
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(9.20616, 83.4994)
@@ -201,8 +207,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle/Panel"]
-centered = false
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(74.4206, 36.8992)
@@ -230,8 +238,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle/Panel"]
-centered = false
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(153.472, 22.3971)
@@ -259,8 +269,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle/Panel"]
-centered = false
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
 
 [node name="PathFollow2D5" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
 position = Vector2(230.768, 44.1422)
@@ -289,8 +301,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_wot0r")
 
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle/Panel"]
-centered = false
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle/StaticBody2D"]
+shape = SubResource("CircleShape2D_cj2ed")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
+position = Vector2(-19.2319, 229.39)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/Area2D"]
+position = Vector2(-1.19209e-07, -1.78123)
+shape = SubResource("CircleShape2D_a0rfs")
+
+[node name="Area2D2" type="Area2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
+position = Vector2(223.076, 40.5798)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/hotbar/Quarter/Path2D/Area2D2"]
+position = Vector2(0.961538, 0.890615)
+shape = SubResource("CircleShape2D_a0rfs")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -424,6 +454,10 @@ metadata/Damage = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
+
+[connection signal="body_entered" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D" to="CanvasLayer/hotbar" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D" to="CanvasLayer/hotbar" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="CanvasLayer/hotbar/Quarter/Path2D/Area2D2" to="CanvasLayer/hotbar" method="_on_area_2d_body_entered"]
 
 [editable path="PlayerTemplate"]
 [editable path="CanvasLayer"]

@@ -34,7 +34,7 @@ var pb_node
 
 ##Combat Throwing Stuff
 var tankMode = false
-const flaskPreload = preload("res://assets/Miscellaneous/Flask.tscn")
+#const flaskPreload = preload("res://assets/Miscellaneous/Flask.tscn")
 var curFlask
 
 var animations = {

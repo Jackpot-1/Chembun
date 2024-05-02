@@ -18,20 +18,43 @@ var EnemyDatabase = {
 	}
 }
 
-var items = [
-	{
-		"name" : "carrot",
-		"icon" : "res://appIcons/ccarrot.png",
-		"composition" : "",
-		"attributes" : "food"
-	},
-	{
-		"name" : "water",
-		"icon" : "",
-		"composition" : "H2O",
-		"attributes" : "water"
-	}
-]
+#var items = [
+	#{
+		#"name" : "carrot",
+		#"icon" : "res://assets/images/items/ccarrot.png",
+		#"composition" : "",
+		#"attributes" : "food"
+	#},
+	#{
+		#"name" : "water",
+		#"icon" : "",
+		#"composition" : "H2O",
+		#"attributes" : "water"
+	#}
+#]
+
+#var slots = [
+		#{
+			#"node" : $CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel,
+			#"item" : null
+		#},
+		#{
+			#"node" : $CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle/Panel,
+			#"item" : null
+		#},
+		#{
+			#"node" : $CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle/Panel,
+			#"item" : null
+		#},
+		#{
+			#"node" : $CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle/Panel,
+			#"item" : null
+		#},
+		#{
+			#"node" : $CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle/Panel,
+			#"item" : null
+		#}
+	#]
 
 class Enemy extends CharacterBody3D:
 	var damage: float
@@ -54,5 +77,22 @@ class Enemy extends CharacterBody3D:
 		damage = data.damage
 		move_speed = data.move_speed
 		vulnerable_to = data.vulnerable_to
+		
+#func add_item(dic):
+	#if slots[0]["item"] == null:
+		#slots[0]["item"] = dic
+		#var image = slots[0]["item"]["icon"]
+		#print("to the south")
+		#var data = ["$CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel", image]
+		##await $CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel.tree_entered
+		#return data #.add_item2(image)
+	#elif slots[1]["item"] == null:
+		#slots[1]["item"] = dic
+	#elif slots[2]["item"] == null:
+		#slots[2]["item"] = dic
+	#elif slots[3]["item"] == null:
+		#slots[3]["item"] = dic
+	#elif slots[4]["item"] == null:
+		#slots[4]["item"] = dic
 		
 		
