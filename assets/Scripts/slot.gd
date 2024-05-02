@@ -1,6 +1,6 @@
 extends Node
 
-var ItemClass = preload("res://assets/Miscellaneous/item.tscn")
+#var ItemClass = preload("res://assets/Miscellaneous/item.tscn")
 var item = null
 @onready var item_visual: Sprite2D = $itemDisplay
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +11,6 @@ func _ready():
 	pass
 	
 func update(item:InvItem):
-	print(item)
 	if !item:
 		item_visual.visible = false
 	else:
@@ -20,12 +19,6 @@ func update(item:InvItem):
 		
 func insert(item:InvItem):
 	pass
-
-#func add_item2(image):
-	#print("to the east")
-	#item = ItemClass.instantiate()
-	#item.Image(image)
-	#add_child(item)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

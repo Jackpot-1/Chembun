@@ -5,7 +5,7 @@ extends Node
 #var slots = []
 var scroll = false
 var scrollAdder = 0
-var itemClass = preload("res://assets/Miscellaneous/item.tscn")
+#var itemClass = preload("res://assets/Miscellaneous/item.tscn")
 @onready var slots: Array = [
 	$Quarter/Path2D/PathFollow2D/Circle/Panel,
 	$Quarter/Path2D/PathFollow2D2/Circle/Panel,
@@ -54,22 +54,37 @@ func _process(delta):
 	$Quarter/Path2D/PathFollow2D5.progress_ratio = snappedf($Quarter/Path2D/PathFollow2D5.get_progress_ratio(), 0.05)
 	
 	path1 = $Quarter/Path2D/PathFollow2D.get_progress_ratio()
+	path2 = $Quarter/Path2D/PathFollow2D2.get_progress_ratio()
+	path3 = $Quarter/Path2D/PathFollow2D3.get_progress_ratio()
+	path4 = $Quarter/Path2D/PathFollow2D4.get_progress_ratio()
+	path5 = $Quarter/Path2D/PathFollow2D5.get_progress_ratio()
 	
 	# I'm sorry
 	if path1 <= 0.21 and path1 >= 0.19 or path1 <= 0.41 and path1 >= 0.39 or path1 <= 0.61 and path1 >= 0.59 or path1 <= 0.81 and path1 >= 0.79 or path1 <= 0.1 and path1 >= 0.99 or path1 == 1 or path1 == 0:
 		scrollAdder = 0
 		#print(path1, " yes")
 	#else: print(path1, " no")
-	#if path1 == 0 or path1 == 1:
-		#selectedSlot(Globals.slots[0]["item"])
-	#elif path2 == 0 or path2 == 1:
-		#selectedSlot(Globals.slots[1]["item"])
-	#elif path3 == 0 or path3 == 1:
-		#selectedSlot(Globals.slots[2]["item"])
-	#elif path4 == 0 or path4 == 1:
-		#selectedSlot(Globals.slots[3]["item"])
-	#elif path5 == 0 or path5 == 1:
-		#selectedSlot(Globals.slots[4]["item"])
+	
+	print(path1, " path1")
+	print(path2, " path2")
+	print(path3, " path3")
+	print(path4, " path4")
+	print(path5, " path5")
+	if path1 == 0 or path1 == 1:
+		if Items[0] == null: $Quarter/bigItemDisplay.texture = null
+		else: $Quarter/bigItemDisplay.texture = Items[0].big_texture
+	elif path2 == 0 or path2 == 1:
+		if Items[1] == null: $Quarter/bigItemDisplay.texture = null
+		else: $Quarter/bigItemDisplay.texture = Items[1].big_texture
+	elif path3 == 0 or path3 == 1:
+		if Items[2] == null: $Quarter/bigItemDisplay.texture = null
+		else: $Quarter/bigItemDisplay.texture = Items[2].big_texture
+	elif path4 == 0 or path4 == 1:
+		if Items[3] == null: $Quarter/bigItemDisplay.texture = null
+		else: $Quarter/bigItemDisplay.texture = Items[3].big_texture
+	elif path5 == 0 or path5 == 1:
+		if Items[4] == null: $Quarter/bigItemDisplay.texture = null
+		else: $Quarter/bigItemDisplay.texture = Items[4].big_texture
 
 
 func _input(event):
@@ -91,21 +106,20 @@ func selectedSlot(item):
 func slotUpdater():
 	for i in range(min(Items.size(), slots.size())):
 		slots[i].update(Items[i])
-	#if slots[0]["item"] == null:
-		#slots[0]["item"] = item
-		## draw the item to the slot here
-	#elif slots[1]["item"] == null:
-		#slots[1]["item"] = item
-		## draw the item to the slot here
-	#elif slots[2]["item"] == null:
-		#slots[2]["item"] = item
-		## draw the item to the slot here
-	#elif slots[3]["item"] == null:
-		#slots[3]["item"] = item
-		## draw the item to the slot here
-	#elif slots[4]["item"] == null:
-		#slots[4]["item"] = item
-		## draw the item to the slot here
+	
+		
+func slotInserter(item:InvItem):
+	if Items[0] == null:
+		Items[0] = item
+	elif Items[1] == null:
+		Items[1] = item
+	elif Items[2] == null:
+		Items[2] = item
+	elif Items[3] == null:
+		Items[3] = item
+	elif Items[4] == null:
+		Items[4] = item
+	slotUpdater()
 		
 		
 	
