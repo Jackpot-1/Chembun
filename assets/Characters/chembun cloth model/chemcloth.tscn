@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cj437v53xp0ip"]
 
-[ext_resource type="PackedScene" uid="uid://bx722bbws1jyb" path="res://Bun/chemcloth.glb" id="1_gerk4"]
+[ext_resource type="PackedScene" uid="uid://bx722bbws1jyb" path="res://assets/Characters/chembun cloth model/chemcloth.glb" id="1_gerk4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tees"]
 cull_mode = 2
