@@ -35,7 +35,8 @@ var pb_node
 ##Combat Throwing Stuff
 var tankMode = false
 #const flaskPreload = preload("res://assets/Miscellaneous/Flask.tscn")
-var curFlask
+var blob = preload("res://assets/Items/3D/blob.glb")
+var blobInstance
 
 var animations = {
 	"roll": "Roll",
@@ -84,6 +85,9 @@ func _input(event): # All major mouse and button input events
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
+		blobInstance = blob.instantiate()
+		add_child(blobInstance)
+		blobInstance.position = Vector3(0, 1, 1)
 	if event.is_action_released("aim"):
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
@@ -271,3 +275,4 @@ func knockback_enter(direction:Vector3, strength: Vector3):
 func knockback_exit():
 	states.knockback = false
 	knockback = Vector3.ZERO
+

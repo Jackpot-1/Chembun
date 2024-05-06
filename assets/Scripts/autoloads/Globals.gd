@@ -78,6 +78,19 @@ class Enemy extends CharacterBody3D:
 		move_speed = data.move_speed
 		vulnerable_to = data.vulnerable_to
 		
+var Elements = [
+	#"Water", "Texture"
+	#"Fire"
+]
+
+func testing():
+	print(itemName)
+
+var itemName = null
+var item
+
+
+
 #func add_item(dic):
 	#if slots[0]["item"] == null:
 		#slots[0]["item"] = dic

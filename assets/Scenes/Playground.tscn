@@ -92,6 +92,20 @@ bones/22/rotation = Quaternion(0.185047, -0.921583, -0.305353, -0.152324)
 bones/23/position = Vector3(2.6565e-06, 80.3806, -1.49808e-06)
 bones/23/rotation = Quaternion(0.400688, -0.429824, 0.283774, 0.757742)
 
+[node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
+bones/0/position = Vector3(1.45365e-09, 0.652234, 0.180482)
+bones/1/rotation = Quaternion(-0.07338, -0.000940684, -0.0242062, 0.99701)
+bones/2/rotation = Quaternion(-0.157552, 0.0676771, 0.027013, 0.984819)
+bones/3/position = Vector3(-0.458371, 0.555358, -0.165944)
+bones/3/rotation = Quaternion(0.0416267, -0.450104, 0.838259, 0.304953)
+bones/4/rotation = Quaternion(0.458535, 0.248716, 0.0770788, 0.849673)
+bones/6/position = Vector3(0.458371, 0.555181, -0.16601)
+bones/6/rotation = Quaternion(0.0452444, 0.139658, -0.938814, 0.31157)
+bones/7/rotation = Quaternion(0.445615, 0.214709, -0.00687015, 0.869068)
+bones/9/position = Vector3(-0.460236, 0.138956, -0.108278)
+bones/10/rotation = Quaternion(0.466359, 0.287324, -0.130204, 0.826439)
+bones/12/rotation = Quaternion(0.331636, -0.0121778, -0.0933594, 0.938698)
+
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
 [node name="InventoryGridTransfer" parent="CanvasLayer" index="10"]
@@ -431,5 +445,6 @@ metadata/Damage = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
 
 [editable path="PlayerTemplate"]
+[editable path="PlayerTemplate/chemcloth"]
 [editable path="CanvasLayer"]
 [editable path="CanvasLayer/InventoryGridTransfer"]

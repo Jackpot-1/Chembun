@@ -5,6 +5,8 @@ class_name InvItem
 @export var name: String = ""
 @export var texture: Texture2D
 @export var big_texture: Texture2D
+@export var mesh: Mesh
+@export var material: Material
 
 #var items = [
 	#{
