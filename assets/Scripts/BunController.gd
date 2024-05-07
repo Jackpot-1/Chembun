@@ -43,6 +43,7 @@ var animations = {
 	"walk": "Walk",
 	"run": "Run",
 	"jump": "Jump",
+	"double_jump": "double jump",
 	"attack1": "kungfu-mixamo",
 	"attack2": "Attack2",
 	"bigattack": "BigAttack",
@@ -144,8 +145,10 @@ func _physics_process(delta):
 			jump_counter = 0
 			vertical_velocity = Vector3.UP * jump_force
 			jump_counter += 1
+		#the double jump ⬇️
 		elif jump_counter == 1 || jump_counter == 0:
 			vertical_velocity = Vector3.UP * (jump_force + 3)
+			#states.double_jumping = animations.double_jump in pb_node
 			jump_counter += 1
 		elif jump_counter == 2:
 			jump_counter += 1
