@@ -29,7 +29,7 @@ sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
 
-[sub_resource type="Animation" id="Animation_eg2sv"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -222,7 +222,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_3s6ty"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -416,7 +416,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2gnim"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -610,7 +610,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_nf4ql"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -803,7 +803,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_7yhb6"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -996,7 +996,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_46ndk"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1190,14 +1190,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_3s6ty"),
-"double jump": SubResource("Animation_eg2sv"),
-"jump_fall": SubResource("Animation_2gnim"),
-"jump_start": SubResource("Animation_nf4ql"),
-"knockback": SubResource("Animation_7yhb6"),
-"run": SubResource("Animation_46ndk")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_j0mir"]
@@ -1237,22 +1237,33 @@ metadata/health = 10
 
 [node name="AnimationTree" parent="PlayerTemplate" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_bqaxh")
+"": SubResource("AnimationLibrary_60da5")
 }
+parameters/conditions/IsDoubleJumping = false
+parameters/conditions/IsFalling = false
+parameters/conditions/IsJumping = false
+parameters/conditions/IsOnFloor = false
 
 [node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(5.63417e-09, 0.835871, 0.180482)
-bones/1/rotation = Quaternion(-0.0890455, -0.0880751, -0.00810379, 0.992093)
-bones/2/rotation = Quaternion(-0.102199, 0.144857, 0.0253871, 0.983833)
-bones/3/position = Vector3(-0.458328, 0.560116, -0.164167)
-bones/3/rotation = Quaternion(-0.0504907, -0.354759, 0.863404, 0.355149)
-bones/4/rotation = Quaternion(0.531668, 0.301196, 0.104163, 0.784704)
-bones/6/position = Vector3(0.458329, 0.550422, -0.167788)
-bones/6/rotation = Quaternion(0.0403685, 0.344072, -0.888419, 0.301159)
-bones/7/rotation = Quaternion(0.5734, 0.0963776, 0.200361, 0.78853)
-bones/9/position = Vector3(-0.462601, 0.152782, -0.131827)
-bones/10/rotation = Quaternion(0.335855, 0.251622, -0.119106, 0.899835)
-bones/12/rotation = Quaternion(0.206014, 0.0137223, -0.121618, 0.970865)
+bones/0/position = Vector3(-9.27612e-10, 0.664698, 0.180482)
+bones/1/rotation = Quaternion(-0.0744615, -0.00685106, -0.0231202, 0.996932)
+bones/2/rotation = Quaternion(-0.153842, 0.0729309, 0.0269104, 0.985033)
+bones/3/position = Vector3(-0.458367, 0.555807, -0.165776)
+bones/3/rotation = Quaternion(0.0354123, -0.443938, 0.840511, 0.308554)
+bones/4/rotation = Quaternion(0.463683, 0.252377, 0.078947, 0.845619)
+bones/6/position = Vector3(0.458367, 0.554731, -0.166178)
+bones/6/rotation = Quaternion(0.0449781, 0.153677, -0.936723, 0.311303)
+bones/7/rotation = Quaternion(0.45535, 0.20727, 0.00708513, 0.865821)
+bones/9/position = Vector3(-0.460396, 0.139894, -0.109876)
+bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
+bones/10/rotation = Quaternion(0.457869, 0.285122, -0.12955, 0.832033)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
+bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
+bones/12/rotation = Quaternion(0.323314, -0.0104296, -0.0953284, 0.94142)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 

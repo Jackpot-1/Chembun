@@ -47,7 +47,9 @@ var animations = {
 	"attack1": "kungfu-mixamo",
 	"attack2": "Attack2",
 	"bigattack": "BigAttack",
-	"rollattack": "RollAttack"
+	"rollattack": "RollAttack",
+	"fall": "jump_fall",
+	"doublejump": "double jump"
 }
 
 # Condition States
@@ -55,6 +57,9 @@ var animations = {
 var states = {
 	"moving": null,
 	"grounded": null,
+	"falling": null,
+	"jumping": null,
+	"doublejumping" : null,
 	"attacking": null,
 	"rolling": null,
 	"walking": null,
@@ -117,10 +122,16 @@ func _physics_process(delta):
 	
 	#moving defined elsewhere
 	states.grounded = is_on_floor() 
+	states.falling = velocity.y < 0
+	if velocity.y < 0:
+		states.falling = true
+		playback.travel(animations.fall)
+	else: states.falling = false
 	states.attacking = animations.attack1 in pb_node || animations.attack2 in pb_node || animations.rollattack in pb_node || animations.bigattack in pb_node
 	#states.running = animations.run in pb_node || animations.bigattack in pb_node
 	#states.walking = animations.walk in pb_node
 	states.jumping = animations.jump in pb_node
+	#states.falling = animations.fall in pb_node
 	states.rolling = animations.roll in pb_node || animations.rollattack in pb_node
 	
 	# Gravity mechanics and prevent slope-sliding
@@ -145,13 +156,16 @@ func _physics_process(delta):
 			jump_counter = 0
 			vertical_velocity = Vector3.UP * jump_force
 			jump_counter += 1
+			playback.travel(animations.jump)
 		#the double jump ⬇️
 		elif jump_counter == 1 || jump_counter == 0:
 			vertical_velocity = Vector3.UP * (jump_force + 3)
 			#states.double_jumping = animations.double_jump in pb_node
 			jump_counter += 1
+			playback.travel(animations.doublejump)
 		elif jump_counter == 2:
 			jump_counter += 1
+			#jump_counter = 0
 		
 	# Movement input, state and mechanics. *Note: movement stops if attacking
 	if ((Input.is_action_pressed("forward") || Input.is_action_pressed("backward") || Input.is_action_pressed("left") || Input.is_action_pressed("right")) && !canvas.playerStopped):
@@ -201,8 +215,11 @@ func _physics_process(delta):
 	# advanced conditions of the AnimationTree, controlling animation paths
 	
 	# on_floor manages jumps and falls
+	animation_tree["parameters/conditions/IsFalling"] = states.falling
 	animation_tree["parameters/conditions/IsOnFloor"] = states.grounded
-	animation_tree["parameters/conditions/IsInAir"] = !states.grounded
+	animation_tree["parameters/conditions/IsJumping"] = states.jumping
+	animation_tree["parameters/conditions/IsDoubleJumping"] = states.doublejumping
+	
 	# Moving and running respectively
 	animation_tree["parameters/conditions/IsWalking"] = states.walking
 	animation_tree["parameters/conditions/IsNotWalking"] = !states.walking
