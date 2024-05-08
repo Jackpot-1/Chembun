@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bry8mxiawyyc8"]
+[gd_scene load_steps=38 format=3 uid="uid://bry8mxiawyyc8"]
 
 [ext_resource type="Script" path="res://assets/Scripts/BunController.gd" id="1_rrqok"]
 [ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/Camera/camroot.tscn" id="2_pc00b"]
@@ -1254,6 +1254,7 @@ advance_mode = 2
 advance_condition = &"IsDoubleJumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wk22o"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"IsFalling"
 
@@ -1268,6 +1269,10 @@ advance_condition = &"IsFalling"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xgihh"]
 advance_mode = 2
 advance_condition = &"IsDoubleJumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rddng"]
+advance_mode = 2
+advance_condition = &"IsOnFloor"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kmv6c"]
 states/End/position = Vector2(869.333, 169.333)
@@ -1286,8 +1291,8 @@ states/jump_fall/node = SubResource("AnimationNodeAnimation_aj2b6")
 states/jump_fall/position = Vector2(449.997, 430.628)
 states/kungfu-mixamo/node = SubResource("AnimationNodeAnimation_xcvv4")
 states/kungfu-mixamo/position = Vector2(375, 116.295)
-transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw"), "Idle", "kungfu-mixamo", SubResource("AnimationNodeStateMachineTransition_mt7me"), "kungfu-mixamo", "Idle", SubResource("AnimationNodeStateMachineTransition_om658"), "Jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_hokg7"), "Jump", "double jump", SubResource("AnimationNodeStateMachineTransition_yay8v"), "double jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_wk22o"), "jump_fall", "Walk", SubResource("AnimationNodeStateMachineTransition_m8ts8"), "Walk", "jump_fall", SubResource("AnimationNodeStateMachineTransition_w6jfn"), "jump_fall", "double jump", SubResource("AnimationNodeStateMachineTransition_xgihh")]
-graph_offset = Vector2(-31.003, 77.628)
+transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw"), "Idle", "kungfu-mixamo", SubResource("AnimationNodeStateMachineTransition_mt7me"), "kungfu-mixamo", "Idle", SubResource("AnimationNodeStateMachineTransition_om658"), "Jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_hokg7"), "Jump", "double jump", SubResource("AnimationNodeStateMachineTransition_yay8v"), "double jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_wk22o"), "jump_fall", "Walk", SubResource("AnimationNodeStateMachineTransition_m8ts8"), "Walk", "jump_fall", SubResource("AnimationNodeStateMachineTransition_w6jfn"), "jump_fall", "double jump", SubResource("AnimationNodeStateMachineTransition_xgihh"), "double jump", "Walk", SubResource("AnimationNodeStateMachineTransition_rddng")]
+graph_offset = Vector2(-29.003, 135.628)
 
 [node name="ChemBun" type="CharacterBody3D"]
 script = ExtResource("1_rrqok")
@@ -1332,33 +1337,38 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="DoubleJumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="chemcloth" parent="." instance=ExtResource("11_gc04b")]
 
 [node name="Armature" parent="chemcloth" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-4.20263e-09, 0.718487, 0.180482)
-bones/1/rotation = Quaternion(-0.0791023, -0.0323867, -0.0184178, 0.99617)
-bones/2/rotation = Quaternion(-0.137739, 0.0956012, 0.0264543, 0.985489)
-bones/3/position = Vector3(-0.458356, 0.557064, -0.165307)
-bones/3/rotation = Quaternion(0.00846887, -0.41676, 0.849346, 0.323807)
-bones/4/rotation = Quaternion(0.485624, 0.268033, 0.0869709, 0.827505)
-bones/6/position = Vector3(0.458356, 0.553474, -0.166648)
-bones/6/rotation = Quaternion(0.043716, 0.214239, -0.925447, 0.309415)
-bones/7/rotation = Quaternion(0.495988, 0.173897, 0.0680365, 0.848014)
-bones/9/position = Vector3(-0.461089, 0.143944, -0.116774)
+bones/0/position = Vector3(1.37334e-08, 0.689889, 0.180482)
+bones/1/rotation = Quaternion(-0.0766395, -0.018801, -0.0209217, 0.996662)
+bones/2/rotation = Quaternion(-0.146323, 0.0835455, 0.0266996, 0.985341)
+bones/3/position = Vector3(-0.458363, 0.556326, -0.165583)
+bones/3/rotation = Quaternion(0.0228285, -0.431335, 0.844826, 0.315751)
+bones/4/rotation = Quaternion(0.474009, 0.259735, 0.0827108, 0.837265)
+bones/6/position = Vector3(0.458363, 0.554213, -0.166372)
+bones/6/rotation = Quaternion(0.044411, 0.181982, -0.93191, 0.31057)
+bones/7/rotation = Quaternion(0.47461, 0.191945, 0.0354, 0.858283)
+bones/9/position = Vector3(-0.460721, 0.141791, -0.113107)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.420522, 0.275225, -0.126555, 0.855217)
+bones/10/rotation = Quaternion(0.440537, 0.28057, -0.128184, 0.843075)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.286987, -0.00285348, -0.103758, 0.952295)
+bones/12/rotation = Quaternion(0.306395, -0.00689012, -0.0992875, 0.946687)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [connection signal="timeout" from="RegenTimer" to="." method="regen"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="knockback_exit"]
+[connection signal="timeout" from="DoubleJumpTimer" to="." method="_on_double_jump_timer_timeout"]
 
 [editable path="chemcloth"]

@@ -1271,10 +1271,6 @@ transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, -0.0582161)
 libraries = {
 "": SubResource("AnimationLibrary_60da5")
 }
-parameters/conditions/IsDoubleJumping = false
-parameters/conditions/IsFalling = false
-parameters/conditions/IsJumping = false
-parameters/conditions/IsOnFloor = false
 
 [node name="CanvasLayer" parent="." index="27" instance=ExtResource("3_3sfsn")]
 

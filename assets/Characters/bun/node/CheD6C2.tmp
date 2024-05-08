@@ -1,33 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=37 format=3 uid="uid://bry8mxiawyyc8"]
 
-[ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
-[ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
-[ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="3_anjpt"]
-[ext_resource type="Material" uid="uid://c1u020xb37y6n" path="res://addons/ThirdPersonTemplate/Environments/Materials/Blue.material" id="3_ugxud"]
-[ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="4_hgv50"]
-[ext_resource type="Material" uid="uid://d3up41bo0vjj0" path="res://addons/ThirdPersonTemplate/Environments/Materials/OrangeGrid.material" id="4_kii6k"]
-[ext_resource type="Script" path="res://addons/gloot/core/inventory_item.gd" id="5_m8wyw"]
-[ext_resource type="Resource" uid="uid://ddrmqwl3guset" path="res://tests/data/item_definitions_grid.tres" id="6_1viyf"]
-[ext_resource type="Material" uid="uid://ddpgp1pyklffr" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreenGrid.material" id="6_5rtke"]
-[ext_resource type="Material" uid="uid://bquocw2a8n271" path="res://addons/ThirdPersonTemplate/Environments/Materials/GreyGrid.material" id="6_7xeo2"]
-[ext_resource type="Script" path="res://assets/Scripts/hotbar.gd" id="7_qe162"]
-[ext_resource type="Material" uid="uid://cpk3jtowelhgh" path="res://addons/ThirdPersonTemplate/Environments/Materials/PingkGrid.material" id="7_xstjq"]
-[ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="8_7hari"]
-[ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_dw3sa"]
-[ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
-[ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Potion.tres" id="8_kok1g"]
-[ext_resource type="Script" path="res://assets/Scripts/slot.gd" id="9_wot0r"]
-[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
-[ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
+[ext_resource type="Script" path="res://assets/Scripts/BunController.gd" id="1_rrqok"]
+[ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/Camera/camroot.tscn" id="2_pc00b"]
+[ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://assets/Camera/camRightTank.tscn" id="3_nbdst"]
+[ext_resource type="PackedScene" uid="uid://cj437v53xp0ip" path="res://assets/Characters/chembun cloth model/chemcloth.tscn" id="11_gc04b"]
 
-[sub_resource type="Environment" id="Environment_qyvd4"]
-background_mode = 2
-background_color = Color(0.647059, 0.909804, 0.917647, 1)
-sky = ExtResource("2_vp21c")
-ssao_enabled = true
-sdfgi_enabled = true
-adjustment_enabled = true
-adjustment_saturation = 1.15
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
+radius = 0.171913
+height = 1.61267
 
 [sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
@@ -1200,399 +1180,185 @@ _data = {
 "run": SubResource("Animation_x8l8x")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_j0mir"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -18.2703, 237.406, 0, 0, 0, 0, -23.7325, 199.924, -65.2009, 51.869, 65.2009, -51.869, 30, 63.0053, 0, 0, 0, 0, 169.23, 23.6581, 0, 0, 0, 0, 199.999, 30.783, 0, 0, 0, 0, 230.768, 44.1422)
-}
-point_count = 6
+[sub_resource type="AnimationNodeAnimation" id="20"]
+animation = &"Idle"
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0ck8"]
-blend_mode = 1
+[sub_resource type="AnimationNodeAnimation" id="21"]
+animation = &"jump_start"
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nebek"]
-blend_mode = 2
+[sub_resource type="AnimationNodeAnimation" id="23"]
+animation = &"run"
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b0ysw"]
+[sub_resource type="AnimationNodeAnimation" id="24"]
+animation = &"run"
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_hktkl"]
-vertices = PackedVector3Array(-15.75, 0.69482, -22.5, -15.25, 0.69482, -22.5, -15.25, 0.69482, -23.75, -23.75, 0.69482, -16.25, -21.5, 0.69482, -16.25, -21.5, 0.69482, -16.75, -23.75, 0.69482, -23.75, -23.75, 0.69482, -16.25, -21.5, 0.69482, -16.75, -15.75, 0.69482, -22.5, -15.25, 0.69482, -23.75, -15.25, 0.69482, -23.75, -15.25, 0.69482, -22.5, -14, 0.69482, -21.75, -9, 0.69482, -23.75, -6.25, 0.69482, -12.5, -3, 0.69482, -12.5, -2.75, 0.69482, -23.75, -9, 0.69482, -23.75, -9, 0.69482, -23.75, -14, 0.69482, -21.75, -14, 0.69482, -20.5, -12, 0.69482, -10.5, -6.5, 0.69482, -10.5, -6.25, 0.69482, -12.5, -9, 0.69482, -23.75, -14, 0.69482, -20.5, -17, 0.69482, -17.5, 4.5, 0.69482, -4.5, 4.75, 0.69482, -3.5, 7.5, 0.69482, -3.5, 4.5, 0.69482, -4.5, 7.5, 0.69482, -3.5, 7.75, 0.69482, -4.5, -1.25, 0.69482, -12.25, 12.25, 0.69482, -18, 15.75, 0.69482, -20, 15.75, 0.69482, -23.75, 6.5, 0.69482, -23.75, 7.75, 0.69482, -4.5, 16.25, 0.69482, -10.5, 12, 0.69482, -16.75, 6.5, 0.69482, -23.75, -2.75, 0.69482, -23.75, -1.25, 0.69482, -12.25, 12, 0.69482, -16.75, 12.25, 0.69482, -18, 6.5, 0.69482, -23.75, -1.25, 0.69482, -12.25, -1.25, 0.69482, -4.5, 4.5, 0.69482, -4.5, 7.75, 0.69482, -4.5, 12.25, 0.69482, -4.5, 16.25, 0.69482, -10.5, -2.75, 0.69482, -23.75, -3, 0.69482, -12.5, -1.25, 0.69482, -12.25, 21, 0.69482, -13.5, 21, 0.69482, -12.75, 23.75, 0.69482, -12.75, 15.75, 0.69482, -23.75, 15.75, 0.69482, -20, 17, 0.69482, -19.5, 23.75, 0.69482, -23.75, 15.75, 0.69482, -23.75, 17, 0.69482, -19.5, 21, 0.69482, -13.5, 23.75, 0.69482, -12.75, 17, 6.69482, -11.25, 19.75, 6.69482, -12.75, 16, 6.69482, -19, 13.25, 6.69482, -17.25, -20.25, 1.69482, -16.5, -20, 1.69482, -16, -18.25, 1.69482, -17.75, -18.5, 1.69482, -18.25, 17, 0.69482, -11.75, 19.25, 0.69482, -12.75, 19.25, 0.69482, -13.5, 16, 0.69482, -18.25, 13.75, 0.69482, -17.25, -20.5, 0.69482, -14.75, -21.5, 0.69482, -16.25, -23.75, 0.69482, -16.25, -23.75, 0.69482, -9.5, -23.75, 0.69482, 4.25, -23.75, 0.69482, 11.25, -12.5, 0.69482, 11, -12.5, 0.69482, 0.25, -19.75, 0.69482, -14.75, -20.5, 0.69482, -14.75, -23.75, 0.69482, -9.5, -23.75, 0.69482, -2.5, -12.5, 0.69482, 0.25, -12.5, 0.69482, -10.25, -12.5, 0.69482, -10.25, -12, 0.69482, -10.5, -17, 0.69482, -17.5, -19.75, 0.69482, -14.75, -23.75, 0.69482, -2.5, -23.75, 0.69482, 4.25, -12.5, 0.69482, 0.25, 23.75, 0.69482, -12.75, 21, 0.69482, -12.75, 20.75, 0.69482, -12, 23.75, 0.69482, -12.75, 20.75, 0.69482, -12, 17.75, 0.69482, -10, 12.75, 0.69482, -4.25, 12.75, 0.69482, -2, 23.75, 0.69482, -2, 16.5, 0.69482, -10, 16.25, 0.69482, -10.5, 12.25, 0.69482, -4.5, 12.75, 0.69482, -4.25, 17.75, 0.69482, -10, 16.5, 0.69482, -10, 12.75, 0.69482, -4.25, -5.5, 2.69482, -11.5, -5.5, 2.69482, -10.5, -2.5, 2.69482, -10.5, -2.5, 2.69482, -11.5, -5.25, 0.69482, -11.25, -5.25, 0.69482, -10.5, -2.5, 0.69482, -10.5, -2.5, 0.69482, -11.25, -11.5, 6.69482, -9.5, -11.5, 6.69482, -4.5, -6.25, 6.69482, -4.5, -6.25, 6.69482, -9.5, -5.25, 4.69482, -9.5, -5.25, 4.69482, -4.5, -2.5, 4.69482, -4.5, -2.5, 4.69482, -9.5, -11.25, 0.69482, -9.25, -11.25, 0.69482, -4.5, -6.5, 0.69482, -4.5, -6.5, 0.69482, -9.25, -5.25, 0.69482, -9.25, -5.25, 0.69482, -4.5, -2.5, 0.69482, -4.5, -2.5, 0.69482, -9.25, -11.5, 10.6948, 3.75, -4.5, 10.6948, 3.75, -4, 10.6948, 2.5, -4, 10.6948, -3.5, -11.5, 10.6948, -3.5, 3.5, 10.6948, 0.25, 3.5, 10.6948, -3.5, -4, 10.6948, -3.5, -4, 10.6948, 2.5, 3.5, 10.6948, -3.5, 3.5, 10.6948, 0.25, 4.5, 10.6948, 0.5, 4.5, 10.6948, 0.5, 5.5, 10.6948, 4.25, 11.5, 10.6948, 4.25, 11.5, 10.6948, -3.5, 3.5, 10.6948, -3.5, 10.5, 0.69482, -1.5, 10.5, 0.69482, -2.25, 7.75, 0.69482, -2.25, 7.75, 0.69482, -2.25, 7.5, 0.69482, -3.5, 4.75, 0.69482, -3.5, 4.5, 0.69482, -2.25, 3.25, 0.69482, 10.5, 10.5, 0.69482, 9.75, 11.5, 0.69482, 9.5, 11.5, 0.69482, -1.25, 4.5, 0.69482, -2.25, 3, 0.69482, -2.25, 10.5, 0.69482, -1.5, 7.75, 0.69482, -2.25, 4.5, 0.69482, -2.25, 11.5, 0.69482, -1.25, 10.5, 0.69482, -1.5, 4.5, 0.69482, -2.25, 3.25, 0.69482, 10.5, 10.5, 0.69482, 10.5, 10.5, 0.69482, 9.75, -3.75, 0.69482, -2.25, -10.25, 0.69482, -2.25, -10.25, 0.69482, 4, -10.25, 0.69482, 4, -10.25, 0.69482, 10.5, -3.5, 0.69482, 10.5, -3.75, 0.69482, -2.25, -10.25, 0.69482, 4, -3.5, 0.69482, 10.5, 3.25, 0.69482, 10.5, 3, 0.69482, -2.25, 12.25, 0.69482, -1.25, 11.5, 0.69482, -1.25, 11.5, 0.69482, 9.5, 12.25, 0.69482, -1.25, 11.5, 0.69482, 9.5, 12.75, 0.69482, 9.75, 23.75, 0.69482, 4.5, 23.75, 0.69482, -2, 12.75, 0.69482, -2, 12.75, 0.69482, 9.75, 12.75, 0.69482, 11, 23.75, 0.69482, 11, 23.75, 0.69482, 4.5, -2.5, 16.4448, 6.5, 4.5, 16.4448, 4.5, 3.5, 16.4448, 1.25, -3.5, 16.4448, 3.5, -3, 10.6948, 3.75, -2.25, 10.6948, 6.25, 4, 10.6948, 4.25, 3.25, 10.6948, 1.75, -2.25, 10.6948, 11.5, -2.25, 10.6948, 7.75, -3.25, 10.6948, 7.5, -2.25, 10.6948, 11.5, -3.25, 10.6948, 7.5, -4.5, 10.6948, 3.75, -11.5, 10.6948, 3.75, -11.5, 10.6948, 11.5, 11.5, 10.6948, 4.25, 5.5, 10.6948, 4.25, 5, 10.6948, 5.5, 4.5, 10.6948, 11.5, 11.5, 10.6948, 11.5, -2.25, 10.6948, 7.75, -2.25, 10.6948, 11.5, 4.5, 10.6948, 11.5, 5, 10.6948, 5.5, -23.75, 0.69482, 17.5, -23.75, 0.69482, 23.75, -17, 0.69482, 23.75, -10.25, 0.69482, 23.75, -10.25, 0.69482, 12.75, -12.25, 0.69482, 12.75, -12.25, 0.69482, 12.75, -12.5, 0.69482, 11, -23.75, 0.69482, 11.25, -17, 0.69482, 23.75, -10.25, 0.69482, 23.75, -12.25, 0.69482, 12.75, -23.75, 0.69482, 11.25, -23.75, 0.69482, 17.5, 17, 0.69482, 23.75, 23.75, 0.69482, 23.75, 23.75, 0.69482, 17.25, 23.75, 0.69482, 11, 12.75, 0.69482, 11, 12.75, 0.69482, 12.25, 12.25, 0.69482, 12.75, 10.25, 0.69482, 12.75, 10.25, 0.69482, 23.75, 23.75, 0.69482, 11, 12.75, 0.69482, 12.25, 12.25, 0.69482, 12.75, 10.25, 0.69482, 23.75, 17, 0.69482, 23.75, 23.75, 0.69482, 17.25, 0, 0.69482, 23.75, 10.25, 0.69482, 23.75, 10.25, 0.69482, 12.75, 0, 0.69482, 12.75, 0, 0.69482, 12.75, -10.25, 0.69482, 12.75, -10.25, 0.69482, 23.75, 0, 0.69482, 23.75)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(9, 6, 10), PackedInt32Array(12, 11, 13), PackedInt32Array(13, 11, 14), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(21, 20, 19), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 27), PackedInt32Array(24, 27, 26), PackedInt32Array(24, 26, 25), PackedInt32Array(30, 29, 28), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 34), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(40, 39, 41), PackedInt32Array(41, 39, 44), PackedInt32Array(41, 44, 42), PackedInt32Array(42, 44, 43), PackedInt32Array(47, 46, 45), PackedInt32Array(50, 49, 48), PackedInt32Array(53, 52, 51), PackedInt32Array(54, 56, 55), PackedInt32Array(59, 58, 57), PackedInt32Array(62, 61, 60), PackedInt32Array(66, 65, 67), PackedInt32Array(67, 65, 64), PackedInt32Array(67, 64, 63), PackedInt32Array(68, 71, 69), PackedInt32Array(69, 71, 70), PackedInt32Array(75, 74, 72), PackedInt32Array(72, 74, 73), PackedInt32Array(77, 76, 78), PackedInt32Array(78, 76, 79), PackedInt32Array(79, 76, 80), PackedInt32Array(82, 81, 83), PackedInt32Array(83, 81, 84), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 88), PackedInt32Array(90, 89, 91), PackedInt32Array(91, 89, 94), PackedInt32Array(91, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(96, 95, 97), PackedInt32Array(97, 95, 98), PackedInt32Array(99, 101, 100), PackedInt32Array(102, 104, 103), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 110), PackedInt32Array(107, 110, 108), PackedInt32Array(108, 110, 109), PackedInt32Array(114, 113, 111), PackedInt32Array(111, 113, 112), PackedInt32Array(117, 116, 115), PackedInt32Array(121, 120, 118), PackedInt32Array(118, 120, 119), PackedInt32Array(125, 124, 122), PackedInt32Array(122, 124, 123), PackedInt32Array(129, 128, 126), PackedInt32Array(126, 128, 127), PackedInt32Array(133, 132, 130), PackedInt32Array(130, 132, 131), PackedInt32Array(137, 136, 134), PackedInt32Array(134, 136, 135), PackedInt32Array(141, 140, 138), PackedInt32Array(138, 140, 139), PackedInt32Array(144, 143, 145), PackedInt32Array(145, 143, 142), PackedInt32Array(145, 142, 146), PackedInt32Array(148, 147, 149), PackedInt32Array(149, 147, 150), PackedInt32Array(153, 152, 151), PackedInt32Array(154, 158, 155), PackedInt32Array(155, 158, 156), PackedInt32Array(156, 158, 157), PackedInt32Array(161, 160, 159), PackedInt32Array(163, 162, 164), PackedInt32Array(164, 162, 165), PackedInt32Array(167, 166, 168), PackedInt32Array(168, 166, 169), PackedInt32Array(169, 166, 170), PackedInt32Array(170, 166, 171), PackedInt32Array(172, 174, 173), PackedInt32Array(175, 177, 176), PackedInt32Array(180, 179, 178), PackedInt32Array(183, 182, 181), PackedInt32Array(186, 185, 184), PackedInt32Array(187, 191, 188), PackedInt32Array(188, 191, 189), PackedInt32Array(189, 191, 190), PackedInt32Array(194, 193, 192), PackedInt32Array(196, 195, 197), PackedInt32Array(197, 195, 200), PackedInt32Array(197, 200, 198), PackedInt32Array(198, 200, 199), PackedInt32Array(202, 201, 203), PackedInt32Array(203, 201, 204), PackedInt32Array(208, 207, 205), PackedInt32Array(205, 207, 206), PackedInt32Array(212, 211, 209), PackedInt32Array(209, 211, 210), PackedInt32Array(215, 214, 213), PackedInt32Array(217, 216, 218), PackedInt32Array(218, 216, 219), PackedInt32Array(219, 216, 220), PackedInt32Array(222, 221, 223), PackedInt32Array(223, 221, 225), PackedInt32Array(223, 225, 224), PackedInt32Array(227, 226, 228), PackedInt32Array(228, 226, 229), PackedInt32Array(232, 231, 230), PackedInt32Array(235, 234, 233), PackedInt32Array(238, 237, 236), PackedInt32Array(243, 242, 239), PackedInt32Array(239, 242, 241), PackedInt32Array(239, 241, 240), PackedInt32Array(246, 245, 244), PackedInt32Array(249, 248, 247), PackedInt32Array(252, 251, 250), PackedInt32Array(254, 253, 255), PackedInt32Array(255, 253, 258), PackedInt32Array(255, 258, 257), PackedInt32Array(255, 257, 256), PackedInt32Array(262, 261, 259), PackedInt32Array(259, 261, 260), PackedInt32Array(266, 265, 263), PackedInt32Array(263, 265, 264)]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j1n7w"]
+animation = &"double jump"
 
-[node name="Scene" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0815773, -1.43051e-06, 0.163605)
-script = ExtResource("1_5anqr")
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aj2b6"]
+animation = &"jump_fall"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.892271, -0.274443, 0.358516, 2.02684e-08, 0.794054, 0.607847, -0.451501, 0.542364, -0.708511, 0, 2.76815, 9.26053)
-shadow_enabled = true
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xcvv4"]
+animation = &"kungfu-mixamo"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qyvd4")
+[sub_resource type="AnimationNodeStateMachineTransition" id="28"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsRunning"
 
-[node name="PlayerTemplate" parent="." instance=ExtResource("8_fimwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.643052, -19.8399)
-walk_speed = 6
-run_speed = 8
-metadata/health = 10
+[sub_resource type="AnimationNodeStateMachineTransition" id="31"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsNotRunning"
 
-[node name="AnimationTree" parent="PlayerTemplate" index="1"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="42"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsJumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="44"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="27"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="32"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"IsNotWalking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="45"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"IsInAir"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u47nw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mt7me"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_om658"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hokg7"]
+advance_mode = 2
+advance_condition = &"IsFalling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yay8v"]
+advance_mode = 2
+advance_condition = &"IsDoubleJumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wk22o"]
+advance_mode = 2
+advance_condition = &"IsFalling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8ts8"]
+advance_mode = 2
+advance_condition = &"IsOnFloor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6jfn"]
+advance_mode = 2
+advance_condition = &"IsFalling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xgihh"]
+advance_mode = 2
+advance_condition = &"IsDoubleJumping"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kmv6c"]
+states/End/position = Vector2(869.333, 169.333)
+states/Idle/node = SubResource("20")
+states/Idle/position = Vector2(375, 211.519)
+states/Jump/node = SubResource("21")
+states/Jump/position = Vector2(566, 326.667)
+states/Run/node = SubResource("23")
+states/Run/position = Vector2(771.667, 211.659)
+states/Start/position = Vector2(255, 213)
+states/Walk/node = SubResource("24")
+states/Walk/position = Vector2(566, 213)
+"states/double jump/node" = SubResource("AnimationNodeAnimation_j1n7w")
+"states/double jump/position" = Vector2(675, 430.628)
+states/jump_fall/node = SubResource("AnimationNodeAnimation_aj2b6")
+states/jump_fall/position = Vector2(449.997, 430.628)
+states/kungfu-mixamo/node = SubResource("AnimationNodeAnimation_xcvv4")
+states/kungfu-mixamo/position = Vector2(375, 116.295)
+transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw"), "Idle", "kungfu-mixamo", SubResource("AnimationNodeStateMachineTransition_mt7me"), "kungfu-mixamo", "Idle", SubResource("AnimationNodeStateMachineTransition_om658"), "Jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_hokg7"), "Jump", "double jump", SubResource("AnimationNodeStateMachineTransition_yay8v"), "double jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_wk22o"), "jump_fall", "Walk", SubResource("AnimationNodeStateMachineTransition_m8ts8"), "Walk", "jump_fall", SubResource("AnimationNodeStateMachineTransition_w6jfn"), "jump_fall", "double jump", SubResource("AnimationNodeStateMachineTransition_xgihh")]
+graph_offset = Vector2(-31.003, 77.628)
+
+[node name="ChemBun" type="CharacterBody3D"]
+script = ExtResource("1_rrqok")
+PlayerCharacterMesh = NodePath("chemcloth")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, -0.0582154)
+shape = SubResource("CapsuleShape3D_83d0r")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../chemcloth")
 libraries = {
 "": SubResource("AnimationLibrary_60da5")
 }
+tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
+anim_player = NodePath("../chemcloth/AnimationPlayer")
+parameters/conditions/IsDoubleJumping = false
+parameters/conditions/IsFalling = false
+parameters/conditions/IsInAir = false
+parameters/conditions/IsJumping = false
+parameters/conditions/IsNotRunning = false
+parameters/conditions/IsNotWalking = false
+parameters/conditions/IsOnFloor = false
+parameters/conditions/IsRunning = false
+parameters/conditions/IsWalking = false
 
-[node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-9.27612e-10, 0.664698, 0.180482)
-bones/1/rotation = Quaternion(-0.0744615, -0.00685106, -0.0231202, 0.996932)
-bones/2/rotation = Quaternion(-0.153842, 0.0729309, 0.0269104, 0.985033)
-bones/3/position = Vector3(-0.458367, 0.555807, -0.165776)
-bones/3/rotation = Quaternion(0.0354123, -0.443938, 0.840511, 0.308554)
-bones/4/rotation = Quaternion(0.463683, 0.252377, 0.078947, 0.845619)
-bones/6/position = Vector3(0.458367, 0.554731, -0.166178)
-bones/6/rotation = Quaternion(0.0449781, 0.153677, -0.936723, 0.311303)
-bones/7/rotation = Quaternion(0.45535, 0.20727, 0.00708513, 0.865821)
-bones/9/position = Vector3(-0.460396, 0.139894, -0.109876)
-bones/10/rotation = Quaternion(0.457869, 0.285122, -0.12955, 0.832033)
-bones/12/rotation = Quaternion(0.323314, -0.0104296, -0.0953284, 0.94142)
+[node name="Camroot" parent="." instance=ExtResource("2_pc00b")]
+visible = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
+[node name="CamRightTank" parent="." instance=ExtResource("3_nbdst")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="InventoryGridTransfer" parent="CanvasLayer" index="10"]
-visible = false
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
-[node name="CtrlInventoryGridLeft" parent="CanvasLayer/InventoryGridTransfer/VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" index="0"]
-custom_minimum_size = Vector2(288, 160)
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
-[node name="InventoryGridLeft" parent="CanvasLayer/InventoryGridTransfer" index="1"]
-size = Vector2i(9, 5)
+[node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
-[node name="_Node_50997" type="Node" parent="CanvasLayer/InventoryGridTransfer/InventoryGridLeft" index="0"]
-script = ExtResource("5_m8wyw")
-protoset = ExtResource("6_1viyf")
-prototype_id = "item_2x2"
-properties = {
-"grid_position": Vector2i(1, 2)
-}
+[node name="chemcloth" parent="." instance=ExtResource("11_gc04b")]
 
-[node name="hotbar" type="Node" parent="CanvasLayer"]
-script = ExtResource("7_qe162")
-Items = Array[Resource("res://assets/images/items/ItemScript.gd")]([null, null, null, ExtResource("8_kok1g"), null])
+[node name="Armature" parent="chemcloth" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="Quarter2" type="TextureRect" parent="CanvasLayer/hotbar"]
-visible = false
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -240.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("8_dw3sa")
+[node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
+bones/0/position = Vector3(1.31132e-08, 0.713035, 0.180482)
+bones/1/rotation = Quaternion(-0.0786329, -0.0297917, -0.0188965, 0.996279)
+bones/2/rotation = Quaternion(-0.139382, 0.0932991, 0.0265016, 0.985477)
+bones/3/position = Vector3(-0.458357, 0.556922, -0.16536)
+bones/3/rotation = Quaternion(0.0112219, -0.41957, 0.848513, 0.322275)
+bones/4/rotation = Quaternion(0.483414, 0.266452, 0.0861581, 0.829392)
+bones/6/position = Vector3(0.458357, 0.553616, -0.166595)
+bones/6/rotation = Quaternion(0.0438537, 0.208034, -0.926772, 0.309664)
+bones/7/rotation = Quaternion(0.4919, 0.177439, 0.0616897, 0.850144)
+bones/9/position = Vector3(-0.461019, 0.143533, -0.116075)
+bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
+bones/10/rotation = Quaternion(0.424381, 0.276262, -0.126874, 0.852926)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
+bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
+bones/12/rotation = Quaternion(0.290715, -0.00362687, -0.102905, 0.951253)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
-[node name="Quarter" type="TextureRect" parent="CanvasLayer/hotbar"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("8_dw3sa")
+[connection signal="timeout" from="RegenTimer" to="." method="regen"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="knockback_exit"]
 
-[node name="Path2D" type="Path2D" parent="CanvasLayer/hotbar/Quarter"]
-position = Vector2(-7.99887, -25.5638)
-scale = Vector2(1.04, 1.12282)
-curve = SubResource("Curve2D_j0mir")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(-22.3606, 156.994)
-progress = 80.9456
-rotates = false
-cubic_interp = false
-
-[node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D"]
-material = SubResource("CanvasItemMaterial_q0ck8")
-position = Vector2(1.23978e-05, 2.38419e-05)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_7hari")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -185.725
-offset_top = -185.237
-offset_right = -13.7248
-offset_bottom = -13.2374
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_wot0r")
-
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel"]
-centered = false
-
-[node name="PathFollow2D2" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(9.20616, 83.4994)
-progress = 161.891
-rotates = false
-cubic_interp = false
-
-[node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2"]
-position = Vector2(1.23978e-05, 2.38419e-05)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_7hari")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -185.725
-offset_top = -185.237
-offset_right = -13.7248
-offset_bottom = -13.2374
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_wot0r")
-
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D2/Circle/Panel"]
-centered = false
-
-[node name="PathFollow2D3" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(74.4206, 36.8992)
-progress = 242.837
-rotates = false
-cubic_interp = false
-
-[node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3"]
-position = Vector2(1.23978e-05, 2.38419e-05)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_7hari")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -185.725
-offset_top = -185.237
-offset_right = -13.7248
-offset_bottom = -13.2374
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_wot0r")
-
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D3/Circle/Panel"]
-centered = false
-
-[node name="PathFollow2D4" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(153.472, 22.3971)
-progress = 323.783
-rotates = false
-cubic_interp = false
-
-[node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4"]
-position = Vector2(1.23978e-05, 2.38419e-05)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_7hari")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -185.725
-offset_top = -185.237
-offset_right = -13.7248
-offset_bottom = -13.2374
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_wot0r")
-
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D4/Circle/Panel"]
-centered = false
-
-[node name="PathFollow2D5" type="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D"]
-position = Vector2(230.768, 44.1422)
-progress = 404.728
-rotates = false
-cubic_interp = false
-
-[node name="Circle" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5"]
-material = SubResource("CanvasItemMaterial_nebek")
-position = Vector2(1.23978e-05, 2.38419e-05)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_7hari")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -185.725
-offset_top = -185.237
-offset_right = -13.7248
-offset_bottom = -13.2374
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_wot0r")
-
-[node name="itemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter/Path2D/PathFollow2D5/Circle/Panel"]
-centered = false
-
-[node name="bigItemDisplay" type="Sprite2D" parent="CanvasLayer/hotbar/Quarter"]
-position = Vector2(32, 32)
-scale = Vector2(0.42, 0.42)
-centered = false
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_b0ysw")
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_hktkl")
-
-[node name="Level" type="Node3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370755, 0)
-
-[node name="FloorAlt" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14287, 0)
-size = Vector3(48.5, 0.1, 48.5)
-material = ExtResource("3_ugxud")
-
-[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14482, 0)
-use_collision = true
-collision_layer = 3
-size = Vector3(47.5872, 0.1, 47.791)
-material = ExtResource("3_anjpt")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(0.833182, 0, 0.552999, 0, 1, 0, -0.552999, 0, 0.833182, 16.5416, 3.19482, -15.014)
-use_collision = true
-collision_layer = 3
-size = Vector3(4, 6, 8)
-material = ExtResource("4_kii6k")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(-0.318513, 0, 0.947919, 0, 1, 0, -0.947919, 0, -0.318513, 0.541599, 13.1948, 3.986)
-use_collision = true
-collision_layer = 3
-size = Vector3(4, 6, 8)
-material = ExtResource("4_kii6k")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.19482, -6.9983)
-use_collision = true
-collision_layer = 3
-size = Vector3(6, 8, 6)
-material = ExtResource("6_5rtke")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.19482, -6.9983)
-use_collision = true
-collision_layer = 3
-size = Vector3(4, 4, 6)
-material = ExtResource("6_5rtke")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.19482, -10.9983)
-use_collision = true
-collision_layer = 3
-size = Vector3(4, 2, 2)
-material = ExtResource("6_5rtke")
-
-[node name="Node3D" type="Node3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -17.521, 4.76836e-07, -18.7606)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/Level/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.233154, 0.69482, -0.0343475)
-use_collision = true
-collision_layer = 3
-size = Vector3(8, 1, 1)
-material = ExtResource("7_xstjq")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Level/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76685, 1.69482, -0.0343475)
-use_collision = true
-collision_layer = 3
-size = Vector3(4, 1, 1)
-material = ExtResource("7_xstjq")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Level/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76685, 2.69482, -0.0343475)
-use_collision = true
-collision_layer = 3
-material = ExtResource("7_xstjq")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.19482, 4)
-use_collision = true
-collision_layer = 3
-size = Vector3(24, 10, 16)
-material = ExtResource("6_7xeo2")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -3, -7)
-operation = 2
-size = Vector3(4, 6, 2)
-material = ExtResource("6_7xeo2")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGBox3D"]
-transform = Transform3D(-8.9407e-08, 0, 1, 0, 1, 0, -1, 0, -8.9407e-08, 11, -3, 0)
-operation = 2
-size = Vector3(12, 6, 2)
-material = ExtResource("6_7xeo2")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-operation = 2
-size = Vector3(22, 10, 14)
-material = ExtResource("6_7xeo2")
-
-[node name="salt enemy dev13" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.99798, 0, 0.0635221, 0, 0.999999, 0, -0.0635221, 0, -0.99798, 5.01097, 0.585, -10.0574)
-metadata/Damage = 1
-
-[node name="salt enemy dev12" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.585, -13.3312)
-metadata/Damage = 1
-
-[node name="salt enemy dev14" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 17.0799, 0.585, -6.32358)
-metadata/Damage = 1
-
-[node name="salt enemy dev15" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.585, 2.85963)
-metadata/Damage = 1
-
-[node name="salt enemy dev16" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 18.1121, 0.585, -0.839416)
-metadata/Damage = 1
-
-[node name="salt enemy dev17" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
-transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 20.2059, 0.585, 3.32913)
-metadata/Damage = 1
-
-[node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
-
-[editable path="PlayerTemplate"]
-[editable path="PlayerTemplate/chemcloth"]
-[editable path="CanvasLayer"]
-[editable path="CanvasLayer/InventoryGridTransfer"]
+[editable path="chemcloth"]

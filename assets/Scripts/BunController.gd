@@ -79,6 +79,7 @@ var acceleration: int
 # misc
 var jump_counter: int
 var knockback: Vector3
+var Ystopper = false
 
 func _ready():
 	Globals.player = $"."
@@ -122,10 +123,17 @@ func _physics_process(delta):
 	
 	#moving defined elsewhere
 	states.grounded = is_on_floor() 
-	states.falling = velocity.y < 0
+	#states.falling = velocity.y < 0
+	print(animations.doublejump in pb_node)
+	#if animations.doublejump in pb_node:
+		#$DoubleJumpTimer.start()
+		#Ystopper = true
+		#vertical_velocity = Vector3(0, 0, 0)
 	if velocity.y < 0:
 		states.falling = true
-		playback.travel(animations.fall)
+		if animations.doublejump not in pb_node:
+			playback.travel(animations.fall)
+		
 	else: states.falling = false
 	states.attacking = animations.attack1 in pb_node || animations.attack2 in pb_node || animations.rollattack in pb_node || animations.bigattack in pb_node
 	#states.running = animations.run in pb_node || animations.bigattack in pb_node
@@ -135,8 +143,9 @@ func _physics_process(delta):
 	states.rolling = animations.roll in pb_node || animations.rollattack in pb_node
 	
 	# Gravity mechanics and prevent slope-sliding
-	if !states.grounded:
+	if !states.grounded and Ystopper == false:
 		vertical_velocity += Vector3.DOWN * gravity * 2 * delta
+	elif Ystopper == true: pass
 	else:
 		#vertical_velocity = -get_floor_normal() * gravity / 3
 		vertical_velocity = Vector3.DOWN * gravity / 10
@@ -153,16 +162,21 @@ func _physics_process(delta):
 	# Jump input and Mechanics
 	if Input.is_action_just_pressed("jump") && !canvas.playerStopped && !states.attacking && !states.rolling:
 		if states.grounded:
+			#states.doublejumping = false
 			jump_counter = 0
 			vertical_velocity = Vector3.UP * jump_force
 			jump_counter += 1
 			playback.travel(animations.jump)
 		#the double jump ⬇️
 		elif jump_counter == 1 || jump_counter == 0:
-			vertical_velocity = Vector3.UP * (jump_force + 3)
+			$DoubleJumpTimer.start()
+			Ystopper = true
+			vertical_velocity = Vector3(0, -0.1, 0)
+			if Ystopper == false: vertical_velocity = Vector3.UP * (jump_force + 3)
 			#states.double_jumping = animations.double_jump in pb_node
 			jump_counter += 1
 			playback.travel(animations.doublejump)
+			#states.doublejumping = true
 		elif jump_counter == 2:
 			jump_counter += 1
 			#jump_counter = 0
@@ -291,3 +305,8 @@ func knockback_enter(direction:Vector3, strength: Vector3):
 func knockback_exit():
 	states.knockback = false
 	knockback = Vector3.ZERO
+
+
+func _on_double_jump_timer_timeout():
+	Ystopper = false
+	vertical_velocity = Vector3.UP * (jump_force + 3)
