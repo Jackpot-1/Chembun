@@ -34,8 +34,10 @@ var pb_node
 
 ##Combat Throwing Stuff
 var tankMode = false
-#const flaskPreload = preload("res://assets/Miscellaneous/Flask.tscn")
-var curFlask
+const blobPreload = preload("res://assets/items/Betterblob.glb")
+var blobInstance
+var blobFired = false
+var blob
 
 var animations = {
 	"roll": "Roll",
@@ -91,7 +93,19 @@ func _input(event): # All major mouse and button input events
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
+		blobInstance = blobPreload.instantiate()
+		blobInstance.name = Globals.currItem
+		print(blobInstance.name)
+		print(get_parent())
+		print(get_parent().get_parent())
+		get_parent().add_child(blobInstance)
+		print(blobInstance.position)
+		blobInstance.position = Vector3(0, 1, 1)
 	if event.is_action_released("aim"):
+		if blobFired:
+			pass
+		else:
+			blobInstance.free()
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
 
@@ -124,7 +138,7 @@ func _physics_process(delta):
 	#moving defined elsewhere
 	states.grounded = is_on_floor() 
 	#states.falling = velocity.y < 0
-	print(animations.doublejump in pb_node)
+	#print(animations.doublejump in pb_node)
 	#if animations.doublejump in pb_node:
 		#$DoubleJumpTimer.start()
 		#Ystopper = true

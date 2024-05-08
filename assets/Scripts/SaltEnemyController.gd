@@ -64,6 +64,7 @@ func _ready():
 	playback.travel(animations.walk)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
+	print(body.name)
 	if body != Globals.player:
 		return
 	movement_speed = 10
