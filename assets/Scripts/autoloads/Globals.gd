@@ -55,6 +55,7 @@ var EnemyDatabase = {
 			#"item" : null
 		#}
 	#]
+	
 
 class Enemy extends CharacterBody3D:
 	var damage: float
@@ -98,3 +99,8 @@ class Enemy extends CharacterBody3D:
 		
 
 var currItem = ""
+
+func potAttack(body, enemy):
+	if EnemyDatabase.has(enemy):
+		print(enemy)
+	pass

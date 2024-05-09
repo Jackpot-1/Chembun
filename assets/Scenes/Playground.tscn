@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=38 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -20,7 +20,6 @@
 [ext_resource type="Script" path="res://assets/Scripts/slot.gd" id="9_wot0r"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
-[ext_resource type="PackedScene" uid="uid://pbbqdr8ijpmj" path="res://assets/items/Betterblob.glb" id="20_dw6jy"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -31,7 +30,7 @@ sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
 
-[sub_resource type="Animation" id="Animation_7t5ex"]
+[sub_resource type="Animation" id="Animation_uyfh5"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -224,7 +223,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_x3s8o"]
+[sub_resource type="Animation" id="Animation_qx41b"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -418,7 +417,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_5ro26"]
+[sub_resource type="Animation" id="Animation_6g23p"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -612,7 +611,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_1nijh"]
+[sub_resource type="Animation" id="Animation_40sai"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -805,7 +804,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_sktei"]
+[sub_resource type="Animation" id="Animation_2swgf"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -998,7 +997,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_x8l8x"]
+[sub_resource type="Animation" id="Animation_yw5ll"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1192,14 +1191,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0i2s"]
 _data = {
-"Idle": SubResource("Animation_x3s8o"),
-"double jump": SubResource("Animation_7t5ex"),
-"jump_fall": SubResource("Animation_5ro26"),
-"jump_start": SubResource("Animation_1nijh"),
-"knockback": SubResource("Animation_sktei"),
-"run": SubResource("Animation_x8l8x")
+"Idle": SubResource("Animation_qx41b"),
+"double jump": SubResource("Animation_uyfh5"),
+"jump_fall": SubResource("Animation_6g23p"),
+"jump_start": SubResource("Animation_40sai"),
+"knockback": SubResource("Animation_2swgf"),
+"run": SubResource("Animation_yw5ll")
 }
 
 [sub_resource type="Resource" id="Resource_0c80d"]
@@ -1255,26 +1254,26 @@ metadata/health = 10
 
 [node name="AnimationTree" parent="PlayerTemplate" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_60da5")
+"": SubResource("AnimationLibrary_r0i2s")
 }
 
 [node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-1.12025e-09, 0.915826, 0.180482)
-bones/1/rotation = Quaternion(-0.0956441, -0.125811, -0.00106831, 0.987432)
-bones/2/rotation = Quaternion(-0.0777948, 0.178074, 0.0246071, 0.980629)
-bones/3/position = Vector3(-0.458313, 0.56188, -0.163508)
-bones/3/rotation = Quaternion(-0.0903297, -0.310886, 0.868772, 0.374734)
-bones/4/rotation = Quaternion(0.561369, 0.322836, 0.115541, 0.753188)
-bones/6/position = Vector3(0.458313, 0.548658, -0.168447)
-bones/6/rotation = Quaternion(0.0376774, 0.428567, -0.854049, 0.292422)
-bones/7/rotation = Quaternion(0.615025, 0.0421566, 0.286094, 0.733565)
-bones/9/position = Vector3(-0.463631, 0.158802, -0.14208)
+bones/0/position = Vector3(-1.30203e-08, 0.863309, 0.180482)
+bones/1/rotation = Quaternion(-0.0913278, -0.101054, -0.00568836, 0.990664)
+bones/2/rotation = Quaternion(-0.0938341, 0.156297, 0.025124, 0.982922)
+bones/3/position = Vector3(-0.458322, 0.560829, -0.1639)
+bones/3/rotation = Quaternion(-0.0642209, -0.33982, 0.865633, 0.362045)
+bones/4/rotation = Quaternion(0.542026, 0.308718, 0.108103, 0.774089)
+bones/6/position = Vector3(0.458322, 0.549708, -0.168054)
+bones/6/rotation = Quaternion(0.0394782, 0.373561, -0.877402, 0.298429)
+bones/7/rotation = Quaternion(0.588809, 0.0777441, 0.230426, 0.77082)
+bones/9/position = Vector3(-0.462954, 0.154848, -0.135345)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.276437, 0.234178, -0.113378, 0.925143)
+bones/10/rotation = Quaternion(0.315573, 0.245746, -0.117195, 0.909004)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.150071, 0.0249353, -0.133242, 0.979338)
+bones/12/rotation = Quaternion(0.186852, 0.0175846, -0.125664, 0.974159)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
@@ -1592,33 +1591,42 @@ material = ExtResource("6_7xeo2")
 
 [node name="salt enemy dev13" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
 transform = Transform3D(-0.99798, 0, 0.0635221, 0, 0.999999, 0, -0.0635221, 0, -0.99798, 5.01097, 0.585, -10.0574)
+saltDamage = null
+movement_speed = null
 metadata/Damage = 1
 
 [node name="salt enemy dev12" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
 transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.585, -13.3312)
+saltDamage = null
+movement_speed = null
 metadata/Damage = 1
 
 [node name="salt enemy dev14" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
 transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 17.0799, 0.585, -6.32358)
+saltDamage = null
+movement_speed = null
 metadata/Damage = 1
 
 [node name="salt enemy dev15" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
 transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 8.47838, 0.585, 2.85963)
+saltDamage = null
+movement_speed = null
 metadata/Damage = 1
 
 [node name="salt enemy dev16" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
 transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 18.1121, 0.585, -0.839416)
+saltDamage = null
+movement_speed = null
 metadata/Damage = 1
 
 [node name="salt enemy dev17" parent="NavigationRegion3D" instance=ExtResource("10_piha5")]
 transform = Transform3D(-0.00137882, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00137882, 20.2059, 0.585, 3.32913)
+saltDamage = null
+movement_speed = null
 metadata/Damage = 1
 
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
-
-[node name="Betterblob" parent="." instance=ExtResource("20_dw6jy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.95865, -14.5929)
 
 [editable path="PlayerTemplate"]
 [editable path="PlayerTemplate/chemcloth"]

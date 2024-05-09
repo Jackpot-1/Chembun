@@ -135,7 +135,11 @@ func _physics_process(delta):
 	acceleration = 15
 	
 	#moving defined elsewhere
-	states.grounded = is_on_floor() 
+	states.grounded = is_on_floor()
+	
+	if blobFired:
+		await get_tree().create_timer(1).timeout
+		blobInstance.position = Vector3(1, 0, 0)
 	#states.falling = velocity.y < 0
 	#print(animations.doublejump in pb_node)
 	#if animations.doublejump in pb_node:
@@ -259,6 +263,8 @@ func attack1():
 	if not states.attacking && not states.running && not states.rolling && states.grounded:
 		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
 			if tankMode == true:
+				blobInstance.reparent($".")
+				blobFired = true
 				print("in tank mode and attacked")
 				print("")
 				#create new instance and set its position to Chembun with the instance slightly infront of it
@@ -323,3 +329,4 @@ func knockback_exit():
 func _on_double_jump_timer_timeout():
 	Ystopper = false
 	vertical_velocity = Vector3.UP * (jump_force + 3)
+

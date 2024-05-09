@@ -72,14 +72,24 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 	hasDived = true
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
-	print(body.name, " what is colliding")
-	if body != Globals.player:
-		return
-	Globals.player.hurt(saltDamage)
-	Globals.player.knockback_enter(rotation, data.knockback)
+	if body.name == Globals.currItem:
+		Globals.potAttack(body, "SaltBlock")
+	elif body == Globals.player:
+		Globals.player.hurt(saltDamage)
+		Globals.player.knockback_enter(rotation, data.knockback)
+		playback.travel(animations.attack2)
+		saltCube.queue_free()
+		
+		#Globals.player.hurt(saltDamage)
+		#Globals.player.knockback_enter(rotation, data.knockback)
+		#playback.travel(animations.attack2)
+		#saltCube.queue_free()
 	
-	playback.travel(animations.attack2)
-	saltCube.queue_free()
+	#Globals.player.hurt(saltDamage)
+	#Globals.player.knockback_enter(rotation, data.knockback)
+	#
+	#playback.travel(animations.attack2)
+	#saltCube.queue_free()
 
 func _on_detection_range_body_entered(body):
 	if body != Globals.player:
