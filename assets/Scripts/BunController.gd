@@ -34,7 +34,7 @@ var pb_node
 
 ##Combat Throwing Stuff
 var tankMode = false
-const blobPreload = preload("res://assets/items/Betterblob.glb")
+const blobPreload = preload("res://assets/items/Betterblob.tscn")
 var blobInstance
 var blobFired = false
 var blob
@@ -95,11 +95,10 @@ func _input(event): # All major mouse and button input events
 		direction = $Camroot/h.global_transform.basis.z
 		blobInstance = blobPreload.instantiate()
 		blobInstance.name = Globals.currItem
-		print(blobInstance.name)
-		print(get_parent())
-		print(get_parent().get_parent())
+		print(blobInstance.name, " blobInstance name")
 		get_parent().add_child(blobInstance)
-		print(blobInstance.position)
+		print(blobInstance.position, " position")
+		print("")
 		blobInstance.position = Vector3(0, 1, 1)
 	if event.is_action_released("aim"):
 		if blobFired:

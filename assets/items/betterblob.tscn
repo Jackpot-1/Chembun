@@ -1,34 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg6f8m5fmpsvc"]
+[gd_scene load_steps=7 format=3 uid="uid://b4egrk33y627r"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pahf2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xftqq"]
 resource_name = "Material.001"
 cull_mode = 2
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.177088, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsu22"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyfmh"]
 resource_name = "Material"
 cull_mode = 2
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.177088, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osvw1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtivk"]
 resource_name = "Material.002"
 cull_mode = 2
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.177088, 1, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouvqn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k7yur"]
 resource_name = "Material.003"
 cull_mode = 2
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.177088, 1, 0, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_v72m1"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0g0ai"]
 resource_name = "Betterblob_Cube_001"
 _blend_shape_names = PackedStringArray("Key 1")
 _surfaces = [{
@@ -38,7 +38,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 96,
 "index_data": PackedByteArray(21, 0, 5, 0, 32, 0, 28, 0, 32, 0, 12, 0, 15, 0, 32, 0, 22, 0, 0, 0, 32, 0, 29, 0, 22, 0, 32, 0, 6, 0, 12, 0, 32, 0, 16, 0, 29, 0, 32, 0, 13, 0, 13, 0, 32, 0, 23, 0, 16, 0, 32, 0, 2, 0, 7, 0, 32, 0, 30, 0, 23, 0, 32, 0, 7, 0, 14, 0, 32, 0, 17, 0, 30, 0, 32, 0, 14, 0, 5, 0, 24, 0, 32, 0, 17, 0, 32, 0, 1, 0, 3, 0, 32, 0, 31, 0, 24, 0, 8, 0, 32, 0, 10, 0, 18, 0, 32, 0, 31, 0, 32, 0, 15, 0, 0, 0, 25, 0, 32, 0, 18, 0, 2, 0, 32, 0, 25, 0, 9, 0, 32, 0, 8, 0, 19, 0, 32, 0, 4, 0, 26, 0, 32, 0, 19, 0, 1, 0, 32, 0, 26, 0, 10, 0, 32, 0, 9, 0, 20, 0, 32, 0, 3, 0, 27, 0, 32, 0, 20, 0, 4, 0, 32, 0, 27, 0, 11, 0, 32, 0, 11, 0, 21, 0, 32, 0, 6, 0, 32, 0, 28, 0),
-"material": SubResource("StandardMaterial3D_pahf2"),
+"material": SubResource("StandardMaterial3D_xftqq"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -51,7 +51,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 96,
 "index_data": PackedByteArray(21, 0, 5, 0, 32, 0, 28, 0, 32, 0, 12, 0, 15, 0, 32, 0, 22, 0, 0, 0, 32, 0, 29, 0, 22, 0, 32, 0, 6, 0, 12, 0, 32, 0, 16, 0, 29, 0, 32, 0, 13, 0, 13, 0, 32, 0, 23, 0, 16, 0, 32, 0, 2, 0, 7, 0, 32, 0, 30, 0, 23, 0, 32, 0, 7, 0, 14, 0, 32, 0, 17, 0, 30, 0, 32, 0, 14, 0, 5, 0, 24, 0, 32, 0, 17, 0, 32, 0, 1, 0, 3, 0, 32, 0, 31, 0, 24, 0, 8, 0, 32, 0, 10, 0, 18, 0, 32, 0, 31, 0, 32, 0, 15, 0, 0, 0, 25, 0, 32, 0, 18, 0, 2, 0, 32, 0, 25, 0, 9, 0, 32, 0, 8, 0, 19, 0, 32, 0, 4, 0, 26, 0, 32, 0, 19, 0, 1, 0, 32, 0, 26, 0, 10, 0, 32, 0, 9, 0, 20, 0, 32, 0, 3, 0, 27, 0, 32, 0, 20, 0, 4, 0, 32, 0, 27, 0, 11, 0, 32, 0, 11, 0, 21, 0, 32, 0, 6, 0, 32, 0, 28, 0),
-"material": SubResource("StandardMaterial3D_vsu22"),
+"material": SubResource("StandardMaterial3D_qyfmh"),
 "name": "Material",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -64,7 +64,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 96,
 "index_data": PackedByteArray(21, 0, 5, 0, 32, 0, 28, 0, 32, 0, 12, 0, 15, 0, 32, 0, 22, 0, 0, 0, 32, 0, 29, 0, 22, 0, 32, 0, 6, 0, 12, 0, 32, 0, 16, 0, 29, 0, 32, 0, 13, 0, 13, 0, 32, 0, 23, 0, 16, 0, 32, 0, 2, 0, 7, 0, 32, 0, 30, 0, 23, 0, 32, 0, 7, 0, 14, 0, 32, 0, 17, 0, 30, 0, 32, 0, 14, 0, 5, 0, 24, 0, 32, 0, 17, 0, 32, 0, 1, 0, 3, 0, 32, 0, 31, 0, 24, 0, 8, 0, 32, 0, 10, 0, 18, 0, 32, 0, 31, 0, 32, 0, 15, 0, 0, 0, 25, 0, 32, 0, 18, 0, 2, 0, 32, 0, 25, 0, 9, 0, 32, 0, 8, 0, 19, 0, 32, 0, 4, 0, 26, 0, 32, 0, 19, 0, 1, 0, 32, 0, 26, 0, 10, 0, 32, 0, 9, 0, 20, 0, 32, 0, 3, 0, 27, 0, 32, 0, 20, 0, 4, 0, 32, 0, 27, 0, 11, 0, 32, 0, 11, 0, 21, 0, 32, 0, 6, 0, 32, 0, 28, 0),
-"material": SubResource("StandardMaterial3D_osvw1"),
+"material": SubResource("StandardMaterial3D_vtivk"),
 "name": "Material.002",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -77,7 +77,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 96,
 "index_data": PackedByteArray(21, 0, 5, 0, 32, 0, 28, 0, 32, 0, 12, 0, 15, 0, 32, 0, 22, 0, 0, 0, 32, 0, 29, 0, 22, 0, 32, 0, 6, 0, 12, 0, 32, 0, 16, 0, 29, 0, 32, 0, 13, 0, 13, 0, 32, 0, 23, 0, 16, 0, 32, 0, 2, 0, 7, 0, 32, 0, 30, 0, 23, 0, 32, 0, 7, 0, 14, 0, 32, 0, 17, 0, 30, 0, 32, 0, 14, 0, 5, 0, 24, 0, 32, 0, 17, 0, 32, 0, 1, 0, 3, 0, 32, 0, 31, 0, 24, 0, 8, 0, 32, 0, 10, 0, 18, 0, 32, 0, 31, 0, 32, 0, 15, 0, 0, 0, 25, 0, 32, 0, 18, 0, 2, 0, 32, 0, 25, 0, 9, 0, 32, 0, 8, 0, 19, 0, 32, 0, 4, 0, 26, 0, 32, 0, 19, 0, 1, 0, 32, 0, 26, 0, 10, 0, 32, 0, 9, 0, 20, 0, 32, 0, 3, 0, 27, 0, 32, 0, 20, 0, 4, 0, 32, 0, 27, 0, 11, 0, 32, 0, 11, 0, 21, 0, 32, 0, 6, 0, 32, 0, 28, 0),
-"material": SubResource("StandardMaterial3D_ouvqn"),
+"material": SubResource("StandardMaterial3D_k7yur"),
 "name": "Material.003",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -86,17 +86,17 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hmlgt"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yh1kn"]
 size = Vector3(2.51, 1.84, 1)
 
 [node name="Betterblob" type="RigidBody3D"]
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.444199, 0, 0, 0, 0.444199, 0, 0, 0, 0.444199, 0, 0, 0)
-mesh = SubResource("ArrayMesh_v72m1")
+mesh = SubResource("ArrayMesh_0g0ai")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00933766, -0.298555, 0)
-shape = SubResource("BoxShape3D_hmlgt")
+shape = SubResource("BoxShape3D_yh1kn")
