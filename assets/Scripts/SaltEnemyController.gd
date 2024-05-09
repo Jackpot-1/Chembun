@@ -4,7 +4,7 @@ var data = Globals.EnemyDatabase.SaltBlock # test of globals data
 @onready var animation_Tree = $AnimationTree
 @onready var saltCube = $"."
 @onready var playback = animation_Tree.get("parameters/playback")
-@export var saltDamage = 2
+var saltDamage = 2
 var tween = Tween.new()
 #Animations
 var animations = {"walk":"Walk", "alert":"Salt_Surprise", "attack1":"dive_start", "attack2":"Dive_Hold"}
