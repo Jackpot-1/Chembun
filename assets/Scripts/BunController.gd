@@ -138,8 +138,9 @@ func _physics_process(delta):
 	states.grounded = is_on_floor()
 	
 	if blobFired:
-		await get_tree().create_timer(1).timeout
-		blobInstance.position = Vector3(1, 0, 0)
+		#await get_tree().create_timer(1).timeout
+		blobInstance.linear_velocity = Vector3(1, 0, 0)
+		#blobInstance.gravity_scale = 1
 	#states.falling = velocity.y < 0
 	#print(animations.doublejump in pb_node)
 	#if animations.doublejump in pb_node:
