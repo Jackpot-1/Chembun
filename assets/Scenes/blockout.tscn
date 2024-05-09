@@ -1272,6 +1272,27 @@ libraries = {
 "": SubResource("AnimationLibrary_60da5")
 }
 
+[node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
+bones/0/position = Vector3(1.3194e-08, 0.711708, 0.180482)
+bones/1/rotation = Quaternion(-0.0785189, -0.0291615, -0.0190127, 0.996305)
+bones/2/rotation = Quaternion(-0.13978, 0.0927401, 0.0265131, 0.985473)
+bones/3/position = Vector3(-0.458358, 0.556888, -0.165373)
+bones/3/rotation = Quaternion(0.0118877, -0.420248, 0.848309, 0.321904)
+bones/4/rotation = Quaternion(0.482877, 0.266069, 0.0859609, 0.829848)
+bones/6/position = Vector3(0.458358, 0.553651, -0.166582)
+bones/6/rotation = Quaternion(0.0438865, 0.206543, -0.927085, 0.309722)
+bones/7/rotation = Quaternion(0.490924, 0.178278, 0.0601821, 0.85064)
+bones/9/position = Vector3(-0.461002, 0.143434, -0.115905)
+bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
+bones/10/rotation = Quaternion(0.425312, 0.276512, -0.12695, 0.85237)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
+bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
+bones/12/rotation = Quaternion(0.291616, -0.00381407, -0.102699, 0.950999)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+
 [node name="CanvasLayer" parent="." index="27" instance=ExtResource("3_3sfsn")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="28"]

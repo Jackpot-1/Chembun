@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4egrk33y627r"]
+[gd_scene load_steps=8 format=3 uid="uid://b4egrk33y627r"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m06kp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xftqq"]
 resource_name = "Material.001"
@@ -90,6 +92,8 @@ blend_shape_mode = 0
 size = Vector3(2.51, 1.84, 1)
 
 [node name="Betterblob" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_m06kp")
+gravity_scale = 0.0
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.444199, 0, 0, 0, 0.444199, 0, 0, 0, 0.444199, 0, 0, 0)

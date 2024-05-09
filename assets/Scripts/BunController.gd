@@ -96,7 +96,7 @@ func _input(event): # All major mouse and button input events
 		blobInstance = blobPreload.instantiate()
 		blobInstance.name = Globals.currItem
 		print(blobInstance.name, " blobInstance name")
-		get_parent().add_child(blobInstance)
+		$chemcloth.add_child(blobInstance)
 		print(blobInstance.position, " position")
 		print("")
 		blobInstance.position = Vector3(0, 1, 1)
