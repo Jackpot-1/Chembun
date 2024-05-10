@@ -7,7 +7,11 @@ func _ready():
 	$TextureRect/TextureRect/StartButton.grab_focus()
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")
+	if Globals.CinematicFinished:
+		get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")
+	else:
+		Globals.CinematicFinished = true
+		get_tree().change_scene_to_file("res://assets/Miscellaneous/Cinematic.tscn")
 
 func _on_settings_button_pressed():
 	get_tree().change_scene_to_file("res://assets/Scenes/Screens/SettingsScreen.tscn")

@@ -97,6 +97,7 @@ class Enemy extends CharacterBody3D:
 		#slots[4]["item"] = dic
 		
 		
+var CinematicFinished = false
 
 var currItem = ""
 

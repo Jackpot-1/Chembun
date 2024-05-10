@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dijlcn5yad6ey"]
+
+[ext_resource type="PackedScene" uid="uid://bvt0e5tgm2k8s" path="res://assets/Scenes/Level/Map_Select/darkroom.glb" id="1_ctk22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0feae"]
+cull_mode = 1
+diffuse_mode = 3
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8ruh"]
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc4bw"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqf4u"]
+shading_mode = 0
+diffuse_mode = 3
+
+[node name="darkroom" instance=ExtResource("1_ctk22")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0feae")
+
+[node name="Skeleton3D" parent="Armature_001" index="0"]
+bones/0/position = Vector3(-3.35966e-17, 0.224888, -0.053958)
+bones/0/rotation = Quaternion(0.0245164, 2.09444e-25, -1.17865e-17, 0.999699)
+bones/1/position = Vector3(-5.68423e-16, -2.88404, 0.221825)
+bones/1/rotation = Quaternion(-0.121025, 4.01934e-17, 4.01934e-17, 0.992649)
+bones/2/position = Vector3(-4.10872e-08, -1.87626, -0.0276227)
+bones/2/rotation = Quaternion(0.0950024, -1.1867e-07, -1.13252e-08, 0.995477)
+bones/3/rotation = Quaternion(-0.279891, -1.14445e-07, 1.00097e-07, 0.960032)
+bones/4/position = Vector3(-0.324672, -0.258109, -0.46177)
+bones/4/rotation = Quaternion(-0.088496, 0.194079, 0.888935, 0.405335)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(0.58066, 0.0800257, 0.232768, 0.776047)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(0.324672, -0.258109, -0.46177)
+bones/6/rotation = Quaternion(0.088496, 0.194079, 0.888935, -0.405335)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.622412, -0.0287659, -0.157897, 0.766058)
+bones/7/scale = Vector3(1, 1, 1)
+
+[node name="Cube_002" parent="Armature_001/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_d8ruh")
+surface_material_override/1 = SubResource("StandardMaterial3D_fc4bw")
+
+[node name="Plane" parent="." index="2"]
+transform = Transform3D(2.75211, 0, 0, 0, 2.75211, 0, 0, 0, 2.75211, 0, 3.22734, -5.93717)
+surface_material_override/0 = SubResource("StandardMaterial3D_qqf4u")
+
+[node name="Camera3D" type="Camera3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.956172, -0.292806, 0, 0.292806, 0.956172, 0, 0.675, -1.11)
+fov = 84.2
+near = 0.001
