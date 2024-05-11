@@ -4,8 +4,18 @@
 [ext_resource type="Script" path="res://assets/Scripts/Cinematic.gd" id="2_t3pip"]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer"]
-offset_right = 1280.0
-offset_bottom = 720.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 704.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.900095, 0.900095)
 stream = ExtResource("1_euvyw")
 autoplay = true
 script = ExtResource("2_t3pip")

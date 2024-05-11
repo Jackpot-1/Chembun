@@ -30,7 +30,7 @@ sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
 
-[sub_resource type="Animation" id="Animation_uyfh5"]
+[sub_resource type="Animation" id="Animation_eg2sv"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -223,7 +223,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_qx41b"]
+[sub_resource type="Animation" id="Animation_3s6ty"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -417,7 +417,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_6g23p"]
+[sub_resource type="Animation" id="Animation_2gnim"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -611,7 +611,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_40sai"]
+[sub_resource type="Animation" id="Animation_nf4ql"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -804,7 +804,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2swgf"]
+[sub_resource type="Animation" id="Animation_7yhb6"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -997,7 +997,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_yw5ll"]
+[sub_resource type="Animation" id="Animation_46ndk"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1191,14 +1191,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0i2s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
 _data = {
-"Idle": SubResource("Animation_qx41b"),
-"double jump": SubResource("Animation_uyfh5"),
-"jump_fall": SubResource("Animation_6g23p"),
-"jump_start": SubResource("Animation_40sai"),
-"knockback": SubResource("Animation_2swgf"),
-"run": SubResource("Animation_yw5ll")
+"Idle": SubResource("Animation_3s6ty"),
+"double jump": SubResource("Animation_eg2sv"),
+"jump_fall": SubResource("Animation_2gnim"),
+"jump_start": SubResource("Animation_nf4ql"),
+"knockback": SubResource("Animation_7yhb6"),
+"run": SubResource("Animation_46ndk")
 }
 
 [sub_resource type="Resource" id="Resource_0c80d"]
@@ -1254,7 +1254,7 @@ metadata/health = 10
 
 [node name="AnimationTree" parent="PlayerTemplate" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_r0i2s")
+"": SubResource("AnimationLibrary_bqaxh")
 }
 
 [node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
@@ -1268,15 +1268,8 @@ bones/6/position = Vector3(0.458372, 0.555269, -0.165977)
 bones/6/rotation = Quaternion(0.0453022, 0.136545, -0.939253, 0.311621)
 bones/7/rotation = Quaternion(0.44344, 0.216345, -0.00995771, 0.869745)
 bones/9/position = Vector3(-0.4602, 0.138747, -0.107923)
-bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
 bones/10/rotation = Quaternion(0.468237, 0.287809, -0.130347, 0.825185)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
-bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
 bones/12/rotation = Quaternion(0.33348, -0.012566, -0.092921, 0.938083)
-bones/13/position = Vector3(0, -0.655099, 0)
-bones/14/position = Vector3(0, -0.655099, 0)
-bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
