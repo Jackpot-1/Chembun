@@ -35,6 +35,7 @@ enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://
 
 folder_colors={
 "res://assets/": "red",
+"res://assets/fuk/": "yellow",
 "res://game_settings/": "yellow"
 }
 
