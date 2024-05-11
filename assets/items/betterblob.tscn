@@ -1,6 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4egrk33y627r"]
+[gd_scene load_steps=12 format=3 uid="uid://b4egrk33y627r"]
+
+[ext_resource type="Script" path="res://assets/items/blobs.gd" id="1_nkstj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m06kp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wrly1"]
+size = Vector3(0.268433, 0.0250244, 0.230469)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xftqq"]
 resource_name = "Material.001"
@@ -88,8 +93,8 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yh1kn"]
-size = Vector3(2.51, 1.84, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_3yffv"]
+radius = 0.870963
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hurtj"]
 resource_name = "Material"
@@ -118,29 +123,35 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3yffv"]
-radius = 0.870963
-
 [node name="Betterblob" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_m06kp")
-gravity_scale = 0.0
+gravity_scale = 0.5
+script = ExtResource("1_nkstj")
 
-[node name="Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.444199, 0, 0, 0, 0.444199, 0, 0, 0, 0.444199, 0, 0, 0)
-visible = false
+[node name="splashRadius" type="Area3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="gloop" type="CollisionShape3D" parent="splashRadius"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, -0.00838664, -0.0166016)
+shape = SubResource("BoxShape3D_wrly1")
+
+[node name="Cube_001" type="MeshInstance3D" parent="splashRadius"]
+transform = Transform3D(0.0444199, 0, 0, 0, -1.94166e-09, -0.0444199, 0, 0.0444199, -1.94166e-09, 0, 0, 0.03)
 mesh = SubResource("ArrayMesh_0g0ai")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
+[node name="blob" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blob"]
+shape = SubResource("SphereShape3D_3yffv")
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00933766, -0.298555, 0)
-visible = false
-shape = SubResource("BoxShape3D_yh1kn")
+shape = SubResource("SphereShape3D_3yffv")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_a1vxr")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_3yffv")
+[connection signal="body_entered" from="blob" to="." method="_on_blob_body_entered"]

@@ -97,8 +97,10 @@ class Enemy extends CharacterBody3D:
 		#slots[4]["item"] = dic
 		
 		
-var CinematicFinished = false
+var CinematicFinished = true
 
+var blobReady = false
+var blobFired = false
 var currItem = ""
 
 func potAttack(body, enemy):

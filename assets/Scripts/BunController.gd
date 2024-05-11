@@ -36,7 +36,6 @@ var pb_node
 var tankMode = false
 const blobPreload = preload("res://assets/items/Betterblob.tscn")
 var blobInstance
-var blobFired = false
 var blob
 
 var animations = {
@@ -92,16 +91,29 @@ func _input(event): # All major mouse and button input events
 		return
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
-		direction = $Camroot/h.global_transform.basis.z
-		blobInstance = blobPreload.instantiate()
-		blobInstance.name = Globals.currItem
-		print(blobInstance.name, " blobInstance name")
-		$chemcloth.add_child(blobInstance)
-		print(blobInstance.position, " position")
-		print("")
-		blobInstance.position = Vector3(0, 1, 1)
+		if Globals.blobFired:
+			pass
+		else:
+			direction = $Camroot/h.global_transform.basis.z
+			blobInstance = blobPreload.instantiate()
+			blobInstance.name = Globals.currItem
+			print(blobInstance.name, " blobInstance name")
+			$chemcloth.add_child(blobInstance)
+			print(blobInstance.position, " position")
+			print("")
+			blobInstance.position = Vector3(0, 1, 1)
+			Globals.blobReady = true
+		#direction = $Camroot/h.global_transform.basis.z
+		#blobInstance = blobPreload.instantiate()
+		#blobInstance.name = Globals.currItem
+		#print(blobInstance.name, " blobInstance name")
+		#$chemcloth.add_child(blobInstance)
+		#print(blobInstance.position, " position")
+		#print("")
+		#blobInstance.position = Vector3(0, 1, 1)
 	if event.is_action_released("aim"):
-		if blobFired:
+		if not Globals.blobReady:
+			print("false Test")
 			pass
 		else:
 			blobInstance.free()
@@ -137,9 +149,11 @@ func _physics_process(delta):
 	#moving defined elsewhere
 	states.grounded = is_on_floor()
 	
-	if blobFired:
+	if Globals.blobFired:
+		pass
+		#print(blobInstance.linear_velocity)
 		#await get_tree().create_timer(1).timeout
-		blobInstance.linear_velocity = Vector3(1, 0, 0)
+		#blobInstance.linear_velocity = Vector3(1, 0, 0)
 		#blobInstance.gravity_scale = 1
 	#states.falling = velocity.y < 0
 	#print(animations.doublejump in pb_node)
@@ -263,9 +277,11 @@ func _physics_process(delta):
 func attack1():
 	if not states.attacking && not states.running && not states.rolling && states.grounded:
 		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
-			if tankMode == true:
-				blobInstance.reparent($".")
-				blobFired = true
+			if tankMode == true && Globals.blobReady == true:
+				blobInstance.linear_velocity = Vector3(0, 0, 20)
+				blobInstance.reparent($".".get_parent())
+				Globals.blobReady = false
+				Globals.blobFired = true
 				print("in tank mode and attacked")
 				print("")
 				#create new instance and set its position to Chembun with the instance slightly infront of it
