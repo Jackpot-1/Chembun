@@ -6,6 +6,6 @@
 
 [resource]
 script = ExtResource("2_1ja2a")
-name = "Potion"
+name = "Water"
 texture = ExtResource("3_i4t0a")
 big_texture = ExtResource("1_ad6cm")

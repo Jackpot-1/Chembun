@@ -2,24 +2,44 @@ extends RigidBody3D
 
 @onready var blob = $"."
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	pass
 
-
+func _ready():
+	$splashRadius/GloopPart.visible = false
 
 func _on_blob_body_entered(body):
+	#print(self.name)
 	if body is CSGBox3D:
 		Globals.blobFired = false
-		$splashRadius/gloop.disabled = false
-		print($splashRadius/gloop.disabled)
+		print("CheckCheckCheck")
+		$splashRadius/GloopPart.visible = true
+		#if $blob/Cube.visible:
+			#$blob/Cube.visible = false
+			#$blob/Cube.free()
+		$blob/Cube.visible = false
+		#$blob/CollisionShape3D.queue_free()
+		#$blob/Cube.queue_free()
+		$blob.queue_free()
+		self.gravity_scale = 200
+		self.linear_velocity = Vector3(0, 0, 0)
+		self.rotation = Vector3.ZERO
+		self.lock_rotation = true
+		for n in 20:
+			await get_tree().create_timer(.025).timeout
+			$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .05) - 1)
+		await get_tree().create_timer(1).timeout
+		for n in 200:
+			await get_tree().create_timer(.001).timeout
+			$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .005) )
+			self.position += Vector3(0, -.00125, 0)
+		#await get_tree().create_timer(3).timeout
+		
+		$".".queue_free()
 
 
 func _on_splash_radius_body_entered(body):
-	print("aikujshdyuiashdyuiasgyuidgasyudgasd")
+	pass
+	
+	#print(body.name, "asijdhyuiasdghyuashd")
 	

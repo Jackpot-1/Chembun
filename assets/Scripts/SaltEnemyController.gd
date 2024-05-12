@@ -15,7 +15,7 @@ var playerTargeting = false
 var runOnce = false
 var hasDived = false
 
-@export var vulnerable_to = "water"
+@export var vulnerable_to = "Water"
 
 @export var movement_speed: float = 4.0
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
@@ -74,12 +74,14 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 	hasDived = true
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
+	print(body.name)
 	if body.name == vulnerable_to:
 		print("yes sir")
 		saltCube.queue_free()
 	
 	if body.name == Globals.currItem:
-		print("check")
+		#print("check")
+		pass
 	elif body == Globals.player:
 		Globals.player.hurt(saltDamage)
 		Globals.player.knockback_enter(rotation, data.knockback)

@@ -2,7 +2,7 @@ extends Node
 
 
 var save_path = "user://save.save"
-var CinematicFinished = false
+var CinematicFinished = true #make sure set to false
 var last_position = false
 var current_scene = "res://assets/Scenes/Playground.tscn"
 

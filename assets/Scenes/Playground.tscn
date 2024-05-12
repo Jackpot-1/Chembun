@@ -46,20 +46,32 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-1.47642e-09, 0.673712, 0.180482)
-bones/1/rotation = Quaternion(-0.0752417, -0.0111248, -0.0223343, 0.996853)
-bones/2/rotation = Quaternion(-0.151156, 0.0767282, 0.0268355, 0.985162)
-bones/3/position = Vector3(-0.458366, 0.555924, -0.165733)
-bones/3/rotation = Quaternion(0.030917, -0.439454, 0.842091, 0.31114)
-bones/4/rotation = Quaternion(0.467388, 0.255015, 0.0802949, 0.842656)
-bones/6/position = Vector3(0.458366, 0.554614, -0.166222)
-bones/6/rotation = Quaternion(0.04478, 0.163792, -0.935095, 0.311071)
-bones/7/rotation = Quaternion(0.462284, 0.201849, 0.0171672, 0.863282)
-bones/9/position = Vector3(-0.460512, 0.140573, -0.111032)
-bones/10/rotation = Quaternion(0.4517, 0.28351, -0.129069, 0.836021)
-bones/12/rotation = Quaternion(0.31728, -0.00916496, -0.0967472, 0.94334)
+bones/0/position = Vector3(5.40472e-09, 0.83964, 0.180482)
+bones/1/rotation = Quaternion(-0.08936, -0.0898585, -0.00777214, 0.991907)
+bones/2/rotation = Quaternion(-0.101051, 0.14643, 0.0253512, 0.98372)
+bones/3/position = Vector3(-0.458328, 0.560214, -0.16413)
+bones/3/rotation = Quaternion(-0.0523776, -0.352717, 0.863734, 0.356106)
+bones/4/rotation = Quaternion(0.5331, 0.302234, 0.104706, 0.78326)
+bones/6/position = Vector3(0.458328, 0.550324, -0.167824)
+bones/6/rotation = Quaternion(0.0402487, 0.348141, -0.886959, 0.300802)
+bones/7/rotation = Quaternion(0.575576, 0.0938304, 0.204509, 0.786184)
+bones/9/position = Vector3(-0.462649, 0.153066, -0.13231)
+bones/10/rotation = Quaternion(0.33308, 0.250823, -0.118847, 0.901122)
+bones/12/rotation = Quaternion(0.203388, 0.0142531, -0.122176, 0.971341)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
+
+[node name="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D" index="0"]
+position = Vector2(-22.3606, 156.994)
+
+[node name="PathFollow2D2" parent="CanvasLayer/hotbar/Quarter/Path2D" index="1"]
+position = Vector2(9.20616, 83.4994)
+
+[node name="PathFollow2D3" parent="CanvasLayer/hotbar/Quarter/Path2D" index="2"]
+position = Vector2(74.4206, 36.8992)
+
+[node name="PathFollow2D4" parent="CanvasLayer/hotbar/Quarter/Path2D" index="3"]
+position = Vector2(153.472, 22.3971)
 
 [node name="Area3D" type="Area3D" parent="."]
 

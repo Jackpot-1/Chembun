@@ -275,7 +275,7 @@ func _physics_process(delta):
 	# they use "travel" or "start" to one-shot their animations.
 
 func attack1():
-	if not states.attacking && not states.running && not states.rolling && states.grounded:
+	if not states.attacking && not states.running && not states.rolling:
 		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
 			if tankMode == true && Globals.blobReady == true:
 				blobInstance.linear_velocity = Vector3(0, 0, 20)

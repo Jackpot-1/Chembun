@@ -179,7 +179,7 @@ bind/4/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02553, -5.30854e-08)
 size = Vector3(1.78057, 0.892678, 1.87177)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwhln"]
-size = Vector3(0.683341, 0.473359, 0.763923)
+size = Vector3(0.683341, 0.582871, 0.763923)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
 radius = 8.00158
@@ -211,14 +211,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(-1, -2.54822e-15, 1.50996e-07, 2.54822e-15, -1, -1.92386e-22, 1.50996e-07, 1.92386e-22, 1, -0.32685, 0.496672, -8.3819e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.32685, 0.496672, -8.3819e-09)
-bones/1/rotation = Quaternion(7.34742e-08, 0.229981, 0.973195, 2.06674e-08)
+bones/1/rotation = Quaternion(7.32856e-08, 0.240307, 0.970697, -3.15202e-08)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Foot_L"
 bones/2/parent = 0
 bones/2/rest = Transform3D(-0.998678, -8.67402e-10, 0.0513982, 8.67402e-10, -1, -2.23062e-11, 0.0513982, 2.23062e-11, 0.998678, 0.32685, 0.496672, -8.3819e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(0.32685, 0.496672, -8.3819e-09)
-bones/2/rotation = Quaternion(0.0229745, -0.448547, 0.89339, -0.0115349)
+bones/2/rotation = Quaternion(0.0226372, -0.473766, 0.880276, -0.0121834)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Body_1"
 bones/3/parent = 0
@@ -256,7 +256,7 @@ shape = SubResource("BoxShape3D_8tycy")
 [node name="HitBox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, -0.00600926, 0.480468, 0.149781)
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, -0.00600926, 0.381907, 0.149781)
 shape = SubResource("BoxShape3D_cwhln")
 
 [node name="DetectionRange" type="Area3D" parent="."]

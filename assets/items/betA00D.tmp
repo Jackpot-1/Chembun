@@ -5,7 +5,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m06kp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrly1"]
-size = Vector3(0.268433, 0.018898, 0.230469)
+size = Vector3(0.268433, 0.0250244, 0.230469)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xftqq"]
 resource_name = "Material.001"
@@ -125,30 +125,29 @@ blend_shape_mode = 0
 
 [node name="Betterblob" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_m06kp")
-gravity_scale = 1.262
+gravity_scale = 0.5
 script = ExtResource("1_nkstj")
 
 [node name="splashRadius" type="Area3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.519094, 0)
 
 [node name="gloop" type="CollisionShape3D" parent="splashRadius"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.00788334, -0.0166016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.0109465, -0.0166016)
 shape = SubResource("BoxShape3D_wrly1")
 
 [node name="GloopPart" type="MeshInstance3D" parent="splashRadius"]
 transform = Transform3D(0.0444199, 0, 0, 0, -1.94166e-09, -0.0444199, 0, 0.0444199, -1.94166e-09, 0, 0, 0.03)
+visible = false
 mesh = SubResource("ArrayMesh_0g0ai")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="blob" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26136, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="blob"]
 shape = SubResource("SphereShape3D_3yffv")
 
 [node name="Cube" type="MeshInstance3D" parent="blob"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25096, 0)
 mesh = SubResource("ArrayMesh_a1vxr")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
