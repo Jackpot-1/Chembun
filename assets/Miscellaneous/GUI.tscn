@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://4g6wadcburcy"]
+[gd_scene load_steps=16 format=3 uid="uid://4g6wadcburcy"]
 
 [ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
 [ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
 [ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="3_42wmp"]
+[ext_resource type="Script" path="res://assets/Scripts/hotbar.gd" id="5_j3y83"]
+[ext_resource type="Script" path="res://assets/images/items/ItemScript.gd" id="6_xuj4q"]
+[ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Potion.tres" id="7_bdovw"]
+[ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_7i4xm"]
+[ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="9_671we"]
+[ext_resource type="Script" path="res://assets/Scripts/slot.gd" id="10_6gqr1"]
 [ext_resource type="PackedScene" uid="uid://3slhmycnigfl" path="res://assets/Miscellaneous/elementWheel.tscn" id="11_h8j02"]
+
+[sub_resource type="Resource" id="Resource_0c80d"]
+script = ExtResource("6_xuj4q")
+name = ""
+
+[sub_resource type="Resource" id="Resource_o4fo6"]
+script = ExtResource("6_xuj4q")
+name = ""
+
+[sub_resource type="Resource" id="Resource_nbrpt"]
+script = ExtResource("6_xuj4q")
+name = ""
+
+[sub_resource type="Resource" id="Resource_ndbht"]
+script = ExtResource("6_xuj4q")
+name = ""
+
+[sub_resource type="Curve2D" id="Curve2D_ba4qt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -18.2703, 237.406, 0, 0, 0, 0, -23.7325, 199.924, -65.2009, 51.869, 65.2009, -51.869, 30, 63.0053, 0, 0, 0, 0, 169.23, 23.6581, 0, 0, 0, 0, 199.999, 30.783, 0, 0, 0, 0, 230.768, 44.1422)
+}
+point_count = 6
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -78,3 +106,187 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42wmp")
 
 [node name="Control" parent="." instance=ExtResource("11_h8j02")]
+
+[node name="hotbar" type="Node" parent="."]
+script = ExtResource("5_j3y83")
+Items = Array[ExtResource("6_xuj4q")]([SubResource("Resource_0c80d"), SubResource("Resource_o4fo6"), SubResource("Resource_nbrpt"), ExtResource("7_bdovw"), SubResource("Resource_ndbht")])
+
+[node name="Quarter2" type="TextureRect" parent="hotbar"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -240.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_7i4xm")
+
+[node name="Quarter" type="TextureRect" parent="hotbar"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_7i4xm")
+
+[node name="Path2D" type="Path2D" parent="hotbar/Quarter"]
+position = Vector2(-7.99887, -25.5638)
+scale = Vector2(1.04, 1.12282)
+curve = SubResource("Curve2D_ba4qt")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="hotbar/Quarter/Path2D"]
+position = Vector2(-22.3606, 156.994)
+progress = 80.9456
+rotates = false
+cubic_interp = false
+
+[node name="Circle" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D"]
+position = Vector2(1.23978e-05, 2.38419e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_671we")
+
+[node name="Panel" type="Panel" parent="hotbar/Quarter/Path2D/PathFollow2D/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_6gqr1")
+
+[node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel"]
+centered = false
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="hotbar/Quarter/Path2D"]
+position = Vector2(9.20616, 83.4994)
+progress = 161.891
+rotates = false
+cubic_interp = false
+
+[node name="Circle" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D2"]
+position = Vector2(1.23978e-05, 2.38419e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_671we")
+
+[node name="Panel" type="Panel" parent="hotbar/Quarter/Path2D/PathFollow2D2/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_6gqr1")
+
+[node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D2/Circle/Panel"]
+centered = false
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="hotbar/Quarter/Path2D"]
+position = Vector2(74.4206, 36.8992)
+progress = 242.837
+rotates = false
+cubic_interp = false
+
+[node name="Circle" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D3"]
+position = Vector2(1.23978e-05, 2.38419e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_671we")
+
+[node name="Panel" type="Panel" parent="hotbar/Quarter/Path2D/PathFollow2D3/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_6gqr1")
+
+[node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D3/Circle/Panel"]
+centered = false
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="hotbar/Quarter/Path2D"]
+position = Vector2(153.472, 22.3971)
+progress = 323.783
+rotates = false
+cubic_interp = false
+
+[node name="Circle" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D4"]
+position = Vector2(1.23978e-05, 2.38419e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_671we")
+
+[node name="Panel" type="Panel" parent="hotbar/Quarter/Path2D/PathFollow2D4/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_6gqr1")
+
+[node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D4/Circle/Panel"]
+centered = false
+
+[node name="PathFollow2D5" type="PathFollow2D" parent="hotbar/Quarter/Path2D"]
+position = Vector2(230.768, 44.1422)
+progress = 404.728
+rotates = false
+cubic_interp = false
+
+[node name="Circle" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D5"]
+position = Vector2(1.23978e-05, 2.38419e-05)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_671we")
+
+[node name="Panel" type="Panel" parent="hotbar/Quarter/Path2D/PathFollow2D5/Circle"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.725
+offset_top = -185.237
+offset_right = -13.7248
+offset_bottom = -13.2374
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_6gqr1")
+
+[node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D5/Circle/Panel"]
+centered = false
+
+[node name="bigItemDisplay" type="Sprite2D" parent="hotbar/Quarter"]
+position = Vector2(32, 32)
+scale = Vector2(0.42, 0.42)
+centered = false
