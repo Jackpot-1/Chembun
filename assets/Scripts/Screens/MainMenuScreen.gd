@@ -14,7 +14,8 @@ func _on_start_button_pressed():
 		get_tree().change_scene_to_file("res://assets/Miscellaneous/Cinematic.tscn")
 
 func _on_settings_button_pressed():
-	get_tree().change_scene_to_file("res://assets/Scenes/Screens/SettingsScreen.tscn")
+	#get_tree().change_scene_to_file("res://assets/Scenes/Screens/SettingsScreen.tscn")
+	Globals.reset_data()
 
 func _on_credits_button_pressed():
 	get_tree().change_scene_to_file("res://assets/Scenes/Screens/CreditsScreen.tscn")
