@@ -30,8 +30,6 @@ sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
 
-<<<<<<< Updated upstream
-=======
 [sub_resource type="Animation" id="Animation_qkul3"]
 resource_name = "double jump"
 length = 1.16667
@@ -1203,7 +1201,6 @@ _data = {
 "run": SubResource("Animation_3psb5")
 }
 
->>>>>>> Stashed changes
 [sub_resource type="Resource" id="Resource_0c80d"]
 script = ExtResource("8_q4o7m")
 name = ""
@@ -1255,21 +1252,6 @@ walk_speed = 6
 run_speed = 8
 metadata/health = 10
 
-<<<<<<< Updated upstream
-[node name="Skeleton3D" parent="PlayerTemplate/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(6.9459e-09, 0.814327, 0.180482)
-bones/1/rotation = Quaternion(-0.0872424, -0.0778743, -0.00999916, 0.993088)
-bones/2/rotation = Quaternion(-0.108751, 0.135855, 0.02559, 0.984409)
-bones/3/position = Vector3(-0.458333, 0.559556, -0.164376)
-bones/3/rotation = Quaternion(-0.0396962, -0.36637, 0.861373, 0.34962)
-bones/4/rotation = Quaternion(0.523428, 0.295228, 0.101048, 0.792877)
-bones/6/position = Vector3(0.458334, 0.550982, -0.167578)
-bones/6/rotation = Quaternion(0.0410391, 0.320689, -0.896444, 0.30309)
-bones/7/rotation = Quaternion(0.560588, 0.110873, 0.176524, 0.801429)
-bones/9/position = Vector3(-0.462323, 0.15116, -0.129064)
-bones/10/rotation = Quaternion(0.351649, 0.256141, -0.120561, 0.8923)
-bones/12/rotation = Quaternion(0.220998, 0.0106864, -0.118407, 0.968001)
-=======
 [node name="AnimationTree" parent="PlayerTemplate" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_6gp7o")
@@ -1295,7 +1277,6 @@ bones/12/rotation = Quaternion(0.324525, -0.0106838, -0.0950427, 0.941029)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
->>>>>>> Stashed changes
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
