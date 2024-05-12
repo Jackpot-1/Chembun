@@ -134,6 +134,7 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 [node name="gloop" type="CollisionShape3D" parent="splashRadius"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, -0.00838664, -0.0166016)
 shape = SubResource("BoxShape3D_wrly1")
+disabled = true
 
 [node name="Cube_001" type="MeshInstance3D" parent="splashRadius"]
 transform = Transform3D(0.0444199, 0, 0, 0, -1.94166e-09, -0.0444199, 0, 0.0444199, -1.94166e-09, 0, 0, 0.03)
@@ -154,4 +155,5 @@ mesh = SubResource("ArrayMesh_a1vxr")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
+[connection signal="body_entered" from="splashRadius" to="." method="_on_splash_radius_body_entered"]
 [connection signal="body_entered" from="blob" to="." method="_on_blob_body_entered"]

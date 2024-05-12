@@ -15,5 +15,11 @@ func _process(delta):
 
 func _on_blob_body_entered(body):
 	if body is CSGBox3D:
-		print("Check Check")
 		Globals.blobFired = false
+		$splashRadius/gloop.disabled = false
+		print($splashRadius/gloop.disabled)
+
+
+func _on_splash_radius_body_entered(body):
+	print("aikujshdyuiashdyuiasgyuidgasyudgasd")
+	
