@@ -30,19 +30,21 @@ func _input(event):
 			if ispaused == false:
 				get_tree().paused = true # set process mode to "Always" so you can unpause
 				ispaused = true
+				stop_player_input()
 			else:
 				get_tree().paused = false
 				ispaused = false
-	elif event.is_action_pressed("inventory"):
-		if isinventory == false && playerStopped == false:
-			$InventoryGridTransfer.visible = true
-			isinventory = true
-			stop_player_input()
-			
-		else:
-			$InventoryGridTransfer.visible = false
-			isinventory = false
-			unstop_player_input()
+				unstop_player_input()
+	#elif event.is_action_pressed("inventory"):
+		#if isinventory == false && playerStopped == false:
+			#$InventoryGridTransfer.visible = true
+			#isinventory = true
+			#stop_player_input()
+			#
+		#else:
+			#$InventoryGridTransfer.visible = false
+			#isinventory = false
+			#unstop_player_input()
 			
 	if event.is_action_pressed("element") && playerStopped == false:
 		iselement = true
