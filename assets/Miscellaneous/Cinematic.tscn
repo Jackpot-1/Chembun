@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0e615lhq1nn"]
 
-[ext_resource type="VideoStream" path="res://assets/Miscellaneous/8mb.video-SCS-Xq1VtgJb.ogv" id="1_euvyw"]
+[ext_resource type="VideoStream" path="res://assets/Miscellaneous/chembunintro.ogv" id="1_owd6k"]
 [ext_resource type="Script" path="res://assets/Scripts/Cinematic.gd" id="2_t3pip"]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer"]
@@ -11,12 +11,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
 offset_top = -324.0
-offset_right = 704.0
-offset_bottom = 396.0
+offset_right = 1344.0
+offset_bottom = 764.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.900095, 0.900095)
-stream = ExtResource("1_euvyw")
+scale = Vector2(0.600001, 0.595589)
+stream = ExtResource("1_owd6k")
 autoplay = true
 script = ExtResource("2_t3pip")
 
