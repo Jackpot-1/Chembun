@@ -1,9 +1,10 @@
 extends Node
 
 
-var last_position = false
 var save_path = "user://save.save"
 var CinematicFinished = false
+var last_position = false
+var current_scene = "res://assets/Scenes/Playground.tscn"
 
 func _ready():
 	load_data()
@@ -131,10 +132,12 @@ func load_data():
 		print("bro it doesn't exist stop trying")
 		CinematicFinished = false
 		last_position = false
+		current_scene = "res://assets/Scenes/Playground.tscn"
 		
 func reset_data():
 	CinematicFinished = false
 	last_position = false
+	current_scene = "res://assets/Scenes/Playground.tscn"
 	save()
 		
 		

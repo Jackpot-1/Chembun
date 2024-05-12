@@ -8,7 +8,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	if Globals.CinematicFinished:
-		get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")
+		get_tree().change_scene_to_file(Globals.current_scene)
 	else:
 		Globals.CinematicFinished = true
 		get_tree().change_scene_to_file("res://assets/Miscellaneous/Cinematic.tscn")
