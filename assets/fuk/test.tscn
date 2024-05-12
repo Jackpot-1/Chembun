@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://hoq5lxtwqo05"]
+[gd_scene load_steps=44 format=3 uid="uid://hoq5lxtwqo05"]
 
 [ext_resource type="Script" path="res://assets/fuk/BunControllerDev.gd" id="1_tiakd"]
 [ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/Camera/camroot.tscn" id="2_76f0e"]
@@ -8,12 +8,13 @@
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="6_aiwuq"]
 [ext_resource type="Material" uid="uid://bly25nr0aqsv3" path="res://addons/ThirdPersonTemplate/Environments/Materials/BlueGrid.material" id="6_s5rjd"]
 [ext_resource type="PackedScene" uid="uid://d4jublshumnou" path="res://assets/Characters/snail/node/snail dev.tscn" id="8_31fm4"]
+[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="9_gwm2v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
 radius = 0.171913
 height = 1.61267
 
-[sub_resource type="Animation" id="Animation_1fchj"]
+[sub_resource type="Animation" id="Animation_eg2sv"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -206,7 +207,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_wjlct"]
+[sub_resource type="Animation" id="Animation_3s6ty"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -400,7 +401,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_aguwx"]
+[sub_resource type="Animation" id="Animation_2gnim"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -594,7 +595,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_p3muy"]
+[sub_resource type="Animation" id="Animation_nf4ql"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -787,7 +788,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_aj4ux"]
+[sub_resource type="Animation" id="Animation_7yhb6"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -980,7 +981,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_v3cl1"]
+[sub_resource type="Animation" id="Animation_46ndk"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1174,14 +1175,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw1ua"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
 _data = {
-"Idle": SubResource("Animation_wjlct"),
-"double jump": SubResource("Animation_1fchj"),
-"jump_fall": SubResource("Animation_aguwx"),
-"jump_start": SubResource("Animation_p3muy"),
-"knockback": SubResource("Animation_aj4ux"),
-"run": SubResource("Animation_v3cl1")
+"Idle": SubResource("Animation_3s6ty"),
+"double jump": SubResource("Animation_eg2sv"),
+"jump_fall": SubResource("Animation_2gnim"),
+"jump_start": SubResource("Animation_nf4ql"),
+"knockback": SubResource("Animation_7yhb6"),
+"run": SubResource("Animation_46ndk")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1320,7 +1321,7 @@ shape = SubResource("CapsuleShape3D_83d0r")
 [node name="AnimationTree" type="AnimationTree" parent="ChemBun"]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_uw1ua")
+"": SubResource("AnimationLibrary_bqaxh")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1364,22 +1365,22 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-6.66133e-09, 0.758869, 0.180482)
-bones/1/rotation = Quaternion(-0.0825535, -0.0515613, -0.0148756, 0.995141)
-bones/2/rotation = Quaternion(-0.125567, 0.112591, 0.0260981, 0.98533)
-bones/3/position = Vector3(-0.458347, 0.558114, -0.164915)
-bones/3/rotation = Quaternion(-0.0118193, -0.395817, 0.855001, 0.334907)
-bones/4/rotation = Quaternion(0.501763, 0.279608, 0.0929402, 0.813274)
-bones/6/position = Vector3(0.458347, 0.552424, -0.16704)
-bones/6/rotation = Quaternion(0.0426533, 0.259411, -0.914608, 0.307212)
-bones/7/rotation = Quaternion(0.524546, 0.147812, 0.113931, 0.830676)
-bones/9/position = Vector3(-0.461609, 0.146984, -0.121952)
+bones/0/position = Vector3(-3.55271e-15, 0.649463, 0.180482)
+bones/1/rotation = Quaternion(-0.0731393, 0.000372773, -0.0244474, 0.997022)
+bones/2/rotation = Quaternion(-0.158375, 0.0665092, 0.0270356, 0.984765)
+bones/3/position = Vector3(-0.45837, 0.555472, -0.165902)
+bones/3/rotation = Quaternion(0.0430062, -0.451467, 0.837748, 0.30415)
+bones/4/rotation = Quaternion(0.457388, 0.247901, 0.0766632, 0.850567)
+bones/6/position = Vector3(0.45837, 0.555066, -0.166053)
+bones/6/rotation = Quaternion(0.0453022, 0.136545, -0.939253, 0.311621)
+bones/7/rotation = Quaternion(0.44344, 0.216345, -0.00995771, 0.869745)
+bones/9/position = Vector3(-0.4602, 0.138747, -0.107923)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.391838, 0.267403, -0.12413, 0.871522)
+bones/10/rotation = Quaternion(0.468237, 0.287809, -0.130347, 0.825185)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.259358, 0.00284972, -0.109994, 0.959493)
+bones/12/rotation = Quaternion(0.33348, -0.012566, -0.092921, 0.938083)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
@@ -1399,10 +1400,14 @@ shadow_enabled = true
 environment = SubResource("Environment_pgw21")
 
 [node name="SnailThing" parent="." instance=ExtResource("8_31fm4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1336, 1.80315, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1336, 0.401148, 0)
+
+[node name="saltEnemyDev" parent="." instance=ExtResource("9_gwm2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.211643, 6.65865)
 
 [connection signal="timeout" from="ChemBun/RegenTimer" to="ChemBun" method="regen"]
 [connection signal="timeout" from="ChemBun/KnockbackTimer" to="ChemBun" method="knockback_exit"]
 [connection signal="timeout" from="ChemBun/DoubleJumpTimer" to="ChemBun" method="_on_double_jump_timer_timeout"]
 
 [editable path="ChemBun/chemcloth"]
+[editable path="SnailThing"]

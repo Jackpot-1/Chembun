@@ -2,8 +2,8 @@ extends Node3D
 
 
 func _enter_tree():
-	if Checkpoints.last_position:
-		$PlayerTemplate.global_position = Checkpoints.last_position
+	if Globals.last_position:
+		$PlayerTemplate.global_position = Globals.last_position
 func _ready():
 	pass
 	

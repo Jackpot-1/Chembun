@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Checkpoints="*res://assets/Scripts/autoloads/Checkpoints.gd"
 GGS="*res://addons/ggs/classes/global/ggs.tscn"
 Globals="*res://assets/Scripts/autoloads/Globals.gd"
 

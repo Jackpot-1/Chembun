@@ -1,4 +1,13 @@
 extends Node
+
+
+var last_position = false
+var save_path = "user://save.save"
+var CinematicFinished = false
+
+func _ready():
+	load_data()
+
 var player: CharacterBody3D;
 
 var EnemyDatabase = {
@@ -97,7 +106,7 @@ class Enemy extends CharacterBody3D:
 		#slots[4]["item"] = dic
 		
 		
-var CinematicFinished = true
+
 
 var blobReady = false
 var blobFired = false
@@ -107,3 +116,26 @@ func potAttack(body, enemy):
 	if EnemyDatabase.has(enemy):
 		print(enemy)
 	pass
+
+func save():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(CinematicFinished)
+	file.store_var(last_position)
+	
+func load_data():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		CinematicFinished = file.get_var(CinematicFinished)
+		last_position = file.get_var(last_position)
+	else:
+		print("bro it doesn't exist stop trying")
+		CinematicFinished = false
+		last_position = false
+		
+func reset_data():
+	CinematicFinished = false
+	last_position = false
+	save()
+		
+		
+		
