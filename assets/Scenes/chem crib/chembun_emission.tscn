@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dmfpp43v0i2xn"]
 
-[ext_resource type="PackedScene" uid="uid://buhn3g37o51v6" path="res://chembun_emission.glb" id="1_t654q"]
+[ext_resource type="PackedScene" uid="uid://buhn3g37o51v6" path="res://assets/Scenes/chem crib/chembun_emission.glb" id="1_t654q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg52h"]
 diffuse_mode = 3

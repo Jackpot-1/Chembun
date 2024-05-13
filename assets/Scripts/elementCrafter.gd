@@ -15,7 +15,9 @@ var cookbook = {
 	"H+Cl" : "Hydrochloric Acid",
 	"Na[b]2[/b]+O" : "Sodium Oxide",
 	"Na[b]2[/b]+O[b]2[/b]" : "Sodium Peroxide",
-	"Fe[b]3[/b]+O[b]4[/b]" : "Magnetite"
+	"Fe[b]3[/b]+O[b]4[/b]" : "Magnetite",
+	"HgC[b]2[/b]N[b]2[/b]O[b]2[/b]" : "Mercury(II) Fulmainate",
+	"C[b]7[/b]H[b]5[/b]N[b]3[/b]O[b]6[/b]" : "TNT"
 	#fire = carbon dioxide, water vapor, oxygen, nitrogen
 }
 

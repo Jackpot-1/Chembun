@@ -145,7 +145,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26136, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="blob"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.82688, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84627, 0)
 shape = SubResource("SphereShape3D_3yffv")
 
 [node name="Cube" type="MeshInstance3D" parent="blob"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bfavrofwdndfx"]
+[gd_scene load_steps=59 format=3 uid="uid://bfavrofwdndfx"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Overworld/overworld.gd" id="1_1fkfe"]
 [ext_resource type="Texture2D" uid="uid://6pg6v6pmjb2d" path="res://assets/Scenes/Level/Overworld/SkyColor.png" id="1_xup2a"]
@@ -571,12 +571,6 @@ blend_mode = 1
 cull_mode = 2
 albedo_color = Color(0, 0.184314, 1, 0.282353)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_afjb0"]
-size = Vector3(2.05798, 0.0186768, 1.38904)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xit4x"]
-size = Vector3(2.8476, 3.43707, 1.15393)
-
 [node name="overworld" type="Node3D"]
 script = ExtResource("1_1fkfe")
 
@@ -681,28 +675,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rxw7q")
 surface_material_override/2 = SubResource("StandardMaterial3D_o31v5")
 
 [node name="portal collision" type="MeshInstance3D" parent="portal/PortalGate"]
-transform = Transform3D(0.705, -1.49012e-08, 0, 0, -6.92825e-08, -1.6, 2.23517e-08, 1.585, -6.99382e-08, 0.0135354, 1.04095, 0.00143147)
+transform = Transform3D(0.705, 0, -8.88178e-16, 0, -6.92825e-08, -1.6, 2.23517e-08, 1.585, -6.99382e-08, 0.0135354, 1.04095, 0.00143147)
 layers = 3
 mesh = SubResource("PlaneMesh_obrny")
 surface_material_override/0 = SubResource("StandardMaterial3D_gcfcw")
-
-[node name="teleportArea3D" type="Area3D" parent="portal/PortalGate/portal collision"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/PortalGate/portal collision/teleportArea3D"]
-transform = Transform3D(1, -9.83477e-07, 2.70006e-13, 1.11759e-08, 0.999998, 2.60902e-14, 2.22045e-16, 2.06724e-13, 1, -0.00323176, -0.000667572, -0.0017699)
-shape = SubResource("BoxShape3D_afjb0")
-
-[node name="portalArea3D" type="Area3D" parent="portal"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portalArea3D"]
-transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0.00637853, 1.21854, -0.565126)
-shape = SubResource("BoxShape3D_xit4x")
-
-[node name="Label3D" type="Label3D" parent="portal"]
-transform = Transform3D(-1, 0, -7.45058e-08, 0, 1, 0, 7.45058e-08, 0, -1, 0.0187694, 0.627049, -0.177238)
-visible = false
-text = "Unlock (space)"
-font_size = 30
 
 [node name="ChemBun" parent="." instance=ExtResource("5_ngyef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5862, 2.34015, 21.5696)
@@ -710,6 +686,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5862, 2.34015, 21.5696)
 [node name="CanvasLayer" parent="." instance=ExtResource("6_qim31")]
 
 [connection signal="body_entered" from="CaveHole/StaticBody3D" to="." method="_on_static_body_3d_body_entered"]
-[connection signal="body_entered" from="portal/PortalGate/portal collision/teleportArea3D" to="." method="_on_teleport_area_3d_body_entered"]
-[connection signal="body_entered" from="portal/portalArea3D" to="." method="_on_portal_area_3d_body_entered"]
-[connection signal="body_exited" from="portal/portalArea3D" to="." method="_on_portal_area_3d_body_exited"]

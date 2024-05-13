@@ -34,7 +34,7 @@ func _ready():
 	deathMessage.text = messages[my_random_number]
 
 func ContinueButton():
-	get_tree().change_scene_to_file("res://assets/Scenes/Playground.tscn")
+	get_tree().change_scene_to_file("res://assets/Scenes/Level/Overworld/overworld.tscn")
 
 func MainMenuButton():
 	get_tree().change_scene_to_file("res://assets/Scenes/Screens/MainMenuScreen.tscn")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://prh7sqd02d6v"]
+[gd_scene load_steps=27 format=3 uid="uid://prh7sqd02d6v"]
 
+[ext_resource type="Script" path="res://assets/Scenes/Level/Cave/cave.gd" id="1_740h7"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="1_opbxs"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="2_eu6cu"]
 
@@ -91,6 +92,9 @@ blend_shape_mode = 0
 diffuse_mode = 3
 roughness = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ceo6"]
+size = Vector3(4.89331, 1.96973, 2.32635)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr762"]
 resource_name = "stalagmites"
 cull_mode = 2
@@ -133,6 +137,8 @@ shadow_mesh = SubResource("ArrayMesh_5h4dj")
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.0705882, 0.00392157, 0.0313726, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y2vdt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_facvl"]
 resource_name = "Chest1"
@@ -185,10 +191,17 @@ diffuse_mode = 3
 albedo_color = Color(0.388235, 0, 0.109804, 1)
 roughness = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwv5x"]
+size = Vector3(49.4866, 32.7022, 37.2986)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqash"]
+size = Vector3(6.87082, 1.93634, 6.55019)
+
 [node name="cave" type="Node3D"]
+script = ExtResource("1_740h7")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(-4.34156e-08, -0.116133, 0.993234, -5.07635e-09, 0.993234, 0.116133, -1, -1.33227e-15, -4.37114e-08, 262.304, 48.0368, 0)
+transform = Transform3D(-4.34156e-08, -0.116133, 0.993234, -5.07635e-09, 0.993234, 0.116133, -1, -1.99515e-14, -4.37114e-08, 165.578, 33.9904, 1.63482)
 light_energy = 1000.0
 light_indirect_energy = 4.748
 distance_fade_enabled = true
@@ -197,64 +210,98 @@ spot_range = 213.183
 spot_angle = 36.3384
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-3.55817e-08, -0.580845, 0.814014, -2.53895e-08, 0.814014, 0.580845, -1, 0, -4.37114e-08, 272.128, 36.4195, 0)
+transform = Transform3D(-3.55817e-08, -0.580845, 0.814014, -2.53895e-08, 0.814014, 0.580845, -1, 4.32845e-14, -4.37114e-08, 167.988, 31.1396, 1.63482)
 light_energy = 4.03
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2n0la")
 
-[node name="Cave" type="MeshInstance3D" parent="."]
+[node name="CaveBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.245391, 0, 0, 0, 0.245391, 0, 0, 0, 0.245391, 101.211, 22.2026, 1.63482)
+collision_layer = 3
+
+[node name="Cave" type="MeshInstance3D" parent="CaveBody3D"]
 layers = 3
 mesh = SubResource("ArrayMesh_6ftb7")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_6h42e")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cave"]
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1pfj1")
 
-[node name="Salt" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 0, 17.7339, 0, 17.7339, 0, -17.7339, 0, 0, 171.56, 6.39706, 0)
+[node name="SaltBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0, 0, 4.35174, 0, 4.35174, 0, -4.35174, 0, 0, 143.31, 23.7724, 1.63482)
+
+[node name="Salt" type="MeshInstance3D" parent="SaltBody3D"]
 layers = 3
 mesh = SubResource("ArrayMesh_eshp1")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
 surface_material_override/0 = SubResource("StandardMaterial3D_dvjf5")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaltBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281983, 0.484863, -0.00570679)
+shape = SubResource("BoxShape3D_8ceo6")
+
 [node name="Stalagtite" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0996632, 0, 0, 0, 0.0996632, 0, 0, 0, 0.0996632, 62.5197, 21.8383, 15.1651)
+transform = Transform3D(0.0244565, 0, 0, 0, 0.0244565, 0, 0, 0, 0.0244565, 116.552, 27.5616, 5.3562)
 layers = 3
 mesh = SubResource("ArrayMesh_ci528")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tuepv")
 
-[node name="Chest" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.06213e-07, 0, -0.197995, 0, 0.197995, 0, 0.197995, 0, 1.06213e-07, 170.351, 37.2601, 0)
+[node name="ChestBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(5.52335e-07, 0, -1, 0, 1, 0, 1, 0, 5.52335e-07, 143.115, 31.4744, 1.63641)
+collision_layer = 3
+physics_material_override = SubResource("PhysicsMaterial_y2vdt")
+constant_force = Vector3(0, -4, 0)
+
+[node name="Chest" type="MeshInstance3D" parent="ChestBody3D"]
+transform = Transform3D(0.049, 0, -2.78533e-15, 0, 0.049, 0, 2.78533e-15, 0, 0.049, 0, 0, 0)
 layers = 3
 mesh = SubResource("ArrayMesh_q2v1i")
 skeleton = NodePath("")
-"blend_shapes/Key 1" = 1.0
+"blend_shapes/Key 1" = 0.0
 surface_material_override/0 = SubResource("StandardMaterial3D_iwlf8")
 surface_material_override/1 = SubResource("StandardMaterial3D_epeex")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Chest"]
+[node name="OmniLight3D" type="OmniLight3D" parent="ChestBody3D"]
+transform = Transform3D(1, 0, -1.13687e-13, 0, 1, 0, 1.13687e-13, 0, 1, 0, 0, 0)
 light_color = Color(1, 1, 0, 1)
 light_energy = 30.0
 light_indirect_energy = 16.0
 light_size = 0.775
 omni_range = 12.2076
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChestBody3D"]
+transform = Transform3D(0.049, 0, 0, 0, 0.049, 0, 0, 0, 0.049, -0.000550628, -0.0524445, -0.128159)
+shape = SubResource("BoxShape3D_xwv5x")
+
+[node name="Area3D" type="Area3D" parent="ChestBody3D"]
+transform = Transform3D(5.52335e-07, 0, 1, 0, 1, 0, -1, 0, 5.52335e-07, 0.00693989, -0.202999, -0.0556946)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChestBody3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0219574, 0.235321, 0.0180283)
+shape = SubResource("BoxShape3D_vqash")
+
+[node name="Label3D" type="Label3D" parent="ChestBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19209e-07, 1.49551, -0.212982)
+visible = false
+text = "open (space)"
+font_size = 70
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, -4.42486e-11, 0.00101229, -0.00101229, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 56.0071, 0)
-light_energy = 20000.0
+transform = Transform3D(1, -4.42486e-11, 0.00101229, -0.00101229, -4.37114e-08, 1, 0, -1, -4.37114e-08, 101.211, 35.9463, 1.63482)
+light_energy = 1000.0
 light_indirect_energy = 0.0
 light_size = 1.0
 spot_range = 60.3728
 spot_angle = 21.5076
 
 [node name="ChemBun" parent="." instance=ExtResource("1_opbxs")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 73.8134, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.272, 34.9824, 1.81303)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_eu6cu")]
+
+[connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_exited"]

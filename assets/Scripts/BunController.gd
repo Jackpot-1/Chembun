@@ -281,7 +281,7 @@ func attack1():
 			if tankMode == true && Globals.blobReady == true:
 				#blobInstance.velocity = Vector3(1, 0, 1)
 				print(self.rotation)
-				blobInstance.linear_velocity = Vector3(0,5,6).rotated(Vector3.UP, $chemcloth.rotation.y)
+				blobInstance.linear_velocity = Vector3(0,5,7).rotated(Vector3.UP, $chemcloth.rotation.y)
 				
 				blobInstance.reparent($".".get_parent())
 				Globals.blobReady = false

@@ -4,7 +4,8 @@ extends Node
 var save_path = "user://save.save"
 var CinematicFinished = true #make sure set to false
 var last_position = false
-var current_scene = "res://assets/Scenes/Playground.tscn"
+var current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
+var hasKey = false
 
 func _ready():
 	load_data()
@@ -123,23 +124,29 @@ func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(CinematicFinished)
 	file.store_var(last_position)
+	file.store_pascal_string(current_scene)
+	file.store_var(hasKey)
 	
 func load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		CinematicFinished = file.get_var(CinematicFinished)
-		last_position = file.get_var(last_position)
+		CinematicFinished = file.get_var(true)
+		last_position = file.get_var(true)
+		current_scene = file.get_pascal_string()
+		hasKey = file.get_var(true)
 	else:
 		print("bro it doesn't exist stop trying")
 		CinematicFinished = false
 		last_position = false
-		current_scene = "res://assets/Scenes/Playground.tscn"
+		current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
+		hasKey = false
 		
 func reset_data():
 	CinematicFinished = false
 	last_position = false
-	current_scene = "res://assets/Scenes/Playground.tscn"
+	current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
+	hasKey = false
 	save()
 		
-		
-		
+func dialog(text, character):
+	pass

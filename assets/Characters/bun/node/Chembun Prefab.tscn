@@ -5,11 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://assets/Camera/camRightTank.tscn" id="3_nbdst"]
 [ext_resource type="PackedScene" uid="uid://cj437v53xp0ip" path="res://assets/Characters/chembun cloth model/chemcloth.tscn" id="11_gc04b"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83d0r"]
-radius = 0.171913
-height = 1.61267
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xaddr"]
+radius = 0.434581
 
-[sub_resource type="Animation" id="Animation_eg2sv"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -202,7 +201,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_3s6ty"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -396,7 +395,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2gnim"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -590,7 +589,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_nf4ql"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -783,7 +782,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_7yhb6"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -976,7 +975,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_46ndk"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1170,14 +1169,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_3s6ty"),
-"double jump": SubResource("Animation_eg2sv"),
-"jump_fall": SubResource("Animation_2gnim"),
-"jump_start": SubResource("Animation_nf4ql"),
-"knockback": SubResource("Animation_7yhb6"),
-"run": SubResource("Animation_46ndk")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1299,13 +1298,13 @@ script = ExtResource("1_rrqok")
 PlayerCharacterMesh = NodePath("chemcloth")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828374, -0.0582154)
-shape = SubResource("CapsuleShape3D_83d0r")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xaddr")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_bqaxh")
+"": SubResource("AnimationLibrary_60da5")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1347,22 +1346,22 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-6.49837e-10, 0.660136, 0.180482)
-bones/1/rotation = Quaternion(-0.074066, -0.00468788, -0.0235177, 0.996965)
-bones/2/rotation = Quaternion(-0.155201, 0.0710084, 0.0269481, 0.984959)
-bones/3/position = Vector3(-0.458368, 0.555748, -0.165799)
-bones/3/rotation = Quaternion(0.0376869, -0.446199, 0.839696, 0.30724)
-bones/4/rotation = Quaternion(0.461802, 0.251039, 0.0782638, 0.847109)
-bones/6/position = Vector3(0.458368, 0.55479, -0.166156)
-bones/6/rotation = Quaternion(0.0450766, 0.148551, -0.93751, 0.311408)
-bones/7/rotation = Quaternion(0.451809, 0.209999, 0.00198159, 0.867044)
-bones/9/position = Vector3(-0.460337, 0.13955, -0.109291)
+bones/0/position = Vector3(4.04618e-09, 0.861952, 0.180482)
+bones/1/rotation = Quaternion(-0.0912151, -0.100411, -0.00580805, 0.990739)
+bones/2/rotation = Quaternion(-0.0942491, 0.155731, 0.0251371, 0.982972)
+bones/3/position = Vector3(-0.458322, 0.560794, -0.163914)
+bones/3/rotation = Quaternion(-0.0635391, -0.340566, 0.865532, 0.361707)
+bones/4/rotation = Quaternion(0.541516, 0.308347, 0.107908, 0.774622)
+bones/6/position = Vector3(0.458323, 0.549744, -0.168041)
+bones/6/rotation = Quaternion(0.0395236, 0.372095, -0.877973, 0.298573)
+bones/7/rotation = Quaternion(0.588058, 0.0786874, 0.228919, 0.771746)
+bones/9/position = Vector3(-0.462937, 0.154746, -0.135171)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.460982, 0.285931, -0.129791, 0.829996)
+bones/10/rotation = Quaternion(0.316586, 0.246041, -0.117291, 0.908559)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.326362, -0.0110695, -0.0946087, 0.940433)
+bones/12/rotation = Quaternion(0.187806, 0.0173929, -0.125464, 0.974005)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
