@@ -282,6 +282,7 @@ func attack1():
 				blobInstance.reparent($".".get_parent())
 				Globals.blobReady = false
 				Globals.blobFired = true
+				$"../CanvasLayer/hotbar".cooldown()
 				print("in tank mode and attacked")
 				print("")
 				#create new instance and set its position to Chembun with the instance slightly infront of it

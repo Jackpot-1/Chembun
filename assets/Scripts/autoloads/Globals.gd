@@ -111,6 +111,7 @@ class Enemy extends CharacterBody3D:
 
 var blobReady = false
 var blobFired = false
+var isCooldown = false
 var currItem = ""
 
 func potAttack(body, enemy):

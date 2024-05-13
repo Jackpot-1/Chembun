@@ -7,6 +7,9 @@ var scroll = false
 var scrollAdder = 0
 
 var currentItem = null
+
+var downcool = false
+
 #var itemClass = preload("res://assets/Miscellaneous/item.tscn")
 @onready var slots: Array = [
 	$Quarter/Path2D/PathFollow2D/Circle/Panel,
@@ -34,7 +37,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if scrollAdder == 0: return
+	#$CanvasLayer/hotbar/Quarter.set_value = val
+	#if val != 25:
+		#val += 1
+		#cooldown(val)
+	
+	if scrollAdder == 0 and downcool == false: return
+	elif downcool == true:
+		var total_time = $cooldown.wait_time
+		$Quarter.value = ((total_time - $cooldown.time_left)/total_time)*25
+	elif scrollAdder == 0: return
 	
 	$Quarter/Path2D/PathFollow2D.progress_ratio += scrollAdder
 	$Quarter/Path2D/PathFollow2D2.progress_ratio += scrollAdder
@@ -67,11 +79,11 @@ func _process(delta):
 		#print(path1, " yes")
 	#else: print(path1, " no")
 	
-	print(path1, " path1")
-	print(path2, " path2")
-	print(path3, " path3")
-	print(path4, " path4")
-	print(path5, " path5")
+	#print(path1, " path1")
+	#print(path2, " path2")
+	#print(path3, " path3")
+	#print(path4, " path4")
+	#print(path5, " path5")
 	if path1 == 0 or path1 == 1:
 		if Items[0] == null: $Quarter/bigItemDisplay.texture = null
 		else: $Quarter/bigItemDisplay.texture = Items[0].big_texture
@@ -133,14 +145,14 @@ func slotInserter(item:InvItem):
 #func _on_timer_timeout():
 	#if scroll == false:
 		#scrollAdder = 0
-		
-	
-	
-func _on_area_2d_body_entered(body):
-	print(body, " entered")
-	
+
+func cooldown():
+	downcool = true
+	$cooldown.start()
 
 
-
-func _on_area_2d_body_exited(body):
-	print(body, " exited")
+func _on_cooldown_timeout():
+	
+	downcool = false
+	Globals.blobFired = false
+	#Globals.blobReady = true

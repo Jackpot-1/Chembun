@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4g6wadcburcy"]
+[gd_scene load_steps=17 format=3 uid="uid://4g6wadcburcy"]
 
 [ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
 [ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Potion.tres" id="7_bdovw"]
 [ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_7i4xm"]
 [ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="9_671we"]
+[ext_resource type="Texture2D" uid="uid://dr1buuoyxrwfd" path="res://assets/images/quarterUnder.png" id="9_otgc5"]
 [ext_resource type="Script" path="res://assets/Scripts/slot.gd" id="10_6gqr1"]
 [ext_resource type="PackedScene" uid="uid://3slhmycnigfl" path="res://assets/Miscellaneous/elementWheel.tscn" id="11_h8j02"]
 
@@ -124,20 +125,22 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("8_7i4xm")
 
-[node name="Quarter" type="TextureRect" parent="hotbar"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -200.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = ExtResource("8_7i4xm")
+[node name="Quarter" type="TextureProgressBar" parent="hotbar"]
+offset_left = 952.0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 648.0
+step = 0.5
+value = 25.0
+rounded = true
+fill_mode = 4
+texture_under = ExtResource("9_otgc5")
+texture_progress = ExtResource("8_7i4xm")
+radial_initial_angle = 270.0
+radial_center_offset = Vector2(99.99, 99.99)
 
 [node name="Path2D" type="Path2D" parent="hotbar/Quarter"]
-position = Vector2(-7.99887, -25.5638)
+position = Vector2(-7.99884, -25.5638)
 scale = Vector2(1.04, 1.12282)
 curve = SubResource("Curve2D_ba4qt")
 
@@ -166,6 +169,7 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_6gqr1")
+metadata/_edit_use_anchors_ = true
 
 [node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D/Circle/Panel"]
 centered = false
@@ -195,6 +199,7 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_6gqr1")
+metadata/_edit_use_anchors_ = true
 
 [node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D2/Circle/Panel"]
 centered = false
@@ -224,6 +229,7 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_6gqr1")
+metadata/_edit_use_anchors_ = true
 
 [node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D3/Circle/Panel"]
 centered = false
@@ -253,6 +259,7 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_6gqr1")
+metadata/_edit_use_anchors_ = true
 
 [node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D4/Circle/Panel"]
 centered = false
@@ -282,6 +289,7 @@ offset_bottom = -13.2374
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_6gqr1")
+metadata/_edit_use_anchors_ = true
 
 [node name="itemDisplay" type="Sprite2D" parent="hotbar/Quarter/Path2D/PathFollow2D5/Circle/Panel"]
 centered = false
@@ -290,3 +298,9 @@ centered = false
 position = Vector2(32, 32)
 scale = Vector2(0.42, 0.42)
 centered = false
+
+[node name="cooldown" type="Timer" parent="hotbar"]
+process_callback = 0
+one_shot = true
+
+[connection signal="timeout" from="hotbar/cooldown" to="hotbar" method="_on_cooldown_timeout"]
