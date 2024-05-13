@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=17 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="8_fimwp"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="10_piha5"]
 [ext_resource type="PackedScene" uid="uid://kd27ra2cjyas" path="res://assets/Scenes/Checkpoint.tscn" id="12_beaci"]
+[ext_resource type="PackedScene" uid="uid://d4jublshumnou" path="res://assets/Characters/snail/node/snail dev.tscn" id="13_2vfch"]
 
 [sub_resource type="Environment" id="Environment_qyvd4"]
 background_mode = 2
@@ -46,18 +47,18 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(8.99521e-09, 0.780669, 0.180482)
-bones/1/rotation = Quaternion(-0.0844032, -0.0619054, -0.0129608, 0.994422)
-bones/2/rotation = Quaternion(-0.118972, 0.121743, 0.025901, 0.985065)
-bones/3/position = Vector3(-0.458341, 0.558681, -0.164703)
-bones/3/rotation = Quaternion(-0.0227693, -0.384343, 0.857697, 0.340761)
-bones/4/rotation = Quaternion(0.510346, 0.285784, 0.0961387, 0.805377)
-bones/6/position = Vector3(0.458342, 0.551857, -0.167251)
-bones/6/rotation = Quaternion(0.042041, 0.283574, -0.907931, 0.305745)
-bones/7/rotation = Quaternion(0.539124, 0.133479, 0.138541, 0.81996)
-bones/9/position = Vector3(-0.46189, 0.148626, -0.124748)
-bones/10/rotation = Quaternion(0.37616, 0.263051, -0.122761, 0.879908)
-bones/12/rotation = Quaternion(0.244344, 0.00592817, -0.11332, 0.963026)
+bones/0/position = Vector3(-2.41758e-10, 0.913882, 0.180482)
+bones/1/rotation = Quaternion(-0.0954858, -0.124898, -0.00123906, 0.987563)
+bones/2/rotation = Quaternion(-0.0783884, 0.177271, 0.0246265, 0.980726)
+bones/3/position = Vector3(-0.458312, 0.561957, -0.163479)
+bones/3/rotation = Quaternion(-0.0893703, -0.311961, 0.868682, 0.374278)
+bones/4/rotation = Quaternion(0.560666, 0.322321, 0.115269, 0.753974)
+bones/6/position = Vector3(0.458312, 0.548581, -0.168475)
+bones/6/rotation = Quaternion(0.0377458, 0.426578, -0.85496, 0.29266)
+bones/7/rotation = Quaternion(0.614142, 0.0434551, 0.284103, 0.735002)
+bones/9/position = Vector3(-0.463606, 0.158656, -0.141831)
+bones/10/rotation = Quaternion(0.277887, 0.234612, -0.113523, 0.92458)
+bones/12/rotation = Quaternion(0.151431, 0.0246649, -0.132966, 0.979173)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -194,6 +195,10 @@ metadata/Damage = 1
 [node name="Checkpoint" parent="." instance=ExtResource("12_beaci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
 
+[node name="SnailThing" parent="." instance=ExtResource("13_2vfch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.353, 0.705707, -14.7737)
+
 [editable path="ChemBun"]
 [editable path="ChemBun/chemcloth"]
 [editable path="CanvasLayer"]
+[editable path="SnailThing"]

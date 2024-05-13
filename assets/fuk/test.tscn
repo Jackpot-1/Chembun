@@ -14,7 +14,7 @@
 radius = 0.171913
 height = 1.61267
 
-[sub_resource type="Animation" id="Animation_eg2sv"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -207,7 +207,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_3s6ty"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -401,7 +401,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2gnim"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -595,7 +595,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_nf4ql"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -788,7 +788,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_7yhb6"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -981,7 +981,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_46ndk"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1175,14 +1175,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_3s6ty"),
-"double jump": SubResource("Animation_eg2sv"),
-"jump_fall": SubResource("Animation_2gnim"),
-"jump_start": SubResource("Animation_nf4ql"),
-"knockback": SubResource("Animation_7yhb6"),
-"run": SubResource("Animation_46ndk")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1321,7 +1321,7 @@ shape = SubResource("CapsuleShape3D_83d0r")
 [node name="AnimationTree" type="AnimationTree" parent="ChemBun"]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_bqaxh")
+"": SubResource("AnimationLibrary_60da5")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1365,22 +1365,25 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(3.30172e-09, 0.874179, 0.180482)
-bones/1/rotation = Quaternion(-0.0922269, -0.106187, -0.00473167, 0.990049)
-bones/2/rotation = Quaternion(-0.0905171, 0.160818, 0.0250184, 0.982506)
-bones/3/position = Vector3(-0.45832, 0.561112, -0.163795)
-bones/3/rotation = Quaternion(-0.0696441, -0.333867, 0.866404, 0.364727)
-bones/4/rotation = Quaternion(0.546082, 0.311671, 0.109654, 0.769826)
-bones/6/position = Vector3(0.45832, 0.549426, -0.16816)
-bones/6/rotation = Quaternion(0.0391156, 0.385103, -0.872809, 0.29727)
-bones/7/rotation = Quaternion(0.594588, 0.0703657, 0.242155, 0.763462)
-bones/9/position = Vector3(-0.463094, 0.155667, -0.136739)
+bones/0/position = Vector3(9.16893e-09, 0.777816, 0.180482)
+bones/1/rotation = Quaternion(-0.0841615, -0.0605508, -0.0132117, 0.994523)
+bones/2/rotation = Quaternion(-0.119837, 0.120545, 0.025927, 0.985107)
+bones/3/position = Vector3(-0.458342, 0.558607, -0.164731)
+bones/3/rotation = Quaternion(-0.0213335, -0.385854, 0.857358, 0.339999)
+bones/4/rotation = Quaternion(0.509226, 0.284978, 0.0957206, 0.806421)
+bones/6/position = Vector3(0.458342, 0.551932, -0.167224)
+bones/6/rotation = Quaternion(0.042123, 0.280407, -0.908841, 0.305949)
+bones/7/rotation = Quaternion(0.537235, 0.13538, 0.135301, 0.821428)
+bones/9/position = Vector3(-0.461853, 0.148411, -0.124382)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.307505, 0.243385, -0.116422, 0.912497)
+bones/10/rotation = Quaternion(0.378224, 0.263627, -0.122943, 0.878824)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.179249, 0.0191108, -0.12725, 0.975352)
+bones/12/rotation = Quaternion(0.246316, 0.00552458, -0.112885, 0.962577)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14482, 0)
@@ -1398,6 +1401,13 @@ environment = SubResource("Environment_pgw21")
 
 [node name="SnailThing" parent="." instance=ExtResource("8_31fm4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1336, 0.401148, 0)
+
+[node name="snailmesh" parent="SnailThing/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+surface_material_override/3 = null
+surface_material_override/4 = null
 
 [node name="saltEnemyDev" parent="." instance=ExtResource("9_gwm2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.211643, 6.65865)

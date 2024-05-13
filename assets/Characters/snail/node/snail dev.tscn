@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4jublshumnou"]
+[gd_scene load_steps=17 format=3 uid="uid://d4jublshumnou"]
 
 [ext_resource type="Script" path="res://assets/fuk/SnailController.gd" id="1_cilbm"]
 
@@ -160,6 +160,10 @@ size = Vector3(1.78057, 0.892678, 1.87177)
 [sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
 radius = 1.25344
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfb1h"]
+radius = 0.885076
+height = 3.69827
+
 [node name="SnailThing" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_cilbm")
@@ -203,15 +207,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466453, 0.506788)
 shape = SubResource("BoxShape3D_8tycy")
 
 [node name="DetectionRange" type="Area3D" parent="."]
-transform = Transform3D(4.1958, 0, 0, 0, 3.44958, 0, 0, 0, 6.11272, 0, -1.8125, -9.38561)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.848886, 1.58765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355943, 0)
 shape = SubResource("SphereShape3D_35i6e")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.793553, -0.440127)
+shape = SubResource("CapsuleShape3D_sfb1h")
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
