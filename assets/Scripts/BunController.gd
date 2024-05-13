@@ -119,6 +119,7 @@ func _input(event): # All major mouse and button input events
 			blobInstance.free()
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
+		#direction = $Camroot/h.rotation
 
 func sprint_and_roll():
 	# Dodge button input with dash and interruption to basic actions
@@ -278,7 +279,10 @@ func attack1():
 	if not states.attacking && not states.running && not states.rolling:
 		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
 			if tankMode == true && Globals.blobReady == true:
-				blobInstance.linear_velocity = Vector3(0, 0, 20)
+				#blobInstance.velocity = Vector3(1, 0, 1)
+				print(self.rotation)
+				blobInstance.linear_velocity = Vector3(0,5,6).rotated(Vector3.UP, $chemcloth.rotation.y)
+				
 				blobInstance.reparent($".".get_parent())
 				Globals.blobReady = false
 				Globals.blobFired = true

@@ -123,7 +123,7 @@ func _physics_process(delta):
 	
 	if blobFired:
 		#await get_tree().create_timer(1).timeout
-		blobInstance.linear_velocity = Vector3(1, 0, 0)
+		blobInstance.velocity = Vector3(0,7,10).rotated(Vector3.UP, direction.y)
 		#blobInstance.gravity_scale = 1
 	#states.falling = velocity.y < 0
 	#print(animations.doublejump in pb_node)
