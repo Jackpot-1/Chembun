@@ -46,18 +46,18 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(1.07587e-08, 0.751706, 0.180482)
-bones/1/rotation = Quaternion(-0.0819415, -0.0481498, -0.0155066, 0.995353)
-bones/2/rotation = Quaternion(-0.127738, 0.109569, 0.0261624, 0.98539)
-bones/3/position = Vector3(-0.458348, 0.557928, -0.164984)
-bones/3/rotation = Quaternion(-0.00818948, -0.399594, 0.854052, 0.332945)
-bones/4/rotation = Quaternion(0.498908, 0.277557, 0.0918798, 0.81585)
-bones/6/position = Vector3(0.458348, 0.552611, -0.16697)
-bones/6/rotation = Quaternion(0.0428522, 0.251286, -0.916714, 0.307659)
-bones/7/rotation = Quaternion(0.519458, 0.152643, 0.10554, 0.834101)
-bones/9/position = Vector3(-0.461517, 0.146445, -0.121034)
-bones/10/rotation = Quaternion(0.397011, 0.268827, -0.124575, 0.868675)
-bones/12/rotation = Quaternion(0.264314, 0.00183037, -0.108886, 0.958269)
+bones/0/position = Vector3(-3.55271e-15, 0.649463, 0.180482)
+bones/1/rotation = Quaternion(-0.0731393, 0.000372773, -0.0244474, 0.997022)
+bones/2/rotation = Quaternion(-0.158375, 0.0665092, 0.0270356, 0.984765)
+bones/3/position = Vector3(-0.45837, 0.555489, -0.165895)
+bones/3/rotation = Quaternion(0.0430062, -0.451467, 0.837748, 0.30415)
+bones/4/rotation = Quaternion(0.457388, 0.247901, 0.0766632, 0.850567)
+bones/6/position = Vector3(0.45837, 0.555049, -0.166059)
+bones/6/rotation = Quaternion(0.0453022, 0.136545, -0.939253, 0.311621)
+bones/7/rotation = Quaternion(0.44344, 0.216345, -0.00995771, 0.869745)
+bones/9/position = Vector3(-0.4602, 0.138747, -0.107923)
+bones/10/rotation = Quaternion(0.468237, 0.287809, -0.130347, 0.825185)
+bones/12/rotation = Quaternion(0.33348, -0.012566, -0.092921, 0.938083)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
