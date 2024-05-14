@@ -18,6 +18,7 @@ func _unhandled_input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 var player: CharacterBody3D;
+var GUI: CanvasLayer;
 
 var EnemyDatabase = {
 	"SaltBlock": {
@@ -166,15 +167,15 @@ func reset_data():
 	current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 	hasKey = false
 	save()
-		
-func dialogue(Character, OgText, Repetable, RepeatableText, FinishedText):
-	if dialogueChek[Character]["Finished"]: return
-	if not dialogueChek[Character]["FirstRun"]:
-		dialogueChek[Character]["FirstRun"] = true
-		print(OgText)
-	elif Repetable:
-		dialogueChek[Character]["Repeatable"] = true
-		print(RepeatableText)
-	elif dialogueChek[Character]["Key"]:
-		print(FinishedText)
-		dialogueChek[Character]["Finished"] = true
+		#
+#func dialogue(Character, OgText, Repetable, RepeatableText, FinishedText):
+	#if dialogueChek[Character]["Finished"]: return
+	#if not dialogueChek[Character]["FirstRun"]:
+		#dialogueChek[Character]["FirstRun"] = true
+		#print(OgText)
+	#elif Repetable:
+		#dialogueChek[Character]["Repeatable"] = true
+		#print(RepeatableText)
+	#elif dialogueChek[Character]["Key"]:
+		#print(FinishedText)
+		#dialogueChek[Character]["Finished"] = true

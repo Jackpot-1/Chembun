@@ -288,7 +288,7 @@ func attack1():
 					Globals.blobFired = true
 					$"../CanvasLayer/hotbar".cooldown()
 
-					Globals.dialogue("Character", "This is door", true, "Key not found", "Door Opened")
+					Globals.GUI.dialogue("Character", "This is door", true, "Key not found", "Door Opened", 5)
 					#Globals.dialogue(name of character thing [string value], Original text [string value], can this be repeated? [boolean] [if false leave next two blank], text to be repeated [string value], final text once you have the key or sum [string value])
 				#create new instance and set its position to Chembun with the instance slightly infront of it
 				

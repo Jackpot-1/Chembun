@@ -74,9 +74,7 @@ func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start 
 	hasDived = true
 
 func _on_hit_box_body_entered(body): #If it touches this then the player will take damage
-	print(body.name)
 	if body.name == vulnerable_to:
-		print("yes sir")
 		saltCube.queue_free()
 	
 	if body.name == Globals.currItem:

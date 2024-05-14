@@ -5,10 +5,11 @@ var ispaused = false
 var isinventory = false
 var iselement = false
 
+var dialogueChek = Globals.dialogueChek
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	Globals.GUI = $"."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -56,3 +57,20 @@ func _input(event):
 		$Control/VBoxContainer/RichTextLabel.text = ""
 		$Control.visible = false
 		unstop_player_input()
+
+func dialogue(Character, OgText, Repetable, RepeatableText, FinishedText, time):
+	if dialogueChek[Character]["Finished"]: return
+	$ChemBox.visible = true
+	if not dialogueChek[Character]["FirstRun"]:
+		$ChemBox/ChemText.text = OgText
+		dialogueChek[Character]["FirstRun"] = true
+	elif Repetable:
+		$ChemBox/ChemText.text = RepeatableText
+		dialogueChek[Character]["Repeatable"] = true
+	elif dialogueChek[Character]["Key"]:
+		$ChemBox/ChemText.text = FinishedText
+		dialogueChek[Character]["Finished"] = true
+	else:
+		dialogueChek[Character]["Finished"] = true
+	await get_tree().create_timer(time).timeout
+	$ChemBox.visible = false
