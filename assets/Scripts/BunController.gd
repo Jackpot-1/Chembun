@@ -281,14 +281,12 @@ func attack1():
 			if tankMode == true && Globals.blobReady == true:
 				#blobInstance.velocity = Vector3(1, 0, 1)
 				print(self.rotation)
-				blobInstance.linear_velocity = Vector3(0,5,7).rotated(Vector3.UP, $chemcloth.rotation.y)
-				
-				blobInstance.reparent($".".get_parent())
-				Globals.blobReady = false
-				Globals.blobFired = true
-				$"../CanvasLayer/hotbar".cooldown()
-				print("in tank mode and attacked")
-				print("")
+				if is_instance_valid(blobInstance):
+					blobInstance.linear_velocity = Vector3(0,5,7).rotated(Vector3.UP, $chemcloth.rotation.y)
+					blobInstance.reparent($".".get_parent())
+					Globals.blobReady = false
+					Globals.blobFired = true
+					$"../CanvasLayer/hotbar".cooldown()
 				#create new instance and set its position to Chembun with the instance slightly infront of it
 				
 				
