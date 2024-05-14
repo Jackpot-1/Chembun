@@ -14,16 +14,13 @@ func _ready():
 
 func _on_blob_body_entered(body):
 	if Globals.blobFired == true: done = false
-	print(done, done)
 	if done == true: return
-	print(body, "body")
 	if body == Globals.player: return
 	#$".".gravity_scale = 0
 	#$".".linear_velocity = Vector3(0, 0, 0)
 	#print(self.name)
 	#if body is CSGBox3D:
 	#Globals.blobFired = false
-	print("CheckCheckCheck")
 	$splashRadius/GloopPart.visible = true
 	#if $blob/Cube.visible:
 		#$blob/Cube.visible = false

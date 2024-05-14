@@ -37,6 +37,7 @@ var tankMode = false
 const blobPreload = preload("res://assets/items/Betterblob.tscn")
 var blobInstance
 var blob
+var aimIsPressed = false
 
 var animations = {
 	"roll": "Roll",
@@ -91,28 +92,17 @@ func _input(event): # All major mouse and button input events
 		return
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
-		if Globals.blobFired:
-			pass
-		else:
-			direction = $Camroot/h.global_transform.basis.z
-			blobInstance = blobPreload.instantiate()
-			blobInstance.Name = Globals.currItem
-			$chemcloth.add_child(blobInstance)
-			blobInstance.position = Vector3(0, 1, 1)
-			Globals.blobReady = true
-		#direction = $Camroot/h.global_transform.basis.z
-		#blobInstance = blobPreload.instantiate()
-		#blobInstance.name = Globals.currItem
-		#print(blobInstance.name, " blobInstance name")
-		#$chemcloth.add_child(blobInstance)
-		#print(blobInstance.position, " position")
-		#print("")
-		#blobInstance.position = Vector3(0, 1, 1)
+		aimIsPressed = true
+		# the throwing stuff is in physics process so we can instantiate 
+		# another potion if you are still holding the aim button
+
+
 	if event.is_action_released("aim"):
-		if not Globals.blobReady:
-			pass
-		else:
+		aimIsPressed = false
+		
+		if Globals.blobReady:
 			blobInstance.free()
+			Globals.blobReady = false
 		$Camroot/h/v/Camera3D.make_current()
 		direction = $Camroot/h.global_transform.basis.z
 		#direction = $Camroot/h.rotation
@@ -232,11 +222,20 @@ func _physics_process(delta):
 		tankMode = true
 		angular_acceleration = 60
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $CamRightTank/h.rotation.y, delta * angular_acceleration)
+		
 	else: # Normal turn movement mechanics
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, atan2(direction.x, direction.z) - rotation.y, delta * angular_acceleration)
 	
 	if Input.is_action_just_released("aim"):
 		tankMode = false
+	if Input.is_action_pressed("aim"):
+		if aimIsPressed and not Globals.blobFired and not Globals.blobReady:
+			direction = $Camroot/h.global_transform.basis.z
+			blobInstance = blobPreload.instantiate()
+			blobInstance.Name = Globals.currItem
+			$chemcloth.add_child(blobInstance)
+			blobInstance.position = Vector3(0, 1, 1)
+			Globals.blobReady = true
 	
 	# Movment mechanics with limitations during rolls/attacks
 	if (states.attacking || states.rolling):

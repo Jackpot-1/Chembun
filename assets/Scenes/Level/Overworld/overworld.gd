@@ -18,12 +18,10 @@ func _process(delta):
 			neverDoThisAgainOrElse = true
 			canEnter = true
 
-
-func _on_static_body_3d_body_entered(body):
-	get_tree().change_scene_to_file("res://assets/Scenes/Level/Cave/cave.tscn")
+func _on_Area3D_entered(body):
 	Globals.current_scene = "res://assets/Scenes/Level/Cave/cave.tscn"
 	Globals.save()
-
+	get_tree().change_scene_to_file("res://assets/Scenes/Level/Cave/cave.tscn")
 
 func _on_portal_area_3d_body_entered(body):
 	if neverDoThisAgainOrElse or not Globals.hasKey: return
@@ -37,11 +35,11 @@ func _on_portal_area_3d_body_exited(body):
 		$portal/Label3D.visible = false
 		isNear = false
 
-
-
-
 func _on_teleport_area_3d_body_entered(body):
 	if !canEnter or body != Globals.player: return
 	Globals.current_scene = "res://assets/Scenes/Level/Canyon/canyon.tscn"
 	Globals.save()
 	get_tree().change_scene_to_file("res://assets/Scenes/Level/Canyon/canyon.tscn")
+
+
+
