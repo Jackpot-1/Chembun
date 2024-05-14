@@ -96,11 +96,8 @@ func _input(event): # All major mouse and button input events
 		else:
 			direction = $Camroot/h.global_transform.basis.z
 			blobInstance = blobPreload.instantiate()
-			blobInstance.name = Globals.currItem
-			print(blobInstance.name, " blobInstance name")
+			blobInstance.Name = Globals.currItem
 			$chemcloth.add_child(blobInstance)
-			print(blobInstance.position, " position")
-			print("")
 			blobInstance.position = Vector3(0, 1, 1)
 			Globals.blobReady = true
 		#direction = $Camroot/h.global_transform.basis.z
@@ -113,7 +110,6 @@ func _input(event): # All major mouse and button input events
 		#blobInstance.position = Vector3(0, 1, 1)
 	if event.is_action_released("aim"):
 		if not Globals.blobReady:
-			print("false Test")
 			pass
 		else:
 			blobInstance.free()
@@ -291,10 +287,8 @@ func attack1():
 					Globals.GUI.dialogue("Character", "This is door", true, "Key not found", "Door Opened", 5)
 					#Globals.dialogue(name of character thing [string value], Original text [string value], can this be repeated? [boolean] [if false leave next two blank], text to be repeated [string value], final text once you have the key or sum [string value])
 				#create new instance and set its position to Chembun with the instance slightly infront of it
-				
-				
-			else:
-				print("not in tank mode")
+
+
 			#playback.travel(animations.attack1)
 
 #func attack2():

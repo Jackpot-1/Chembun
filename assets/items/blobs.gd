@@ -2,6 +2,7 @@ extends RigidBody3D
 
 @onready var blob = $"."
 var done = true
+var Name = ""
 
 
 func _physics_process(delta):

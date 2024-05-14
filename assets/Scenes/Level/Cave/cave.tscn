@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://prh7sqd02d6v"]
+[gd_scene load_steps=28 format=3 uid="uid://prh7sqd02d6v"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Cave/cave.gd" id="1_740h7"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="1_opbxs"]
@@ -94,6 +94,9 @@ roughness = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ceo6"]
 size = Vector3(4.89331, 1.96973, 2.32635)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ncwms"]
+size = Vector3(4.92914, 1.979, 2.45032)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr762"]
 resource_name = "stalagmites"
@@ -243,6 +246,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_dvjf5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281983, 0.484863, -0.00570679)
 shape = SubResource("BoxShape3D_8ceo6")
 
+[node name="SaltHitBox" type="Area3D" parent="SaltBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaltBody3D/SaltHitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0215147, 0.489501, -0.0214233)
+shape = SubResource("BoxShape3D_ncwms")
+
 [node name="Stalagtite" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0244565, 0, 0, 0, 0.0244565, 0, 0, 0, 0.0244565, 116.552, 27.5616, 5.3562)
 layers = 3
@@ -303,5 +312,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.272, 34.9824, 1.81303)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_eu6cu")]
 
+[connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_exited"]

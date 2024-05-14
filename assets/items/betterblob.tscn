@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4egrk33y627r"]
+[gd_scene load_steps=13 format=3 uid="uid://b4egrk33y627r"]
 
 [ext_resource type="Script" path="res://assets/items/blobs.gd" id="1_nkstj"]
 
@@ -123,9 +123,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_morot"]
+radius = 0.0770688
+
 [node name="Betterblob" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_m06kp")
 gravity_scale = 0.0
+freeze_mode = 1
 script = ExtResource("1_nkstj")
 
 [node name="splashRadius" type="Area3D" parent="."]
@@ -142,21 +146,19 @@ skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="blob" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26136, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="blob"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.84627, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.613, 0)
 shape = SubResource("SphereShape3D_3yffv")
 
 [node name="Cube" type="MeshInstance3D" parent="blob"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25096, 0)
 mesh = SubResource("ArrayMesh_a1vxr")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00407857, 0)
-shape = SubResource("SphereShape3D_3yffv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.557537, 0)
+shape = SubResource("SphereShape3D_morot")
 disabled = true
 
 [connection signal="body_entered" from="splashRadius" to="." method="_on_splash_radius_body_entered"]
