@@ -8,7 +8,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xaddr"]
 radius = 0.434581
 
-[sub_resource type="Animation" id="Animation_qkul3"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -201,7 +201,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2gs2a"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -395,7 +395,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_btbob"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -589,7 +589,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_bvj34"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -782,7 +782,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_c6bfk"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -975,7 +975,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_3psb5"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1169,14 +1169,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6gp7o"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_2gs2a"),
-"double jump": SubResource("Animation_qkul3"),
-"jump_fall": SubResource("Animation_btbob"),
-"jump_start": SubResource("Animation_bvj34"),
-"knockback": SubResource("Animation_c6bfk"),
-"run": SubResource("Animation_3psb5")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1304,7 +1304,7 @@ shape = SubResource("CapsuleShape3D_xaddr")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_6gp7o")
+"": SubResource("AnimationLibrary_60da5")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1362,9 +1362,6 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
 bones/12/rotation = Quaternion(0.26446, 0.00180029, -0.108853, 0.958232)
-bones/13/position = Vector3(0, -0.655099, 0)
-bones/14/position = Vector3(0, -0.655099, 0)
-bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [connection signal="timeout" from="RegenTimer" to="." method="regen"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="knockback_exit"]

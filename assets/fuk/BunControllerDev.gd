@@ -284,7 +284,7 @@ func attack1():
 			##playback.start(animations.bigattack) #Add and Change this animation node for a different attack
 
 func hurt(damage_taken):
-	print("Ouch! " + damage_taken)
+	print("Ouch! " + str(damage_taken))
 
 func regen():
 	pass

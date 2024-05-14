@@ -88,8 +88,9 @@ func _ready():
 	#direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
 
 func _input(event): # All major mouse and button input events
-	if(canvas.playerStopped):
-		return
+	if not Globals.CameraSwitch:
+		if(canvas.playerStopped):
+			return
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		aimIsPressed = true
@@ -179,7 +180,9 @@ func _physics_process(delta):
 		angular_acceleration = 2
 	
 	# Jump input and Mechanics
-	if Input.is_action_just_pressed("jump") && !canvas.playerStopped && !states.attacking && !states.rolling:
+	if Input.is_action_just_pressed("jump") && !states.attacking && !states.rolling:
+		if not Globals.CameraSwitch:
+			if canvas.playerStopped: return
 		if states.grounded:
 			#states.doublejumping = false
 			jump_counter = 0
@@ -201,7 +204,9 @@ func _physics_process(delta):
 			#jump_counter = 0
 		
 	# Movement input, state and mechanics. *Note: movement stops if attacking
-	if ((Input.is_action_pressed("forward") || Input.is_action_pressed("backward") || Input.is_action_pressed("left") || Input.is_action_pressed("right")) && !canvas.playerStopped):
+	if ((Input.is_action_pressed("forward") || Input.is_action_pressed("backward") || Input.is_action_pressed("left") || Input.is_action_pressed("right"))):
+		if not Globals.CameraSwitch:
+			if canvas.playerStopped: return
 		states.moving = true;
 		direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"), 0, Input.get_action_strength("forward") - Input.get_action_strength("backward"))
 		direction = direction.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y).normalized()
@@ -218,7 +223,9 @@ func _physics_process(delta):
 		states.running = false
 		states.moving = false
 
-	if Input.is_action_pressed("aim") && !canvas.playerStopped:  # Aim/Strafe input and  mechanics
+	if Input.is_action_pressed("aim"):  # Aim/Strafe input and  mechanics
+		if not Globals.CameraSwitch:
+			if canvas.playerStopped: return
 		tankMode = true
 		angular_acceleration = 60
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $CamRightTank/h.rotation.y, delta * angular_acceleration)
@@ -273,7 +280,9 @@ func _physics_process(delta):
 
 func attack1():
 	if not states.attacking && not states.running && not states.rolling:
-		if Input.is_action_just_pressed("attack") && !canvas.playerStopped && !states.attacking:
+		if Input.is_action_just_pressed("attack") && !states.attacking:
+			if not Globals.CameraSwitch:
+				if canvas.playerStopped: return
 			if tankMode == true && Globals.blobReady == true:
 				#blobInstance.velocity = Vector3(1, 0, 1)
 				print(self.rotation)

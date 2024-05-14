@@ -28,7 +28,7 @@ window/handheld/orientation=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/gloot/plugin.cfg")
+enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/ggs/plugin.cfg")
 
 [file_customization]
 

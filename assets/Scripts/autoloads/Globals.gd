@@ -1,8 +1,8 @@
 extends Node
 
-
+var CameraSwitch = false # for scenes that have an external camera
 var save_path = "user://save.save"
-var CinematicFinished = true #make sure set to false
+var CinematicFinished = false
 var last_position = false
 var current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 var hasKey = false

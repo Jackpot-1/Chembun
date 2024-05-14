@@ -15,4 +15,4 @@ func _process(delta):
 func _on_finished():
 	Globals.CinematicFinished = true
 	Globals.save()
-	get_tree().change_scene_to_file("res://assets/Scenes/Level/Overworld/overworld.tscn")
+	get_tree().change_scene_to_file("res://assets/Scenes/chem crib/Room/chembun_crib.tscn")
