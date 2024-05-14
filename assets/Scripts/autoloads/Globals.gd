@@ -134,6 +134,7 @@ var blobReady = false
 var blobFired = false
 var isCooldown = false
 var currItem = ""
+var color: Color
 
 func potAttack(body, enemy):
 	if EnemyDatabase.has(enemy):

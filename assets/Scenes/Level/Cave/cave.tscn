@@ -367,11 +367,9 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjxm5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CaveHole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveHole/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_8mrp4")
 
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]

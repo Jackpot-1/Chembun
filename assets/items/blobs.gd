@@ -3,6 +3,7 @@ extends RigidBody3D
 @onready var blob = $"."
 var done = true
 var Name = ""
+var color: Color
 
 
 func _physics_process(delta):
@@ -11,6 +12,7 @@ func _physics_process(delta):
 
 func _ready():
 	$splashRadius/GloopPart.visible = false
+	changeColor()
 
 func _on_blob_body_entered(body):
 	if Globals.blobFired == true: done = false
@@ -29,6 +31,7 @@ func _on_blob_body_entered(body):
 	#$blob/CollisionShape3D.queue_free()
 	#$blob/Cube.queue_free()
 	#$CollisionShape3D2.disabled = false
+	$splashRadius/gloop.set_deferred("disabled", false)
 	$blob.queue_free()
 	self.freeze = true
 	#self.gravity_scale = 0
@@ -47,6 +50,12 @@ func _on_blob_body_entered(body):
 	done = true
 	$".".queue_free()
 
+func changeColor():
+	$blob/Cube.get_surface_override_material(0).albedo_color = color
+	$splashRadius/GloopPart.get_surface_override_material(0).albedo_color = color
+	$splashRadius/GloopPart.get_surface_override_material(1).albedo_color = color
+	$splashRadius/GloopPart.get_surface_override_material(2).albedo_color = color
+	$splashRadius/GloopPart.get_surface_override_material(3).albedo_color = color
 
 func _on_splash_radius_body_entered(body):
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4egrk33y627r"]
+[gd_scene load_steps=18 format=3 uid="uid://b4egrk33y627r"]
 
 [ext_resource type="Script" path="res://assets/items/blobs.gd" id="1_nkstj"]
 
@@ -93,6 +93,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoadh"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jb6f"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iqk1"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxhke"]
+resource_local_to_scene = true
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_3yffv"]
 radius = 0.131011
 
@@ -123,6 +135,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivygu"]
+resource_local_to_scene = true
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_morot"]
 radius = 0.0770688
 
@@ -138,12 +153,17 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.519094, 0)
 [node name="gloop" type="CollisionShape3D" parent="splashRadius"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.00788334, -0.0166016)
 shape = SubResource("BoxShape3D_wrly1")
+disabled = true
 
 [node name="GloopPart" type="MeshInstance3D" parent="splashRadius"]
 transform = Transform3D(0.0444199, 0, 0, 0, -1.94166e-09, -0.0444199, 0, 0.0444199, -1.94166e-09, 0, 0, 0.03)
 mesh = SubResource("ArrayMesh_0g0ai")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
+surface_material_override/0 = SubResource("StandardMaterial3D_aoadh")
+surface_material_override/1 = SubResource("StandardMaterial3D_1jb6f")
+surface_material_override/2 = SubResource("StandardMaterial3D_5iqk1")
+surface_material_override/3 = SubResource("StandardMaterial3D_pxhke")
 
 [node name="blob" type="Area3D" parent="."]
 
@@ -155,6 +175,7 @@ shape = SubResource("SphereShape3D_3yffv")
 mesh = SubResource("ArrayMesh_a1vxr")
 skeleton = NodePath("")
 "blend_shapes/Key 1" = 0.0
+surface_material_override/0 = SubResource("StandardMaterial3D_ivygu")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.557537, 0)

@@ -229,10 +229,11 @@ func _physics_process(delta):
 	if Input.is_action_just_released("aim"):
 		tankMode = false
 	if Input.is_action_pressed("aim"):
-		if aimIsPressed and not Globals.blobFired and not Globals.blobReady:
+		if aimIsPressed and not Globals.blobFired and not Globals.blobReady and Globals.currItem != "":
 			direction = $Camroot/h.global_transform.basis.z
 			blobInstance = blobPreload.instantiate()
 			blobInstance.Name = Globals.currItem
+			blobInstance.color = Globals.color
 			$chemcloth.add_child(blobInstance)
 			blobInstance.position = Vector3(0, 1, 1)
 			Globals.blobReady = true

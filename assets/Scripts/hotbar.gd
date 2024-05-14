@@ -20,14 +20,15 @@ var downcool = false
 ]
 #var zoom = 0 # this variable and the things that use it will make it so you can zoom with the scroll wheel
 
-var path1 = 0
-var path2 = 0
-var path3 = 0
-var path4 = 0
-var path5 = 0
+var path1 = .15
+var path2 = .35
+var path3 = .55
+var path4 = .75
+var path5 = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slotUpdater()
+	selectItem()
 	#slots[1]["item"] = itemClass.instantiate()
 	#slots[1]["item"].Image(Globals.items[1])
 	pass
@@ -84,26 +85,35 @@ func _process(delta):
 	#print(path3, " path3")
 	#print(path4, " path4")
 	#print(path5, " path5")
+	
+	selectItem()
+	
+func selectItem():
 	if path1 == 0 or path1 == 1:
 		if Items[0] == null: $Quarter/bigItemDisplay.texture = null
 		else: $Quarter/bigItemDisplay.texture = Items[0].big_texture
 		currentItem = Items[0].name
+		Globals.color = Items[0].color
 	elif path2 == 0 or path2 == 1:
 		if Items[1] == null: $Quarter/bigItemDisplay.texture = null
 		else: $Quarter/bigItemDisplay.texture = Items[1].big_texture
 		currentItem = Items[1].name
+		Globals.color = Items[1].color
 	elif path3 == 0 or path3 == 1:
 		if Items[2] == null: $Quarter/bigItemDisplay.texture = null
 		else: $Quarter/bigItemDisplay.texture = Items[2].big_texture
 		currentItem = Items[2].name
+		Globals.color = Items[2].color
 	elif path4 == 0 or path4 == 1:
 		if Items[3] == null: $Quarter/bigItemDisplay.texture = null
 		else: $Quarter/bigItemDisplay.texture = Items[3].big_texture
 		currentItem = Items[3].name
+		Globals.color = Items[3].color
 	elif path5 == 0 or path5 == 1:
 		if Items[4] == null: $Quarter/bigItemDisplay.texture = null
 		else: $Quarter/bigItemDisplay.texture = Items[4].big_texture
 		currentItem = Items[4].name
+		Globals.color = Items[4].color
 	Globals.currItem = currentItem
 
 func _input(event):
@@ -128,15 +138,15 @@ func slotUpdater():
 	
 		
 func slotInserter(item:InvItem):
-	if Items[0] == null:
+	if Items[0].name == "":
 		Items[0] = item
-	elif Items[1] == null:
+	elif Items[1].name == "":
 		Items[1] = item
-	elif Items[2] == null:
+	elif Items[2].name == "":
 		Items[2] = item
-	elif Items[3] == null:
+	elif Items[3].name == "":
 		Items[3] = item
-	elif Items[4] == null:
+	elif Items[4].name == "":
 		Items[4] = item
 	slotUpdater()
 		

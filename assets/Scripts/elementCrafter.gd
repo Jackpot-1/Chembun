@@ -1,7 +1,7 @@
 extends Control
 
 var recipe = ""
-var cookbook = {
+var cookbookOld = {
 	"H[b]2[/b]+O":"Water",
 	"Na+Cl":"Salt",
 	"N+H[b]3[/b]":"Ammonia",
@@ -19,6 +19,11 @@ var cookbook = {
 	"HgC[b]2[/b]N[b]2[/b]O[b]2[/b]" : "Mercury(II) Fulmainate",
 	"C[b]7[/b]H[b]5[/b]N[b]3[/b]O[b]6[/b]" : "TNT"
 	#fire = carbon dioxide, water vapor, oxygen, nitrogen
+}
+
+var cookbook = {
+	"H[b]2[/b]+O":"Water",
+	"Hg+C[b]2[/b]+N[b]2[/b]+O[b]2[/b]" : "Mercury(II) Fulminate"
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -56,6 +61,7 @@ func element_adder(element):
 	#$VBoxContainer/RichTextLabel.text = "[font_size=70][center]" + recipe.replace_all("\\d", "[font_size=40][b][color=gray]\\0[/color][/b][font_size=70]")
 	if cookbook.has(recipe):
 		print(cookbook[recipe])
+		$"../hotbar".slotInserter(load("res://assets/images/items/"+ cookbook[recipe] + ".tres"))
 		$VBoxContainer/RichTextLabel.text = "[center]" + cookbook[recipe]
 #[font_size=70][center]He[font_size=40][b][color=gray]2[/color][/b][font_size=70]C[font_size=40][b][color=gray]3[/color][/b]
 
@@ -64,15 +70,15 @@ func _on_texture_button_pressed():
 
 
 func _on_texture_button_2_pressed():
-	element_adder("Cl")
-
-
-func _on_texture_button_3_pressed():
 	element_adder("O")
 
 
+func _on_texture_button_3_pressed():
+	element_adder("C")
+
+
 func _on_texture_button_4_pressed():
-	element_adder("Na")
+	element_adder("Hg")
 
 
 func _on_texture_button_5_pressed():

@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://4g6wadcburcy"]
+[gd_scene load_steps=18 format=3 uid="uid://4g6wadcburcy"]
 
 [ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
 [ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
 [ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="3_42wmp"]
 [ext_resource type="Script" path="res://assets/Scripts/hotbar.gd" id="5_j3y83"]
 [ext_resource type="Script" path="res://assets/images/items/ItemScript.gd" id="6_xuj4q"]
-[ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Potion.tres" id="7_bdovw"]
+[ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Water.tres" id="7_bdovw"]
+[ext_resource type="Resource" uid="uid://dx1ja0k5wwqq4" path="res://assets/images/items/Mercury(II) Fulminate.tres" id="7_qu5nl"]
 [ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_7i4xm"]
 [ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="9_671we"]
 [ext_resource type="Texture2D" uid="uid://dr1buuoyxrwfd" path="res://assets/images/quarterUnder.png" id="9_otgc5"]
@@ -14,21 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://3m3w8r6aqsot" path="res://fonts/Chembun/Bun_Box.png" id="12_hdlgf"]
 [ext_resource type="FontFile" uid="uid://qcokiesg0mbc" path="res://fonts/Chembun/TitanOne-Regular.ttf" id="13_wdw3o"]
 
-[sub_resource type="Resource" id="Resource_0c80d"]
-script = ExtResource("6_xuj4q")
-name = ""
-
 [sub_resource type="Resource" id="Resource_o4fo6"]
 script = ExtResource("6_xuj4q")
 name = ""
+color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_nbrpt"]
 script = ExtResource("6_xuj4q")
 name = ""
-
-[sub_resource type="Resource" id="Resource_ndbht"]
-script = ExtResource("6_xuj4q")
-name = ""
+color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_ba4qt"]
 _data = {
@@ -112,7 +107,7 @@ texture = ExtResource("3_42wmp")
 
 [node name="hotbar" type="Node" parent="."]
 script = ExtResource("5_j3y83")
-Items = Array[ExtResource("6_xuj4q")]([SubResource("Resource_0c80d"), SubResource("Resource_o4fo6"), SubResource("Resource_nbrpt"), ExtResource("7_bdovw"), SubResource("Resource_ndbht")])
+Items = Array[ExtResource("6_xuj4q")]([ExtResource("7_qu5nl"), SubResource("Resource_o4fo6"), SubResource("Resource_nbrpt"), ExtResource("7_qu5nl"), ExtResource("7_bdovw")])
 
 [node name="Quarter2" type="TextureRect" parent="hotbar"]
 visible = false
