@@ -281,27 +281,16 @@ func attack1():
 			if tankMode == true && Globals.blobReady == true:
 				#blobInstance.velocity = Vector3(1, 0, 1)
 				print(self.rotation)
-<<<<<<< Updated upstream
 				if is_instance_valid(blobInstance):
 					blobInstance.linear_velocity = Vector3(0,5,7).rotated(Vector3.UP, $chemcloth.rotation.y)
 					blobInstance.reparent($".".get_parent())
 					Globals.blobReady = false
 					Globals.blobFired = true
 					$"../CanvasLayer/hotbar".cooldown()
+
+					Globals.dialogue("Character", "This is door", true, "Key not found", "Door Opened")
+					#Globals.dialogue(name of character thing [string value], Original text [string value], can this be repeated? [boolean] [if false leave next two blank], text to be repeated [string value], final text once you have the key or sum [string value])
 				#create new instance and set its position to Chembun with the instance slightly infront of it
-=======
-				blobInstance.linear_velocity = Vector3(0,5,7).rotated(Vector3.UP, $chemcloth.rotation.y)
-				
-				blobInstance.reparent($".".get_parent())
-				Globals.blobReady = false
-				Globals.blobFired = true
-				$"../CanvasLayer/hotbar".cooldown()
-				print("in tank mode and attacked")
-				print("")
-				
-				Globals.dialogue("Character", "This is door", true, "Key not found", "Door Opened")
-				#Globals.dialogue(name of character thing [string value], Original text [string value], can this be repeated? [boolean] [if false leave next two blank], text to be repeated [string value], final text once you have the key or sum [string value])
->>>>>>> Stashed changes
 				
 				
 			else:
