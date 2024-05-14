@@ -29,6 +29,18 @@ var EnemyDatabase = {
 	}
 }
 
+var dialogueChek = {
+	"Character": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	
+}
+
 #var items = [
 	#{
 		#"name" : "carrot",
@@ -148,5 +160,14 @@ func reset_data():
 	hasKey = false
 	save()
 		
-func dialog(text, character):
-	pass
+func dialogue(Character, OgText, Repetable, RepeatableText, FinishedText):
+	if dialogueChek[Character]["Finished"]: return
+	if not dialogueChek[Character]["FirstRun"]:
+		dialogueChek[Character]["FirstRun"] = true
+		print(OgText)
+	elif Repetable:
+		dialogueChek[Character]["Repeatable"] = true
+		print(RepeatableText)
+	elif dialogueChek[Character]["Key"]:
+		print(FinishedText)
+		dialogueChek[Character]["Finished"] = true

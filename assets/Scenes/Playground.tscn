@@ -1223,18 +1223,18 @@ libraries = {
 }
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-2.41758e-10, 0.913882, 0.180482)
-bones/1/rotation = Quaternion(-0.0954858, -0.124898, -0.00123906, 0.987563)
-bones/2/rotation = Quaternion(-0.0783884, 0.177271, 0.0246265, 0.980726)
-bones/3/position = Vector3(-0.458312, 0.561957, -0.163479)
-bones/3/rotation = Quaternion(-0.0893703, -0.311961, 0.868682, 0.374278)
-bones/4/rotation = Quaternion(0.560666, 0.322321, 0.115269, 0.753974)
-bones/6/position = Vector3(0.458312, 0.548581, -0.168475)
-bones/6/rotation = Quaternion(0.0377458, 0.426578, -0.85496, 0.29266)
-bones/7/rotation = Quaternion(0.614142, 0.0434551, 0.284103, 0.735002)
-bones/9/position = Vector3(-0.463606, 0.158656, -0.141831)
-bones/10/rotation = Quaternion(0.277887, 0.234612, -0.113523, 0.92458)
-bones/12/rotation = Quaternion(0.151431, 0.0246649, -0.132966, 0.979173)
+bones/0/position = Vector3(1.81885e-09, 0.898534, 0.180482)
+bones/1/rotation = Quaternion(-0.0942305, -0.117672, -0.00258899, 0.988568)
+bones/2/rotation = Quaternion(-0.0830799, 0.170921, 0.0247792, 0.981463)
+bones/3/position = Vector3(-0.458314, 0.561745, -0.163558)
+bones/3/rotation = Quaternion(-0.0817585, -0.320461, 0.867902, 0.370631)
+bones/4/rotation = Quaternion(0.55507, 0.318229, 0.113107, 0.760154)
+bones/6/position = Vector3(0.458314, 0.548793, -0.168396)
+bones/6/rotation = Quaternion(0.038284, 0.410666, -0.862062, 0.294512)
+bones/7/rotation = Quaternion(0.606864, 0.0538583, 0.26804, 0.746304)
+bones/9/position = Vector3(-0.463408, 0.1575, -0.139863)
+bones/10/rotation = Quaternion(0.289367, 0.238032, -0.114658, 0.920033)
+bones/12/rotation = Quaternion(0.162196, 0.0225212, -0.130771, 0.977796)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
