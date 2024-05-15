@@ -67,6 +67,7 @@ func _on_key_area_3d_body_entered(body):
 	if body != Globals.player: return
 	Globals.hasKey = true
 	Globals.player.key()
+	Globals.dialogueChek["Door"]["Key"] = true
 	Globals.position = Vector3(-14.262, 12.509, -54.035)
 	Globals.current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 	Globals.save()
