@@ -12,6 +12,7 @@ func _physics_process(delta):
 
 func _ready():
 	$splashRadius/GloopPart.visible = false
+	$explosion.visible = false
 	changeColor()
 
 func _on_blob_body_entered(body):
@@ -23,7 +24,10 @@ func _on_blob_body_entered(body):
 	#print(self.name)
 	#if body is CSGBox3D:
 	#Globals.blobFired = false
-	$splashRadius/GloopPart.visible = true
+	if Name != "Mercury(II) Fulminate":
+		$splashRadius/GloopPart.visible = true
+		$splashRadius/gloop.set_deferred("disabled", false)
+	else: $explosion.visible = true
 	#if $blob/Cube.visible:
 		#$blob/Cube.visible = false
 		#$blob/Cube.free()
@@ -31,7 +35,6 @@ func _on_blob_body_entered(body):
 	#$blob/CollisionShape3D.queue_free()
 	#$blob/Cube.queue_free()
 	#$CollisionShape3D2.disabled = false
-	$splashRadius/gloop.set_deferred("disabled", false)
 	$blob.queue_free()
 	self.freeze = true
 	#self.gravity_scale = 0

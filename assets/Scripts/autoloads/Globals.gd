@@ -180,3 +180,5 @@ func reset_data():
 	#elif dialogueChek[Character]["Key"]:
 		#print(FinishedText)
 		#dialogueChek[Character]["Finished"] = true
+		
+

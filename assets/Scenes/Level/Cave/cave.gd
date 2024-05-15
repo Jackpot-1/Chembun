@@ -20,6 +20,7 @@ func _process(delta):
 			$ChestBody3D/Chest.set("blend_shapes/Key 1", 1)
 			$ChestBody3D/Label3D.visible = false
 			Globals.hasKey = true
+			Globals.player.key()
 			Globals.current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 			Globals.save()
 			get_tree().change_scene_to_file("res://assets/Scenes/Level/Overworld/overworld.tscn")

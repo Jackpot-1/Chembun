@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://bry8mxiawyyc8"]
+[gd_scene load_steps=39 format=3 uid="uid://bry8mxiawyyc8"]
 
 [ext_resource type="Script" path="res://assets/Scripts/BunController.gd" id="1_rrqok"]
 [ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/Camera/camroot.tscn" id="2_pc00b"]
 [ext_resource type="PackedScene" uid="uid://cr7x0cw7d5o6t" path="res://assets/Camera/camRightTank.tscn" id="3_nbdst"]
+[ext_resource type="PackedScene" uid="uid://d2j4gfwnbbl2t" path="res://assets/Scenes/Level/Cave/keys.tscn" id="5_mkqfp"]
 [ext_resource type="PackedScene" uid="uid://cj437v53xp0ip" path="res://assets/Characters/chembun cloth model/chemcloth.tscn" id="11_gc04b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xaddr"]
@@ -1346,22 +1347,29 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-6.20916e-09, 0.751442, 0.180482)
-bones/1/rotation = Quaternion(-0.081921, -0.0480354, -0.0155277, 0.995359)
-bones/2/rotation = Quaternion(-0.12781, 0.109469, 0.0261645, 0.985392)
-bones/3/position = Vector3(-0.458348, 0.557921, -0.164987)
-bones/3/rotation = Quaternion(-0.00808597, -0.399701, 0.854025, 0.332889)
-bones/4/rotation = Quaternion(0.498817, 0.277492, 0.0918462, 0.815931)
-bones/6/position = Vector3(0.458348, 0.552617, -0.166968)
-bones/6/rotation = Quaternion(0.0428561, 0.251131, -0.916754, 0.307668)
-bones/7/rotation = Quaternion(0.519432, 0.152668, 0.105497, 0.834119)
-bones/9/position = Vector3(-0.461513, 0.146425, -0.121)
+bones/0/position = Vector3(-1.2644e-09, 0.670229, 0.180482)
+bones/1/rotation = Quaternion(-0.0749405, -0.00947374, -0.022638, 0.996886)
+bones/2/rotation = Quaternion(-0.152194, 0.0752614, 0.0268645, 0.985115)
+bones/3/position = Vector3(-0.458367, 0.555879, -0.16575)
+bones/3/rotation = Quaternion(0.0326539, -0.441189, 0.841485, 0.310143)
+bones/4/rotation = Quaternion(0.465958, 0.253997, 0.0797744, 0.843804)
+bones/6/position = Vector3(0.458367, 0.554659, -0.166205)
+bones/6/rotation = Quaternion(0.0448571, 0.159886, -0.935735, 0.311165)
+bones/7/rotation = Quaternion(0.459615, 0.203948, 0.0132724, 0.864282)
+bones/9/position = Vector3(-0.460467, 0.14031, -0.110586)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.397152, 0.268866, -0.124587, 0.868596)
+bones/10/rotation = Quaternion(0.454086, 0.284135, -0.129256, 0.834486)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.26446, 0.00180029, -0.108853, 0.958232)
+bones/12/rotation = Quaternion(0.319612, -0.00965357, -0.0961996, 0.942603)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+
+[node name="Keys" parent="chemcloth" instance=ExtResource("5_mkqfp")]
+transform = Transform3D(-0.135041, 0.179261, 3.58313e-05, -0.179261, -0.135041, 6.1595e-06, 2.64777e-05, -2.49149e-05, 0.224434, -1.44055, 1.96742, -0.11179)
+visible = false
 
 [connection signal="timeout" from="RegenTimer" to="." method="regen"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="knockback_exit"]

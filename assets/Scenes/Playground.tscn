@@ -47,25 +47,18 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-1.39115e-09, 0.672311, 0.180482)
-bones/1/rotation = Quaternion(-0.0751206, -0.0104608, -0.0224565, 0.996867)
-bones/2/rotation = Quaternion(-0.151574, 0.0761383, 0.0268472, 0.985143)
-bones/3/position = Vector3(-0.458366, 0.555906, -0.165739)
-bones/3/rotation = Quaternion(0.0316155, -0.440152, 0.841848, 0.310739)
-bones/4/rotation = Quaternion(0.466813, 0.254605, 0.0800856, 0.843118)
-bones/6/position = Vector3(0.458366, 0.554632, -0.166215)
-bones/6/rotation = Quaternion(0.0448111, 0.162221, -0.935354, 0.31111)
-bones/7/rotation = Quaternion(0.461212, 0.202694, 0.0156009, 0.863687)
-bones/9/position = Vector3(-0.460494, 0.140467, -0.110853)
-bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.45266, 0.283761, -0.129144, 0.835404)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
-bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.318218, -0.00936147, -0.096527, 0.943044)
-bones/13/position = Vector3(0, -0.655099, 0)
-bones/14/position = Vector3(0, -0.655099, 0)
-bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/0/position = Vector3(-8.57079e-09, 0.79023, 0.180482)
+bones/1/rotation = Quaternion(-0.0852121, -0.066443, -0.0121199, 0.994071)
+bones/2/rotation = Quaternion(-0.116073, 0.125755, 0.0258135, 0.984909)
+bones/3/position = Vector3(-0.458339, 0.558929, -0.16461)
+bones/3/rotation = Quaternion(-0.0275789, -0.379265, 0.858802, 0.343302)
+bones/4/rotation = Quaternion(0.514084, 0.28848, 0.0975376, 0.801862)
+bones/6/position = Vector3(0.458339, 0.551609, -0.167344)
+bones/6/rotation = Quaternion(0.0417629, 0.294159, -0.904808, 0.305038)
+bones/7/rotation = Quaternion(0.545371, 0.127097, 0.149367, 0.814928)
+bones/9/position = Vector3(-0.462013, 0.149346, -0.125974)
+bones/10/rotation = Quaternion(0.369229, 0.26111, -0.122146, 0.8835)
+bones/12/rotation = Quaternion(0.237728, 0.00728008, -0.114772, 0.9645)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 

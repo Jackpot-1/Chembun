@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://prh7sqd02d6v"]
+[gd_scene load_steps=34 format=3 uid="uid://prh7sqd02d6v"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Cave/cave.gd" id="1_740h7"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="1_opbxs"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="2_eu6cu"]
+[ext_resource type="PackedScene" uid="uid://d2j4gfwnbbl2t" path="res://assets/Scenes/Level/Cave/keys.tscn" id="4_olsd8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tqyl7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -371,6 +372,8 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveHole/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8mrp4")
+
+[node name="Keys" parent="." instance=ExtResource("4_olsd8")]
 
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

@@ -3,6 +3,7 @@ extends Node3D
 var isNear = false
 var neverDoThisAgainOrElse = false
 var canEnter = false
+var n = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +15,13 @@ func _process(delta):
 	if isNear:
 		if Input.is_action_just_pressed("jump"):
 			$portal/PortalGate.set("blend_shapes/UNLOCK", 1)
+			for j in range(20):
+				await get_tree().create_timer(.001).timeout
+				$portal/PortalGate.set("blend_shapes/UNLOCK", n)
+				n+=0.1
 			$portal/Label3D.visible = false
+			Globals.hasKey = false
+			Globals.player.key()
 			neverDoThisAgainOrElse = true
 			canEnter = true
 

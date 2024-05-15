@@ -86,6 +86,7 @@ var Ystopper = false
 func _ready():
 	Globals.player = $"."
 	#direction = Vector3.BACK.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y)
+	key()
 
 func _input(event): # All major mouse and button input events
 	if not Globals.CameraSwitch:
@@ -293,7 +294,7 @@ func attack1():
 					Globals.blobFired = true
 					$"../CanvasLayer/hotbar".cooldown()
 
-					Globals.GUI.dialogue("Character", "This is door", true, "Key not found", "Door Opened", 5)
+					#Globals.GUI.dialogue("Character", "This is door", true, "Key not found", "Door Opened", 5)
 					#Globals.dialogue(name of character thing [string value], Original text [string value], can this be repeated? [boolean] [if false leave next two blank], text to be repeated [string value], final text once you have the key or sum [string value])
 				#create new instance and set its position to Chembun with the instance slightly infront of it
 
@@ -356,3 +357,6 @@ func _on_double_jump_timer_timeout():
 	Ystopper = false
 	vertical_velocity = Vector3.UP * (jump_force + 3)
 
+func key():
+	if Globals.hasKey: $chemcloth/Keys.visible = true
+	else: $chemcloth/Keys.visible = false
