@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://prh7sqd02d6v"]
+[gd_scene load_steps=39 format=3 uid="uid://prh7sqd02d6v"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Cave/cave.gd" id="1_740h7"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="1_opbxs"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="2_eu6cu"]
 [ext_resource type="PackedScene" uid="uid://d2j4gfwnbbl2t" path="res://assets/Scenes/Level/Cave/keys.tscn" id="4_olsd8"]
+[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="5_xjynl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tqyl7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -98,6 +99,16 @@ size = Vector3(4.89331, 1.96973, 2.32635)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncwms"]
 size = Vector3(4.92914, 1.979, 2.45032)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2uohs"]
+vertices = PackedVector3Array(114.515, 23.5706, -9.90228, 114.515, 23.5706, 13.0977, 134.265, 23.0206, 13.0977, 134.265, 23.0206, -9.90228)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_parsed_geometry_type = 1
+cell_height = 0.05
+agent_height = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1ipq"]
+size = Vector3(20.7728, 0.0902217, 24.0706)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr762"]
 resource_name = "stalagmites"
@@ -252,6 +263,9 @@ emission_enabled = true
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8mrp4"]
 data = PackedVector3Array(-27.9795, 18.2456, -135.418, -21.1116, 9.6589, -137.547, -26.0753, 18.4573, -134.098, -27.9795, 18.2456, -135.418, -27.981, 8.8953, -142.31, -21.1116, 9.6589, -137.547, -27.9783, 19.074, -130.132, -34.8462, 11.1204, -128.003, -29.8824, 18.8623, -131.452, -27.9783, 19.074, -130.132, -27.9768, 11.8841, -123.239, -34.8462, 11.1204, -128.003, -29.8824, 18.8623, -131.452, -34.8482, 9.6259, -137.538, -29.8831, 18.4481, -134.095, -29.8824, 18.8623, -131.452, -34.8462, 11.1204, -128.003, -34.8482, 9.6259, -137.538, -29.8831, 18.4481, -134.095, -27.981, 8.8953, -142.31, -27.9795, 18.2456, -135.418, -29.8831, 18.4481, -134.095, -34.8482, 9.6259, -137.538, -27.981, 8.8953, -142.31, -26.0749, 18.8713, -131.455, -27.9768, 11.8841, -123.239, -27.9783, 19.074, -130.132, -26.0749, 18.8713, -131.455, -21.1093, 11.1533, -128.012, -27.9768, 11.8841, -123.239, -26.0753, 18.4573, -134.098, -21.1093, 11.1533, -128.012, -26.0749, 18.8713, -131.455, -26.0753, 18.4573, -134.098, -21.1116, 9.6589, -137.547, -21.1093, 11.1533, -128.012, -21.1093, 11.1533, -128.012, -27.9789, 10.3896, -132.775, -27.9768, 11.8841, -123.239, -21.1116, 9.6589, -137.547, -27.9789, 10.3896, -132.775, -21.1093, 11.1533, -128.012, -27.981, 8.8953, -142.31, -27.9789, 10.3896, -132.775, -21.1116, 9.6589, -137.547, -27.9768, 11.8841, -123.239, -27.9789, 10.3896, -132.775, -34.8462, 11.1204, -128.003, -34.8462, 11.1204, -128.003, -27.9789, 10.3896, -132.775, -34.8482, 9.6259, -137.538, -34.8482, 9.6259, -137.538, -27.9789, 10.3896, -132.775, -27.981, 8.8953, -142.31)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6635h"]
+font_size = 32
+
 [node name="cave" type="Node3D"]
 script = ExtResource("1_740h7")
 
@@ -303,6 +317,18 @@ shape = SubResource("BoxShape3D_8ceo6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaltBody3D/SaltHitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0215147, 0.489501, -0.0214233)
 shape = SubResource("BoxShape3D_ncwms")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_2uohs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.938, 23.2629, 1.62653)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(0.99961, 0.0279216, 0, -0.0279216, 0.99961, 0, 0, 0, 1, -2.53933, -0.107191, 0.00646949)
+shape = SubResource("BoxShape3D_d1ipq")
 
 [node name="Stalagtite" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0244565, 0, 0, 0, 0.0244565, 0, 0, 0, 0.0244565, 116.552, 27.5616, 5.3562)
@@ -394,6 +420,31 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveHole/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8mrp4")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_right = 80.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Press Space to leave."
+label_settings = SubResource("LabelSettings_6635h")
+horizontal_alignment = 1
+
+[node name="saltEnemyDev" parent="." instance=ExtResource("5_xjynl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.868, 23.1238, -4.2926)
+
+[node name="saltEnemyDev2" parent="." instance=ExtResource("5_xjynl")]
+transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 122.168, 23.124, 5.238)
+
+[node name="saltEnemyDev4" parent="." instance=ExtResource("5_xjynl")]
+transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 127.338, 23.124, 5.238)
+
+[node name="saltEnemyDev3" parent="." instance=ExtResource("5_xjynl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.868, 23.1238, -0.830784)
 
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

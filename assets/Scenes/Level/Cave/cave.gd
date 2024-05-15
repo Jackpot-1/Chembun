@@ -33,7 +33,15 @@ func _process(delta):
 		$ChestBody3D/Keys.visible = true
 		t+=delta * 0.05
 		$ChestBody3D/Keys.transform = $ChestBody3D/Keys.transform.interpolate_with($ChestBody3D/Marker3D.transform, t)
+		
 		neverDoThisAgainOrElse = true
+	if Globals.hasKey or Globals.gateOpen:
+		$Label.visible = true
+		if Input.is_action_just_pressed("jump"):
+			Globals.position = Vector3(-14.262, 12.509, -54.035)
+			Globals.current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
+			Globals.save()
+			get_tree().change_scene_to_file("res://assets/Scenes/Level/Overworld/overworld.tscn")
 
 func _on_area_3d_body_entered(body):
 	if neverDoThisAgainOrElse: return
@@ -65,9 +73,9 @@ func _on_salt_hit_box_area_entered(area):
 
 func _on_key_area_3d_body_entered(body):
 	if body != Globals.player: return
+	$ChestBody3D/Keys.visible = false
 	Globals.hasKey = true
 	Globals.player.key()
-	Globals.position = Vector3(-14.262, 12.509, -54.035)
-	Globals.current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
+	
 	Globals.save()
-	get_tree().change_scene_to_file("res://assets/Scenes/Level/Overworld/overworld.tscn")
+	

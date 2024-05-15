@@ -357,5 +357,7 @@ func _on_double_jump_timer_timeout():
 	vertical_velocity = Vector3.UP * (jump_force + 3)
 
 func key():
-	if Globals.hasKey: $chemcloth/Keys.visible = true
-	else: $chemcloth/Keys.visible = false
+	#if Globals.hasKey: $chemcloth/Keys.visible = true
+	#else: $chemcloth/Keys.visible = false
+	if Globals.hasKey: $chemcloth/Armature/Skeleton3D/BoneAttachment3D/Keys.visible = true
+	else: $chemcloth/Armature/Skeleton3D/BoneAttachment3D/Keys.visible = false

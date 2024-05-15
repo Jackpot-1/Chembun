@@ -8,6 +8,7 @@ var current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 var hasKey = false
 var gateOpen = false
 var position = Vector3(12.643, 1.37, 21.57)
+var zoomer = 0
 
 func _ready():
 	load_data()
@@ -20,11 +21,13 @@ func _unhandled_input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if get_tree().current_scene != null and get_tree().current_scene.name != "chembun crib" and player != null and player.name == "ChemBun":
 		if event.is_action_pressed("zoom in"):
-			player.get_node("Camroot").zoom += 0.1
+			zoomer -= 0.2
 			player.get_node("Camroot").zoom_set()
+			player.get_node("CamRightTank").zoom_set()
 		if event.is_action_pressed("zoom out"):
-			player.get_node("Camroot").zoom -= 0.1
+			zoomer += 0.2
 			player.get_node("Camroot").zoom_set()
+			player.get_node("CamRightTank").zoom_set()
 
 var player: CharacterBody3D;
 var GUI: CanvasLayer;

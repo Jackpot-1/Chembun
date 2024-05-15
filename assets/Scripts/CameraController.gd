@@ -9,7 +9,7 @@ var camrot_v = 0
 @export var cam_v_max = 75 # 75 recommended
 @export var cam_v_min = -55 # -55 recommended
 @export var joystick_sensitivity = 20
-@export var zoom = 0 #0 is default
+#@export var zoom = 0 #0 is default
 var h_sensitivity = .01
 var v_sensitivity = .01
 var h_acceleration = 10
@@ -38,14 +38,11 @@ func _joystick_input():
 			camrot_v += (joyview.y / 2) * joystick_sensitivity * v_sensitivity
 			
 func zoom_set():
-	if zoom <= 0: return
-	$".".position.y = zoom/3
+	#if zoom <= 0: return
+	$".".position.y = Globals.zoomer/3
 	print($".".position.y)
 	#$h/v.scale = Vector3(zoom+1, zoom+1, zoom+1)
-	$h/v.spring_length = -zoom - 3
-	
-func zoom_get():
-	return zoom
+	$h/v.spring_length = -Globals.zoomer - 3
 	
 func _physics_process(delta):
 	# JoyPad Controls

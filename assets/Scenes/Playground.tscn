@@ -23,7 +23,7 @@ sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
 
-[sub_resource type="Animation" id="Animation_eg2sv"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -216,7 +216,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_3s6ty"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -410,7 +410,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2gnim"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -604,7 +604,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_nf4ql"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -797,7 +797,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_7yhb6"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -990,7 +990,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_46ndk"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1184,14 +1184,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_3s6ty"),
-"double jump": SubResource("Animation_eg2sv"),
-"jump_fall": SubResource("Animation_2gnim"),
-"jump_start": SubResource("Animation_nf4ql"),
-"knockback": SubResource("Animation_7yhb6"),
-"run": SubResource("Animation_46ndk")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b0ysw"]
@@ -1219,31 +1219,39 @@ metadata/health = 10
 
 [node name="AnimationTree" parent="ChemBun" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_bqaxh")
+"": SubResource("AnimationLibrary_60da5")
 }
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-1.21347e-09, 0.669393, 0.180482)
-bones/1/rotation = Quaternion(-0.0748681, -0.00907717, -0.0227109, 0.996894)
-bones/2/rotation = Quaternion(-0.152444, 0.074909, 0.0268715, 0.985103)
-bones/3/position = Vector3(-0.458367, 0.555868, -0.165754)
-bones/3/rotation = Quaternion(0.033071, -0.441605, 0.841339, 0.309903)
-bones/4/rotation = Quaternion(0.465614, 0.253752, 0.0796494, 0.844079)
-bones/6/position = Vector3(0.458367, 0.55467, -0.166201)
-bones/6/rotation = Quaternion(0.0448755, 0.158948, -0.935887, 0.311187)
-bones/7/rotation = Quaternion(0.458972, 0.204451, 0.0123369, 0.864519)
-bones/9/position = Vector3(-0.460457, 0.140247, -0.110478)
-bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.454659, 0.284284, -0.1293, 0.834116)
-bones/10/scale = Vector3(1, 1, 1)
-bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
-bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.320172, -0.00977092, -0.0960679, 0.942425)
-bones/13/position = Vector3(0, -0.655099, 0)
-bones/14/position = Vector3(0, -0.655099, 0)
-bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/0/position = Vector3(1.10056e-08, 0.747651, 0.180482)
+bones/1/rotation = Quaternion(-0.0815955, -0.0462233, -0.0158627, 0.995467)
+bones/2/rotation = Quaternion(-0.128963, 0.107863, 0.0261985, 0.985418)
+bones/3/position = Vector3(-0.458349, 0.557822, -0.165024)
+bones/3/rotation = Quaternion(-0.00614789, -0.401712, 0.853507, 0.331837)
+bones/4/rotation = Quaternion(0.497293, 0.276397, 0.0912811, 0.817295)
+bones/6/position = Vector3(0.458349, 0.552716, -0.166931)
+bones/6/rotation = Quaternion(0.042962, 0.246743, -0.917862, 0.3079)
+bones/7/rotation = Quaternion(0.516619, 0.155302, 0.100902, 0.835945)
+bones/9/position = Vector3(-0.461465, 0.14614, -0.120514)
+bones/10/rotation = Quaternion(0.399911, 0.269623, -0.124823, 0.86706)
+bones/12/rotation = Quaternion(0.2671, 0.0012566, -0.108261, 0.957568)
+
+[node name="BoneAttachment3D" parent="ChemBun/chemcloth/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, 1.10056e-08, 0.747651, 0.180482)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
+
+[node name="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D" index="0"]
+position = Vector2(-22.3606, 156.994)
+
+[node name="PathFollow2D2" parent="CanvasLayer/hotbar/Quarter/Path2D" index="1"]
+position = Vector2(9.20616, 83.4994)
+
+[node name="PathFollow2D3" parent="CanvasLayer/hotbar/Quarter/Path2D" index="2"]
+position = Vector2(74.4206, 36.8992)
+
+[node name="PathFollow2D4" parent="CanvasLayer/hotbar/Quarter/Path2D" index="3"]
+position = Vector2(153.472, 22.3971)
 
 [node name="Area3D" type="Area3D" parent="."]
 

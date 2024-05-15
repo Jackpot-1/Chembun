@@ -31,8 +31,10 @@ func _physics_process(delta):
 			saltCube.queue_free()
 	elif playerTargeting:
 		set_movement_target(Globals.player.transform.origin)
-		look_at(Globals.player.transform.origin * Vector3(1, 0, 1))
-		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+		look_at(Globals.player.transform.origin * Vector3(0, 1, 0))
+		#self.rotation.y = lerp_angle(self.rotation.y, atan2( Globals.player.rotation.x, Globals.player.rotation.z ), 1 )
+		#self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+		#self.rotate_object_local(Vector3(0,0,0), 3.14)
 	if animations.alert in playback.get_current_node():
 		return
 	if !playerTargeting:
@@ -113,6 +115,7 @@ func _on_detection_range_body_exited(body):
 	if body!= Globals.player:
 		return
 	playerTargeting = false
+	runOnce = false
 	
 	
 

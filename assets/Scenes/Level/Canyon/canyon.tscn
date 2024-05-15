@@ -1,7 +1,7 @@
 [gd_scene load_steps=60 format=3 uid="uid://bf6w75l7r2cxh"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/canyon.gd" id="1_ggdkw"]
-[ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/QuestionMesh.gd" id="1_m4i3g"]
+[ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/Scroll.gd" id="2_gtmip"]
 [ext_resource type="Texture2D" uid="uid://bki1a2ikdjasp" path="res://assets/Scenes/Level/Canyon/FootageCrate-4K_Special_Anime_Cloud_Ground_Smoke_Wind_1@3X.webp" id="2_o8wjb"]
 [ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/Wind.gd" id="3_by8xi"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="4_ks5i2"]
@@ -660,7 +660,7 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_v2atu")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_6wd8m")
-script = ExtResource("1_m4i3g")
+script = ExtResource("2_gtmip")
 
 [node name="shrubs" type="Node3D" parent="."]
 transform = Transform3D(0.340417, 0, 0, 0, 0.340417, 0, 0, 0, 0.340417, -17.7183, 133.443, -6.99299)

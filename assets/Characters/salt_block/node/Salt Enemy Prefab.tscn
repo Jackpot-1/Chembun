@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbj7ukcbayuna"]
+[gd_scene load_steps=26 format=3 uid="uid://dbj7ukcbayuna"]
 
 [ext_resource type="Script" path="res://assets/Scripts/SaltEnemyController.gd" id="1_krwcq"]
 [ext_resource type="Animation" uid="uid://c52h3m2icw2dn" path="res://assets/Characters/salt_block/animations/Dive_Hold.res" id="2_piyvs"]
@@ -179,10 +179,13 @@ bind/4/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02553, -5.30854e-08)
 size = Vector3(1.78057, 0.892678, 1.87177)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwhln"]
-size = Vector3(0.683341, 0.582871, 0.763923)
+size = Vector3(0.683341, 0.496025, 0.763923)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
 radius = 8.00158
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_achkx"]
+size = Vector3(0.825439, 0.890076, 0.831055)
 
 [node name="saltEnemyDev" type="CharacterBody3D"]
 collision_layer = 0
@@ -204,22 +207,22 @@ bones/0/name = "Parent"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.68693e-05, 5.30854e-08)
 bones/0/enabled = true
-bones/0/position = Vector3(2.80044e-16, 1.26119, -0.0600013)
-bones/0/rotation = Quaternion(0.863758, -1.91531e-23, -1.91793e-16, 0.503907)
+bones/0/position = Vector3(0, 0.115114, 5.30854e-08)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Foot_R"
 bones/1/parent = 0
 bones/1/rest = Transform3D(-1, -2.54822e-15, 1.50996e-07, 2.54822e-15, -1, -1.92386e-22, 1.50996e-07, 1.92386e-22, 1, -0.32685, 0.496672, -8.3819e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.32685, 0.496672, -8.3819e-09)
-bones/1/rotation = Quaternion(-0.35768, -0.133938, 0.905227, 0.186253)
+bones/1/rotation = Quaternion(6.81334e-08, -0.430785, 0.902455, 1.53045e-09)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Foot_L"
 bones/2/parent = 0
 bones/2/rest = Transform3D(-0.998678, -8.67402e-10, 0.0513982, 8.67402e-10, -1, -2.23062e-11, 0.0513982, 2.23062e-11, 0.998678, 0.32685, 0.496672, -8.3819e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(0.32685, 0.496672, -8.3819e-09)
-bones/2/rotation = Quaternion(-0.0582414, -0.495057, 0.855549, -0.139864)
+bones/2/rotation = Quaternion(0.0248484, 0.256291, 0.966258, 0.0065908)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Body_1"
 bones/3/parent = 0
@@ -233,7 +236,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725493, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(0, 0.725493, 0)
-bones/4/rotation = Quaternion(-0.249717, 2.47731e-23, 5.54483e-17, 0.968319)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Salt Block/Skeleton3D"]
@@ -257,7 +260,7 @@ shape = SubResource("BoxShape3D_8tycy")
 [node name="HitBox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
-transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, -0.00600926, 0.381907, 0.149781)
+transform = Transform3D(1.4, 0, 0, 0, 1.8, 0, 0, 0, 1.4, -0.00600926, 0.460068, 0.149781)
 shape = SubResource("BoxShape3D_cwhln")
 
 [node name="DetectionRange" type="Area3D" parent="."]
@@ -269,7 +272,13 @@ shape = SubResource("SphereShape3D_35i6e")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.1
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00695801, 0.456207, 0.000488281)
+shape = SubResource("BoxShape3D_achkx")
+disabled = true
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_area_3d_body_entered"]
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

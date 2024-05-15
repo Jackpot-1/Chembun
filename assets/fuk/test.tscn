@@ -14,7 +14,7 @@
 radius = 0.171913
 height = 1.61267
 
-[sub_resource type="Animation" id="Animation_eg2sv"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -207,7 +207,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_3s6ty"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -401,7 +401,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2gnim"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -595,7 +595,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_nf4ql"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -788,7 +788,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_7yhb6"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -981,7 +981,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_46ndk"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1175,14 +1175,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqaxh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_3s6ty"),
-"double jump": SubResource("Animation_eg2sv"),
-"jump_fall": SubResource("Animation_2gnim"),
-"jump_start": SubResource("Animation_nf4ql"),
-"knockback": SubResource("Animation_7yhb6"),
-"run": SubResource("Animation_46ndk")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1325,7 +1325,7 @@ shape = SubResource("CapsuleShape3D_83d0r")
 [node name="AnimationTree" type="AnimationTree" parent="ChemBun"]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_bqaxh")
+"": SubResource("AnimationLibrary_60da5")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1340,12 +1340,13 @@ parameters/conditions/IsRunning = false
 parameters/conditions/IsWalking = false
 
 [node name="Camroot" parent="ChemBun" instance=ExtResource("2_76f0e")]
-visible = true
 script = ExtResource("3_yr45i")
+zoom = 0
 
 [node name="CamRightTank" parent="ChemBun" instance=ExtResource("3_y2dbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("3_yr45i")
+zoom = 0
 
 [node name="DashTimer" type="Timer" parent="ChemBun"]
 wait_time = 0.1
