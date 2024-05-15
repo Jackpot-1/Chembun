@@ -58,7 +58,14 @@ var dialogueChek = {
 		"FinishedText" = "",
 		"Finished" = false,
 	},
-	
+	"Door": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
 }
 
 #var items = [

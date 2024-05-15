@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dmp7kbr2vbstm"]
+[gd_scene load_steps=17 format=3 uid="uid://dmp7kbr2vbstm"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Playground.gd" id="1_5anqr"]
 [ext_resource type="Sky" uid="uid://cbbdl23q60wak" path="res://addons/ThirdPersonTemplate/Environments/SkyBox.res" id="2_vp21c"]
