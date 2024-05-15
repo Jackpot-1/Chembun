@@ -175,6 +175,6 @@ transform = Transform3D(-0.98852, 0.0753409, -0.130962, 0.0173988, 0.917797, 0.3
 environment = ExtResource("5_sjd7t")
 
 [node name="ChemBun" parent="." index="5" instance=ExtResource("6_b7k1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.13474, 3.7916)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56908, -1.13474, -0.809969)
 
 [connection signal="body_entered" from="Cylinder_007/Area3D" to="." method="_on_area_3d_body_entered"]

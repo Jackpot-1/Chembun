@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b4egrk33y627r"]
+[gd_scene load_steps=27 format=3 uid="uid://b4egrk33y627r"]
 
 [ext_resource type="Script" path="res://assets/items/blobs.gd" id="1_nkstj"]
 
@@ -203,9 +203,6 @@ _data = {
 "explosion": SubResource("Animation_kwbd4")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_838me"]
-radius = 0.77137
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dgomn"]
 animation = &"explosion"
 
@@ -257,7 +254,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.557537, 0)
 shape = SubResource("SphereShape3D_morot")
 disabled = true
 
-[node name="explosion" type="Area3D" parent="."]
+[node name="explosion" type="Node3D" parent="."]
 
 [node name="Cube" type="MeshInstance3D" parent="explosion"]
 transform = Transform3D(3.05538, 0, 0, 0, 3.05538, 0, 0, 0, 3.05538, 0, 0, 0)
@@ -270,10 +267,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_kh2t1")
 libraries = {
 "": SubResource("AnimationLibrary_isoix")
 }
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="explosion"]
-shape = SubResource("SphereShape3D_838me")
-disabled = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../explosion/Cube")

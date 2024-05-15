@@ -89,9 +89,8 @@ func _ready():
 	key()
 
 func _input(event): # All major mouse and button input events
-	if not Globals.CameraSwitch:
-		if(canvas.playerStopped):
-			return
+	if Globals.CameraSwitch: return
+	if(canvas.playerStopped): return
 	if event.is_action_pressed("aim"): # Aim button triggers a strafe walk and camera mechanic
 		$CamRightTank/h/v/Camera3D.make_current()
 		aimIsPressed = true
@@ -138,8 +137,8 @@ func _physics_process(delta):
 	#moving defined elsewhere
 	states.grounded = is_on_floor()
 	
-	if Globals.blobFired:
-		pass
+
+	#print(Globals.blobFired, " blobFired")
 		#print(blobInstance.linear_velocity)
 		#await get_tree().create_timer(1).timeout
 		#blobInstance.linear_velocity = Vector3(1, 0, 0)
@@ -225,8 +224,8 @@ func _physics_process(delta):
 		states.moving = false
 
 	if Input.is_action_pressed("aim"):  # Aim/Strafe input and  mechanics
-		if not Globals.CameraSwitch:
-			if canvas.playerStopped: return
+		if Globals.CameraSwitch: return
+		if canvas.playerStopped: return
 		tankMode = true
 		angular_acceleration = 60
 		player_mesh.rotation.y = lerp_angle(player_mesh.rotation.y, $CamRightTank/h.rotation.y, delta * angular_acceleration)
@@ -280,7 +279,7 @@ func _physics_process(delta):
 	# they use "travel" or "start" to one-shot their animations.
 
 func attack1():
-	if not states.attacking && not states.running && not states.rolling:
+	if not states.attacking && not states.rolling:
 		if Input.is_action_just_pressed("attack") && !states.attacking:
 			if not Globals.CameraSwitch:
 				if canvas.playerStopped: return

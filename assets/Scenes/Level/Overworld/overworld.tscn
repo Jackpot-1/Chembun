@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bfavrofwdndfx"]
+[gd_scene load_steps=65 format=3 uid="uid://bfavrofwdndfx"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Overworld/overworld.gd" id="1_1fkfe"]
 [ext_resource type="Texture2D" uid="uid://6pg6v6pmjb2d" path="res://assets/Scenes/Level/Overworld/SkyColor.png" id="1_xup2a"]
@@ -584,6 +584,9 @@ albedo_color = Color(0, 0.184314, 1, 0.282353)
 [sub_resource type="BoxShape3D" id="BoxShape3D_afjb0"]
 size = Vector3(2.05798, 0.0186768, 1.38904)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0sjny"]
+size = Vector3(2.21002, 0.162903, 1.5874)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xit4x"]
 size = Vector3(2.8476, 3.43707, 1.15393)
 
@@ -714,6 +717,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gcfcw")
 transform = Transform3D(1, -9.83477e-07, 2.70006e-13, 1.11759e-08, 0.999998, 2.60902e-14, 2.22045e-16, 2.06724e-13, 1, -0.00323176, -0.000667572, -0.0017699)
 shape = SubResource("BoxShape3D_afjb0")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="portal/PortalGate/portal collision"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="portal/PortalGate/portal collision/StaticBody3D"]
+transform = Transform3D(0.999955, -8.46386e-06, 1.06581e-14, 1.18837e-06, 0.99998, -6.4948e-15, -1.84297e-14, 1.47127e-12, 1, -0.0238323, 0.00210619, -0.0905762)
+shape = SubResource("BoxShape3D_0sjny")
+
 [node name="portalArea3D" type="Area3D" parent="portal"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portalArea3D"]
@@ -727,7 +736,7 @@ text = "Unlock (space)"
 font_size = 30
 
 [node name="ChemBun" parent="." instance=ExtResource("5_ngyef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5862, 2.34015, 21.5696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.643, 1.36967, 21.5696)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_qim31")]
 

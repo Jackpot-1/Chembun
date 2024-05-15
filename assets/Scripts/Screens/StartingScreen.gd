@@ -21,4 +21,4 @@ extends Control
 
 func _input(event):
 	if event is InputEventKey:
-			get_tree().change_scene_to_file("res://assets/Scenes/Screens/MainMenuScreen.tscn")
+		get_tree().change_scene_to_file("res://assets/Scenes/Screens/MainMenuScreen.tscn")

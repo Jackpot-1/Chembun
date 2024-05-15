@@ -113,3 +113,11 @@ func _on_detection_range_body_exited(body):
 	if body!= Globals.player:
 		return
 	playerTargeting = false
+	
+	
+
+
+func _on_hit_box_area_entered(area):
+	if area.name != "splashRadius": return
+	if area.get_parent().Name == "Water":
+		self.queue_free()

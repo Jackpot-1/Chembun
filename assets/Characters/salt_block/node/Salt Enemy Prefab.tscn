@@ -187,6 +187,7 @@ radius = 8.00158
 [node name="saltEnemyDev" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_krwcq")
+movement_speed = 3.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
@@ -203,22 +204,22 @@ bones/0/name = "Parent"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.68693e-05, 5.30854e-08)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0.0384591, 5.30854e-08)
-bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/position = Vector3(2.80044e-16, 1.26119, -0.0600013)
+bones/0/rotation = Quaternion(0.863758, -1.91531e-23, -1.91793e-16, 0.503907)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Foot_R"
 bones/1/parent = 0
 bones/1/rest = Transform3D(-1, -2.54822e-15, 1.50996e-07, 2.54822e-15, -1, -1.92386e-22, 1.50996e-07, 1.92386e-22, 1, -0.32685, 0.496672, -8.3819e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.32685, 0.496672, -8.3819e-09)
-bones/1/rotation = Quaternion(7.54954e-08, -0.00814568, 0.999967, -8.19159e-08)
+bones/1/rotation = Quaternion(-0.35768, -0.133938, 0.905227, 0.186253)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Foot_L"
 bones/2/parent = 0
 bones/2/rest = Transform3D(-0.998678, -8.67402e-10, 0.0513982, 8.67402e-10, -1, -2.23062e-11, 0.0513982, 2.23062e-11, 0.998678, 0.32685, 0.496672, -8.3819e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(0.32685, 0.496672, -8.3819e-09)
-bones/2/rotation = Quaternion(0.0249916, -0.234282, 0.971829, -0.00602482)
+bones/2/rotation = Quaternion(-0.0582414, -0.495057, 0.855549, -0.139864)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Body_1"
 bones/3/parent = 0
@@ -232,7 +233,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725493, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(0, 0.725493, 0)
-bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/4/rotation = Quaternion(-0.249717, 2.47731e-23, 5.54483e-17, 0.968319)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Salt Block/Skeleton3D"]
@@ -269,5 +270,6 @@ shape = SubResource("SphereShape3D_35i6e")
 target_desired_distance = 0.1
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]

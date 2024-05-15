@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://prh7sqd02d6v"]
+[gd_scene load_steps=35 format=3 uid="uid://prh7sqd02d6v"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Cave/cave.gd" id="1_740h7"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="1_opbxs"]
@@ -201,6 +201,9 @@ size = Vector3(49.4866, 32.7022, 37.2986)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqash"]
 size = Vector3(6.87082, 1.93634, 6.55019)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_p04gb"]
+size = Vector3(5.20081, 4.47949, 11.6582)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1wme"]
 resource_name = "grass.002"
 cull_mode = 2
@@ -348,6 +351,25 @@ visible = false
 text = "open (space)"
 font_size = 70
 
+[node name="Keys" parent="ChestBody3D" instance=ExtResource("4_olsd8")]
+transform = Transform3D(7.73269e-08, 0.0756336, 0.117812, 0, 0.117812, -0.0756336, -0.14, 4.17751e-08, 6.50714e-08, -0.965829, -0.072113, -0.102982)
+visible = false
+
+[node name="Cube" parent="ChestBody3D/Keys" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.06581e-14, 0, -1.06581e-14, 1, 0, 0, 0)
+
+[node name="Circle_001" parent="ChestBody3D/Keys" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.25038, -0.968148, 0, 0.968148, 0.25038, 0, 0, 0)
+
+[node name="KeyArea3d" type="Area3D" parent="ChestBody3D/Keys"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChestBody3D/Keys/KeyArea3d"]
+transform = Transform3D(1, 0, 0, 0, 0.952131, 0.305693, 0, -0.305693, 0.952131, -0.0997314, 1.96588, 6.77318)
+shape = SubResource("BoxShape3D_p04gb")
+
+[node name="Marker3D" type="Marker3D" parent="ChestBody3D"]
+transform = Transform3D(-9.79135e-09, 0.121014, 0.188498, 0, 0.188498, -0.121014, -0.224, -5.28969e-09, -8.23952e-09, -1.73784, 2.50373, -0.102997)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, -4.42486e-11, 0.00101229, -0.00101229, -4.37114e-08, 1, 0, -1, -4.37114e-08, 101.211, 35.9463, 1.63482)
 light_energy = 1000.0
@@ -373,8 +395,9 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveHole/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8mrp4")
 
-[node name="Keys" parent="." instance=ExtResource("4_olsd8")]
-
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="ChestBody3D/Keys/KeyArea3d" to="." method="_on_key_area_3d_body_entered"]
+
+[editable path="ChestBody3D/Keys"]

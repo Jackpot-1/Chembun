@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_asteroid_hitbox_area_entered(area):
-	if area.name != "splashRadius": return
+	if area.name != "explosion": return
 	#print(area.get("metadata/name"), " HELLLP - HELP ME")
 	print(area.get_parent().Name, " HELLLP - HELP ME")
 	if area.get_parent().Name == "Mercury(II) Fulminate":

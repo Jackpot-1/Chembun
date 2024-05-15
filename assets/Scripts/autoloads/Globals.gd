@@ -6,6 +6,8 @@ var CinematicFinished = false
 var last_position = false
 var current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 var hasKey = false
+var gateOpen = false
+var position = Vector3(12.643, 1.37, 21.57)
 
 func _ready():
 	load_data()
@@ -16,6 +18,13 @@ func _unhandled_input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if get_tree().current_scene != null and get_tree().current_scene.name != "chembun crib" and player != null and player.name == "ChemBun":
+		if event.is_action_pressed("zoom in"):
+			player.get_node("Camroot").zoom += 0.1
+			player.get_node("Camroot").zoom_set()
+		if event.is_action_pressed("zoom out"):
+			player.get_node("Camroot").zoom -= 0.1
+			player.get_node("Camroot").zoom_set()
 
 var player: CharacterBody3D;
 var GUI: CanvasLayer;
@@ -147,6 +156,7 @@ func save():
 	file.store_var(last_position)
 	file.store_pascal_string(current_scene)
 	file.store_var(hasKey)
+	file.store_var(gateOpen)
 	
 func load_data():
 	if FileAccess.file_exists(save_path):
@@ -155,18 +165,21 @@ func load_data():
 		last_position = file.get_var(true)
 		current_scene = file.get_pascal_string()
 		hasKey = file.get_var(true)
+		gateOpen = file.get_var(true)
 	else:
 		print("bro it doesn't exist stop trying")
 		CinematicFinished = false
 		last_position = false
 		current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 		hasKey = false
+		gateOpen = false
 		
 func reset_data():
 	CinematicFinished = false
 	last_position = false
 	current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 	hasKey = false
+	gateOpen = false
 	save()
 		#
 #func dialogue(Character, OgText, Repetable, RepeatableText, FinishedText):

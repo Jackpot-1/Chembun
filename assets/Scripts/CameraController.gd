@@ -18,11 +18,11 @@ var joyview = Vector2()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	zoom_set(zoom)
+	zoom_set()
 	
 func _input(event):
-	if not Globals.CameraSwitch:
-		if $"../../CanvasLayer".isinventory: return
+	if Globals.CameraSwitch: return
+	if $"../../CanvasLayer".isinventory: return
 	if event is InputEventMouseMotion:
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += event.relative.y * v_sensitivity
@@ -37,7 +37,7 @@ func _joystick_input():
 			camrot_h += (joyview.x / 2) * joystick_sensitivity * h_sensitivity
 			camrot_v += (joyview.y / 2) * joystick_sensitivity * v_sensitivity
 			
-func zoom_set(zoom):
+func zoom_set():
 	if zoom <= 0: return
 	$".".position.y = zoom/3
 	print($".".position.y)

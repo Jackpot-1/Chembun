@@ -2,28 +2,35 @@ extends Node3D
 
 var isNear = false
 var neverDoThisAgainOrElse = false
-var canEnter = false
 var n = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Globals.player.position = Globals.position
+	if Globals.gateOpen:
+		$portal/PortalGate.set("blend_shapes/UNLOCK", 1)
+		$"portal/PortalGate/portal collision/StaticBody3D/CollisionShape3D".disabled = true
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isNear:
 		if Input.is_action_just_pressed("jump"):
-			$portal/PortalGate.set("blend_shapes/UNLOCK", 1)
-			for j in range(20):
-				await get_tree().create_timer(.001).timeout
-				$portal/PortalGate.set("blend_shapes/UNLOCK", n)
-				n+=0.1
-			$portal/Label3D.visible = false
 			Globals.hasKey = false
 			Globals.player.key()
+			$portal/PortalGate.set("blend_shapes/UNLOCK", 1)
+			for j in range(100):
+				await get_tree().create_timer(.001).timeout
+				$portal/PortalGate.set("blend_shapes/UNLOCK", n)
+				n+=0.01
+			$"portal/PortalGate/portal collision/StaticBody3D/CollisionShape3D".disabled = true
+			$portal/Label3D.visible = false
+			Globals.gateOpen = true
+			Globals.save()
+			
 			neverDoThisAgainOrElse = true
-			canEnter = true
+			
 
 func _on_Area3D_entered(body):
 	Globals.current_scene = "res://assets/Scenes/Level/Cave/cave.tscn"
@@ -43,7 +50,7 @@ func _on_portal_area_3d_body_exited(body):
 		isNear = false
 
 func _on_teleport_area_3d_body_entered(body):
-	if !canEnter or body != Globals.player: return
+	if !Globals.gateOpen or body != Globals.player: return
 	Globals.current_scene = "res://assets/Scenes/Level/Canyon/canyon.tscn"
 	Globals.save()
 	get_tree().change_scene_to_file("res://assets/Scenes/Level/Canyon/canyon.tscn")

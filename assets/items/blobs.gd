@@ -1,7 +1,6 @@
 extends RigidBody3D
 
 @onready var blob = $"."
-var done = true
 var Name = ""
 var color: Color
 
@@ -16,8 +15,6 @@ func _ready():
 	changeColor()
 
 func _on_blob_body_entered(body):
-	if Globals.blobFired == true: done = false
-	if done == true: return
 	if body == Globals.player: return
 	#$".".gravity_scale = 0
 	#$".".linear_velocity = Vector3(0, 0, 0)
@@ -27,7 +24,10 @@ func _on_blob_body_entered(body):
 	if Name != "Mercury(II) Fulminate":
 		$splashRadius/GloopPart.visible = true
 		$splashRadius/gloop.set_deferred("disabled", false)
-	else: $explosion.visible = true
+	else:
+		$explosion.visible = true
+		$AnimationTree.get("parameters/playback").travel("explosion")
+		$explosion/CollisionShape3D.set_deferred("disabled", false)
 	#if $blob/Cube.visible:
 		#$blob/Cube.visible = false
 		#$blob/Cube.free()
@@ -41,17 +41,17 @@ func _on_blob_body_entered(body):
 	#self.linear_velocity = Vector3(0, 0, 0)
 	#self.rotation = Vector3.ZERO
 	#self.lock_rotation = true
-	for n in 20:
-		await get_tree().create_timer(.025).timeout
-		$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .05) - 1)
-	await get_tree().create_timer(1).timeout
-	for n in 200:
-		await get_tree().create_timer(.001).timeout
-		$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .005) )
-		#self.position += Vector3(0, -.00125, 0)
-	#await get_tree().create_timer(3).timeout
-	done = true
-	$".".queue_free()
+	if Name != "Mercury(II) Fulminate":
+		for n in 20:
+			await get_tree().create_timer(.025).timeout
+			$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .05) - 1)
+		await get_tree().create_timer(1).timeout
+		for n in 200:
+			await get_tree().create_timer(.001).timeout
+			$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .005) )
+			#self.position += Vector3(0, -.00125, 0)
+		await get_tree().create_timer(3).timeout
+		$".".queue_free()
 
 func changeColor():
 	$blob/Cube.get_surface_override_material(0).albedo_color = color
@@ -65,3 +65,8 @@ func _on_splash_radius_body_entered(body):
 	
 	#print(body.name, "asijdhyuiasdghyuashd")
 	
+
+
+func _on_animation_tree_animation_finished(anim_name):
+	if anim_name == "explosion":
+		queue_free()
