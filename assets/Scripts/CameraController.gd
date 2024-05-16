@@ -40,7 +40,6 @@ func _joystick_input():
 func zoom_set():
 	#if zoom <= 0: return
 	$".".position.y = Globals.zoomer/3
-	print($".".position.y)
 	#$h/v.scale = Vector3(zoom+1, zoom+1, zoom+1)
 	$h/v.spring_length = -Globals.zoomer - 3
 	

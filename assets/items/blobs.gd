@@ -15,6 +15,7 @@ func _ready():
 	changeColor()
 
 func _on_blob_body_entered(body):
+	if Globals.blobReady: return
 	if body == Globals.player: return
 	#$".".gravity_scale = 0
 	#$".".linear_velocity = Vector3(0, 0, 0)

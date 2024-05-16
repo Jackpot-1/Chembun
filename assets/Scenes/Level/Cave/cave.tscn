@@ -270,7 +270,7 @@ font_size = 32
 script = ExtResource("1_740h7")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(-4.34156e-08, -0.116133, 0.993234, -5.07635e-09, 0.993234, 0.116133, -1, -1.99515e-14, -4.37114e-08, 165.578, 33.9904, 1.63482)
+transform = Transform3D(-4.34156e-08, -0.116133, 0.993234, -5.07635e-09, 0.993234, 0.116133, -1, -1.95399e-14, -4.37114e-08, 44.2534, 12.2188, 1.63482)
 light_energy = 1000.0
 light_indirect_energy = 4.748
 distance_fade_enabled = true
@@ -279,14 +279,14 @@ spot_range = 213.183
 spot_angle = 36.3384
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-3.55817e-08, -0.580845, 0.814014, -2.53895e-08, 0.814014, 0.580845, -1, 4.32845e-14, -4.37114e-08, 167.988, 31.1396, 1.63482)
+transform = Transform3D(-3.55817e-08, -0.580845, 0.814014, -2.53895e-08, 0.814014, 0.580845, -1, 4.08562e-14, -4.37114e-08, 46.6634, 9.368, 1.63482)
 light_energy = 4.03
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2n0la")
 
 [node name="CaveBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(0.245391, 0, 0, 0, 0.245391, 0, 0, 0, 0.245391, 101.211, 22.2026, 1.63482)
+transform = Transform3D(0.245391, 0, 0, 0, 0.245391, 0, 0, 0, 0.245391, -20.1136, 0.431005, 1.63482)
 collision_layer = 3
 
 [node name="Cave" type="MeshInstance3D" parent="CaveBody3D"]
@@ -299,7 +299,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6h42e")
 shape = SubResource("ConcavePolygonShape3D_1pfj1")
 
 [node name="SaltBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(0, 0, 4.35174, 0, 4.35174, 0, -4.35174, 0, 0, 143.31, 23.7724, 1.63482)
+transform = Transform3D(0, 0, 4.35174, 0, 4.35174, 0, -4.35174, 0, 0, 21.9854, 2.0008, 1.63482)
 
 [node name="Salt" type="MeshInstance3D" parent="SaltBody3D"]
 layers = 3
@@ -319,6 +319,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0215147, 0.489501, -0.02142
 shape = SubResource("BoxShape3D_ncwms")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.325, -21.7716, 0)
 navigation_mesh = SubResource("NavigationMesh_2uohs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
@@ -331,14 +332,14 @@ transform = Transform3D(0.99961, 0.0279216, 0, -0.0279216, 0.99961, 0, 0, 0, 1, 
 shape = SubResource("BoxShape3D_d1ipq")
 
 [node name="Stalagtite" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0244565, 0, 0, 0, 0.0244565, 0, 0, 0, 0.0244565, 116.552, 27.5616, 5.3562)
+transform = Transform3D(0.0244565, 0, 0, 0, 0.0244565, 0, 0, 0, 0.0244565, -4.77259, 5.79, 5.3562)
 layers = 3
 mesh = SubResource("ArrayMesh_ci528")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tuepv")
 
 [node name="ChestBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(5.52335e-07, 0, -1, 0, 1, 0, 1, 0, 5.52335e-07, 143.115, 31.4744, 1.63641)
+transform = Transform3D(5.52335e-07, 0, -1, 0, 1, 0, 1, 0, 5.52335e-07, 21.7904, 9.7028, 1.63641)
 collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_y2vdt")
 constant_force = Vector3(0, -4, 0)
@@ -397,7 +398,7 @@ shape = SubResource("BoxShape3D_p04gb")
 transform = Transform3D(-9.79135e-09, 0.121014, 0.188498, 0, 0.188498, -0.121014, -0.224, -5.28969e-09, -8.23952e-09, -1.73784, 2.50373, -0.102997)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, -4.42486e-11, 0.00101229, -0.00101229, -4.37114e-08, 1, 0, -1, -4.37114e-08, 101.211, 35.9463, 1.63482)
+transform = Transform3D(1, -4.42486e-11, 0.00101229, -0.00101229, -4.37114e-08, 1, 0, -1, -4.37114e-08, -20.1136, 14.1747, 1.63482)
 light_energy = 1000.0
 light_indirect_energy = 0.0
 light_size = 1.0
@@ -405,12 +406,12 @@ spot_range = 60.3728
 spot_angle = 21.5076
 
 [node name="ChemBun" parent="." instance=ExtResource("1_opbxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.272, 42.4303, 1.81303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0526, 20.6587, 1.81303)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_eu6cu")]
 
 [node name="CaveHole" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.41059, 0, 0, 0, 0.407999, -0.0460529, 0, 0.0460529, 0.407999, 113.146, 32.1353, 55.3127)
+transform = Transform3D(0.41059, 0, 0, 0, 0.407999, -0.0460529, 0, 0.0460529, 0.407999, -8.17859, 10.3637, 55.3127)
 mesh = SubResource("ArrayMesh_mbhwy")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_yjxm5")
@@ -435,16 +436,16 @@ label_settings = SubResource("LabelSettings_6635h")
 horizontal_alignment = 1
 
 [node name="saltEnemyDev" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.868, 23.1238, -4.2926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54341, 1.3522, -4.2926)
 
 [node name="saltEnemyDev2" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 122.168, 23.124, 5.238)
+transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 0.84341, 1.3524, 5.238)
 
 [node name="saltEnemyDev4" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 127.338, 23.124, 5.238)
+transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 6.01341, 1.3524, 5.238)
 
 [node name="saltEnemyDev3" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.868, 23.1238, -0.830784)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54341, 1.3522, -0.830784)
 
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
