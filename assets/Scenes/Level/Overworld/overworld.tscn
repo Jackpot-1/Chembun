@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bfavrofwdndfx"]
+[gd_scene load_steps=68 format=3 uid="uid://bfavrofwdndfx"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Overworld/overworld.gd" id="1_1fkfe"]
 [ext_resource type="Texture2D" uid="uid://6pg6v6pmjb2d" path="res://assets/Scenes/Level/Overworld/SkyColor.png" id="1_xup2a"]
@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cv1otoi0cgdq1" path="res://assets/Scenes/Level/Overworld/Cloud.png" id="3_7v7nb"]
 [ext_resource type="Script" path="res://assets/Scenes/Level/Overworld/Cloudes.gd" id="4_t8yks"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="5_ngyef"]
+[ext_resource type="AudioStream" uid="uid://1lrdcvk2427t" path="res://assets/SFX/Portal_Loop.wav" id="6_6tsfv"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="6_qim31"]
 [ext_resource type="PackedScene" uid="uid://d4jublshumnou" path="res://assets/Characters/snail/node/snail dev.tscn" id="9_nm805"]
+[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="8_h4v1b"]
+[ext_resource type="AudioStream" uid="uid://b801j1fnr4bvv" path="res://assets/OST/ChemBun04_-_TitleScreen.wav" id="9_45pm5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3opxt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -591,7 +594,10 @@ size = Vector3(2.21002, 0.162903, 1.5874)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xit4x"]
 size = Vector3(2.8476, 3.43707, 1.15393)
 
-[node name="overworld" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_o534v"]
+size = Vector3(21.942, 4.57587, 17.796)
+
+[node name="OST-Overworld" type="Node3D"]
 script = ExtResource("1_1fkfe")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -713,6 +719,7 @@ mesh = SubResource("PlaneMesh_obrny")
 surface_material_override/0 = SubResource("StandardMaterial3D_gcfcw")
 
 [node name="teleportArea3D" type="Area3D" parent="portal/PortalGate/portal collision"]
+transform = Transform3D(1, -2.98023e-08, 1.77636e-15, 3.72529e-09, 1, -3.38618e-15, 0, 2.33147e-15, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="portal/PortalGate/portal collision/teleportArea3D"]
 transform = Transform3D(1, -9.83477e-07, 2.70006e-13, 1.11759e-08, 0.999998, 2.60902e-14, 2.22045e-16, 2.06724e-13, 1, -0.00323176, -0.000667572, -0.0017699)
@@ -724,7 +731,13 @@ shape = SubResource("BoxShape3D_afjb0")
 transform = Transform3D(0.999955, -8.46386e-06, 1.06581e-14, 1.18837e-06, 0.99998, -6.4948e-15, -1.84297e-14, 1.47127e-12, 1, -0.0238323, 0.00210619, -0.0905762)
 shape = SubResource("BoxShape3D_0sjny")
 
+[node name="Portal" type="AudioStreamPlayer3D" parent="portal/PortalGate"]
+stream = ExtResource("6_6tsfv")
+autoplay = true
+max_distance = 20.0
+
 [node name="portalArea3D" type="Area3D" parent="portal"]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.00156188, 0, -0.0147476)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="portal/portalArea3D"]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0.00637853, 1.21854, -0.565126)
@@ -747,7 +760,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39711, 6.98596, -31.3493)
 [node name="SnailThing2" parent="." instance=ExtResource("9_nm805")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9333, 4.51721, -16.9347)
 
+[node name="HouseTxTArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 12.1409, 2.68226, 22.1345)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HouseTxTArea3D"]
+transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, -0.290181, 0.431625, -1.17863)
+shape = SubResource("BoxShape3D_o534v")
+
+[node name="CaveHoleTxTArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -13.9497, 14.0877, -46.1101)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveHoleTxTArea3D"]
+transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, -0.324995, 0.577508, -9.12875)
+shape = SubResource("BoxShape3D_o534v")
+
+[node name="OST-Overworld" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_45pm5")
+volume_db = -3.0
+pitch_scale = 1.5
+autoplay = true
+
 [connection signal="body_entered" from="CaveHole/Area3D" to="." method="_on_Area3D_entered"]
 [connection signal="body_entered" from="portal/PortalGate/portal collision/teleportArea3D" to="." method="_on_teleport_area_3d_body_entered"]
+[connection signal="finished" from="portal/PortalGate/Portal" to="." method="_on_audio_stream_player_3d_finished"]
 [connection signal="body_entered" from="portal/portalArea3D" to="." method="_on_portal_area_3d_body_entered"]
 [connection signal="body_exited" from="portal/portalArea3D" to="." method="_on_portal_area_3d_body_exited"]
+[connection signal="body_entered" from="HouseTxTArea3D" to="." method="_on_house_tx_t_area_3d_body_entered"]
+[connection signal="body_entered" from="CaveHoleTxTArea3D" to="." method="_on_cave_hole_tx_t_area_3d_body_entered"]
+[connection signal="finished" from="OST-Overworld" to="." method="_on_ost_overworld_finished"]

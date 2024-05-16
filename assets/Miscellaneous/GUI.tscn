@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4g6wadcburcy"]
+[gd_scene load_steps=20 format=3 uid="uid://4g6wadcburcy"]
 
 [ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
 [ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://3slhmycnigfl" path="res://assets/Miscellaneous/elementWheel.tscn" id="11_h8j02"]
 [ext_resource type="Texture2D" uid="uid://3m3w8r6aqsot" path="res://fonts/Chembun/Bun_Box.png" id="12_hdlgf"]
 [ext_resource type="FontFile" uid="uid://qcokiesg0mbc" path="res://fonts/Chembun/TitanOne-Regular.ttf" id="13_wdw3o"]
+[ext_resource type="Texture2D" uid="uid://dhs23ghhj1ux2" path="res://fonts/Chemgod/Dark_Box.png" id="15_38uqj"]
+[ext_resource type="FontFile" uid="uid://bhdcq80v3hh0q" path="res://fonts/Chemgod/Frijole-Regular.ttf" id="16_yec85"]
 
 [sub_resource type="Resource" id="Resource_o4fo6"]
 script = ExtResource("6_xuj4q")
@@ -325,6 +327,26 @@ offset_top = -8.0
 offset_right = 7.99997
 offset_bottom = -1.52588e-05
 theme_override_fonts/normal_font = ExtResource("13_wdw3o")
-text = "Woop"
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="ChemGod" type="TextureRect" parent="."]
+visible = false
+offset_left = 328.0
+offset_top = 384.0
+offset_right = 828.0
+offset_bottom = 584.0
+texture = ExtResource("15_38uqj")
+
+[node name="ChemText" type="RichTextLabel" parent="ChemGod"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.16
+anchor_right = 0.912
+anchor_bottom = 0.88
+offset_left = 24.0
+offset_top = -8.0
+offset_right = -40.0
+theme_override_fonts/normal_font = ExtResource("16_yec85")
 
 [connection signal="timeout" from="hotbar/cooldown" to="hotbar" method="_on_cooldown_timeout"]

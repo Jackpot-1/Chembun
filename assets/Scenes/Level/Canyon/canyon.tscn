@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bf6w75l7r2cxh"]
+[gd_scene load_steps=62 format=3 uid="uid://bf6w75l7r2cxh"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/canyon.gd" id="1_ggdkw"]
 [ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/Scroll.gd" id="2_gtmip"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/Wind.gd" id="3_by8xi"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="4_ks5i2"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="5_b7rdv"]
+[ext_resource type="AudioStream" uid="uid://ctygby45e3nlp" path="res://assets/OST/ChemBun03 - Looped.wav" id="7_5vcup"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_edsqs"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -398,6 +399,9 @@ diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ph1m8"]
+size = Vector3(1.67437, 1.45338, 1.55973)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqq40"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dbl34"]
@@ -585,7 +589,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6vflj")
 
-[node name="canyon" type="Node3D"]
+[node name="OST-Canyon" type="Node3D"]
 script = ExtResource("1_ggdkw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -662,6 +666,13 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_6wd8m")
 script = ExtResource("2_gtmip")
 
+[node name="ChemboxTxTArea3D" type="Area3D" parent="Sign"]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.00156188, 0, -0.0147476)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign/ChemboxTxTArea3D"]
+transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, -0.0260687, 0.226698, 0.459706)
+shape = SubResource("BoxShape3D_ph1m8")
+
 [node name="shrubs" type="Node3D" parent="."]
 transform = Transform3D(0.340417, 0, 0, 0, 0.340417, 0, 0, 0, 0.340417, -17.7183, 133.443, -6.99299)
 
@@ -719,4 +730,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1541, 38.0964, -0.33163)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_b7rdv")]
 
+[node name="OST-Canyon" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5vcup")
+autoplay = true
+
 [connection signal="area_entered" from="Canyon Mesh/Asteroid/asteroidHitBox" to="." method="_on_asteroid_hitbox_area_entered"]
+[connection signal="body_entered" from="Sign/ChemboxTxTArea3D" to="." method="_on_chembox_tx_t_area_3d_body_entered"]
+[connection signal="finished" from="OST-Canyon" to="." method="_on_ost_canyon_finished"]

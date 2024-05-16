@@ -213,6 +213,8 @@ surface_material_override/2 = null
 surface_material_override/3 = null
 surface_material_override/4 = null
 
+[node name="SnailThing2" parent="." instance=ExtResource("13_2vfch")]
+
 [editable path="ChemBun"]
 [editable path="ChemBun/chemcloth"]
 [editable path="CanvasLayer"]

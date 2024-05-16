@@ -60,17 +60,37 @@ func _input(event):
 
 func dialogue(Character, OgText, Repetable, RepeatableText, FinishedText, time):
 	if dialogueChek[Character]["Finished"]: return
+	print(dialogueChek[Character])
+	print(Character)
+	if Character == "ChemGod":
+		print("Chemgod hit")
+		$ChemBox.visible = true
+		$ChemBox/ChemText.text = OgText
+		await get_tree().create_timer(time).timeout
+		$ChemBox.visible = false
+		return
 	$ChemBox.visible = true
 	if not dialogueChek[Character]["FirstRun"]:
+		print("Check 1")
 		$ChemBox/ChemText.text = OgText
 		dialogueChek[Character]["FirstRun"] = true
-	elif Repetable:
-		$ChemBox/ChemText.text = RepeatableText
-		dialogueChek[Character]["Repeatable"] = true
 	elif dialogueChek[Character]["Key"]:
+		print("Check 3")
 		$ChemBox/ChemText.text = FinishedText
 		dialogueChek[Character]["Finished"] = true
+	elif Repetable:
+		print("Check 2")
+		$ChemBox/ChemText.text = RepeatableText
+		dialogueChek[Character]["Repeatable"] = true
 	else:
+		print("Check 4")
 		dialogueChek[Character]["Finished"] = true
 	await get_tree().create_timer(time).timeout
 	$ChemBox.visible = false
+
+#func dialogueChemGod(Text, time):
+	#print("CheckCheckCheck")
+	#$ChemGod.visible = true
+	#$ChemGod/ChemText.text = Text
+	#await get_tree().create_timer(time).timeout
+	#$ChemGod.visible = false

@@ -51,7 +51,8 @@ var animations = {
 	"bigattack": "BigAttack",
 	"rollattack": "RollAttack",
 	"fall": "jump_fall",
-	"doublejump": "double jump"
+	"doublejump": "double jump",
+	"knockback": "knockback"
 }
 
 # Condition States
@@ -133,10 +134,8 @@ func _physics_process(delta):
 	movement_speed = 0
 	angular_acceleration = 20
 	acceleration = 15
-	
 	#moving defined elsewhere
 	states.grounded = is_on_floor()
-	
 
 	#print(Globals.blobFired, " blobFired")
 		#print(blobInstance.linear_velocity)
@@ -198,6 +197,8 @@ func _physics_process(delta):
 			#states.double_jumping = animations.double_jump in pb_node
 			jump_counter += 1
 			playback.travel(animations.doublejump)
+			await get_tree().create_timer(.5).timeout
+			$Explosion.play()
 			#states.doublejumping = true
 		elif jump_counter == 2:
 			jump_counter += 1
@@ -207,9 +208,9 @@ func _physics_process(delta):
 	if ((Input.is_action_pressed("forward") || Input.is_action_pressed("backward") || Input.is_action_pressed("left") || Input.is_action_pressed("right"))):
 		if not Globals.CameraSwitch:
 			if canvas.playerStopped: return
-		states.moving = true;
 		direction = Vector3(Input.get_action_strength("left") - Input.get_action_strength("right"), 0, Input.get_action_strength("forward") - Input.get_action_strength("backward"))
 		direction = direction.rotated(Vector3.UP, $Camroot/h.global_transform.basis.get_euler().y).normalized()
+		#$Walk.play()
 		if Input.is_action_pressed("sprint") && $DashTimer.is_stopped():
 			movement_speed = run_speed
 			states.running = true
@@ -295,7 +296,7 @@ func attack1():
 					$"../CanvasLayer/hotbar".cooldown()
 
 					#Globals.GUI.dialogue("Character", "This is door", true, "Key not found", "Door Opened", 5)
-					print(Globals.dialogueChek["Door"]["Key"])
+					#print(Globals.dialogueChek["Door"]["Key"])
 					#Globals.dialogue(name of character thing [string value], Original text [string value], can this be repeated? [boolean] [if false leave next two blank], text to be repeated [string value], final text once you have the key or sum [string value])
 				#create new instance and set its position to Chembun with the instance slightly infront of it
 
@@ -329,6 +330,7 @@ func attack1():
 func hurt(damage_taken):
 	var old_health = health
 	health -= damage_taken
+	$Hurt.play()
 	if health <= 0:
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://assets/Scenes/Screens/DeathScreen.tscn")
@@ -347,7 +349,10 @@ func regen():
 func knockback_enter(direction:Vector3, strength: Vector3):
 	knockback = strength.rotated(Vector3.UP, direction.y)
 	states.knockback = true
+	playback.travel(animations.knockback)
 	$KnockbackTimer.start()
+	await get_tree().create_timer(.8).timeout
+	$Oof.play()
 
 func knockback_exit():
 	states.knockback = false
@@ -363,3 +368,8 @@ func key():
 	#else: $chemcloth/Keys.visible = false
 	if Globals.hasKey: $chemcloth/Armature/Skeleton3D/BoneAttachment3D/Keys.visible = true
 	else: $chemcloth/Armature/Skeleton3D/BoneAttachment3D/Keys.visible = false
+
+#
+#func _on_walk_finished():
+	#if self.velocity.is_zero_approx() and states.grounded:
+		#$Walk.play()

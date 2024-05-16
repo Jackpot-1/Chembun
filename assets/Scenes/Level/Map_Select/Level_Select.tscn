@@ -1,6 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dijlcn5yad6ey"]
+[gd_scene load_steps=15 format=3 uid="uid://dijlcn5yad6ey"]
 
 [ext_resource type="PackedScene" uid="uid://bvt0e5tgm2k8s" path="res://assets/Scenes/Level/Map_Select/darkroom.glb" id="1_ctk22"]
+[ext_resource type="Script" path="res://assets/Scenes/Level/Map_Select/Level_Select.gd" id="2_fturw"]
+[ext_resource type="Texture2D" uid="uid://dhs23ghhj1ux2" path="res://fonts/Chemgod/Dark_Box.png" id="3_xexxx"]
+[ext_resource type="FontFile" uid="uid://bhdcq80v3hh0q" path="res://fonts/Chemgod/Frijole-Regular.ttf" id="4_2jide"]
+[ext_resource type="Texture2D" uid="uid://dsd7wnsb6x7bq" path="res://assets/images/Home.png" id="5_12jl8"]
+[ext_resource type="Texture2D" uid="uid://dyj0vpp3nogpy" path="res://assets/images/Canyon.png" id="6_gn0kf"]
+[ext_resource type="Texture2D" uid="uid://di2xrduu7onkq" path="res://assets/images/ButtonHome.png" id="6_lgg0v"]
+[ext_resource type="Texture2D" uid="uid://djv1056rtnw6s" path="res://assets/images/Questions.png" id="7_pi3kh"]
+[ext_resource type="Texture2D" uid="uid://bv2f1kqr8oaaf" path="res://assets/images/ButtonCanyon.png" id="8_cns45"]
+[ext_resource type="AudioStream" uid="uid://cvtq5oidlfepl" path="res://assets/OST/ChemBun05_-_ChemGod.wav" id="10_4kxen"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0feae"]
 cull_mode = 1
@@ -22,27 +31,28 @@ shading_mode = 0
 diffuse_mode = 3
 
 [node name="darkroom" instance=ExtResource("1_ctk22")]
+script = ExtResource("2_fturw")
 
 [node name="Cube" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_0feae")
 
 [node name="Skeleton3D" parent="Armature_001" index="0"]
-bones/0/position = Vector3(-3.35966e-17, 0.224888, -0.053958)
-bones/0/rotation = Quaternion(0.0245164, 2.09444e-25, -1.17865e-17, 0.999699)
-bones/1/position = Vector3(-5.68423e-16, -2.88404, 0.221825)
+bones/0/position = Vector3(-3.35966e-17, 0.336955, -0.0808467)
+bones/0/rotation = Quaternion(0.0323484, 1.93001e-25, -1.17863e-17, 0.999477)
+bones/1/position = Vector3(-5.78683e-16, -2.77197, 0.194937)
 bones/1/rotation = Quaternion(-0.121025, 4.01934e-17, 4.01934e-17, 0.992649)
-bones/2/position = Vector3(-4.10872e-08, -1.87626, -0.0276227)
+bones/2/position = Vector3(-2.97384e-08, -1.76419, -0.0545114)
 bones/2/rotation = Quaternion(0.0950024, -1.1867e-07, -1.13252e-08, 0.995477)
 bones/3/rotation = Quaternion(-0.279891, -1.14445e-07, 1.00097e-07, 0.960032)
-bones/4/position = Vector3(-0.324672, -0.258109, -0.46177)
-bones/4/rotation = Quaternion(-0.088496, 0.194079, 0.888935, 0.405335)
+bones/4/position = Vector3(-0.324672, -0.146041, -0.488659)
+bones/4/rotation = Quaternion(-0.101177, 0.221888, 0.882404, 0.402358)
 bones/4/scale = Vector3(1, 1, 1)
-bones/5/rotation = Quaternion(0.58066, 0.0800257, 0.232768, 0.776047)
+bones/5/rotation = Quaternion(0.607399, 0.105737, 0.229759, 0.753059)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/position = Vector3(0.324672, -0.258109, -0.46177)
-bones/6/rotation = Quaternion(0.088496, 0.194079, 0.888935, -0.405335)
+bones/6/position = Vector3(0.324672, -0.146041, -0.488659)
+bones/6/rotation = Quaternion(0.101177, 0.221888, 0.882404, -0.402358)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/rotation = Quaternion(0.622412, -0.0287659, -0.157897, 0.766058)
+bones/7/rotation = Quaternion(0.66127, -0.0379962, -0.130261, 0.737774)
 bones/7/scale = Vector3(1, 1, 1)
 
 [node name="Cube_002" parent="Armature_001/Skeleton3D" index="0"]
@@ -53,7 +63,89 @@ surface_material_override/1 = SubResource("StandardMaterial3D_fc4bw")
 transform = Transform3D(2.75211, 0, 0, 0, 2.75211, 0, 0, 0, 2.75211, 0, 3.22734, -5.93717)
 surface_material_override/0 = SubResource("StandardMaterial3D_qqf4u")
 
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "float"
+
 [node name="Camera3D" type="Camera3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.956172, -0.292806, 0, 0.292806, 0.956172, 0, 0.675, -1.11)
 fov = 84.2
 near = 0.001
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+
+[node name="ChemGod" type="TextureRect" parent="CanvasLayer" index="0"]
+offset_left = 328.0
+offset_top = 384.0
+offset_right = 828.0
+offset_bottom = 584.0
+texture = ExtResource("3_xexxx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ChemGod" index="0"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 184.0
+theme_override_fonts/normal_font = ExtResource("4_2jide")
+theme_override_font_sizes/normal_font_size = 30
+text = "\"Ah, Chembun back so soon. Where would you like to go.\""
+
+[node name="Button" type="Button" parent="CanvasLayer" index="1"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" index="2"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Home" type="TextureButton" parent="." index="6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -116.0
+offset_right = 406.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("5_12jl8")
+texture_hover = ExtResource("6_lgg0v")
+stretch_mode = 3
+
+[node name="Canyon" type="TextureButton" parent="." index="7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 262.0
+offset_top = -116.0
+offset_right = 1222.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("6_gn0kf")
+texture_hover = ExtResource("8_cns45")
+stretch_mode = 3
+
+[node name="Mystery" type="TextureButton" parent="." index="8"]
+offset_left = 840.0
+offset_top = 416.0
+offset_right = 1800.0
+offset_bottom = 956.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_pi3kh")
+
+[node name="OST-ChemGod" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource("10_4kxen")
+volume_db = 3.748
+autoplay = true
+
+[connection signal="button_up" from="Home" to="." method="_on_home_button_up"]
+[connection signal="button_up" from="Canyon" to="." method="_on_canyon_button_up"]
+[connection signal="button_up" from="Mystery" to="." method="_on_mystery_button_up"]
+[connection signal="finished" from="OST-ChemGod" to="." method="_on_ost_chem_god_finished"]

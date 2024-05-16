@@ -6,6 +6,10 @@ var p = 0
 var isNear = false
 var neverDoThisAgainOrElse = false
 var openChest = false
+
+var TxTCheckCaveEnter = false
+var TxTCheckCaveMid = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$ChestBody3D.freeze = false
@@ -78,7 +82,23 @@ func _on_key_area_3d_body_entered(body):
 	Globals.hasKey = true
 	Globals.player.key()
 	Globals.dialogueChek["Door"]["Key"] = true
+	Globals.GUI.dialogue("Chess", "A key! I wonder what this could go to...", false, "", "", 8)
 	Globals.position = Vector3(-14.262, 12.509, -54.035)
 	Globals.current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 	Globals.save()
 	
+
+
+func _on_cave_enter_area_3d_body_entered(body):
+	if body == Globals.player and not TxTCheckCaveEnter:
+		Globals.GUI.dialogue("CaveEnter", "Huh, those salt creatures look to not be too friendly. Well-Salt is soluble in water right?", false, "", "", 8)
+		TxTCheckCaveEnter = true
+
+
+func _on_cave_mid_area_3d_body_entered(body):
+	if body == Globals.player and not TxTCheckCaveMid:
+		Globals.GUI.dialogue("CaveMid", "Alright, Now if only I could find a way to get this chest down from this big pile of salt.", false, "", "", 8)
+		TxTCheckCaveMid = true
+
+func _on_ost_cave_finished():
+	$"OST-Cave".play()

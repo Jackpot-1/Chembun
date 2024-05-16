@@ -10,6 +10,8 @@ var gateOpen = false
 var position = Vector3(12.643, 1.37, 21.57)
 var zoomer = 0
 
+var PortalWoosh = false
+
 func _ready():
 	load_data()
 
@@ -38,7 +40,7 @@ var EnemyDatabase = {
 		"damage": 2,
 		"move_speed": 5,
 		"vulnerable_to": ["Water"],
-		"knockback": Vector3(0,7,10)
+		"knockback": Vector3(0,8,9)
 	},
 	"Snail": {
 		"name": "Bob Snail",
@@ -59,6 +61,62 @@ var dialogueChek = {
 		"Finished" = false,
 	},
 	"Door": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"Chess": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"CanyonSign": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"ChemHouseExit": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"CaveEnter": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"CaveMid": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"ChemGod": {
+		"FirstRun" = false,
+		"Repeatable" = false,
+		"RepetableText" = "",
+		"Key" = false,
+		"FinishedText" = "",
+		"Finished" = false,
+	},
+	"CaveHole": {
 		"FirstRun" = false,
 		"Repeatable" = false,
 		"RepetableText" = "",

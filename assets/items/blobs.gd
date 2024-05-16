@@ -22,11 +22,13 @@ func _on_blob_body_entered(body):
 	#print(self.name)
 	#if body is CSGBox3D:
 	#Globals.blobFired = false
+	$"Splash".play()
 	if Name != "Mercury(II) Fulminate":
 		$splashRadius/GloopPart.visible = true
 		$splashRadius/gloop.set_deferred("disabled", false)
 	else:
 		$explosion.visible = true
+		$"ExplosionSFX".play()
 		$AnimationTree.get("parameters/playback").travel("explosion")
 		$explosion/CollisionShape3D.set_deferred("disabled", false)
 	#if $blob/Cube.visible:

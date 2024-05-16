@@ -7,6 +7,7 @@ func _ready():
 	$TextureRect/TextureRect/StartButton.grab_focus()
 
 func _on_start_button_pressed():
+	$MenuClick.play()
 	if Globals.CinematicFinished:
 		get_tree().change_scene_to_file(Globals.current_scene)
 	else:
@@ -14,11 +15,30 @@ func _on_start_button_pressed():
 		get_tree().change_scene_to_file("res://assets/Miscellaneous/Cinematic.tscn")
 
 func _on_settings_button_pressed():
+	$MenuClick.play()
 	#get_tree().change_scene_to_file("res://assets/Scenes/Screens/SettingsScreen.tscn")
 	Globals.reset_data()
 
 func _on_credits_button_pressed():
+	$MenuClick.play()
 	get_tree().change_scene_to_file("res://assets/Scenes/Screens/CreditsScreen.tscn")
 
 func _on_quit_button_pressed():
+	$MenuClick.play()
 	get_tree().quit()
+
+
+func _on_start_button_mouse_entered():
+	$MenuHover.play()
+
+
+func _on_settings_button_mouse_entered():
+	$MenuHover.play()
+
+
+func _on_credits_button_mouse_entered():
+	$MenuHover.play()
+
+
+func _on_quit_button_mouse_entered():
+	$MenuHover.play()

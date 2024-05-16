@@ -17,3 +17,4 @@ func _on_area_3d_body_entered(body):
 	Globals.save()
 	Globals.CameraSwitch = false
 	get_tree().change_scene_to_file("res://assets/Scenes/Level/Overworld/overworld.tscn")
+

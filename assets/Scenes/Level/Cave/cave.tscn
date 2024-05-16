@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://prh7sqd02d6v"]
+[gd_scene load_steps=41 format=3 uid="uid://prh7sqd02d6v"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Cave/cave.gd" id="1_740h7"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="1_opbxs"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="2_eu6cu"]
 [ext_resource type="PackedScene" uid="uid://d2j4gfwnbbl2t" path="res://assets/Scenes/Level/Cave/keys.tscn" id="4_olsd8"]
 [ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="5_xjynl"]
+[ext_resource type="AudioStream" uid="uid://cd13r2tddnsk" path="res://assets/OST/ChemBun02-Menu Looped.wav" id="6_shs6w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tqyl7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -266,6 +267,9 @@ data = PackedVector3Array(-27.9795, 18.2456, -135.418, -21.1116, 9.6589, -137.54
 [sub_resource type="LabelSettings" id="LabelSettings_6635h"]
 font_size = 32
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3k2jv"]
+size = Vector3(5.01165, 10.3879, 24.9369)
+
 [node name="cave" type="Node3D"]
 script = ExtResource("1_740h7")
 
@@ -388,6 +392,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 1.06581e-14, 0, -1.06581e-14, 1, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 0.25038, -0.968148, 0, 0.968148, 0.25038, 0, 0, 0)
 
 [node name="KeyArea3d" type="Area3D" parent="ChestBody3D/Keys"]
+transform = Transform3D(1, -1.0842e-19, -2.1684e-19, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChestBody3D/Keys/KeyArea3d"]
 transform = Transform3D(1, 0, 0, 0, 0.952131, 0.305693, 0, -0.305693, 0.952131, -0.0997314, 1.96588, 6.77318)
@@ -446,9 +451,30 @@ transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512
 [node name="saltEnemyDev3" parent="." instance=ExtResource("5_xjynl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54341, 1.3522, -0.830784)
 
+[node name="CaveEnterArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -19.7524, 7.4474, 2.48085)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveEnterArea3D"]
+transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, -1.8519, -6.30263, -1.75013)
+shape = SubResource("BoxShape3D_3k2jv")
+
+[node name="CaveMidArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 4.84499, 5.85507, 2.48085)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveMidArea3D"]
+transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, 9.07109, -0.793984, -1.80028)
+shape = SubResource("BoxShape3D_3k2jv")
+
+[node name="OST-Cave" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_shs6w")
+autoplay = true
+
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="ChestBody3D/Keys/KeyArea3d" to="." method="_on_key_area_3d_body_entered"]
+[connection signal="body_entered" from="CaveEnterArea3D" to="." method="_on_cave_enter_area_3d_body_entered"]
+[connection signal="body_entered" from="CaveMidArea3D" to="." method="_on_cave_mid_area_3d_body_entered"]
+[connection signal="finished" from="OST-Cave" to="." method="_on_ost_cave_finished"]
 
 [editable path="ChestBody3D/Keys"]
