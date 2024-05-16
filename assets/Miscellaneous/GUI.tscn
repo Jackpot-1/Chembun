@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://4g6wadcburcy"]
+[gd_scene load_steps=21 format=3 uid="uid://4g6wadcburcy"]
 
 [ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
 [ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
 [ext_resource type="Texture2D" uid="uid://danv4deylo26n" path="res://appIcons/carrotHalf.png" id="3_42wmp"]
 [ext_resource type="Script" path="res://assets/Scripts/hotbar.gd" id="5_j3y83"]
 [ext_resource type="Script" path="res://assets/images/items/ItemScript.gd" id="6_xuj4q"]
-[ext_resource type="Resource" uid="uid://ca1jdyg6txjjm" path="res://assets/images/items/Water.tres" id="7_bdovw"]
-[ext_resource type="Resource" uid="uid://dx1ja0k5wwqq4" path="res://assets/images/items/Mercury(II) Fulminate.tres" id="7_qu5nl"]
 [ext_resource type="Texture2D" uid="uid://3ffokwvpnhih" path="res://assets/images/quarter.png" id="8_7i4xm"]
 [ext_resource type="Texture2D" uid="uid://d4kacaxeycfn5" path="res://assets/images/circle.png" id="9_671we"]
 [ext_resource type="Texture2D" uid="uid://dr1buuoyxrwfd" path="res://assets/images/quarterUnder.png" id="9_otgc5"]
@@ -17,12 +15,27 @@
 [ext_resource type="Texture2D" uid="uid://dhs23ghhj1ux2" path="res://fonts/Chemgod/Dark_Box.png" id="15_38uqj"]
 [ext_resource type="FontFile" uid="uid://bhdcq80v3hh0q" path="res://fonts/Chemgod/Frijole-Regular.ttf" id="16_yec85"]
 
-[sub_resource type="Resource" id="Resource_o4fo6"]
+[sub_resource type="Resource" id="Resource_hmhw2"]
 script = ExtResource("6_xuj4q")
 name = ""
 color = Color(0, 0, 0, 1)
 
-[sub_resource type="Resource" id="Resource_nbrpt"]
+[sub_resource type="Resource" id="Resource_wfkre"]
+script = ExtResource("6_xuj4q")
+name = ""
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_l133f"]
+script = ExtResource("6_xuj4q")
+name = ""
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_nu5g7"]
+script = ExtResource("6_xuj4q")
+name = ""
+color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_ime1b"]
 script = ExtResource("6_xuj4q")
 name = ""
 color = Color(0, 0, 0, 1)
@@ -105,11 +118,53 @@ offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42wmp")
 
+[node name="ChemBox" type="TextureRect" parent="."]
+visible = false
+offset_left = 328.0
+offset_top = 384.0
+offset_right = 828.0
+offset_bottom = 584.0
+texture = ExtResource("12_hdlgf")
+
+[node name="ChemText" type="RichTextLabel" parent="ChemBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.16
+anchor_right = 0.912
+anchor_bottom = 0.88
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 7.99997
+offset_bottom = -1.52588e-05
+theme_override_fonts/normal_font = ExtResource("13_wdw3o")
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="ChemGod" type="TextureRect" parent="."]
+visible = false
+offset_left = 328.0
+offset_top = 384.0
+offset_right = 828.0
+offset_bottom = 584.0
+texture = ExtResource("15_38uqj")
+
+[node name="ChemText" type="RichTextLabel" parent="ChemGod"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.16
+anchor_right = 0.912
+anchor_bottom = 0.88
+offset_left = 24.0
+offset_top = -8.0
+offset_right = -40.0
+theme_override_fonts/normal_font = ExtResource("16_yec85")
+
 [node name="Control" parent="." instance=ExtResource("11_h8j02")]
 
 [node name="hotbar" type="Node" parent="."]
 script = ExtResource("5_j3y83")
-Items = Array[ExtResource("6_xuj4q")]([ExtResource("7_qu5nl"), SubResource("Resource_o4fo6"), SubResource("Resource_nbrpt"), ExtResource("7_qu5nl"), ExtResource("7_bdovw")])
+Items = Array[ExtResource("6_xuj4q")]([SubResource("Resource_hmhw2"), SubResource("Resource_wfkre"), SubResource("Resource_l133f"), SubResource("Resource_nu5g7"), SubResource("Resource_ime1b")])
 
 [node name="Quarter2" type="TextureRect" parent="hotbar"]
 visible = false
@@ -306,47 +361,5 @@ centered = false
 [node name="cooldown" type="Timer" parent="hotbar"]
 process_callback = 0
 one_shot = true
-
-[node name="ChemBox" type="TextureRect" parent="."]
-visible = false
-offset_left = 328.0
-offset_top = 384.0
-offset_right = 828.0
-offset_bottom = 584.0
-texture = ExtResource("12_hdlgf")
-
-[node name="ChemText" type="RichTextLabel" parent="ChemBox"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.096
-anchor_top = 0.16
-anchor_right = 0.912
-anchor_bottom = 0.88
-offset_left = 24.0
-offset_top = -8.0
-offset_right = 7.99997
-offset_bottom = -1.52588e-05
-theme_override_fonts/normal_font = ExtResource("13_wdw3o")
-theme_override_font_sizes/normal_font_size = 24
-
-[node name="ChemGod" type="TextureRect" parent="."]
-visible = false
-offset_left = 328.0
-offset_top = 384.0
-offset_right = 828.0
-offset_bottom = 584.0
-texture = ExtResource("15_38uqj")
-
-[node name="ChemText" type="RichTextLabel" parent="ChemGod"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.096
-anchor_top = 0.16
-anchor_right = 0.912
-anchor_bottom = 0.88
-offset_left = 24.0
-offset_top = -8.0
-offset_right = -40.0
-theme_override_fonts/normal_font = ExtResource("16_yec85")
 
 [connection signal="timeout" from="hotbar/cooldown" to="hotbar" method="_on_cooldown_timeout"]

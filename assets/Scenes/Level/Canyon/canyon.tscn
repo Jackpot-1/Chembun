@@ -749,6 +749,12 @@ autoplay = true
 [node name="golum" parent="." instance=ExtResource("7_dvhfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8661, 36.7316, -33.9814)
 
+[node name="golum2" parent="." instance=ExtResource("7_dvhfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.73618, 35.94, -43.3182)
+
+[node name="golum3" parent="." instance=ExtResource("7_dvhfh")]
+transform = Transform3D(-0.99377, 0, -0.111451, 0, 1, 0, 0.111451, 0, -0.99377, -15.0883, 36.5747, -41.3603)
+
 [node name="scroll (1)" parent="." instance=ExtResource("8_gux61")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -136.727, 48.9177, -11.6141)
 

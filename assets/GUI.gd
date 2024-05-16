@@ -11,6 +11,7 @@ var dialogueChek = Globals.dialogueChek
 func _ready():
 	Globals.GUI = $"."
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

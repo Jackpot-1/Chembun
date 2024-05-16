@@ -9,6 +9,7 @@ var hasKey = false
 var gateOpen = false
 var position = Vector3(12.643, 1.37, 21.57)
 var zoomer = 0
+var Items = null
 
 var PortalWoosh = false
 
@@ -232,6 +233,7 @@ func save():
 	file.store_pascal_string(current_scene)
 	file.store_var(hasKey)
 	file.store_var(gateOpen)
+	#file.store_var(Items)
 	
 func load_data():
 	if FileAccess.file_exists(save_path):
@@ -241,6 +243,7 @@ func load_data():
 		current_scene = file.get_pascal_string()
 		hasKey = file.get_var(true)
 		gateOpen = file.get_var(true)
+		#Items = file.get_var(true)
 	else:
 		print("bro it doesn't exist stop trying")
 		CinematicFinished = false
@@ -248,6 +251,7 @@ func load_data():
 		current_scene = "res://assets/Scenes/Level/Overworld/overworld.tscn"
 		hasKey = false
 		gateOpen = false
+		
 		
 func reset_data():
 	CinematicFinished = false

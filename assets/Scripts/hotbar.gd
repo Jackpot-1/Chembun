@@ -2,6 +2,7 @@ extends Node
 
 @export var Items: Array[InvItem]
 
+
 #var slots = []
 var scroll = false
 var scrollAdder = 0
@@ -27,17 +28,19 @@ var path4 = .75
 var path5 = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Globals.Items != null:
+		Items = Globals.Items
 	slotUpdater()
 	selectItem()
+	
 	#slots[1]["item"] = itemClass.instantiate()
 	#slots[1]["item"].Image(Globals.items[1])
-	pass
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	#print(Items)
 	#$CanvasLayer/hotbar/Quarter.set_value = val
 	#if val != 25:
 		#val += 1
@@ -135,6 +138,9 @@ func selectedSlot(item):
 func slotUpdater():
 	for i in range(min(Items.size(), slots.size())):
 		slots[i].update(Items[i])
+	Globals.Items = Items
+	Globals.save()
+	
 	
 		
 func slotInserter(item:InvItem):

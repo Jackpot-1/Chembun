@@ -16,10 +16,12 @@ var h_acceleration = 10
 var v_acceleration = 10
 var joyview = Vector2()
 var markerPosition: Vector3
+var setMarkerPos = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	zoom_set()
+	
 	
 func _input(event):
 	if Globals.CameraSwitch: return
@@ -40,14 +42,19 @@ func _joystick_input():
 			
 func zoom_set():
 	#if zoom <= 0: return
-	markerPosition = $h/v/Camera3D/Marker3D.global_position
-	$".".position.y = Globals.zoomer/3
+	setMarkerPos = false
+	#markerPosition = $h/v/Camera3D/Marker3D.global_position
+	#print($h/v/Camera3D/Marker3D.global_position, " before")
+	$h.position.y = Globals.zoomer/3
 	#$h/v.scale = Vector3(zoom+1, zoom+1, zoom+1)
 	$h/v.spring_length = -Globals.zoomer - 3
-	$h/v/Camera3D/Marker3D.set_global_position(markerPosition)
-	print(markerPosition, "LOOK AT ME")
+	#$h/v/Camera3D/Marker3D.set_global_position(markerPosition)
+	#print(markerPosition, " LOOK AT ME")
+	setMarkerPos = true
 	
 func _physics_process(delta):
+	#if setMarkerPos:
+		#markerPosition = $h/v/Camera3D/Marker3D.global_position
 	# JoyPad Controls
 	_joystick_input()
 		
