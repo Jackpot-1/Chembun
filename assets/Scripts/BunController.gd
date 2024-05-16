@@ -293,6 +293,7 @@ func attack1():
 					blobInstance.reparent($".".get_parent())
 					Globals.blobReady = false
 					Globals.blobFired = true
+					$"Throwing".play()
 					$"../CanvasLayer/hotbar".cooldown()
 
 					#Globals.GUI.dialogue("Character", "This is door", true, "Key not found", "Door Opened", 5)

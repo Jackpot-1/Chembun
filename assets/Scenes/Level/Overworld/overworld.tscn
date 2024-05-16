@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="5_ngyef"]
 [ext_resource type="AudioStream" uid="uid://1lrdcvk2427t" path="res://assets/SFX/Portal_Loop.wav" id="6_6tsfv"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="6_qim31"]
-[ext_resource type="PackedScene" uid="uid://d4jublshumnou" path="res://assets/Characters/snail/node/snail dev.tscn" id="9_nm805"]
-[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="8_h4v1b"]
 [ext_resource type="AudioStream" uid="uid://b801j1fnr4bvv" path="res://assets/OST/ChemBun04_-_TitleScreen.wav" id="9_45pm5"]
+[ext_resource type="PackedScene" uid="uid://d4jublshumnou" path="res://assets/Characters/snail/node/snail dev.tscn" id="9_nm805"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3opxt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
