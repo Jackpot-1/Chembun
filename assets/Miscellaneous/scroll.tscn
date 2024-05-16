@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfan27kbaydj2"]
+[gd_scene load_steps=15 format=3 uid="uid://dfan27kbaydj2"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Canyon/Scroll.gd" id="1_5q574"]
+[ext_resource type="Texture2D" uid="uid://dufeh8lngxols" path="res://assets/Miscellaneous/scroll2d.png" id="2_d1ixh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vt87p"]
 resource_name = "Ribbon"
@@ -59,6 +60,20 @@ specular_mode = 2
 albedo_color = Color(1, 1, 0.67451, 1)
 roughness = 0.0
 
+[sub_resource type="Animation" id="Animation_jr37t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:blend_shapes/flap")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_ds3c2"]
 resource_name = "Scroll_Flap"
 length = 1.5
@@ -82,25 +97,25 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5)
 }
 
-[sub_resource type="Animation" id="Animation_jr37t"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:blend_shapes/flap")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0jppl"]
 _data = {
 "RESET": SubResource("Animation_jr37t"),
 "Scroll_Flap": SubResource("Animation_ds3c2")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qakec"]
+animation = &"Scroll_Flap"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibkuk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gwugu"]
+states/Scroll_Flap/node = SubResource("AnimationNodeAnimation_qakec")
+states/Scroll_Flap/position = Vector2(372, 93)
+transitions = ["Start", "Scroll_Flap", SubResource("AnimationNodeStateMachineTransition_ibkuk")]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfrsr"]
+size = Vector3(1.52707, 0.71051, 0.64019)
 
 [node name="scroll (1)" type="Node3D"]
 
@@ -118,3 +133,25 @@ libraries = {
 "": SubResource("AnimationLibrary_0jppl")
 }
 autoplay = "Scroll_Flap"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Circle")
+libraries = {
+"": SubResource("AnimationLibrary_0jppl")
+}
+tree_root = SubResource("AnimationNodeStateMachine_gwugu")
+anim_player = NodePath("../Circle/AnimationPlayer")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0087738, -0.037262, -0.111553)
+shape = SubResource("BoxShape3D_kfrsr")
+
+[node name="Scroll2d" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.609259, 0.609259)
+texture = ExtResource("2_d1ixh")
+
+[connection signal="body_entered" from="Area3D" to="Circle" method="_on_area_3d_body_entered"]

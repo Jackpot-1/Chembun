@@ -40,7 +40,7 @@ var EnemyDatabase = {
 		"damage": 2,
 		"move_speed": 5,
 		"vulnerable_to": ["Water"],
-		"knockback": Vector3(0,8,9)
+		"knockback": Vector3(0,4,5)
 	},
 	"Snail": {
 		"name": "Bob Snail",
@@ -48,6 +48,13 @@ var EnemyDatabase = {
 		"move_speed": 0.1,
 		"vulnerable_to": ["Salt"],
 		"knockback": Vector3(0, 5.25, 7.5)
+	},
+	"Golum": {
+		"name": "Rock Snowman",
+		"damage": 3,
+		"move_speed": 5,
+		"vulnerable_to": ["Mercury(II) Fulminate"],
+		"knockback": Vector3(0,8,11)
 	}
 }
 

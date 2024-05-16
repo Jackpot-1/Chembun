@@ -47,21 +47,28 @@ run_speed = 8
 metadata/health = 10
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
-bones/0/position = Vector3(1.4674e-09, 0.65226, 0.180482)
-bones/1/rotation = Quaternion(-0.0733823, -0.000953108, -0.0242039, 0.99701)
-bones/2/rotation = Quaternion(-0.157544, 0.0676881, 0.0270127, 0.984819)
-bones/3/position = Vector3(-0.458371, 0.555359, -0.165944)
-bones/3/rotation = Quaternion(0.0416137, -0.450091, 0.838263, 0.304961)
-bones/4/rotation = Quaternion(0.458546, 0.248724, 0.0770828, 0.849665)
-bones/6/position = Vector3(0.458371, 0.55518, -0.166011)
-bones/6/rotation = Quaternion(0.0452438, 0.139687, -0.93881, 0.31157)
-bones/7/rotation = Quaternion(0.445636, 0.214694, -0.00684094, 0.869062)
-bones/9/position = Vector3(-0.460236, 0.138958, -0.108281)
-bones/10/rotation = Quaternion(0.466341, 0.287319, -0.130203, 0.826451)
-bones/12/rotation = Quaternion(0.331618, -0.0121742, -0.0933635, 0.938704)
+bones/0/position = Vector3(1.28097e-08, 0.718021, 0.180482)
+bones/1/rotation = Quaternion(-0.079061, -0.0321587, -0.0184599, 0.99618)
+bones/2/rotation = Quaternion(-0.137884, 0.0953984, 0.0264585, 0.985488)
+bones/3/position = Vector3(-0.458356, 0.557052, -0.165311)
+bones/3/rotation = Quaternion(0.00872059, -0.417017, 0.849271, 0.323667)
+bones/4/rotation = Quaternion(0.485426, 0.267892, 0.0868984, 0.827674)
+bones/6/position = Vector3(0.458356, 0.553486, -0.166643)
+bones/6/rotation = Quaternion(0.0437295, 0.21363, -0.925579, 0.30944)
+bones/7/rotation = Quaternion(0.495547, 0.174281, 0.0673502, 0.848247)
+bones/9/position = Vector3(-0.461083, 0.143909, -0.116714)
+bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
+bones/10/rotation = Quaternion(0.420879, 0.275321, -0.126585, 0.855006)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
+bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
+bones/12/rotation = Quaternion(0.287325, -0.00292364, -0.103681, 0.952201)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="BoneAttachment3D" parent="ChemBun/chemcloth/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, 1.4674e-09, 0.65226, 0.180482)
+transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, 1.28097e-08, 0.718021, 0.180482)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_hgv50")]
 
@@ -201,10 +208,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.41352, 10.65, -0.707526)
 [node name="SnailThing" parent="." instance=ExtResource("13_2vfch")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.353, 0.705707, -14.7737)
 visible = false
-
-[node name="Skeleton3D" parent="SnailThing/Armature" index="0"]
-bones/0/scale = Vector3(1, 1, 1.00003)
-bones/1/rotation = Quaternion(-0.350989, 5.09471e-11, 1.00422e-06, 0.93638)
 
 [node name="snailmesh" parent="SnailThing/Armature/Skeleton3D" index="0"]
 surface_material_override/0 = null

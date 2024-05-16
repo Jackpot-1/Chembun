@@ -286,7 +286,6 @@ func attack1():
 				if canvas.playerStopped: return
 			if tankMode == true && Globals.blobReady == true:
 				#blobInstance.velocity = Vector3(1, 0, 1)
-				print(self.rotation)
 				if is_instance_valid(blobInstance):
 					blobInstance.global_position = $CamRightTank/h/v/Camera3D/Marker3D.global_position
 					blobInstance.linear_velocity = Vector3(0,1,8).rotated(Vector3.UP, $chemcloth.rotation.y)

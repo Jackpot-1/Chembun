@@ -1,4 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvadqbo3kiqot"]
+[gd_scene load_steps=30 format=3 uid="uid://cvadqbo3kiqot"]
+
+[ext_resource type="Script" path="res://assets/Characters/Golum/golum.gd" id="1_0a36j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohm5b"]
 resource_name = "Material.001"
@@ -145,52 +147,6 @@ specular_mode = 2
 albedo_color = Color(0.0823529, 0, 0, 1)
 roughness = 0.0
 
-[sub_resource type="Animation" id="Animation_pa7kf"]
-resource_name = "dive_start"
-length = 0.416667
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Salt Block/Skeleton3D:Parent")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.68693e-05, 5.30854e-08, 0.2, 1, 0, -1.68693e-05, 5.30854e-08, 0.233333, 1, 0, 0.0250905, -0.00264283, 0.266667, 1, 0, 0.0817431, -0.00860626, 0.3, 1, 0, 0.165434, -0.0174159, 0.333333, 1, 0, 0.260714, -0.0274453, 0.366667, 1, 0, 0.340542, -0.0358483, 0.4, 1, 5.36054e-17, 0.385607, -0.0405919, 0.416667, 1, 8.93423e-17, 0.402345, -0.0423538)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Salt Block/Skeleton3D:Parent")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0.00845385, 0, 0, 0.999964, 0.1, 1, 0.0286243, 0, 0, 0.99959, 0.133333, 1, 0.0603401, 0, 0, 0.998178, 0.166667, 1, 0.0999743, 0, 0, 0.99499, 0.2, 1, 0.142992, 0, -2.73088e-17, 0.989724, 0.233333, 1, 0.18386, 0, -3.41322e-17, 0.982953, 0.266667, 1, 0.221188, 0, -3.41231e-17, 0.975231, 0.3, 1, 0.253825, 0, -3.41177e-17, 0.96725, 0.333333, 1, 0.280844, 0, -3.41169e-17, 0.959753, 0.366667, 1, 0.298514, 0, -3.41241e-17, 0.954405, 0.4, 1, 0.307668, 0, -5.50614e-17, 0.951494, 0.416667, 1, 0.310833, 0, -6.90188e-17, 0.950465)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Salt Block/Skeleton3D:Foot_R")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 7.54979e-08, 0, 1, 1.27411e-15, 0.0333333, 1, 7.54979e-08, 0, 1, 1.27411e-15, 0.0666667, 1, 7.54891e-08, 0.0152334, 0.999884, -1.15009e-09, 0.1, 1, -7.5412e-08, -0.0476978, -0.998862, 3.60108e-09, 0.166667, 1, -7.47903e-08, -0.136588, -0.990628, 1.03121e-08, 0.2, 1, -7.45577e-08, -0.157323, -0.987547, -7.75231e-09, 0.233333, 1, 7.48904e-08, 0.126609, 0.991953, 1.53441e-08, 0.266667, 1, 7.54337e-08, 0.0412381, 0.999149, 2.23666e-08, 0.3, 1, 7.52011e-08, -0.0885812, 0.996069, 3.25728e-08, 0.333333, 1, 7.33452e-08, -0.237093, 0.971487, 4.36571e-08, 0.366667, 1, 7.06284e-08, -0.353321, 0.935502, 5.18768e-08, 0.4, 1, 6.86924e-08, -0.41492, 0.909858, 1.74265e-09, 0.416667, 1, -6.79143e-08, 0.436814, -0.899552, 3.29786e-08)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Salt Block/Skeleton3D:Foot_L")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0.0257076, 0, 0.999669, 4.33844e-10, 0.0333333, 1, 0.0257076, 0, 0.999669, 4.33844e-10, 0.0666667, 1, 0.0257046, 0.0152284, 0.999554, 0.000391614, 0.1, 1, 0.0256783, 0.047682, 0.998532, 0.00122619, 0.166667, 1, 0.0254667, 0.136543, 0.990301, 0.00351134, 0.2, 1, 0.0253875, 0.157271, 0.987221, 0.00404441, 0.233333, 1, 0.0255007, 0.126567, 0.991625, 0.00325481, 0.266667, 1, 0.0256857, 0.0412244, 0.998819, 0.00106013, 0.3, 1, -0.0256065, 0.0885519, -0.99574, 0.00227721, 0.333333, 1, -0.0249746, 0.237015, -0.971166, 0.00609509, 0.366667, 1, -0.0240495, 0.353205, -0.935193, 0.00908305, 0.4, 1, -0.0233903, 0.414783, -0.909557, 0.0106666, 0.416667, 1, -0.0231253, 0.43667, -0.899254, 0.0112294)
-tracks/4/type = "rotation_3d"
-tracks/4/imported = true
-tracks/4/enabled = true
-tracks/4/path = NodePath("Salt Block/Skeleton3D:Body_1")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0.00681742, 0, 0, 0.999977, 0.1, 1, 0.0213672, 0, 0, 0.999772, 0.166667, 1, 0.0613559, 0, 0, 0.998116, 0.2, 1, 0.0704261, 6.63505e-25, -1.29129e-17, 0.997517, 0.233333, 1, 0.0726928, 3.3175e-25, -1.6141e-17, 0.997354, 0.416667, 1, 0.0726928, 0, -1.6141e-17, 0.997354)
-tracks/5/type = "rotation_3d"
-tracks/5/imported = true
-tracks/5/enabled = true
-tracks/5/path = NodePath("Salt Block/Skeleton3D:Body_2")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.0333333, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.0666667, 1, 0.0198582, 0.000200799, 0.010111, 0.999752, 0.1, 1, 0.0623723, 0.000630768, 0.0100933, 0.998002, 0.166667, 1, 0.178702, 0.00180728, 0.00995023, 0.983851, 0.2, 1, 0.20469, 0.0020701, 0.00989889, 0.978775, 0.233333, 1, 0.188831, 0.00190971, 0.00993108, 0.981958, 0.266667, 1, 0.137478, 0.00139036, 0.010017, 0.990453, 0.3, 1, 0.0603709, 0.000610526, 0.0100946, 0.998125, 0.333333, 1, -0.0284634, -0.000287903, 0.0101089, 0.999544, 0.366667, 1, -0.102008, -0.0010317, 0.0100603, 0.994732, 0.4, 1, -0.14292, -0.00144546, 0.0100092, 0.989683, 0.416667, 1, -0.157943, -0.0015974, 0.00998607, 0.987396)
-
 [sub_resource type="Animation" id="Animation_rrw2v"]
 resource_name = "Golum_Surprise"
 length = 0.666667
@@ -237,9 +193,56 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = PackedFloat32Array(0, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.0333333, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.0666667, 1, -0.0301704, -0.000305167, 0.0101084, 0.999494, 0.1, 1, -0.0703502, -0.000711528, 0.010088, 0.997471, 0.133333, 1, -0.100414, -0.00101558, 0.0100619, 0.994894, 0.366667, 1, -0.100414, -0.00101558, 0.0100619, 0.994894, 0.4, 1, -0.0703502, -0.000711527, 0.010088, 0.997471, 0.433333, 1, -0.0301704, -0.000305167, 0.0101084, 0.999494, 0.466667, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.666667, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949)
 
+[sub_resource type="Animation" id="Animation_pa7kf"]
+resource_name = "dive_start"
+length = 0.416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Salt Block/Skeleton3D:Parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -1.68693e-05, 5.30854e-08, 0.2, 1, 0, -1.68693e-05, 5.30854e-08, 0.233333, 1, 0, 0.0250905, -0.00264283, 0.266667, 1, 0, 0.0817431, -0.00860626, 0.3, 1, 0, 0.165434, -0.0174159, 0.333333, 1, 0, 0.260714, -0.0274453, 0.366667, 1, 0, 0.340542, -0.0358483, 0.4, 1, 5.36054e-17, 0.385607, -0.0405919, 0.416667, 1, 8.93423e-17, 0.402345, -0.0423538)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Salt Block/Skeleton3D:Parent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0.00845385, 0, 0, 0.999964, 0.1, 1, 0.0286243, 0, 0, 0.99959, 0.133333, 1, 0.0603401, 0, 0, 0.998178, 0.166667, 1, 0.0999743, 0, 0, 0.99499, 0.2, 1, 0.142992, 0, -2.73088e-17, 0.989724, 0.233333, 1, 0.18386, 0, -3.41322e-17, 0.982953, 0.266667, 1, 0.221188, 0, -3.41231e-17, 0.975231, 0.3, 1, 0.253825, 0, -3.41177e-17, 0.96725, 0.333333, 1, 0.280844, 0, -3.41169e-17, 0.959753, 0.366667, 1, 0.298514, 0, -3.41241e-17, 0.954405, 0.4, 1, 0.307668, 0, -5.50614e-17, 0.951494, 0.416667, 1, 0.310833, 0, -6.90188e-17, 0.950465)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Salt Block/Skeleton3D:Foot_R")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 7.54979e-08, 0, 1, 1.27411e-15, 0.0333333, 1, 7.54979e-08, 0, 1, 1.27411e-15, 0.0666667, 1, 7.54891e-08, 0.0152334, 0.999884, -1.15009e-09, 0.1, 1, -7.5412e-08, -0.0476978, -0.998862, 3.60108e-09, 0.166667, 1, -7.47903e-08, -0.136588, -0.990628, 1.03121e-08, 0.2, 1, -7.45577e-08, -0.157323, -0.987547, -7.75231e-09, 0.233333, 1, 7.48904e-08, 0.126609, 0.991953, 1.53441e-08, 0.266667, 1, 7.54337e-08, 0.0412381, 0.999149, 2.23666e-08, 0.3, 1, 7.52011e-08, -0.0885812, 0.996069, 3.25728e-08, 0.333333, 1, 7.33452e-08, -0.237093, 0.971487, 4.36571e-08, 0.366667, 1, 7.06284e-08, -0.353321, 0.935502, 5.18768e-08, 0.4, 1, 6.86924e-08, -0.41492, 0.909858, 1.74265e-09, 0.416667, 1, -6.79143e-08, 0.436814, -0.899552, 3.29786e-08)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Salt Block/Skeleton3D:Foot_L")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.0257076, 0, 0.999669, 4.33844e-10, 0.0333333, 1, 0.0257076, 0, 0.999669, 4.33844e-10, 0.0666667, 1, 0.0257046, 0.0152284, 0.999554, 0.000391614, 0.1, 1, 0.0256783, 0.047682, 0.998532, 0.00122619, 0.166667, 1, 0.0254667, 0.136543, 0.990301, 0.00351134, 0.2, 1, 0.0253875, 0.157271, 0.987221, 0.00404441, 0.233333, 1, 0.0255007, 0.126567, 0.991625, 0.00325481, 0.266667, 1, 0.0256857, 0.0412244, 0.998819, 0.00106013, 0.3, 1, -0.0256065, 0.0885519, -0.99574, 0.00227721, 0.333333, 1, -0.0249746, 0.237015, -0.971166, 0.00609509, 0.366667, 1, -0.0240495, 0.353205, -0.935193, 0.00908305, 0.4, 1, -0.0233903, 0.414783, -0.909557, 0.0106666, 0.416667, 1, -0.0231253, 0.43667, -0.899254, 0.0112294)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Salt Block/Skeleton3D:Body_1")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0333333, 1, 0, 0, 0, 1, 0.0666667, 1, 0.00681742, 0, 0, 0.999977, 0.1, 1, 0.0213672, 0, 0, 0.999772, 0.166667, 1, 0.0613559, 0, 0, 0.998116, 0.2, 1, 0.0704261, 6.63505e-25, -1.29129e-17, 0.997517, 0.233333, 1, 0.0726928, 3.3175e-25, -1.6141e-17, 0.997354, 0.416667, 1, 0.0726928, 0, -1.6141e-17, 0.997354)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Salt Block/Skeleton3D:Body_2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.0333333, 1, 7.46559e-08, -3.72e-08, 0.010113, 0.999949, 0.0666667, 1, 0.0198582, 0.000200799, 0.010111, 0.999752, 0.1, 1, 0.0623723, 0.000630768, 0.0100933, 0.998002, 0.166667, 1, 0.178702, 0.00180728, 0.00995023, 0.983851, 0.2, 1, 0.20469, 0.0020701, 0.00989889, 0.978775, 0.233333, 1, 0.188831, 0.00190971, 0.00993108, 0.981958, 0.266667, 1, 0.137478, 0.00139036, 0.010017, 0.990453, 0.3, 1, 0.0603709, 0.000610526, 0.0100946, 0.998125, 0.333333, 1, -0.0284634, -0.000287903, 0.0101089, 0.999544, 0.366667, 1, -0.102008, -0.0010317, 0.0100603, 0.994732, 0.4, 1, -0.14292, -0.00144546, 0.0100092, 0.989683, 0.416667, 1, -0.157943, -0.0015974, 0.00998607, 0.987396)
+
 [sub_resource type="Animation" id="Animation_jke6q"]
 resource_name = "run"
 length = 0.666667
+loop_mode = 2
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -290,7 +293,50 @@ _data = {
 "run": SubResource("Animation_jke6q")
 }
 
-[node name="golum" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_366fq"]
+size = Vector3(1.78057, 1.8023, 1.87177)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4kfxo"]
+radius = 0.92295
+height = 3.23016
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jmep1"]
+radius = 8.00158
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o0ybp"]
+animation = &"Golum_Surprise"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ryx2k"]
+animation = &"dive_start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k2884"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u2au8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbipo"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ncqo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d2aj0"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7twk8"]
+states/Golum_Surprise/node = SubResource("AnimationNodeAnimation_o0ybp")
+states/Golum_Surprise/position = Vector2(585, 100)
+states/dive_start/node = SubResource("AnimationNodeAnimation_ryx2k")
+states/dive_start/position = Vector2(569, 190)
+states/run/node = SubResource("AnimationNodeAnimation_k2884")
+states/run/position = Vector2(412, 103)
+transitions = ["Start", "run", SubResource("AnimationNodeStateMachineTransition_u2au8"), "run", "Golum_Surprise", SubResource("AnimationNodeStateMachineTransition_jbipo"), "Golum_Surprise", "run", SubResource("AnimationNodeStateMachineTransition_8ncqo"), "run", "dive_start", SubResource("AnimationNodeStateMachineTransition_d2aj0")]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v1est"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="golum" type="CharacterBody3D"]
+script = ExtResource("1_0a36j")
 
 [node name="Salt Block" type="Node3D" parent="."]
 
@@ -321,14 +367,14 @@ bones/3/parent = 0
 bones/3/rest = Transform3D(0.993574, 0.113182, 1.5207e-08, -0.113182, 0.993574, -8.63351e-10, -1.5207e-08, -8.63351e-10, 1, 0, 0.300054, 0)
 bones/3/enabled = true
 bones/3/position = Vector3(0, 0.300054, 0)
-bones/3/rotation = Quaternion(0.0726928, -7.85804e-19, 3.17257e-09, 0.997354)
+bones/3/rotation = Quaternion(0.0726928, -6.4436e-17, -5.5272e-10, 0.997354)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Body_2"
 bones/4/parent = 3
 bones/4/rest = Transform3D(0.988892, -0.146004, -0.0278588, 0.148574, 0.965441, 0.214126, -0.00436711, -0.215886, 0.976409, 0, 1.54566, 0)
 bones/4/enabled = true
 bones/4/position = Vector3(0, 1.54566, 0)
-bones/4/rotation = Quaternion(-0.157943, -0.00159741, 0.00998608, 0.987396)
+bones/4/rotation = Quaternion(-0.157943, -0.0015974, 0.00998609, 0.987397)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="Cube_001" type="MeshInstance3D" parent="Salt Block/Skeleton3D"]
@@ -358,3 +404,60 @@ surface_material_override/1 = SubResource("StandardMaterial3D_8gtgq")
 libraries = {
 "": SubResource("AnimationLibrary_k2p1f")
 }
+
+[node name="AttackRange" type="Area3D" parent="." groups=["saltCube"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16415e-10, 0, 0.809714)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.921262, 0.506788)
+shape = SubResource("BoxShape3D_366fq")
+
+[node name="HitBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59999, 0)
+shape = SubResource("CapsuleShape3D_4kfxo")
+
+[node name="DetectionRange" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
+shape = SubResource("SphereShape3D_jmep1")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 0.1
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k2p1f")
+}
+tree_root = SubResource("AnimationNodeStateMachine_7twk8")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35246, 0.174208)
+visible = false
+texture = SubResource("ViewportTexture_v1est")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(282, 27)
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D/SubViewport"]
+offset_right = 4.0
+offset_bottom = 27.0
+value = 100.0
+rounded = true
+fill_mode = 1
+show_percentage = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59999, 0)
+shape = SubResource("CapsuleShape3D_4kfxo")
+disabled = true
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_2_animation_finished"]

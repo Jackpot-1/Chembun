@@ -22,3 +22,12 @@ func _process(delta):
 	# Rotation
 	# Rotate around the Y-axis
 	rotate_y(rotation_speed * delta)
+
+
+func _on_area_3d_body_entered(body):
+	self.visible = false
+	$"../Scroll2d".visible = true
+	await get_tree().create_timer(10).timeout
+	Globals.reset_data()
+	get_tree().change_scene_to_file("res://assets/Scenes/Screens/StartingScreen.tscn")
+	

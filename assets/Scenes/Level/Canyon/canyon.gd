@@ -14,10 +14,8 @@ func _process(delta):
 
 func _on_asteroid_hitbox_area_entered(area):
 	if area.name != "explosion": return
-	#print(area.get("metadata/name"), " HELLLP - HELP ME")
-	print(area.get_parent().Name, " HELLLP - HELP ME")
 	if area.get_parent().Name == "Mercury(II) Fulminate":
-		$"Canyon Mesh/Asteroid".queue_free()
+		$"NavigationRegion3D/Canyon Mesh/Asteroid".queue_free()
 
 func _on_chembox_tx_t_area_3d_body_entered(body):
 	if body == Globals.player:
