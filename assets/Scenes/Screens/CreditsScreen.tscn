@@ -68,4 +68,15 @@ theme_override_fonts/font = ExtResource("2_eejxc")
 theme_override_font_sizes/font_size = 50
 text = "Return"
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 803.0
+offset_top = 454.0
+offset_right = 1955.0
+offset_bottom = 541.0
+theme_override_fonts/font = ExtResource("2_eejxc")
+text = "\"shift\" + \"=\" to skip intro cutscene
++/- for zoom
+\"settings\" button on main menu to reset save data"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/ReturnButton" to="." method="_on_return_button_pressed"]

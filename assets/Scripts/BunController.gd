@@ -287,7 +287,8 @@ func attack1():
 				#blobInstance.velocity = Vector3(1, 0, 1)
 				print(self.rotation)
 				if is_instance_valid(blobInstance):
-					blobInstance.linear_velocity = Vector3(0,5,7).rotated(Vector3.UP, $chemcloth.rotation.y)
+					blobInstance.global_position = $CamRightTank/h/v/Camera3D/Marker3D.global_position
+					blobInstance.linear_velocity = Vector3(0,1,8).rotated(Vector3.UP, $chemcloth.rotation.y)
 					blobInstance.reparent($".".get_parent())
 					Globals.blobReady = false
 					Globals.blobFired = true

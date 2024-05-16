@@ -5,7 +5,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m06kp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wrly1"]
-size = Vector3(0.268433, 0.0339851, 0.230469)
+size = Vector3(0.268433, 0.0561771, 0.230469)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xftqq"]
 resource_name = "Material.001"
@@ -226,7 +226,7 @@ script = ExtResource("1_nkstj")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.519094, 0)
 
 [node name="gloop" type="CollisionShape3D" parent="splashRadius"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.0154269, -0.0166016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.0265229, -0.0166016)
 shape = SubResource("BoxShape3D_wrly1")
 disabled = true
 

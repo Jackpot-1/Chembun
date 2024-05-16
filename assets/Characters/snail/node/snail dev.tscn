@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d4jublshumnou"]
+[gd_scene load_steps=24 format=3 uid="uid://d4jublshumnou"]
 
 [ext_resource type="Script" path="res://assets/fuk/SnailController.gd" id="1_cilbm"]
 
@@ -155,14 +155,90 @@ albedo_color = Color(1, 0.45098, 1, 1)
 roughness = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8tycy"]
-size = Vector3(1.78057, 0.892678, 1.87177)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
-radius = 1.25344
+size = Vector3(1.78057, 1.69939, 1.87177)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sfb1h"]
 radius = 0.885076
 height = 3.69827
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
+radius = 1.18464
+
+[sub_resource type="Animation" id="Animation_5eqbt"]
+resource_name = "Key_001Action"
+length = 0.001
+tracks/0/type = "blend_shape"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Plane:SO HAPPY")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0)
+tracks/1/type = "blend_shape"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D/Plane:SOOOO SAD")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0)
+tracks/2/type = "blend_shape"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D/Plane:death")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.972)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:Bone.001")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.350989, 5.14631e-11, 1.00422e-06, 0.93638)
+tracks/4/type = "scale_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1.00003)
+
+[sub_resource type="Animation" id="Animation_wtf27"]
+resource_name = "idle_snail"
+length = 0.625
+loop_mode = 1
+tracks/0/type = "scale_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1.00003, 0.0333333, 1, 1, 1, 1.00003, 0.0666667, 1, 1, 1.00262, 1.00005, 0.1, 1, 1, 1.00875, 1.00012, 0.133333, 1, 1, 1.01815, 1.00022, 0.2, 1, 1, 1.04088, 1.00046, 0.233333, 1, 1, 1.05029, 1.00056, 0.266667, 1, 1, 1.05641, 1.00062, 0.3, 1, 1, 1.05852, 1.00064, 0.333333, 1, 1, 1.05649, 1.00062, 0.366667, 1, 1, 1.05115, 1.00057, 0.4, 1, 1, 1.04414, 1.00049, 0.433333, 1, 1, 1.03602, 1.00041, 0.5, 1, 1, 1.01868, 1.00022, 0.533333, 1, 1, 1.01111, 1.00014, 0.566667, 1, 1, 1.00521, 1.00008, 0.6, 1, 1, 1.00152, 1.00004, 0.625, 1, 1, 1, 1.00003)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.294856, 0.00554667, 0.00316899, 0.95552, 0.0333333, 1, -0.294856, 0.00554667, 0.00316899, 0.95552, 0.0666667, 1, -0.292431, 0.00553862, 0.00318304, 0.956265, 0.1, 1, -0.286765, 0.00551968, 0.00321576, 0.95798, 0.133333, 1, -0.278043, 0.00549022, 0.00326579, 0.960548, 0.2, 1, -0.256848, 0.00541708, 0.0033857, 0.966431, 0.233333, 1, -0.24805, 0.00538608, 0.00343479, 0.968726, 0.266667, 1, -0.24231, 0.00536565, 0.0034666, 0.970178, 0.3, 1, -0.240325, 0.00535855, 0.00347756, 0.970672, 0.333333, 1, -0.242229, 0.00536536, 0.00346705, 0.970198, 0.366667, 1, -0.247244, 0.00538322, 0.00343926, 0.968932, 0.4, 1, -0.253808, 0.00540641, 0.0034027, 0.967234, 0.433333, 1, -0.261394, 0.00543296, 0.00336017, 0.965211, 0.5, 1, -0.277549, 0.00548855, 0.00326861, 0.96069, 0.533333, 1, -0.28457, 0.0055123, 0.00322839, 0.958634, 0.566667, 1, -0.290038, 0.00553064, 0.00319688, 0.956994, 0.6, 1, -0.29345, 0.00554201, 0.00317714, 0.955953, 0.625, 1, -0.294856, 0.00554667, 0.00316899, 0.95552)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2srw"]
+_data = {
+"Key_001Action": SubResource("Animation_5eqbt"),
+"idle_snail": SubResource("Animation_wtf27")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_orw2j"]
+animation = &"idle_snail"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w862f"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3uxjv"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_87drq"]
+states/idle_snail/node = SubResource("AnimationNodeAnimation_orw2j")
+states/idle_snail/position = Vector2(387, 100)
+transitions = ["Start", "idle_snail", SubResource("AnimationNodeStateMachineTransition_w862f"), "idle_snail", "End", SubResource("AnimationNodeStateMachineTransition_3uxjv")]
 
 [node name="SnailThing" type="CharacterBody3D"]
 collision_layer = 0
@@ -178,13 +254,13 @@ bones/0/rest = Transform3D(1, -1.81899e-12, -2.86117e-06, -2.84651e-06, 0.100843
 bones/0/enabled = true
 bones/0/position = Vector3(-3.51982e-16, -0.629777, -2.29119)
 bones/0/rotation = Quaternion(0.670506, -1.06133e-06, -9.59192e-07, 0.741904)
-bones/0/scale = Vector3(1, 1, 1.00003)
+bones/0/scale = Vector3(1, 1.0583, 1.00064)
 bones/1/name = "Bone.001"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, -1.8807e-06, -7.04843e-07, 1.88063e-06, 0.753614, 0.657317, -7.05036e-07, -0.657317, 0.753614, 5.93535e-15, 2.40378, -3.72529e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(5.93535e-15, 2.40378, -3.72529e-09)
-bones/1/rotation = Quaternion(-0.350989, 5.14668e-11, 1.00422e-06, 0.93638)
+bones/1/rotation = Quaternion(-0.24053, 0.00535928, 0.00347643, 0.970621)
 bones/1/scale = Vector3(1, 1, 1)
 
 [node name="snailmesh" type="MeshInstance3D" parent="Armature/Skeleton3D"]
@@ -203,8 +279,14 @@ surface_material_override/4 = SubResource("StandardMaterial3D_21cvf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16415e-10, 0, -0.356491)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466453, 0.506788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869809, 1.66721)
 shape = SubResource("BoxShape3D_8tycy")
+
+[node name="HitBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.793553, -0.440127)
+shape = SubResource("CapsuleShape3D_sfb1h")
 
 [node name="DetectionRange" type="Area3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
@@ -217,10 +299,24 @@ shape = SubResource("SphereShape3D_35i6e")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.793553, -0.440127)
-shape = SubResource("CapsuleShape3D_sfb1h")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g2srw")
+}
+autoplay = "idle_snail"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g2srw")
+}
+tree_root = SubResource("AnimationNodeStateMachine_87drq")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94767, 0)
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_area_3d_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]

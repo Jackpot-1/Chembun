@@ -380,7 +380,6 @@ font_size = 70
 
 [node name="Keys" parent="ChestBody3D" instance=ExtResource("4_olsd8")]
 transform = Transform3D(7.73269e-08, 0.0756336, 0.117812, 0, 0.117812, -0.0756336, -0.14, 4.17751e-08, 6.50714e-08, -0.965829, -0.072113, -0.102982)
-visible = false
 
 [node name="Cube" parent="ChestBody3D/Keys" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.06581e-14, 0, -1.06581e-14, 1, 0, 0, 0)

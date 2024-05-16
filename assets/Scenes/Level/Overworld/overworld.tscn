@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://assets/Scenes/Level/Overworld/Cloudes.gd" id="4_t8yks"]
 [ext_resource type="PackedScene" uid="uid://bry8mxiawyyc8" path="res://assets/Characters/bun/node/Chembun Prefab.tscn" id="5_ngyef"]
 [ext_resource type="PackedScene" uid="uid://4g6wadcburcy" path="res://assets/Miscellaneous/GUI.tscn" id="6_qim31"]
-[ext_resource type="PackedScene" uid="uid://dbj7ukcbayuna" path="res://assets/Characters/salt_block/node/Salt Enemy Prefab.tscn" id="8_h4v1b"]
+[ext_resource type="PackedScene" uid="uid://d4jublshumnou" path="res://assets/Characters/snail/node/snail dev.tscn" id="9_nm805"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3opxt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -741,10 +741,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.643, 1.36967, 21.5696)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("6_qim31")]
 
-[node name="saltEnemyDev" parent="." instance=ExtResource("8_h4v1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94593, 5.05727, -14.9991)
-axis_lock_angular_x = true
-axis_lock_angular_z = true
+[node name="SnailThing" parent="." instance=ExtResource("9_nm805")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39711, 6.98596, -31.3493)
+
+[node name="SnailThing2" parent="." instance=ExtResource("9_nm805")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9333, 4.51721, -16.9347)
 
 [connection signal="body_entered" from="CaveHole/Area3D" to="." method="_on_Area3D_entered"]
 [connection signal="body_entered" from="portal/PortalGate/portal collision/teleportArea3D" to="." method="_on_teleport_area_3d_body_entered"]

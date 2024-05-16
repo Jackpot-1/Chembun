@@ -30,7 +30,7 @@ func _process(delta):
 			p+=0.1
 			$ChestBody3D/Chest.set("blend_shapes/Key 1", p)
 		$ChestBody3D/Label3D.visible = false
-		$ChestBody3D/Keys.visible = true
+		#$ChestBody3D/Keys.visible = true
 		t+=delta * 0.05
 		$ChestBody3D/Keys.transform = $ChestBody3D/Keys.transform.interpolate_with($ChestBody3D/Marker3D.transform, t)
 		
@@ -74,6 +74,7 @@ func _on_salt_hit_box_area_entered(area):
 func _on_key_area_3d_body_entered(body):
 	if body != Globals.player: return
 	$ChestBody3D/Keys.visible = false
+	print($ChestBody3D/Keys.visible)
 	Globals.hasKey = true
 	Globals.player.key()
 	Globals.dialogueChek["Door"]["Key"] = true

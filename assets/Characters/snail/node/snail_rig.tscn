@@ -194,6 +194,7 @@ tracks/4/keys = PackedFloat32Array(0, 1, 1, 1, 1.00003)
 [sub_resource type="Animation" id="Animation_wtf27"]
 resource_name = "idle_snail"
 length = 0.625
+loop_mode = 1
 tracks/0/type = "scale_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -227,13 +228,13 @@ bones/0/rest = Transform3D(1, -1.81899e-12, -2.86117e-06, -2.84651e-06, 0.100843
 bones/0/enabled = true
 bones/0/position = Vector3(-3.51982e-16, -0.629777, -2.29119)
 bones/0/rotation = Quaternion(0.670506, -1.06133e-06, -9.59192e-07, 0.741904)
-bones/0/scale = Vector3(1, 1, 1.00003)
+bones/0/scale = Vector3(1, 1.00152, 1.00004)
 bones/1/name = "Bone.001"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, -1.8807e-06, -7.04843e-07, 1.88063e-06, 0.753614, 0.657317, -7.05036e-07, -0.657317, 0.753614, 5.93535e-15, 2.40378, -3.72529e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(5.93535e-15, 2.40378, -3.72529e-09)
-bones/1/rotation = Quaternion(-0.294856, 0.00554667, 0.00316899, 0.95552)
+bones/1/rotation = Quaternion(-0.29345, 0.00554201, 0.00317714, 0.955953)
 bones/1/scale = Vector3(1, 1, 1)
 
 [node name="snailmesh" type="MeshInstance3D" parent="Armature/Skeleton3D"]

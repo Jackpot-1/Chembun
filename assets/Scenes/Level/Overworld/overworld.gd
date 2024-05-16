@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if isNear:
+	if isNear and not neverDoThisAgainOrElse:
 		if Input.is_action_just_pressed("jump"):
 			Globals.hasKey = false
 			Globals.player.key()
@@ -28,8 +28,6 @@ func _process(delta):
 			$portal/Label3D.visible = false
 			Globals.gateOpen = true
 			Globals.save()
-			
-			neverDoThisAgainOrElse = true
 			
 
 func _on_Area3D_entered(body):

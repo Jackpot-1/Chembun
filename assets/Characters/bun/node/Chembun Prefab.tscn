@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bry8mxiawyyc8"]
+[gd_scene load_steps=40 format=3 uid="uid://bry8mxiawyyc8"]
 
 [ext_resource type="Script" path="res://assets/Scripts/BunController.gd" id="1_rrqok"]
 [ext_resource type="PackedScene" uid="uid://drwdy1k04ag05" path="res://assets/Camera/camroot.tscn" id="2_pc00b"]
@@ -1274,6 +1274,10 @@ advance_condition = &"IsDoubleJumping"
 advance_mode = 2
 advance_condition = &"IsOnFloor"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ohkk7"]
+advance_mode = 2
+advance_condition = &"IsOnFloor"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kmv6c"]
 states/End/position = Vector2(869.333, 169.333)
 states/Idle/node = SubResource("20")
@@ -1291,7 +1295,7 @@ states/jump_fall/node = SubResource("AnimationNodeAnimation_aj2b6")
 states/jump_fall/position = Vector2(449.997, 430.628)
 states/kungfu-mixamo/node = SubResource("AnimationNodeAnimation_xcvv4")
 states/kungfu-mixamo/position = Vector2(375, 116.295)
-transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw"), "Idle", "kungfu-mixamo", SubResource("AnimationNodeStateMachineTransition_mt7me"), "kungfu-mixamo", "Idle", SubResource("AnimationNodeStateMachineTransition_om658"), "Jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_hokg7"), "Jump", "double jump", SubResource("AnimationNodeStateMachineTransition_yay8v"), "double jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_wk22o"), "jump_fall", "Walk", SubResource("AnimationNodeStateMachineTransition_m8ts8"), "Walk", "jump_fall", SubResource("AnimationNodeStateMachineTransition_w6jfn"), "jump_fall", "double jump", SubResource("AnimationNodeStateMachineTransition_xgihh"), "double jump", "Walk", SubResource("AnimationNodeStateMachineTransition_rddng")]
+transitions = ["Walk", "Run", SubResource("28"), "Run", "Walk", SubResource("31"), "Walk", "Jump", SubResource("42"), "Run", "Jump", SubResource("44"), "Idle", "Walk", SubResource("27"), "Walk", "Idle", SubResource("32"), "Idle", "Jump", SubResource("45"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u47nw"), "Idle", "kungfu-mixamo", SubResource("AnimationNodeStateMachineTransition_mt7me"), "kungfu-mixamo", "Idle", SubResource("AnimationNodeStateMachineTransition_om658"), "Jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_hokg7"), "Jump", "double jump", SubResource("AnimationNodeStateMachineTransition_yay8v"), "double jump", "jump_fall", SubResource("AnimationNodeStateMachineTransition_wk22o"), "jump_fall", "Walk", SubResource("AnimationNodeStateMachineTransition_m8ts8"), "Walk", "jump_fall", SubResource("AnimationNodeStateMachineTransition_w6jfn"), "jump_fall", "double jump", SubResource("AnimationNodeStateMachineTransition_xgihh"), "double jump", "Walk", SubResource("AnimationNodeStateMachineTransition_rddng"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_ohkk7")]
 graph_offset = Vector2(-29.003, 135.628)
 
 [node name="ChemBun" type="CharacterBody3D"]
@@ -1346,28 +1350,28 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(6.6918e-09, 0.818501, 0.180482)
-bones/1/rotation = Quaternion(-0.0875925, -0.079851, -0.00963208, 0.992904)
-bones/2/rotation = Quaternion(-0.107483, 0.1376, 0.0255509, 0.984307)
-bones/3/position = Vector3(-0.458333, 0.559664, -0.164336)
-bones/3/rotation = Quaternion(-0.0417883, -0.364129, 0.861785, 0.350699)
-bones/4/rotation = Quaternion(0.525031, 0.296388, 0.101653, 0.791304)
-bones/6/position = Vector3(0.458333, 0.550874, -0.167619)
-bones/6/rotation = Quaternion(0.0409111, 0.325235, -0.894932, 0.30273)
-bones/7/rotation = Quaternion(0.563119, 0.108074, 0.181157, 0.798999)
-bones/9/position = Vector3(-0.462377, 0.151474, -0.129599)
+bones/0/position = Vector3(-1.28565e-09, 0.670578, 0.180482)
+bones/1/rotation = Quaternion(-0.0749707, -0.00963923, -0.0226076, 0.996883)
+bones/2/rotation = Quaternion(-0.15209, 0.0754084, 0.0268616, 0.98512)
+bones/3/position = Vector3(-0.458367, 0.555884, -0.165748)
+bones/3/rotation = Quaternion(0.0324798, -0.441015, 0.841546, 0.310243)
+bones/4/rotation = Quaternion(0.466102, 0.254099, 0.0798266, 0.843689)
+bones/6/position = Vector3(0.458367, 0.554655, -0.166207)
+bones/6/rotation = Quaternion(0.0448494, 0.160278, -0.935672, 0.311156)
+bones/7/rotation = Quaternion(0.459883, 0.203738, 0.0136628, 0.864183)
+bones/9/position = Vector3(-0.460472, 0.140337, -0.11063)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.348598, 0.255272, -0.120282, 0.893783)
+bones/10/rotation = Quaternion(0.453847, 0.284072, -0.129237, 0.83464)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.2181, 0.0112748, -0.119031, 0.968575)
+bones/12/rotation = Quaternion(0.319379, -0.0096046, -0.0962545, 0.942677)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="chemcloth/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, 6.6918e-09, 0.818501, 0.180482)
+transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -1.28565e-09, 0.670578, 0.180482)
 bone_name = "Spine2"
 bone_idx = 0
 
