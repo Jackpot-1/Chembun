@@ -69,7 +69,7 @@ func _on_hit_box_body_entered(body): #If it touches this then the player will ta
 	if body == Globals.player:
 		Globals.player.hurt(snailDamage)
 		Globals.player.knockback_enter(rotation, data.knockback)
-		snail.queue_free()
+		#snail.queue_free()
 		
 		#Globals.player.hurt(saltDamage)
 		#Globals.player.knockback_enter(rotation, data.knockback)
@@ -99,5 +99,5 @@ func _on_detection_range_body_exited(body):
 
 func _on_hit_box_area_entered(area):
 	if area.name != "splashRadius": return
-	if area.get_parent().Name == "Water":
-		self.queue_free()
+	#if area.get_parent().Name == "Water":
+		#self.queue_free()

@@ -13,7 +13,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xaddr"]
 radius = 0.434581
 
-[sub_resource type="Animation" id="Animation_7t5ex"]
+[sub_resource type="Animation" id="Animation_uyfh5"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -206,7 +206,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_x3s8o"]
+[sub_resource type="Animation" id="Animation_qx41b"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -400,7 +400,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_5ro26"]
+[sub_resource type="Animation" id="Animation_6g23p"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -594,7 +594,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_1nijh"]
+[sub_resource type="Animation" id="Animation_40sai"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -787,7 +787,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_sktei"]
+[sub_resource type="Animation" id="Animation_2swgf"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -980,7 +980,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_x8l8x"]
+[sub_resource type="Animation" id="Animation_yw5ll"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1174,14 +1174,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0i2s"]
 _data = {
-"Idle": SubResource("Animation_x3s8o"),
-"double jump": SubResource("Animation_7t5ex"),
-"jump_fall": SubResource("Animation_5ro26"),
-"jump_start": SubResource("Animation_1nijh"),
-"knockback": SubResource("Animation_sktei"),
-"run": SubResource("Animation_x8l8x")
+"Idle": SubResource("Animation_qx41b"),
+"double jump": SubResource("Animation_uyfh5"),
+"jump_fall": SubResource("Animation_6g23p"),
+"jump_start": SubResource("Animation_40sai"),
+"knockback": SubResource("Animation_2swgf"),
+"run": SubResource("Animation_yw5ll")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1318,7 +1318,7 @@ shape = SubResource("CapsuleShape3D_xaddr")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_60da5")
+"": SubResource("AnimationLibrary_r0i2s")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1359,30 +1359,30 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-1.29026e-09, 0.670654, 0.180482)
+bones/0/position = Vector3(-1.36655e-09, 0.671907, 0.180482)
 bones/0/rotation = Quaternion(0.12876, 1.18217e-07, 1.53493e-08, 0.991676)
-bones/1/rotation = Quaternion(-0.0749772, -0.0096751, -0.022601, 0.996882)
-bones/2/rotation = Quaternion(-0.152068, 0.0754403, 0.026861, 0.985121)
-bones/3/position = Vector3(-0.458367, 0.555885, -0.165747)
-bones/3/rotation = Quaternion(0.0324421, -0.440978, 0.84156, 0.310264)
-bones/4/rotation = Quaternion(0.466133, 0.254121, 0.0798379, 0.843664)
+bones/1/rotation = Quaternion(-0.0750856, -0.0102692, -0.0224917, 0.996871)
+bones/2/rotation = Quaternion(-0.151694, 0.0759681, 0.0268506, 0.985138)
+bones/3/position = Vector3(-0.458367, 0.555901, -0.165741)
+bones/3/rotation = Quaternion(0.0318171, -0.440353, 0.841778, 0.310623)
+bones/4/rotation = Quaternion(0.466647, 0.254487, 0.0800252, 0.843251)
 bones/5/rotation = Quaternion(-5.26072e-09, 2.30853e-08, 0.0379971, 0.999278)
-bones/6/position = Vector3(0.458367, 0.554654, -0.166207)
-bones/6/rotation = Quaternion(0.0448477, 0.160363, -0.935658, 0.311154)
-bones/7/rotation = Quaternion(0.459941, 0.203692, 0.0137474, 0.864161)
+bones/6/position = Vector3(0.458367, 0.554637, -0.166213)
+bones/6/rotation = Quaternion(0.04482, 0.161768, -0.935429, 0.31112)
+bones/7/rotation = Quaternion(0.460902, 0.202937, 0.0151489, 0.863803)
 bones/8/rotation = Quaternion(-6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
-bones/9/position = Vector3(-0.460473, 0.140342, -0.11064)
+bones/9/position = Vector3(-0.460489, 0.140437, -0.110801)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.453796, 0.284058, -0.129233, 0.834673)
+bones/10/rotation = Quaternion(0.452937, 0.283834, -0.129166, 0.835226)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.319328, -0.00959399, -0.0962664, 0.942693)
+bones/12/rotation = Quaternion(0.318489, -0.00941818, -0.0964635, 0.942959)
 bones/13/position = Vector3(0, -0.655099, 0)
 bones/14/position = Vector3(0, -0.655099, 0)
 bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="chemcloth/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -1.29026e-09, 0.670654, 0.180482)
+transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -1.36655e-09, 0.671907, 0.180482)
 bone_name = "Spine2"
 bone_idx = 0
 

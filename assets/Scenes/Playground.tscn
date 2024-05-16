@@ -23,7 +23,7 @@ sdfgi_enabled = true
 adjustment_enabled = true
 adjustment_saturation = 1.15
 
-[sub_resource type="Animation" id="Animation_7t5ex"]
+[sub_resource type="Animation" id="Animation_uyfh5"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -216,7 +216,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_x3s8o"]
+[sub_resource type="Animation" id="Animation_qx41b"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -410,7 +410,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_5ro26"]
+[sub_resource type="Animation" id="Animation_6g23p"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -604,7 +604,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_1nijh"]
+[sub_resource type="Animation" id="Animation_40sai"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -797,7 +797,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_sktei"]
+[sub_resource type="Animation" id="Animation_2swgf"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -990,7 +990,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_x8l8x"]
+[sub_resource type="Animation" id="Animation_yw5ll"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1184,14 +1184,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0i2s"]
 _data = {
-"Idle": SubResource("Animation_x3s8o"),
-"double jump": SubResource("Animation_7t5ex"),
-"jump_fall": SubResource("Animation_5ro26"),
-"jump_start": SubResource("Animation_1nijh"),
-"knockback": SubResource("Animation_sktei"),
-"run": SubResource("Animation_x8l8x")
+"Idle": SubResource("Animation_qx41b"),
+"double jump": SubResource("Animation_uyfh5"),
+"jump_fall": SubResource("Animation_6g23p"),
+"jump_start": SubResource("Animation_40sai"),
+"knockback": SubResource("Animation_2swgf"),
+"run": SubResource("Animation_yw5ll")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b0ysw"]
@@ -1219,7 +1219,7 @@ metadata/health = 10
 
 [node name="AnimationTree" parent="ChemBun" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_60da5")
+"": SubResource("AnimationLibrary_r0i2s")
 }
 
 [node name="Skeleton3D" parent="ChemBun/chemcloth/Armature" index="0"]
