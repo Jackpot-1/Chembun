@@ -116,8 +116,8 @@ func _on_detection_range_body_exited(body):
 
 func _on_hit_box_area_entered(area):
 	if area.name != "explosion": return
-	print(area.get_parent().name)
-	if area.get_parent().name == "Mercury(II) Fulminate":
+	print(area.get_parent().Name)
+	if area.get_parent().Name == "Mercury(II) Fulminate":
 		self.queue_free()
 		
 

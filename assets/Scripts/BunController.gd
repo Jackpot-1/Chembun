@@ -334,7 +334,7 @@ func hurt(damage_taken):
 	if health <= 0:
 		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://assets/Scenes/Screens/DeathScreen.tscn")
-	else:
+	elif damage_taken > 0:
 		for i in range(damage_taken):
 			old_health -= 1
 			carror_dir[old_health].visible = false
