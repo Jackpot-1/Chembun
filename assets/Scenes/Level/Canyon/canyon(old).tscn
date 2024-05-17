@@ -954,7 +954,13 @@ autoplay = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -136.283, 49.2444, -11.6146)
 
 [node name="golum" parent="." instance=ExtResource("9_upfwt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5262, 36.5618, -39.3147)
+transform = Transform3D(0.896687, 0, 0.442664, 0, 1, 0, -0.442664, 0, 0.896687, -15.5262, 36.5618, -39.3147)
+
+[node name="golum2" parent="." instance=ExtResource("9_upfwt")]
+transform = Transform3D(0.886163, 0, 0.463373, 0, 1, 0, -0.463373, 0, 0.886163, -15.5262, 36.0509, -50.2254)
+
+[node name="golum3" parent="." instance=ExtResource("9_upfwt")]
+transform = Transform3D(0.836143, 0, -0.548512, 0, 1, 0, 0.548512, 0, 0.836143, -6.18729, 36.4509, -32.0217)
 
 [connection signal="area_entered" from="Canyon Mesh/Asteroid/asteroidHitBox" to="." method="_on_asteroid_hitbox_area_entered"]
 [connection signal="body_entered" from="Sign/ChemboxTxTArea3D" to="." method="_on_chembox_tx_t_area_3d_body_entered"]

@@ -19,4 +19,4 @@ keep_aspect = 0
 fov = 70.0
 
 [node name="Marker3D" type="Marker3D" parent="h/v/Camera3D"]
-transform = Transform3D(-1, -1.0395e-08, 1.48881e-07, 1.45794e-08, 0.985996, 0.166769, -1.4853e-07, 0.166769, -0.985996, -0.500001, 0.196821, -4.32076)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500001, 0.196821, -4.32076)

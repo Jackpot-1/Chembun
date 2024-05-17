@@ -483,7 +483,6 @@ shape = SubResource("SphereShape3D_morot")
 disabled = true
 
 [node name="explosion" type="Area3D" parent="."]
-visible = false
 
 [node name="Cube" type="MeshInstance3D" parent="explosion"]
 transform = Transform3D(3.05538, 0, 0, 0, 3.05538, 0, 0, 0, 3.05538, 0, 0, 0)

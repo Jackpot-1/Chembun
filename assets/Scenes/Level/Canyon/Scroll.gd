@@ -29,5 +29,6 @@ func _on_area_3d_body_entered(body):
 	$"../Scroll2d".visible = true
 	await get_tree().create_timer(10).timeout
 	Globals.reset_data()
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://assets/Scenes/Screens/StartingScreen.tscn")
 	

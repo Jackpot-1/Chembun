@@ -3,13 +3,13 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 
 var doubleLevelCheck = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
+	pass
 
 
 func _on_home_button_up():

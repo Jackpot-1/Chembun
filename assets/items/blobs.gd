@@ -30,10 +30,11 @@ func _on_blob_body_entered(body):
 		$splashRadius/GloopPart.visible = true
 		$splashRadius/gloop.set_deferred("disabled", false)
 	else:
-		$explosion.visible = true
+		
 		$"ExplosionSFX".play()
 		$AnimationTree.get("parameters/playback").travel("explosion")
 		$explosion/CollisionShape3D.set_deferred("disabled", false)
+		$explosion.visible = true
 	#if $blob/Cube.visible:
 		#$blob/Cube.visible = false
 		#$blob/Cube.free()
