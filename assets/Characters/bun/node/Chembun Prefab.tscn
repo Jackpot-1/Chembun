@@ -13,7 +13,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xaddr"]
 radius = 0.434581
 
-[sub_resource type="Animation" id="Animation_uyfh5"]
+[sub_resource type="Animation" id="Animation_7t5ex"]
 resource_name = "double jump"
 length = 1.16667
 tracks/0/type = "position_3d"
@@ -206,7 +206,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_qx41b"]
+[sub_resource type="Animation" id="Animation_x3s8o"]
 resource_name = "Idle"
 length = 0.416667
 loop_mode = 1
@@ -400,7 +400,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_6g23p"]
+[sub_resource type="Animation" id="Animation_5ro26"]
 resource_name = "jump_fall"
 length = 0.791667
 loop_mode = 1
@@ -594,7 +594,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_40sai"]
+[sub_resource type="Animation" id="Animation_1nijh"]
 resource_name = "jump_start"
 length = 0.208333
 tracks/0/type = "position_3d"
@@ -787,7 +787,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="Animation" id="Animation_2swgf"]
+[sub_resource type="Animation" id="Animation_sktei"]
 resource_name = "knockback"
 length = 2.5
 tracks/0/type = "position_3d"
@@ -980,7 +980,7 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_yw5ll"]
+[sub_resource type="Animation" id="Animation_x8l8x"]
 resource_name = "run"
 length = 0.833333
 loop_mode = 1
@@ -1174,14 +1174,14 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0i2s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60da5"]
 _data = {
-"Idle": SubResource("Animation_qx41b"),
-"double jump": SubResource("Animation_uyfh5"),
-"jump_fall": SubResource("Animation_6g23p"),
-"jump_start": SubResource("Animation_40sai"),
-"knockback": SubResource("Animation_2swgf"),
-"run": SubResource("Animation_yw5ll")
+"Idle": SubResource("Animation_x3s8o"),
+"double jump": SubResource("Animation_7t5ex"),
+"jump_fall": SubResource("Animation_5ro26"),
+"jump_start": SubResource("Animation_1nijh"),
+"knockback": SubResource("Animation_sktei"),
+"run": SubResource("Animation_x8l8x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="20"]
@@ -1318,7 +1318,7 @@ shape = SubResource("CapsuleShape3D_xaddr")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../chemcloth")
 libraries = {
-"": SubResource("AnimationLibrary_r0i2s")
+"": SubResource("AnimationLibrary_60da5")
 }
 tree_root = SubResource("AnimationNodeStateMachine_kmv6c")
 anim_player = NodePath("../chemcloth/AnimationPlayer")
@@ -1377,12 +1377,9 @@ bones/10/rotation = Quaternion(0.452937, 0.283834, -0.129166, 0.835226)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
 bones/12/rotation = Quaternion(0.318489, -0.00941818, -0.0964635, 0.942959)
-bones/13/position = Vector3(0, -0.655099, 0)
-bones/14/position = Vector3(0, -0.655099, 0)
-bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="chemcloth/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -1.36655e-09, 0.671907, 0.180482)
+transform = Transform3D(1, 1.77636e-13, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -1.36655e-09, 0.671907, 0.180482)
 bone_name = "Spine2"
 bone_idx = 0
 

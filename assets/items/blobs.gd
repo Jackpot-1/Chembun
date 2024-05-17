@@ -7,7 +7,10 @@ var color: Color
 
 func _physics_process(delta):
 	if Globals.blobFired == false or $".".gravity_scale != 0: return
-	else: $".".gravity_scale = 1.262
+	else:
+		$".".gravity_scale = 1.262
+		$blob/Icosphere_001/AnimationTree.get("parameters/playback").travel("spin")
+	
 
 func _ready():
 	$splashRadius/GloopPart.visible = false
@@ -57,7 +60,8 @@ func _on_blob_body_entered(body):
 		$".".queue_free()
 
 func changeColor():
-	$blob/Cube.get_surface_override_material(0).albedo_color = color
+	#$blob/Cube.get_surface_override_material(0).albedo_color = color
+	$blob/Icosphere_001.get_surface_override_material(1).albedo_color = color
 	$splashRadius/GloopPart.get_surface_override_material(0).albedo_color = color
 	$splashRadius/GloopPart.get_surface_override_material(1).albedo_color = color
 	$splashRadius/GloopPart.get_surface_override_material(2).albedo_color = color

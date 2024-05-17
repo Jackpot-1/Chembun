@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b4egrk33y627r"]
+[gd_scene load_steps=44 format=3 uid="uid://b4egrk33y627r"]
 
 [ext_resource type="Script" path="res://assets/items/blobs.gd" id="1_nkstj"]
 [ext_resource type="AudioStream" uid="uid://cd3065imwwhio" path="res://assets/SFX/Splash.wav" id="2_81vh2"]
@@ -235,6 +235,33 @@ blend_mode = 1
 cull_mode = 1
 albedo_color = Color(0.67451, 1, 1, 1)
 
+[sub_resource type="Animation" id="Animation_bixur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_vol4w"]
 resource_name = "spin"
 loop_mode = 1
@@ -263,41 +290,24 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-6.28319, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_bixur"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0o0hj"]
 _data = {
 "RESET": SubResource("Animation_bixur"),
 "spin": SubResource("Animation_vol4w")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yn0cf"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4ya1"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fyolg"]
+states/spin/node = SubResource("AnimationNodeAnimation_yn0cf")
+states/spin/position = Vector2(365.333, 98.8889)
+transitions = ["Start", "spin", SubResource("AnimationNodeStateMachineTransition_o4ya1")]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_3yffv"]
-radius = 0.131011
+radius = 0.758083
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hurtj"]
 resource_name = "Material"
@@ -414,7 +424,7 @@ freeze_mode = 1
 script = ExtResource("1_nkstj")
 
 [node name="splashRadius" type="Area3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.519094, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.521135, 0)
 
 [node name="gloop" type="CollisionShape3D" parent="splashRadius"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.0265229, -0.0166016)
@@ -448,10 +458,16 @@ libraries = {
 }
 autoplay = "spin"
 
+[node name="AnimationTree" type="AnimationTree" parent="blob/Icosphere_001"]
+libraries = {
+"": SubResource("AnimationLibrary_0o0hj")
+}
+tree_root = SubResource("AnimationNodeStateMachine_fyolg")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="Skeleton3D" type="Skeleton3D" parent="blob/Icosphere_001"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="blob"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.613, 0)
 shape = SubResource("SphereShape3D_3yffv")
 
 [node name="Cube" type="MeshInstance3D" parent="blob"]
