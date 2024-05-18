@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbbukwx72poyn"]
+[gd_scene load_steps=7 format=3 uid="uid://cbbukwx72poyn"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Screens/MainMenuScreen.gd" id="1_7r1pe"]
 [ext_resource type="Texture2D" uid="uid://cm5vw28hwttuq" path="res://appIcons/menubackground.png" id="2_elof5"]
 [ext_resource type="Texture2D" uid="uid://jnncprsjh8fp" path="res://appIcons/menubuttons.png" id="3_8t60r"]
 [ext_resource type="AudioStream" uid="uid://cmtgoyedsbdtk" path="res://assets/SFX/Menu_Click.wav" id="4_utgkp"]
 [ext_resource type="AudioStream" uid="uid://bpv1w1rf0coc0" path="res://assets/SFX/Menu_Hover.wav" id="5_14gfw"]
+[ext_resource type="FontFile" uid="uid://qcokiesg0mbc" path="res://fonts/Chembun/TitanOne-Regular.ttf" id="6_a2dix"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -75,6 +76,21 @@ pitch_scale = 0.6
 [node name="MenuHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_14gfw")
 pitch_scale = 0.75
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 616.0
+offset_top = 483.0
+offset_right = 1176.0
+offset_bottom = 634.0
+theme_override_colors/font_color = Color(0.294118, 0.294118, 0.294118, 1)
+theme_override_fonts/font = ExtResource("6_a2dix")
+text = "+/- for zoom
+wasd to move
+\"shift\" to sprint
+\"escape\" to pause
+\"alt\" for element wheel
+\"shift\" + \"=\" to skip intro cutscene
+\"settings\" button on main menu to reset save data"
 
 [connection signal="mouse_entered" from="TextureRect/TextureRect/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="TextureRect/TextureRect/StartButton" to="." method="_on_start_button_pressed"]

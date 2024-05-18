@@ -19,6 +19,7 @@ func _ready():
 func _process(delta):
 	if isNear and not neverDoThisAgainOrElse:
 		if Input.is_action_just_pressed("jump"):
+			neverDoThisAgainOrElse = true
 			Globals.hasKey = false
 			Globals.player.key()
 			print("Testing stuff")
@@ -40,7 +41,6 @@ func _on_Area3D_entered(body):
 	get_tree().change_scene_to_file("res://assets/Scenes/Level/Cave/cave.tscn")
 
 func _on_portal_area_3d_body_entered(body):
-	print("Entered")
 	if neverDoThisAgainOrElse: return
 	if not Globals.hasKey and body == Globals.player:
 		Globals.GUI.dialogue("Door", "I need something to open this", true, "still need that key huh..", "This should fit!", 5)
@@ -67,8 +67,9 @@ func _on_teleport_area_3d_body_entered(body):
 # v TxT Area v
 
 func _on_house_tx_t_area_3d_body_entered(body):
-	if body == Globals.player and not TxTCheckHouse:
+	if body == Globals.player and not Globals.dialogueChek["ChemHouseExit"]["Finished"]:
 		Globals.GUI.dialogue("ChemHouseExit", "I better go to the cave like that mysterious fella was telling me", false, "", "", 6)
+		Globals.dialogueChek["ChemHouseExit"]["Finished"] = true
 		TxTCheckHouse = true
 
 
@@ -77,9 +78,11 @@ func _on_ost_overworld_finished():
 
 
 func _on_cave_hole_tx_t_area_3d_body_entered(body):
-	if body == Globals.player and not TxTCHeckCaveHole:
+	if body == Globals.player and not Globals.dialogueChek["CaveEnter"]["Finished"]:
+		print(TxTCHeckCaveHole)
 		Globals.GUI.dialogue("CaveHole", "Hmm, where does this hole lead?", false, "", "", 4)
 		TxTCHeckCaveHole = true
+		Globals.dialogueChek["CaveEnter"]["Finished"] = true
 
 
 func _on_audio_stream_player_3d_finished():
