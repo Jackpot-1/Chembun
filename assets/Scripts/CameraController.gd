@@ -42,18 +42,19 @@ func _joystick_input():
 			
 func zoom_set():
 	#if zoom <= 0: return
-	setMarkerPos = false
-	markerPosition = $h/v/Camera3D/Marker3D.global_transform
+	#setMarkerPos = false
+	#markerPosition = $h/v/Camera3D/Marker3D.global_transform
 	#$h/v/Camera3D/Marker3D.top_level = true
 	#print($h/v/Camera3D/Marker3D.global_position, " before " + self.name)
 	
 	$h.position.y = Globals.zoomer/3
-	
-	#$h/v.scale = Vector3(zoom+1, zoom+1, zoom+1)
 	$h/v.spring_length = -Globals.zoomer - 3
 	
+	#$h/v/Camera3D/SpringArm3D.spring_length = -Globals.zoomer - 3
+	#$h/v/Camera3D/SpringArm3D.position.y = -Globals.zoomer/3
+	
 	#$h/v/Camera3D/Marker3D.position.y = Globals.zoomer/3
-	$h/v/Camera3D/Marker3D.global_transform = markerPosition
+	#$h/v/Camera3D/Marker3D.global_transform = markerPosition
 	#$h/v/Camera3D/Marker3D.top_level = false
 	#print(markerPosition, " LOOK AT ME ", self.name)
 	#if markerPosition != $h/v/Camera3D/Marker3D.global_position:
@@ -64,6 +65,7 @@ func _physics_process(delta):
 	#if setMarkerPos:
 		#markerPosition = $h/v/Camera3D/Marker3D.global_position
 		#print(markerPosition, self.name)
+	#$h/Marker3D.set_rotation($h/v/Camera3D.get_rotation())
 	# JoyPad Controls
 	_joystick_input()
 		

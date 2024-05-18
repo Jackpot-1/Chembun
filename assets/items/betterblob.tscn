@@ -307,7 +307,7 @@ states/spin/position = Vector2(365.333, 98.8889)
 transitions = ["Start", "spin", SubResource("AnimationNodeStateMachineTransition_o4ya1")]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3yffv"]
-radius = 0.758083
+radius = 0.11262
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hurtj"]
 resource_name = "Material"
@@ -424,7 +424,7 @@ freeze_mode = 1
 script = ExtResource("1_nkstj")
 
 [node name="splashRadius" type="Area3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.521135, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.1307, 0)
 
 [node name="gloop" type="CollisionShape3D" parent="splashRadius"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00762939, 0.0265229, -0.0166016)
@@ -483,6 +483,7 @@ shape = SubResource("SphereShape3D_morot")
 disabled = true
 
 [node name="explosion" type="Area3D" parent="."]
+visible = false
 
 [node name="Cube" type="MeshInstance3D" parent="explosion"]
 transform = Transform3D(3.05538, 0, 0, 0, 3.05538, 0, 0, 0, 3.05538, 0, 0, 0)

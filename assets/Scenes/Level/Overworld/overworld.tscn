@@ -603,7 +603,7 @@ script = ExtResource("1_1fkfe")
 environment = SubResource("Environment_0rw27")
 
 [node name="Chemhouse" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.34677, -0.0237873, -1.63261, -0.0340905, 2.11627, -0.00271244, 1.63243, 0.0245701, -1.34697, 16.6902, 1.0757, 25.2524)
+transform = Transform3D(-1.34677, -0.0237872, -1.63261, -0.0340905, 2.11627, -0.00271235, 1.63243, 0.02457, -1.34697, 16.6902, 1.0757, 25.2524)
 layers = 3
 mesh = SubResource("ArrayMesh_pd4ec")
 skeleton = NodePath("")

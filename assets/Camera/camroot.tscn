@@ -16,6 +16,3 @@ spring_length = -3.0
 transform = Transform3D(-1, 1.45794e-08, -8.61985e-08, 0, 0.985996, 0.166769, 8.74228e-08, 0.166769, -0.985996, 0, 0, 0)
 keep_aspect = 0
 fov = 100.0
-
-[node name="Marker3D" type="Marker3D" parent="h/v/Camera3D"]
-transform = Transform3D(-1, -1.0395e-08, 1.48881e-07, 1.45794e-08, 0.985996, 0.166769, -1.4853e-07, 0.166769, -0.985996, -0.5, 6.93615, -9.05154)

@@ -8,7 +8,7 @@ var color: Color
 func _physics_process(delta):
 	if Globals.blobFired == false or $".".gravity_scale != 0: return
 	else:
-		$".".gravity_scale = 1.262
+		$".".gravity_scale = 1.2
 		$blob/Icosphere_001/AnimationTree.get("parameters/playback").travel("spin")
 	
 
@@ -20,13 +20,15 @@ func _ready():
 func _on_blob_body_entered(body):
 	if Globals.blobReady: return
 	if body == Globals.player: return
+	self.rotation = Vector3.ZERO
 	#$".".gravity_scale = 0
 	#$".".linear_velocity = Vector3(0, 0, 0)
 	#print(self.name)
 	#if body is CSGBox3D:
 	#Globals.blobFired = false
-	$"Splash".play()
+	
 	if Name != "Mercury(II) Fulminate":
+		$"Splash".play()
 		$splashRadius/GloopPart.visible = true
 		$splashRadius/gloop.set_deferred("disabled", false)
 	else:

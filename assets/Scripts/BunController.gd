@@ -243,7 +243,7 @@ func _physics_process(delta):
 			blobInstance.Name = Globals.currItem
 			blobInstance.color = Globals.color
 			$chemcloth.add_child(blobInstance)
-			blobInstance.position = Vector3(0, 1, 1)
+			blobInstance.position = Vector3(-0.4, 1, 1)
 			Globals.blobReady = true
 	
 	# Movment mechanics with limitations during rolls/attacks
@@ -287,8 +287,17 @@ func attack1():
 			if tankMode == true && Globals.blobReady == true:
 				#blobInstance.velocity = Vector3(1, 0, 1)
 				if is_instance_valid(blobInstance):
-					blobInstance.global_position = $CamRightTank/h/v/Camera3D/Marker3D.global_position
-					blobInstance.linear_velocity = Vector3(0,1,8).rotated(Vector3.UP, $chemcloth.rotation.y)
+					blobInstance.global_rotation = $CamRightTank/h/v/Camera3D.global_rotation
+					#blobInstance.linear_velocity = -blobInstance.transform.basis.z.normalized() * 10
+					blobInstance.apply_central_impulse(blobInstance.global_transform.basis.z * 10 * -1) # bro this line of code took like 10 hours
+					#blobInstance.position += Vector3(0.5, 0, 3)
+					#blobInstance.position.y *= -1
+					#$Camroot/h/Marker3D.global_position = blobInstance.global_position
+					#blobInstance.set_linear_velocity(Vector3(0,1,8).rotated(Vector3.UP, $chemcloth.rotation.y))
+					#blobInstance.set_linear_velocity((Vector3(0,1,8).rotated(Vector3.UP, $chemcloth.rotation.y)).rotated(Vector3.RIGHT, $CamRightTank/h/v/Camera3D.global_rotation.z))
+					#blobInstance.apply_impulse(Vector3(0,1,8).rotated(Vector3.UP, $CamRightTank/h/v.global_rotation.z))
+					#blobInstance.apply_central_impulse(-blobInstance.transform.basis.z * 10)
+					#blobInstance.linear_velocity = Vector3(0, 2, 8).rotated(Vector3.UP, $chemcloth.rotation.y) * blobInstance.transform.basis.y
 					blobInstance.reparent($".".get_parent())
 					Globals.blobReady = false
 					Globals.blobFired = true
