@@ -78,6 +78,7 @@ stream = ExtResource("5_14gfw")
 pitch_scale = 0.75
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 616.0
 offset_top = 483.0
 offset_right = 1176.0

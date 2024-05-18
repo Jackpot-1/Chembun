@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqay5pgp6mh1g"
 path.s3tc="res://.godot/imported/chembun crib_textSelectMusic.png-301b3524d5e4c329b9aa5b5aeaee67ad.s3tc.ctex"
+path.etc2="res://.godot/imported/chembun crib_textSelectMusic.png-301b3524d5e4c329b9aa5b5aeaee67ad.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/Scenes/chem crib/Room/Room Textures/chembun crib_textSelectMusic.png"
-dest_files=["res://.godot/imported/chembun crib_textSelectMusic.png-301b3524d5e4c329b9aa5b5aeaee67ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/chembun crib_textSelectMusic.png-301b3524d5e4c329b9aa5b5aeaee67ad.s3tc.ctex", "res://.godot/imported/chembun crib_textSelectMusic.png-301b3524d5e4c329b9aa5b5aeaee67ad.etc2.ctex"]
 
 [params]
 

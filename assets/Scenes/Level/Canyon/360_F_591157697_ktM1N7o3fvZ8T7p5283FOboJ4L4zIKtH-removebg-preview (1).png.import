@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5715aqc250ly"
 path.s3tc="res://.godot/imported/360_F_591157697_ktM1N7o3fvZ8T7p5283FOboJ4L4zIKtH-removebg-preview (1).png-d1a0053f70eab09a4c7f386540260a10.s3tc.ctex"
+path.etc2="res://.godot/imported/360_F_591157697_ktM1N7o3fvZ8T7p5283FOboJ4L4zIKtH-removebg-preview (1).png-d1a0053f70eab09a4c7f386540260a10.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Scenes/Level/Canyon/360_F_591157697_ktM1N7o3fvZ8T7p5283FOboJ4L4zIKtH-removebg-preview (1).png"
-dest_files=["res://.godot/imported/360_F_591157697_ktM1N7o3fvZ8T7p5283FOboJ4L4zIKtH-removebg-preview (1).png-d1a0053f70eab09a4c7f386540260a10.s3tc.ctex"]
+dest_files=["res://.godot/imported/360_F_591157697_ktM1N7o3fvZ8T7p5283FOboJ4L4zIKtH-removebg-preview (1).png-d1a0053f70eab09a4c7f386540260a10.s3tc.ctex", "res://.godot/imported/360_F_591157697_ktM1N7o3fvZ8T7p5283FOboJ4L4zIKtH-removebg-preview (1).png-d1a0053f70eab09a4c7f386540260a10.etc2.ctex"]
 
 [params]
 

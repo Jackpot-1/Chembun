@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4gif5bs3fkbr"
 path.s3tc="res://.godot/imported/overworld_thumbnail_9fe6019e1ab4252e2c261cf17f8468865f098dbb.jpg-c87a58af46131a1e72a86fb9d232759e.s3tc.ctex"
+path.etc2="res://.godot/imported/overworld_thumbnail_9fe6019e1ab4252e2c261cf17f8468865f098dbb.jpg-c87a58af46131a1e72a86fb9d232759e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/Scenes/Level/Overworld/overworld_thumbnail_9fe6019e1ab4252e2c261cf17f8468865f098dbb.jpg"
-dest_files=["res://.godot/imported/overworld_thumbnail_9fe6019e1ab4252e2c261cf17f8468865f098dbb.jpg-c87a58af46131a1e72a86fb9d232759e.s3tc.ctex"]
+dest_files=["res://.godot/imported/overworld_thumbnail_9fe6019e1ab4252e2c261cf17f8468865f098dbb.jpg-c87a58af46131a1e72a86fb9d232759e.s3tc.ctex", "res://.godot/imported/overworld_thumbnail_9fe6019e1ab4252e2c261cf17f8468865f098dbb.jpg-c87a58af46131a1e72a86fb9d232759e.etc2.ctex"]
 
 [params]
 

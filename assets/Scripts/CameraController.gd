@@ -70,10 +70,6 @@ func zoom_set():
 	#setMarkerPos = true
 	
 func _physics_process(delta):
-	#if setMarkerPos:
-		#markerPosition = $h/v/Camera3D/Marker3D.global_position
-		#print(markerPosition, self.name)
-	#$h/Marker3D.set_rotation($h/v/Camera3D.get_rotation())
 	# JoyPad Controls
 	_joystick_input()
 		

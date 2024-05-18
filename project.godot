@@ -13,11 +13,12 @@ config_version=5
 config/name="Chembun"
 run/main_scene="res://assets/Scenes/Screens/StartingScreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://appIcons/chembunicon180x180.png"
+config/windows_native_icon="res://appIcons/chembunicon.ico"
 
 [autoload]
 
-GGS="*res://addons/ggs/classes/global/ggs.tscn"
+GGS="res://addons/ggs/classes/global/ggs.tscn"
 Globals="*res://assets/Scripts/autoloads/Globals.gd"
 
 [display]
@@ -164,4 +165,5 @@ skip={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
