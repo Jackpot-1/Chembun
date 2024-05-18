@@ -17,6 +17,7 @@ var v_acceleration = 10
 var joyview = Vector2()
 var markerPosition
 var setMarkerPos = true
+var t = 0.0 # for zoom lerp
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -47,8 +48,15 @@ func zoom_set():
 	#$h/v/Camera3D/Marker3D.top_level = true
 	#print($h/v/Camera3D/Marker3D.global_position, " before " + self.name)
 	
-	$h.position.y = Globals.zoomer/3
-	$h/v.spring_length = -Globals.zoomer - 3
+	t = 0.0
+	while t < 1.0:
+		await get_tree().create_timer(0.0001).timeout
+		$h.position.y = lerp(float($h.position.y), float(Globals.zoomer/3), t)
+		#$h.position.y = Globals.zoomer/3
+		$h/v.spring_length = lerp(float($h/v.spring_length), float(-Globals.zoomer - 3), t)
+		#$h/v.spring_length = -Globals.zoomer - 3
+		t += get_process_delta_time() * 0.5
+	
 	
 	#$h/v/Camera3D/SpringArm3D.spring_length = -Globals.zoomer - 3
 	#$h/v/Camera3D/SpringArm3D.position.y = -Globals.zoomer/3
