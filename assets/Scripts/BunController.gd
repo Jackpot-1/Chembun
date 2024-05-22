@@ -35,6 +35,7 @@ var pb_node
 ##Combat Throwing Stuff
 var tankMode = false
 const blobPreload = preload("res://assets/items/Betterblob.tscn")
+#@onready var blobPreload = load("res://assets/items/Betterblob.tscn")
 var blobInstance
 var blob
 var aimIsPressed = false
@@ -239,7 +240,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("aim"):
 		if aimIsPressed and not Globals.blobFired and not Globals.blobReady and Globals.currItem != "":
 			direction = $Camroot/h.global_transform.basis.z
+			#print(blobPreload.can_instantiate())
 			blobInstance = blobPreload.instantiate()
+			#blobInstance = load("res://assets/items/Betterblob.tscn").instantiate()
 			blobInstance.Name = Globals.currItem
 			blobInstance.color = Globals.color
 			$chemcloth.add_child(blobInstance)

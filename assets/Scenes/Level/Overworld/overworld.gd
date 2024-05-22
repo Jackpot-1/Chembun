@@ -8,7 +8,7 @@ var n = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#Globals.player.position = Globals.position
+	Globals.player.position = Globals.position
 	if Globals.gateOpen:
 		$portal/PortalGate.set("blend_shapes/UNLOCK", 1)
 		$"portal/PortalGate/portal collision/StaticBody3D/CollisionShape3D".disabled = true
