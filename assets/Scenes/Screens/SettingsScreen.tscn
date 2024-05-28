@@ -62,8 +62,10 @@ offset_right = 291.0
 offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
 [node name="General" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/General"]
@@ -224,7 +226,6 @@ theme_override_font_sizes/font_size = 30
 text = "Exit the game"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls"]
