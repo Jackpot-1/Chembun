@@ -476,6 +476,7 @@ texture_pressed = ExtResource("15_164y8")
 texture_focused = ExtResource("16_vf6mh")
 
 [node name="CreditsScreen" parent="." instance=ExtResource("17_lm4cm")]
+visible = false
 layout_mode = 1
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
