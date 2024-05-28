@@ -78,7 +78,7 @@ func _process(delta):
 	path5 = $Quarter/Path2D/PathFollow2D5.get_progress_ratio()
 	
 	# I'm sorry
-	if path1 <= 0.21 and path1 >= 0.19 or path1 <= 0.41 and path1 >= 0.39 or path1 <= 0.61 and path1 >= 0.59 or path1 <= 0.81 and path1 >= 0.79 or path1 <= 0.1 and path1 >= 0.99 or path1 == 1 or path1 == 0:
+	if is_equal_approx(path1, 0.2) or is_equal_approx(path1, 0.4) or is_equal_approx(path1, 0.6) or is_equal_approx(path1, 0.8) or is_equal_approx(path1, 1) or is_equal_approx(path1, 0):
 		scrollAdder = 0
 		#print(path1, " yes")
 	#else: print(path1, " no")
@@ -120,6 +120,7 @@ func selectItem():
 	Globals.currItem = currentItem
 
 func _input(event):
+	if get_tree().paused: return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			scroll = true

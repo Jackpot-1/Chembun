@@ -8,6 +8,7 @@ script = ExtResource("1_tiond")
 [node name="h" type="Node3D" parent="."]
 
 [node name="v" type="SpringArm3D" parent="h"]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 collision_mask = 2
 spring_length = -3.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bfavrofwdndfx"]
+[gd_scene load_steps=69 format=3 uid="uid://bfavrofwdndfx"]
 
 [ext_resource type="Script" path="res://assets/Scenes/Level/Overworld/overworld.gd" id="1_1fkfe"]
 [ext_resource type="Texture2D" uid="uid://6pg6v6pmjb2d" path="res://assets/Scenes/Level/Overworld/SkyColor.png" id="1_xup2a"]
@@ -596,6 +596,16 @@ size = Vector3(2.8476, 3.43707, 1.15393)
 [sub_resource type="BoxShape3D" id="BoxShape3D_o534v"]
 size = Vector3(21.942, 4.57587, 17.796)
 
+[sub_resource type="Environment" id="Environment_5m5bk"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 1.0
+glow_blend_mode = 3
+glow_hdr_luminance_cap = 1.0
+volumetric_fog_density = 1.0
+
 [node name="OST-Overworld" type="Node3D"]
 script = ExtResource("1_1fkfe")
 
@@ -630,6 +640,13 @@ collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nfeif")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cave"]
+transform = Transform3D(-0.992274, -0.123117, -0.0152995, 0.0495888, -0.280548, -0.958558, 0.113723, -0.951911, 0.284485, -27.7986, 20.9446, -128.314)
+light_energy = 4.343
+light_negative = true
+spot_range = 34.1524
+spot_angle = 89.99
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 11.7042, 3.39738, -19.0922)
@@ -734,6 +751,7 @@ shape = SubResource("BoxShape3D_0sjny")
 stream = ExtResource("6_6tsfv")
 autoplay = true
 max_distance = 20.0
+bus = &"sfx"
 
 [node name="portalArea3D" type="Area3D" parent="portal"]
 transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.00156188, 0, -0.0147476)
@@ -774,10 +792,15 @@ transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, -0.32499
 shape = SubResource("BoxShape3D_o534v")
 
 [node name="OST-Overworld" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("9_45pm5")
 volume_db = -3.0
 pitch_scale = 1.5
 autoplay = true
+bus = &"music"
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5m5bk")
 
 [connection signal="body_entered" from="CaveHole/Area3D" to="." method="_on_Area3D_entered"]
 [connection signal="body_entered" from="portal/PortalGate/portal collision/teleportArea3D" to="." method="_on_teleport_area_3d_body_entered"]

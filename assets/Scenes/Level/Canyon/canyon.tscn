@@ -743,8 +743,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1541, 38.0964, -0.33163)
 [node name="CanvasLayer" parent="." instance=ExtResource("5_b7rdv")]
 
 [node name="OST-Canyon" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("7_5vcup")
 autoplay = true
+bus = &"sfx"
 
 [node name="golum" parent="." instance=ExtResource("7_dvhfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8661, 36.7316, -33.9814)

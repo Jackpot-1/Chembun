@@ -466,8 +466,10 @@ transform = Transform3D(1, 0, -1.16229e-06, 0, 1, 0, 1.16229e-06, 0, 1, 9.07109,
 shape = SubResource("BoxShape3D_3k2jv")
 
 [node name="OST-Cave" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("6_shs6w")
 autoplay = true
+bus = &"music"
 
 [connection signal="area_entered" from="SaltBody3D/SaltHitBox" to="." method="_on_salt_hit_box_area_entered"]
 [connection signal="body_entered" from="ChestBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

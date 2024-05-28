@@ -26,14 +26,12 @@ func _ready():
 	
 func _input(event):
 	if Globals.CameraSwitch: return
-	if $"../../CanvasLayer".isinventory: return
 	if event is InputEventMouseMotion:
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += event.relative.y * v_sensitivity
 		
 func _joystick_input():
 	if (Input.is_action_pressed("LeftTurn") || Input.is_action_pressed("RightTurn") || Input.is_action_pressed("UpTurn") || Input.is_action_pressed("DownTurn")):
-		if($"../../CanvasLayer".isinventory == false):
 			#joyview.x = Input.get_action_strength("lookleft") - Input.get_action_strength("lookright")
 			joyview.x = Input.get_action_strength("LeftTurn") - Input.get_action_strength("RightTurn")
 			joyview.y = Input.get_action_strength("DownTurn") - Input.get_action_strength("UpTurn")
@@ -47,7 +45,6 @@ func zoom_set():
 	#markerPosition = $h/v/Camera3D/Marker3D.global_transform
 	#$h/v/Camera3D/Marker3D.top_level = true
 	#print($h/v/Camera3D/Marker3D.global_position, " before " + self.name)
-	
 	t = 0.0
 	while t < 1.0:
 		await get_tree().create_timer(0.0001).timeout

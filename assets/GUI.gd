@@ -2,7 +2,6 @@ extends CanvasLayer
 
 var playerStopped = false
 var ispaused = false
-var isinventory = false
 var iselement = false
 
 var dialogueChek = Globals.dialogueChek
@@ -30,13 +29,16 @@ func unstop_player_input():
 func _input(event):
 	if event.is_action_pressed("menu"):
 			if ispaused == false:
-				get_tree().paused = true # set process mode to "Always" so you can unpause
+				get_tree().paused = true
 				ispaused = true
 				stop_player_input()
+				$SettingsScreen.visible = true
 			else:
 				get_tree().paused = false
 				ispaused = false
 				unstop_player_input()
+				$SettingsScreen.visible = false
+				$SettingsScreen/TabContainer.current_tab = 0
 	#elif event.is_action_pressed("inventory"):
 		#if isinventory == false && playerStopped == false:
 			#$InventoryGridTransfer.visible = true

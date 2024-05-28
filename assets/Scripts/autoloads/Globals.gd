@@ -22,15 +22,11 @@ func _unhandled_input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	if get_tree().current_scene != null and get_tree().current_scene.name != "chembun crib" and player != null and player.name == "ChemBun":
-		if event.is_action_pressed("zoom in"):
-			zoomer -= 0.2
-			player.get_node("Camroot").zoom_set()
-			player.get_node("CamRightTank").zoom_set()
-		if event.is_action_pressed("zoom out"):
-			zoomer += 0.2
-			player.get_node("Camroot").zoom_set()
-			player.get_node("CamRightTank").zoom_set()
+	#if get_tree().current_scene != null and get_tree().current_scene.name != "chembun crib" and player != null and player.name == "ChemBun":
+		#if event.is_action_pressed("zoom in"):
+			#zoom_in()
+		#if event.is_action_pressed("zoom out"):
+			#zoom_out()
 
 var player: CharacterBody3D;
 var GUI: CanvasLayer;
@@ -134,6 +130,30 @@ var dialogueChek = {
 	},
 }
 
+const defaultKeys = {
+	"forward" : "W",
+	"left" : "A",
+	"back" : "S",
+	"right" : "D",
+	"jump" : "Space",
+	"sprint" : "Shift",
+	"element" : "Alt",
+	"aim" : "Right Click",
+	"throw" : "Left Click"
+}
+
+var editableKeys = {
+	"forward" : "W",
+	"left" : "A",
+	"back" : "S",
+	"right" : "D",
+	"jump" : "Space",
+	"sprint" : "Shift",
+	"element" : "Alt",
+	"aim" : "Right Click",
+	"throw" : "Left Click"
+}
+
 #var items = [
 	#{
 		#"name" : "carrot",
@@ -213,6 +233,29 @@ class Enemy extends CharacterBody3D:
 		#slots[4]["item"] = dic
 		
 		
+# deprecated
+#func zoom_in():
+	#zoomer -= 0.2
+	#player.get_node("Camroot").zoom_set()
+	#player.get_node("CamRightTank").zoom_set()
+#
+#func zoom_out():
+	#zoomer += 0.2
+	#player.get_node("Camroot").zoom_set()
+	#player.get_node("CamRightTank").zoom_set()
+	
+func zoom(input):
+	input *= 0.2
+	zoomer = input
+	player.get_node("Camroot").zoom_set()
+	player.get_node("CamRightTank").zoom_set()
+	
+	
+func sensi(input):
+	player.get_node("Camroot").h_sensitivity = input
+	player.get_node("Camroot").v_sensitivity = input
+	player.get_node("CamRightTank").h_sensitivity = input
+	player.get_node("CamRightTank").v_sensitivity = input
 
 
 var blobReady = false

@@ -1359,30 +1359,27 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-3.55271e-15, 0.649463, 0.180482)
+bones/0/position = Vector3(6.8587e-09, 0.815759, 0.180482)
 bones/0/rotation = Quaternion(0.12876, 1.18217e-07, 1.53493e-08, 0.991676)
-bones/1/rotation = Quaternion(-0.0731393, 0.000372773, -0.0244474, 0.997022)
-bones/2/rotation = Quaternion(-0.158375, 0.0665092, 0.0270356, 0.984765)
-bones/3/position = Vector3(-0.458369, 0.555579, -0.165862)
-bones/3/rotation = Quaternion(0.0430062, -0.451467, 0.837748, 0.30415)
-bones/4/rotation = Quaternion(0.457388, 0.247901, 0.0766632, 0.850567)
+bones/1/rotation = Quaternion(-0.0873626, -0.0785527, -0.00987319, 0.993026)
+bones/2/rotation = Quaternion(-0.108316, 0.136454, 0.0255766, 0.984375)
+bones/3/position = Vector3(-0.458333, 0.559593, -0.164362)
+bones/3/rotation = Quaternion(-0.0404142, -0.365601, 0.861515, 0.349991)
+bones/4/rotation = Quaternion(0.523978, 0.295626, 0.101256, 0.792338)
 bones/5/rotation = Quaternion(-5.26072e-09, 2.30853e-08, 0.0379971, 0.999278)
-bones/6/position = Vector3(0.458369, 0.554959, -0.166093)
-bones/6/rotation = Quaternion(0.0453022, 0.136545, -0.939253, 0.311621)
-bones/7/rotation = Quaternion(0.44344, 0.216345, -0.00995771, 0.869745)
+bones/6/position = Vector3(0.458333, 0.550945, -0.167592)
+bones/6/rotation = Quaternion(0.0409952, 0.32225, -0.895927, 0.302967)
+bones/7/rotation = Quaternion(0.561459, 0.109913, 0.178115, 0.800599)
 bones/8/rotation = Quaternion(-6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
-bones/9/position = Vector3(-0.4602, 0.138747, -0.107923)
+bones/9/position = Vector3(-0.462342, 0.151268, -0.129248)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.468237, 0.287809, -0.130347, 0.825185)
+bones/10/rotation = Quaternion(0.350603, 0.255843, -0.120465, 0.89281)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.33348, -0.012566, -0.092921, 0.938083)
-bones/13/position = Vector3(0, -0.655099, 0)
-bones/14/position = Vector3(0, -0.655099, 0)
-bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/12/rotation = Quaternion(0.220004, 0.0108883, -0.118621, 0.968199)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="chemcloth/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -3.55271e-15, 0.649463, 0.180482)
+transform = Transform3D(1, 1.77636e-13, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, 6.8587e-09, 0.815759, 0.180482)
 bone_name = "Spine2"
 bone_idx = 0
 
@@ -1392,15 +1389,19 @@ visible = false
 
 [node name="Hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_a27bp")
+bus = &"sfx"
 
 [node name="Oof" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_owbsn")
+bus = &"sfx"
 
 [node name="Throwing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_422q5")
+bus = &"sfx"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_8yq4r")
+bus = &"sfx"
 
 [connection signal="timeout" from="RegenTimer" to="." method="regen"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="knockback_exit"]
