@@ -34,7 +34,7 @@ var pb_node
 
 ##Combat Throwing Stuff
 var tankMode = false
-const blobPreload = preload("res://assets/items/Betterblob.tscn")
+const blobPreload = preload("res://assets/items/betterblob.tscn")
 #@onready var blobPreload = load("res://assets/items/Betterblob.tscn")
 var blobInstance
 var blob
