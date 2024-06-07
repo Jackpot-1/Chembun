@@ -123,6 +123,7 @@ func sprint_and_roll():
 		states.rolling = true
 
 func _physics_process(delta):
+	print(states.grou)
 	#rollattack()
 	#bigattack()
 	attack1()
@@ -362,13 +363,24 @@ func knockback_enter(direction:Vector3, strength: Vector3):
 	knockback = strength.rotated(Vector3.UP, direction.y)
 	states.knockback = true
 	playback.travel(animations.knockback)
-	$KnockbackTimer.start()
-	await get_tree().create_timer(.8).timeout
+	#$KnockbackTimer.start()
+	#await !states.grounded
+	#await states.grounded
+	var offTheGround = false
+	while true:
+		await get_tree().create_timer(get_process_delta_time()).timeout
+		if not states.grounded: offTheGround = true
+		elif states.grounded and offTheGround: break
 	$Oof.play()
 
 func knockback_exit():
 	states.knockback = false
 	knockback = Vector3.ZERO
+func _on_animation_tree_animation_finished(anim_name):
+	print(anim_name)
+	if anim_name == "knockback":
+		states.knockback = false
+		knockback = Vector3.ZERO
 
 
 func _on_double_jump_timer_timeout():

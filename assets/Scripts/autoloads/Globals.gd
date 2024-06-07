@@ -44,7 +44,7 @@ var EnemyDatabase = {
 		"damage": 0,
 		"move_speed": 0.1,
 		"vulnerable_to": ["Salt"],
-		"knockback": Vector3(0, 5.25, 7.5)
+		"knockback": Vector3(0, 8, 7.5)
 	},
 	"Golum": {
 		"name": "Rock Snowman",
