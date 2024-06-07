@@ -51,10 +51,13 @@ func _input(event):
 			#unstop_player_input()
 			
 	if event.is_action_pressed("element") && playerStopped == false:
+		if $Control/Vircle.get_children().size() == 0: return
 		iselement = true
 		$Control.visible = true
 		stop_player_input()
+		#$Control/AnimationPlayer.play("wheel_in")
 	elif event.is_action_released("element") && iselement == true && playerStopped == true:
+		#$Control.transfer(8)
 		iselement = false
 		$Control.recipe = ""
 		$Control/VBoxContainer/RichTextLabel.text = ""

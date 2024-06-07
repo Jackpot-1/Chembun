@@ -210,7 +210,7 @@ func _on_h_slider_music_value_changed(value):
 	value*=0.56 # the audio busses go from -80 to 6 db
 	value-=50
 	#if value < -60: value = 0
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), value)
+	AudioServer.set_bus_volume_db(1, value)
 
 
 func _on_reset_music_pressed():
@@ -225,7 +225,7 @@ func _on_h_slider_sfx_value_changed(value):
 	value*=0.56 # the audio busses go from -80 to 6 db
 	value-=50
 	#if value < -60: value = 0
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("sfx"), value)
+	AudioServer.set_bus_volume_db(2, value)
 
 
 func _on_reset_sfx_pressed():

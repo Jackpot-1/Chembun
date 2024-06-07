@@ -9,16 +9,16 @@ var pb_node
 @export var health = 10
 
 @onready var carror_dir = [
-	$"../CanvasLayer/carrotHalf",
-	$"../CanvasLayer/carrot",
-	$"../CanvasLayer/carrotHalf2",
-	$"../CanvasLayer/carrot2",
-	$"../CanvasLayer/carrotHalf3",
-	$"../CanvasLayer/carrot3",
-	$"../CanvasLayer/carrotHalf4",
-	$"../CanvasLayer/carrot4",
-	$"../CanvasLayer/carrotHalf5",
-	$"../CanvasLayer/carrot5"
+	$"../CanvasLayer/carrots/carrotHalf",
+	$"../CanvasLayer/carrots/carrot",
+	$"../CanvasLayer/carrots/carrotHalf2",
+	$"../CanvasLayer/carrots/carrot2",
+	$"../CanvasLayer/carrots/carrotHalf3",
+	$"../CanvasLayer/carrots/carrot3",
+	$"../CanvasLayer/carrots/carrotHalf4",
+	$"../CanvasLayer/carrots/carrot4",
+	$"../CanvasLayer/carrots/carrotHalf5",
+	$"../CanvasLayer/carrots/carrot5"
 ]
 
 # Allows to pick your chracter's mesh from the inspector

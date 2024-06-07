@@ -26,9 +26,15 @@ var cookbook = {
 	"Hg+C[b]2[/b]+N[b]2[/b]+O[b]2[/b]" : "Mercury(II) Fulminate"
 }
 
+func spin():
+	$Vircle.rotation_speed = 0.2
+	await get_tree().create_timer(2).timeout
+	$Vircle.rotation_speed = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	transfer(8)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -65,7 +71,48 @@ func element_adder(element):
 		$VBoxContainer/RichTextLabel.text = "[center]" + cookbook[recipe]
 #[font_size=70][center]He[font_size=40][b][color=gray]2[/color][/b][font_size=70]C[font_size=40][b][color=gray]3[/color][/b]
 
-func _on_texture_button_pressed():
+func transfer(howManyElementsToAdd: int):
+	if $ElementStorage.get_children().size() == 0: return
+	for i in howManyElementsToAdd:
+		if $ElementStorage.get_children().size() == 0: return
+		$ElementStorage.get_children()[0].reparent($Vircle, false)
+	
+	match $Vircle.get_children().size():
+		1:
+			$Vircle.radius = 0
+			$Vircle.rotation_degrees = 0
+		2:
+			$Vircle.radius = 150
+			$Vircle.rotation_degrees = 0
+		3:
+			$Vircle.radius = 185
+			$Vircle.rotation_degrees = 30
+		4:
+			$Vircle.radius = 210
+			$Vircle.rotation_degrees = 45
+		5:
+			$Vircle.radius = 220
+			$Vircle.rotation_degrees = -90
+		6:
+			$Vircle.radius = 220
+			$Vircle.rotation_degrees = 0
+		7:
+			$Vircle.radius = 220
+			$Vircle.rotation_degrees = 90
+		8:
+			$Vircle.radius = 227
+			$Vircle.rotation_degrees = 0
+		
+			
+			
+		#if $Vircle.get_children().size() == 1:
+			#$Vircle.radius = 0
+		#if $Vircle.get_children().size() == 5:
+			#$Vircle.rotation = -90
+		#else: $Vircle.rotation = 0
+		#$Vircle.radius += 35
+
+func _on_texture_button_1_pressed():
 	element_adder("H")
 
 
@@ -87,3 +134,11 @@ func _on_texture_button_5_pressed():
 
 func _on_texture_button_6_pressed():
 	element_adder("Fe")
+
+
+func _on_texture_button_7_pressed():
+	element_adder("Cl")
+
+
+func _on_texture_button_8_pressed():
+	element_adder("Na")

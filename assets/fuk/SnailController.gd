@@ -10,10 +10,10 @@ var snailDamage = 0
 #var animations = {"happy":"SO HAPPY", "sad":"SOOOO SAD", "death":"death"}
 
 var movementVector = Vector3(-1, 0, 0)
-var playerTargeting = false
-
+var target
 var random = RandomNumberGenerator.new()
 
+@export var rotation_speed: float = 12
 @export var movement_speed: float = 0.5
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
@@ -21,10 +21,13 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
-	if playerTargeting:
-		set_movement_target(Globals.player.transform.origin)
-		look_at(Vector3(Globals.player.position.x, position.y, Globals.player.position.z), Vector3.UP)
-		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+	if target != null:
+		set_movement_target(target.transform.origin)
+		#look_at(Vector3(Globals.player.position.x, position.y, Globals.player.position.z), Vector3.UP)
+		#transform = transform.interpolate_with(transform.looking_at(Vector3(Globals.player.position.x, position.y, Globals.player.position.z)), 0.5)
+		#self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+		smooth_look_at(Vector3(target.position.x, position.y, target.position.z), rotation_speed * delta)
+		
 	if !velocity.is_zero_approx(): 
 		playback.travel("idle_snail")
 	else: playback.stop()
@@ -33,7 +36,7 @@ func _physics_process(delta):
 	
 	if navigation_agent.is_navigation_finished(): #USED THIS INSTEAD OF COLISIONS
 		#snail.queue_free()
-		if not playerTargeting:
+		if target == $Marker3D:
 			chase()
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector3 = global_position.direction_to(next_path_position) * movement_speed
@@ -41,6 +44,11 @@ func _physics_process(delta):
 		navigation_agent.set_velocity(new_velocity)
 	else:
 		_on_velocity_computed(new_velocity)
+		
+func smooth_look_at(target: Vector3, weight: float) -> void:
+	var look_transform = global_transform.looking_at(target)
+	global_transform.basis.x = lerp(global_transform.basis.x, -look_transform.basis.x, weight)
+	scale = Vector3.ONE
 	
 
 func _on_velocity_computed(safe_velocity: Vector3):
@@ -56,8 +64,10 @@ func chase():
 	$Marker3D.position.x = position.x + randf_range(-5, 5)
 	$Marker3D.position.y = position.y
 	$Marker3D.position.z = position.z + randf_range(-5, 5)
-	look_at(Vector3($Marker3D.position.x, position.y, $Marker3D.position.z), Vector3.UP)
-	self.rotate_object_local(Vector3(0,1,0), 3.14)
+	target = $Marker3D
+	#look_at(Vector3($Marker3D.position.x, position.y, $Marker3D.position.z), Vector3.UP)
+	#smooth_look_at(Vector3($Marker3D.position.x, position.y, $Marker3D.position.z), 0.9)
+	#self.rotate_object_local(Vector3(0,1,0), 3.14)
 	set_movement_target($Marker3D.transform.origin)
 
 func _on_area_3d_body_entered(body): #The AttackRange, I.E. where it will start to attack from
@@ -86,14 +96,14 @@ func _on_detection_range_body_entered(body):
 	if body != Globals.player:
 		return
 	print("Player entered detection range")
-	playerTargeting = true
+	target = Globals.player
 	#run to player
 
 func _on_detection_range_body_exited(body):
 	print("Player exited detection range")
 	if body!= Globals.player:
 		return
-	playerTargeting = false
+	target = $Marker3D
 	chase()
 
 

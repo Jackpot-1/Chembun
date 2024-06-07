@@ -58,68 +58,70 @@ shader_parameter/vertex_expand = 2.0
 process_mode = 3
 script = ExtResource("1_r3ly4")
 
-[node name="carrot" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="carrots" type="Node2D" parent="."]
+
+[node name="carrot" type="TextureRect" parent="carrots"]
+offset_right = 540.0
+offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_lyaqe")
 
-[node name="carrot2" type="TextureRect" parent="."]
+[node name="carrot2" type="TextureRect" parent="carrots"]
 offset_left = 56.0
 offset_right = 596.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_lyaqe")
 
-[node name="carrot3" type="TextureRect" parent="."]
+[node name="carrot3" type="TextureRect" parent="carrots"]
 offset_left = 112.0
 offset_right = 652.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_lyaqe")
 
-[node name="carrot4" type="TextureRect" parent="."]
+[node name="carrot4" type="TextureRect" parent="carrots"]
 offset_left = 168.0
 offset_right = 708.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_lyaqe")
 
-[node name="carrot5" type="TextureRect" parent="."]
+[node name="carrot5" type="TextureRect" parent="carrots"]
 offset_left = 224.0
 offset_right = 764.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_lyaqe")
 
-[node name="carrotHalf" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="carrotHalf" type="TextureRect" parent="carrots"]
+offset_right = 540.0
+offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42wmp")
 
-[node name="carrotHalf2" type="TextureRect" parent="."]
+[node name="carrotHalf2" type="TextureRect" parent="carrots"]
 offset_left = 56.0
 offset_right = 596.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42wmp")
 
-[node name="carrotHalf3" type="TextureRect" parent="."]
+[node name="carrotHalf3" type="TextureRect" parent="carrots"]
 offset_left = 112.0
 offset_right = 652.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42wmp")
 
-[node name="carrotHalf4" type="TextureRect" parent="."]
+[node name="carrotHalf4" type="TextureRect" parent="carrots"]
 offset_left = 168.0
 offset_right = 708.0
 offset_bottom = 540.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_42wmp")
 
-[node name="carrotHalf5" type="TextureRect" parent="."]
+[node name="carrotHalf5" type="TextureRect" parent="carrots"]
 offset_left = 224.0
 offset_right = 764.0
 offset_bottom = 540.0
@@ -128,10 +130,17 @@ texture = ExtResource("3_42wmp")
 
 [node name="ChemBox" type="TextureRect" parent="."]
 visible = false
-offset_left = 328.0
-offset_top = 384.0
-offset_right = 828.0
-offset_bottom = 584.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -265.0
+offset_right = 250.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("12_hdlgf")
 
 [node name="ChemText" type="RichTextLabel" parent="ChemBox"]
@@ -150,10 +159,17 @@ theme_override_font_sizes/normal_font_size = 24
 
 [node name="ChemGod" type="TextureRect" parent="."]
 visible = false
-offset_left = 328.0
-offset_top = 384.0
-offset_right = 828.0
-offset_bottom = 584.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -264.0
+offset_right = 250.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("15_38uqj")
 
 [node name="ChemText" type="RichTextLabel" parent="ChemGod"]

@@ -101,8 +101,8 @@ size = Vector3(4.89331, 1.96973, 2.32635)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncwms"]
 size = Vector3(4.92914, 1.979, 2.45032)
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_2uohs"]
-vertices = PackedVector3Array(114.515, 23.5706, -9.90228, 114.515, 23.5706, 13.0977, 134.265, 23.0206, 13.0977, 134.265, 23.0206, -9.90228)
+[sub_resource type="NavigationMesh" id="NavigationMesh_i33lu"]
+vertices = PackedVector3Array(-12.4229, 0.416827, -11.5288, -12.4229, 0.416827, 11.4712, 7.32707, -0.133173, 11.4712, 7.32707, -0.133173, -11.5288)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 geometry_parsed_geometry_type = 1
 cell_height = 0.05
@@ -323,11 +323,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0215147, 0.489501, -0.02142
 shape = SubResource("BoxShape3D_ncwms")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.325, -21.7716, 0)
-navigation_mesh = SubResource("NavigationMesh_2uohs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.18212, 1.28982, 1.62678)
+navigation_mesh = SubResource("NavigationMesh_i33lu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.938, 23.2629, 1.62653)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.109116, 0)
 collision_layer = 0
 collision_mask = 0
 

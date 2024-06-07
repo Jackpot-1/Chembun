@@ -641,13 +641,6 @@ collision_layer = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cave/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nfeif")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Cave"]
-transform = Transform3D(-0.992274, -0.123117, -0.0152995, 0.0495888, -0.280548, -0.958558, 0.113723, -0.951911, 0.284485, -27.7986, 20.9446, -128.314)
-light_energy = 4.343
-light_negative = true
-spot_range = 34.1524
-spot_angle = 89.99
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 11.7042, 3.39738, -19.0922)
 navigation_mesh = SubResource("NavigationMesh_5v4ln")
@@ -701,7 +694,7 @@ collision_layer = 3
 shape = SubResource("ConcavePolygonShape3D_w351a")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84244, 4.41628, -1.22036)
+transform = Transform3D(1, 0, 0, 0, -0.999409, -0.0343763, 0, 0.0343763, -0.999409, -2.84244, 4.41628, -1.22036)
 
 [node name="Sky" type="MeshInstance3D" parent="."]
 transform = Transform3D(265.058, 0, 0, 0, 265.058, 0, 0, 0, 265.058, -2.84244, 4.41628, -1.22036)

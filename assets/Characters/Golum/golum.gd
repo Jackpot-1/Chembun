@@ -16,6 +16,7 @@ var hasDived = false
 
 @export var vulnerable_to = "Water"
 
+@export var rotation_speed: float = 12
 @export var movement_speed: float = 4.0
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
@@ -26,10 +27,9 @@ func _physics_process(delta):
 	
 	if playerTargeting:
 		set_movement_target(Globals.player.transform.origin)
-		look_at(Vector3(Globals.player.position.x, position.y, Globals.player.position.z), Vector3.UP)
-		#self.rotation.y = lerp_angle(self.rotation.y, atan2( Globals.player.rotation.x, Globals.player.rotation.z ), 1 )
-		self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
-		#self.rotate_object_local(Vector3(1, 0, 0), deg_to_rad(285))
+		#look_at(Vector3(Globals.player.position.x, position.y, Globals.player.position.z), Vector3.UP)
+		#self.rotate_object_local(Vector3(0,1,0), 3.14) #flips the salt cube 180 degrees cause look_at() is weird
+		smooth_look_at(Vector3(Globals.player.position.x, position.y, Globals.player.position.z), rotation_speed * delta)
 	if animations.alert in playback.get_current_node():
 		return
 	if !playerTargeting:
@@ -53,6 +53,10 @@ func _physics_process(delta):
 	else:
 		_on_velocity_computed(new_velocity)
 	
+func smooth_look_at(target: Vector3, weight: float) -> void:
+	var look_transform = global_transform.looking_at(target)
+	global_transform.basis.x = lerp(global_transform.basis.x, -look_transform.basis.x, weight)
+	scale = Vector3.ONE
 
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity

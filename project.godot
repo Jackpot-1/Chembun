@@ -19,7 +19,6 @@ config/windows_native_icon="res://appIcons/chembunicon.ico"
 
 [autoload]
 
-GGS="res://addons/ggs/classes/global/ggs.tscn"
 Globals="*res://assets/Scripts/autoloads/Globals.gd"
 
 [display]
@@ -28,13 +27,9 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
 
-[editor]
-
-export/convert_text_resources_to_binary=false
-
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg")
+enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://addons/vircle/plugin.cfg")
 
 [file_customization]
 
