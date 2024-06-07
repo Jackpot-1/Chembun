@@ -144,6 +144,7 @@ texture_normal = ExtResource("7_pi3kh")
 stream = ExtResource("10_4kxen")
 volume_db = 3.748
 autoplay = true
+bus = &"music"
 
 [connection signal="button_up" from="Home" to="." method="_on_home_button_up"]
 [connection signal="button_up" from="Canyon" to="." method="_on_canyon_button_up"]

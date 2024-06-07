@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://appIcons/chembunicon180x180.png"
 config/windows_native_icon="res://appIcons/chembunicon.ico"
 
+[audio]
+
+buses/default_bus_layout="res://yourmom_bus_layout.tres"
+
 [autoload]
 
 Globals="*res://assets/Scripts/autoloads/Globals.gd"

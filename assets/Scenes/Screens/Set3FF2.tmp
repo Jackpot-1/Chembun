@@ -113,12 +113,13 @@ clip_contents = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_lddx8")
 theme_override_font_sizes/font_size = 30
-text = "25"
+text = "60
+"
 
 [node name="HSlider" type="HSlider" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 42)
 layout_mode = 2
-value = 25.0
+value = 60.0
 
 [node name="SFX" type="Label" parent="TabContainer/General/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -145,12 +146,13 @@ clip_contents = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_lddx8")
 theme_override_font_sizes/font_size = 30
-text = "25"
+text = "60
+"
 
 [node name="HSlider" type="HSlider" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(250, 42)
 layout_mode = 2
-value = 25.0
+value = 60.0
 
 [node name="FOV" type="Label" parent="TabContainer/General/MarginContainer/GridContainer"]
 layout_mode = 2

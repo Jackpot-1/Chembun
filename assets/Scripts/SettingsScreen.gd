@@ -204,33 +204,40 @@ func _on_reset_throw_pressed():
 
 
 func _on_h_slider_music_value_changed(value):
+	print(AudioServer.bus_count)
 	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer/Label.text = str(value)
-	if value == 60: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer/reset.visible = false
+	if value == 25: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer/reset.visible = false
 	else: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer/reset.visible = true
-	value*=0.56 # the audio busses go from -80 to 6 db
-	value-=50
-	#if value < -60: value = 0
-	AudioServer.set_bus_volume_db(1, value)
+	
+	value /= 100
+	
+	#value*=0.56 # the audio busses go from -80 to 6 db
+	#value-=50
+	##if value < -60: value = 0
+	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 
 
 func _on_reset_music_pressed():
 	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer/reset.visible = false
-	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer/HSlider.value = 60
+	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer/HSlider.value = 25
 
 
 func _on_h_slider_sfx_value_changed(value):
 	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/Label.text = str(value)
-	if value == 60: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/reset.visible = false
+	if value == 25: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/reset.visible = false
 	else: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/reset.visible = true
-	value*=0.56 # the audio busses go from -80 to 6 db
-	value-=50
+	
+	value /= 100
+	
+	#value*=0.56 # the audio busses go from -80 to 6 db
+	#value-=50
 	#if value < -60: value = 0
-	AudioServer.set_bus_volume_db(2, value)
+	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 
 
 func _on_reset_sfx_pressed():
 	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/reset.visible = false
-	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/HSlider.value = 60
+	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer2/HSlider.value = 25
 
 
 func _on_h_slider_fov_value_changed(value):
