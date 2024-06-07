@@ -123,7 +123,6 @@ func sprint_and_roll():
 		states.rolling = true
 
 func _physics_process(delta):
-	print(states.grou)
 	#rollattack()
 	#bigattack()
 	attack1()
