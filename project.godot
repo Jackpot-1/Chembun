@@ -17,10 +17,6 @@ boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://appIcons/chembunicon180x180.png"
 config/windows_native_icon="res://appIcons/chembunicon.ico"
 
-[audio]
-
-buses/default_bus_layout="res://yourmom_bus_layout.tres"
-
 [autoload]
 
 Globals="*res://assets/Scripts/autoloads/Globals.gd"
@@ -39,8 +35,7 @@ enabled=PackedStringArray("res://addons/ThirdPersonTemplate/plugin.cfg", "res://
 
 folder_colors={
 "res://assets/": "red",
-"res://assets/fuk/": "yellow",
-"res://game_settings/": "yellow"
+"res://assets/fuk/": "yellow"
 }
 
 [gui_transitions]
@@ -172,3 +167,4 @@ skip={
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+anti_aliasing/quality/msaa_3d=1

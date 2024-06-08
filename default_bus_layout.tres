@@ -1,6 +1,17 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://btlfeebk3oef1"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://btlfeebk3oef1"]
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_ivbnu"]
+resource_name = "Filter"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_iryoe"]
+resource_name = "Reverb"
+dry = 0.15
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectFilter_ivbnu")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_iryoe")
+bus/0/effect/1/enabled = false
 bus/1/name = &"music"
 bus/1/solo = false
 bus/1/mute = false

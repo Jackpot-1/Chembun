@@ -375,7 +375,6 @@ func knockback_exit():
 	states.knockback = false
 	knockback = Vector3.ZERO
 func _on_animation_tree_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name == "knockback":
 		states.knockback = false
 		knockback = Vector3.ZERO

@@ -26,3 +26,15 @@ func _on_chembox_tx_t_area_3d_body_entered(body):
 
 func _on_ost_canyon_finished():
 	$"OST-Canyon".play()
+
+
+func _on_area_3d_body_entered(body):
+	if body != Globals.player: return
+	AudioServer.set_bus_effect_enabled(0, 0, true)
+	AudioServer.set_bus_effect_enabled(0, 1, true)
+
+
+func _on_area_3d_body_exited(body):
+	if body != Globals.player: return
+	AudioServer.set_bus_effect_enabled(0, 0, false)
+	AudioServer.set_bus_effect_enabled(0, 1, false)
