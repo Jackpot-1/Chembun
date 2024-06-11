@@ -1359,27 +1359,30 @@ one_shot = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="chemcloth/Armature" index="0"]
-bones/0/position = Vector3(-9.84386e-09, 0.811139, 0.180482)
+bones/0/position = Vector3(-9.31221e-10, 0.664757, 0.180482)
 bones/0/rotation = Quaternion(0.12876, 1.18217e-07, 1.53493e-08, 0.991676)
-bones/1/rotation = Quaternion(-0.0869734, -0.0763562, -0.010281, 0.993227)
-bones/2/rotation = Quaternion(-0.109725, 0.134514, 0.0256199, 0.984485)
-bones/3/position = Vector3(-0.458334, 0.559473, -0.164407)
-bones/3/rotation = Quaternion(-0.0380772, -0.368102, 0.861047, 0.348783)
-bones/4/rotation = Quaternion(0.52219, 0.294333, 0.100582, 0.794084)
+bones/1/rotation = Quaternion(-0.0744666, -0.00687917, -0.023115, 0.996932)
+bones/2/rotation = Quaternion(-0.153825, 0.0729559, 0.0269099, 0.985034)
+bones/3/position = Vector3(-0.458367, 0.555808, -0.165776)
+bones/3/rotation = Quaternion(0.0353827, -0.443909, 0.840522, 0.308571)
+bones/4/rotation = Quaternion(0.463707, 0.252394, 0.0789559, 0.8456)
 bones/5/rotation = Quaternion(-5.26072e-09, 2.30853e-08, 0.0379971, 0.999278)
-bones/6/position = Vector3(0.458334, 0.551065, -0.167547)
-bones/6/rotation = Quaternion(0.0411389, 0.317116, -0.897616, 0.303367)
-bones/7/rotation = Quaternion(0.55854, 0.113116, 0.172801, 0.803354)
+bones/6/position = Vector3(0.458367, 0.55473, -0.166178)
+bones/6/rotation = Quaternion(0.0449768, 0.153744, -0.936713, 0.311302)
+bones/7/rotation = Quaternion(0.455396, 0.207235, 0.00715143, 0.865804)
 bones/8/rotation = Quaternion(-6.39019e-09, -2.31512e-08, -0.0379971, 0.999278)
-bones/9/position = Vector3(-0.462282, 0.15092, -0.128655)
+bones/9/position = Vector3(-0.460397, 0.139898, -0.109884)
 bones/9/rotation = Quaternion(-0.0223623, 0.126803, 0.976606, 0.172226)
-bones/10/rotation = Quaternion(0.354011, 0.256812, -0.120776, 0.891143)
+bones/10/rotation = Quaternion(0.457829, 0.285111, -0.129547, 0.832059)
 bones/11/position = Vector3(0.4602, 0.138747, -0.107922)
 bones/11/rotation = Quaternion(0.0586383, 0.314689, 0.928551, -0.187953)
-bones/12/rotation = Quaternion(0.223236, 0.0102318, -0.117924, 0.967551)
+bones/12/rotation = Quaternion(0.323274, -0.0104213, -0.0953378, 0.941433)
+bones/13/position = Vector3(0, -0.655099, 0)
+bones/14/position = Vector3(0, -0.655099, 0)
+bones/14/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="chemcloth/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 1.77636e-13, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -9.84386e-09, 0.811139, 0.180482)
+transform = Transform3D(1, -3.55271e-15, 2.38419e-07, 6.08863e-08, 0.966842, -0.255376, -2.30513e-07, 0.255376, 0.966842, -9.31221e-10, 0.664757, 0.180482)
 bone_name = "Spine2"
 bone_idx = 0
 

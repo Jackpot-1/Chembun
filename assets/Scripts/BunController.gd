@@ -361,9 +361,6 @@ func knockback_enter(direction:Vector3, strength: Vector3):
 	knockback = strength.rotated(Vector3.UP, direction.y)
 	states.knockback = true
 	playback.travel(animations.knockback)
-	#$KnockbackTimer.start()
-	#await !states.grounded
-	#await states.grounded
 	var offTheGround = false
 	while true:
 		await get_tree().create_timer(get_process_delta_time()).timeout
