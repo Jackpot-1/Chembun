@@ -767,6 +767,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1541, 38.0964, -0.33163)
 [node name="OST-Canyon" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("7_5vcup")
+autoplay = true
 bus = &"music"
 
 [node name="golum" parent="." instance=ExtResource("7_dvhfh")]

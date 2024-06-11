@@ -30,7 +30,6 @@ func _on_ost_canyon_finished():
 
 
 func _on_area_3d_body_entered(body):
-	print(body)
 	if body != Globals.player: return
 	AudioServer.set_bus_effect_enabled(0, 0, true)
 	AudioServer.set_bus_effect_enabled(0, 1, true)

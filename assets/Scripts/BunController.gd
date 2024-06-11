@@ -291,7 +291,8 @@ func attack1():
 				if is_instance_valid(blobInstance):
 					blobInstance.global_rotation = $CamRightTank/h/v/Camera3D.global_rotation
 					#blobInstance.linear_velocity = -blobInstance.transform.basis.z.normalized() * 10
-					blobInstance.apply_central_impulse(blobInstance.global_transform.basis.z * 10 * -1) # bro this line of code took like 10 hours
+					blobInstance.apply_central_impulse(blobInstance.global_transform.basis.z * 5 * -1) # bro this line of code took like 10 hours
+					blobInstance.apply_central_impulse(blobInstance.global_transform.basis.y * 4)
 					#blobInstance.position += Vector3(0.5, 0, 3)
 					#blobInstance.position.y *= -1
 					#$Camroot/h/Marker3D.global_position = blobInstance.global_position
