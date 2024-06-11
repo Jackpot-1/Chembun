@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://drwdy1k04ag05"]
+[gd_scene load_steps=3 format=3 uid="uid://drwdy1k04ag05"]
 
 [ext_resource type="Script" path="res://assets/Scripts/CameraController.gd" id="1_tiond"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1uoma"]
+radius = 0.0611931
 
 [node name="Camroot" type="Node3D"]
 script = ExtResource("1_tiond")
@@ -17,3 +20,8 @@ spring_length = -3.0
 transform = Transform3D(-1, 1.45794e-08, -8.61985e-08, 0, 0.985996, 0.166769, 8.74228e-08, 0.166769, -0.985996, 0, 0, 0)
 keep_aspect = 0
 fov = 100.0
+
+[node name="CamrootArea3d" type="Area3D" parent="h/v/Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="h/v/Camera3D/CamrootArea3d"]
+shape = SubResource("SphereShape3D_1uoma")

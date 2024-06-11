@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://4g6wadcburcy"]
+[gd_scene load_steps=25 format=3 uid="uid://4g6wadcburcy"]
 
 [ext_resource type="Script" path="res://assets/GUI.gd" id="1_r3ly4"]
 [ext_resource type="Texture2D" uid="uid://xxpt4dedxdak" path="res://appIcons/ccarrot.png" id="2_lyaqe"]
@@ -14,8 +14,20 @@
 [ext_resource type="FontFile" uid="uid://qcokiesg0mbc" path="res://fonts/Chembun/TitanOne-Regular.ttf" id="13_wdw3o"]
 [ext_resource type="PackedScene" uid="uid://dmwnc77l8ur4r" path="res://assets/Scenes/Screens/SettingsScreen.tscn" id="15_4n4fb"]
 [ext_resource type="Texture2D" uid="uid://dhs23ghhj1ux2" path="res://fonts/Chemgod/Dark_Box.png" id="15_38uqj"]
-[ext_resource type="Shader" path="res://assets/Miscellaneous/blur.gdshader" id="16_wr0ux"]
 [ext_resource type="FontFile" uid="uid://bhdcq80v3hh0q" path="res://fonts/Chemgod/Frijole-Regular.ttf" id="16_yec85"]
+
+[sub_resource type="Gradient" id="Gradient_rrm5l"]
+colors = PackedColorArray(0.294118, 0, 1, 0.278431, 0.203922, 0.533333, 1, 0.278431)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_opspg"]
+noise_type = 0
+seed = 91
+frequency = 0.0042
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1q7f"]
+width = 752
+color_ramp = SubResource("Gradient_rrm5l")
+noise = SubResource("FastNoiseLite_opspg")
 
 [sub_resource type="Resource" id="Resource_hmhw2"]
 script = ExtResource("6_xuj4q")
@@ -48,15 +60,18 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yecre"]
-shader = ExtResource("16_wr0ux")
-shader_parameter/radius = 4.0
-shader_parameter/steps = 32
-shader_parameter/vertex_expand = 2.0
-
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_r3ly4")
+
+[node name="WaterOverlay" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_r1q7f")
 
 [node name="carrots" type="Node2D" parent="."]
 
@@ -388,15 +403,5 @@ one_shot = true
 
 [node name="SettingsScreen" parent="." instance=ExtResource("15_4n4fb")]
 visible = false
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_yecre")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
 
 [connection signal="timeout" from="hotbar/cooldown" to="hotbar" method="_on_cooldown_timeout"]

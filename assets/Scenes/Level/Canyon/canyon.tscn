@@ -512,6 +512,33 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="Animation" id="Animation_y121n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:blend_shapes/Key 1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 0.343053)]
+}
+
 [sub_resource type="Animation" id="Animation_4lwby"]
 resource_name = "water"
 length = 2.0
@@ -528,20 +555,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 0.4]
 }
-
-[sub_resource type="Animation" id="Animation_y121n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:blend_shapes/Key 1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [Vector3(1, 1, 0.343053), Vector3(1.13, 1.13, 0.387)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hkb36"]
@@ -721,6 +745,7 @@ libraries = {
 autoplay = "water"
 
 [node name="Area3d" type="Area3D" parent="Smog/water"]
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Smog/water/Area3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -759,6 +784,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -136.7
 
 [connection signal="area_entered" from="NavigationRegion3D/Canyon Mesh/Asteroid/asteroidHitBox" to="." method="_on_asteroid_hitbox_area_entered"]
 [connection signal="body_entered" from="Sign/ChemboxTxTArea3D" to="." method="_on_chembox_tx_t_area_3d_body_entered"]
+[connection signal="area_entered" from="Smog/water/Area3d" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Smog/water/Area3d" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="Smog/water/Area3d" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Smog/water/Area3d" to="." method="_on_area_3d_body_exited"]
 [connection signal="finished" from="OST-Canyon" to="." method="_on_ost_canyon_finished"]
+
+[editable path="CanvasLayer"]

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr7x0cw7d5o6t"]
+[gd_scene load_steps=3 format=3 uid="uid://cr7x0cw7d5o6t"]
 
 [ext_resource type="Script" path="res://assets/Scripts/CameraController.gd" id="1_ae3s0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xskl7"]
+radius = 0.0611931
 
 [node name="CamRightTank" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.5)
@@ -18,3 +21,8 @@ spring_length = -3.0
 transform = Transform3D(-1, 1.45794e-08, -8.61985e-08, 0, 0.985996, 0.166769, 8.74228e-08, 0.166769, -0.985996, 0, 0, 0)
 keep_aspect = 0
 fov = 70.0
+
+[node name="CamRightTankArea3d" type="Area3D" parent="h/v/Camera3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="h/v/Camera3D/CamRightTankArea3d"]
+shape = SubResource("SphereShape3D_xskl7")

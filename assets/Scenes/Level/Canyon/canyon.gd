@@ -29,6 +29,7 @@ func _on_ost_canyon_finished():
 
 
 func _on_area_3d_body_entered(body):
+	print(body)
 	if body != Globals.player: return
 	AudioServer.set_bus_effect_enabled(0, 0, true)
 	AudioServer.set_bus_effect_enabled(0, 1, true)
@@ -38,3 +39,11 @@ func _on_area_3d_body_exited(body):
 	if body != Globals.player: return
 	AudioServer.set_bus_effect_enabled(0, 0, false)
 	AudioServer.set_bus_effect_enabled(0, 1, false)
+
+
+func _on_area_3d_area_entered(area):
+	if area.name == "CamrootArea3d": $CanvasLayer/WaterOverlay.visible = true
+
+
+func _on_area_3d_area_exited(area):
+	if area.name == "CamrootArea3d": $CanvasLayer/WaterOverlay.visible = false
