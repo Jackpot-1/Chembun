@@ -33,7 +33,7 @@ func spin():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	transfer(8)
+	transfer(6)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,6 +71,7 @@ func element_adder(element):
 		$VBoxContainer/RichTextLabel.text = "[center]" + cookbook[recipe]
 #[font_size=70][center]He[font_size=40][b][color=gray]2[/color][/b][font_size=70]C[font_size=40][b][color=gray]3[/color][/b]
 
+# this function transfers the buttions from $ElementStorage to $Vircle, because you will gradually gain them over time
 func transfer(howManyElementsToAdd: int):
 	if $ElementStorage.get_children().size() == 0: return
 	for i in howManyElementsToAdd:

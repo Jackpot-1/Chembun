@@ -46,6 +46,7 @@ const defaultKeyDict = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	keyDict["forward"].grab_focus()
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN: $TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/CheckButton.button_pressed = true
 	#check if the controls are set to default
 	if Globals.editableKeys != Globals.defaultKeys:
 		for key in Globals.defaultKeys:
@@ -271,3 +272,16 @@ func _on_h_slider_sensitivity_value_changed(value):
 func _on_reset_sensitivity_pressed():
 	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer4/reset.visible = false
 	$TabContainer/General/MarginContainer/GridContainer/HBoxContainer4/HSlider.value = 50
+
+
+func _on_check_button_toggled(toggled_on):
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		$TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/Label.text = "On"
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		$TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/Label.text = "Off"
+
+
+func _on_reset_fullscreen_pressed():
+	pass # Replace with function body.

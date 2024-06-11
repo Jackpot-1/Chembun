@@ -20,8 +20,12 @@ func _unhandled_input(event):
 	if event.is_action_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			#if GUI != null: GUI.get_node("SettingsScreen")._on_check_button_toggled(false)
+			if GUI != null: GUI.get_node("SettingsScreen/TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/CheckButton").button_pressed = false
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			#if GUI != null: GUI.get_node("SettingsScreen")._on_check_button_toggled(true)
+			if GUI != null: GUI.get_node("SettingsScreen/TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/CheckButton").button_pressed = true
 	#if get_tree().current_scene != null and get_tree().current_scene.name != "chembun crib" and player != null and player.name == "ChemBun":
 		#if event.is_action_pressed("zoom in"):
 			#zoom_in()

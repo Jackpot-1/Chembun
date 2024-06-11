@@ -212,6 +212,34 @@ layout_mode = 2
 value = 50.0
 rounded = true
 
+[node name="fullscreen" type="Label" parent="TabContainer/General/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_lddx8")
+theme_override_font_sizes/font_size = 30
+text = "Full Screen"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="TabContainer/General/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="reset" type="TextureButton" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer5"]
+visible = false
+custom_minimum_size = Vector2(30.735, 0)
+layout_mode = 2
+texture_normal = ExtResource("4_7jlgt")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer5"]
+clip_contents = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lddx8")
+theme_override_font_sizes/font_size = 30
+text = "Off"
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+
 [node name="exit" type="Button" parent="TabContainer/General/MarginContainer"]
 custom_minimum_size = Vector2(253, 53)
 layout_mode = 2
@@ -699,6 +727,8 @@ grow_vertical = 2
 [connection signal="value_changed" from="TabContainer/General/MarginContainer/GridContainer/HBoxContainer3/HSlider" to="." method="_on_h_slider_fov_value_changed"]
 [connection signal="pressed" from="TabContainer/General/MarginContainer/GridContainer/HBoxContainer4/reset" to="." method="_on_reset_sensitivity_pressed"]
 [connection signal="value_changed" from="TabContainer/General/MarginContainer/GridContainer/HBoxContainer4/HSlider" to="." method="_on_h_slider_sensitivity_value_changed"]
+[connection signal="pressed" from="TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/reset" to="." method="_on_reset_fullscreen_pressed"]
+[connection signal="toggled" from="TabContainer/General/MarginContainer/GridContainer/HBoxContainer5/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="TabContainer/General/MarginContainer/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/ForwardButton" to="." method="_on_forward_button_pressed"]
 [connection signal="pressed" from="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/ForwardButton/GridContainer/reset" to="." method="_on_reset_forward_pressed"]
