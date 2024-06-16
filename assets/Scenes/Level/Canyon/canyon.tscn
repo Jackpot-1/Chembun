@@ -748,7 +748,6 @@ autoplay = "water"
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Smog/water/Area3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_mdape")
 
 [node name="Cloud" type="MeshInstance3D" parent="."]
@@ -763,6 +762,18 @@ script = ExtResource("3_by8xi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1541, 38.0964, -0.33163)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_b7rdv")]
+
+[node name="PathFollow2D" parent="CanvasLayer/hotbar/Quarter/Path2D" index="0"]
+position = Vector2(-22.3606, 156.994)
+
+[node name="PathFollow2D2" parent="CanvasLayer/hotbar/Quarter/Path2D" index="1"]
+position = Vector2(9.20616, 83.4994)
+
+[node name="PathFollow2D3" parent="CanvasLayer/hotbar/Quarter/Path2D" index="2"]
+position = Vector2(74.4206, 36.8992)
+
+[node name="PathFollow2D4" parent="CanvasLayer/hotbar/Quarter/Path2D" index="3"]
+position = Vector2(153.472, 22.3971)
 
 [node name="OST-Canyon" type="AudioStreamPlayer" parent="."]
 process_mode = 3

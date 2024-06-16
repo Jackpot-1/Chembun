@@ -23,6 +23,7 @@ keep_aspect = 0
 fov = 70.0
 
 [node name="CamRightTankArea3d" type="Area3D" parent="h/v/Camera3D"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="h/v/Camera3D/CamRightTankArea3d"]
 shape = SubResource("SphereShape3D_xskl7")

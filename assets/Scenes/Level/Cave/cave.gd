@@ -1,6 +1,5 @@
 extends Node3D
 
-var n = 0
 var t = 0
 var p = 0
 var isNear = false
@@ -70,9 +69,7 @@ func _on_salt_hit_box_area_entered(area):
 			await get_tree().create_timer(.001).timeout
 			$SaltBody3D/CollisionShape3D.position.y -= 0.0165
 			$SaltBody3D/SaltHitBox/CollisionShape3D.position.y -= 0.0165
-			$SaltBody3D/Salt.set("blend_shapes/Done", n)
-			n+=0.01
-		
+			$SaltBody3D/Salt.set("blend_shapes/Done", $SaltBody3D/Salt.get("blend_shapes/Done")+0.01)
 
 
 func _on_key_area_3d_body_entered(body):
@@ -100,5 +97,24 @@ func _on_cave_mid_area_3d_body_entered(body):
 		Globals.GUI.dialogue("CaveMid", "Alright, Now if only I could find a way to get this chest down from this big pile of salt.", false, "", "", 8)
 		TxTCheckCaveMid = true
 
+
 func _on_ost_cave_finished():
 	$"OST-Cave".play()
+
+
+# extra_arg_0 is a string with the parent node name. eg: salt1, salt2...
+func _on_area_3d_area_entered(area, extra_arg_0):
+	if area.name != "splashRadius": return
+	if area.get_parent().Name == "Water":
+		var parent_node = get_node(extra_arg_0) #salt1, salt2, salt3...
+		var pile = parent_node.get_node("pile") #the salt pile 3D mesh
+		var staticbody3d = parent_node.get_node("StaticBody3D")
+		var area3d = parent_node.get_node("Area3D")
+		for j in range(50):
+			await get_tree().create_timer(.0005).timeout
+			staticbody3d.position.y -= 0.05
+			area3d.position.y -= 0.05
+			pile.set("blend_shapes/Done", pile.get("blend_shapes/Done")+0.01)
+			#if snappedf(pile.get("blend_shapes/Done"), 0.1) >= 1: staticbody3d.free(); area3d.free(); return # yes, yes, I know how to combine lines, now bow down to me.
+		
+

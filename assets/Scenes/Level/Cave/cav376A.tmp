@@ -406,7 +406,7 @@ states/Dive_Hold/node = SubResource("AnimationNodeAnimation_jwy50")
 states/Dive_Hold/position = Vector2(527, 231)
 "states/Dive_Hold 2/node" = SubResource("AnimationNodeAnimation_xxqx1")
 "states/Dive_Hold 2/position" = Vector2(690, 231)
-states/End/position = Vector2(355, 35.555)
+states/End/position = Vector2(675, 108.555)
 states/Salt_Surprise/node = SubResource("AnimationNodeAnimation_fvocg")
 states/Salt_Surprise/position = Vector2(503, 108.555)
 states/Start/position = Vector2(199.667, 108.555)
@@ -417,7 +417,7 @@ states/dive_start/position = Vector2(355, 231)
 "states/dive_start 2/node" = SubResource("AnimationNodeAnimation_n3605")
 "states/dive_start 2/position" = Vector2(854, 231)
 transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_tqtkw"), "Salt_Surprise", "Walk", SubResource("AnimationNodeStateMachineTransition_53ywy"), "Walk", "Salt_Surprise", SubResource("AnimationNodeStateMachineTransition_7686y"), "Walk", "dive_start", SubResource("AnimationNodeStateMachineTransition_lsgwm"), "dive_start", "Dive_Hold", SubResource("AnimationNodeStateMachineTransition_e68de"), "Dive_Hold", "Dive_Hold 2", SubResource("AnimationNodeStateMachineTransition_faddq"), "Dive_Hold 2", "dive_start 2", SubResource("AnimationNodeStateMachineTransition_2h71l"), "dive_start 2", "Walk", SubResource("AnimationNodeStateMachineTransition_knvsm")]
-graph_offset = Vector2(-167, -3)
+graph_offset = Vector2(-155, 61)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uucw"]
 resource_name = "Material.003"
@@ -612,7 +612,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8tycy"]
-size = Vector3(2.75733, 0.892678, 3.6126)
+size = Vector3(2.75733, 0.892678, 3.07346)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_35i6e"]
 radius = 14.0502
@@ -1007,7 +1007,7 @@ bones/0/name = "Parent"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.68693e-05, 5.30854e-08)
 bones/0/enabled = true
-bones/0/position = Vector3(0, 0.104606, 5.30854e-08)
+bones/0/position = Vector3(0, -1.68693e-05, 5.30854e-08)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Foot_R"
@@ -1015,14 +1015,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(-1, -2.54822e-15, 1.50996e-07, 2.54822e-15, -1, -1.92386e-22, 1.50996e-07, 1.92386e-22, 1, -0.32685, 0.496672, -8.3819e-09)
 bones/1/enabled = true
 bones/1/position = Vector3(-0.32685, 0.496672, -8.3819e-09)
-bones/1/rotation = Quaternion(7.4554e-08, 0.157632, 0.987498, 2.62045e-08)
+bones/1/rotation = Quaternion(7.5498e-08, 2.39814e-28, 1, 1.27411e-15)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Foot_L"
 bones/2/parent = 0
 bones/2/rest = Transform3D(-0.998678, -8.67402e-10, 0.0513982, 8.67402e-10, -1, -2.23062e-11, 0.0513982, 2.23062e-11, 0.998678, 0.32685, 0.496672, -8.3819e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(0.32685, 0.496672, -8.3819e-09)
-bones/2/rotation = Quaternion(0.0243813, -0.316946, 0.948095, -0.0081506)
+bones/2/rotation = Quaternion(0.0257076, 4.33824e-18, 0.999669, 4.33844e-10)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Body_1"
 bones/3/parent = 0
@@ -1040,14 +1040,13 @@ bones/4/rotation = Quaternion(0, 0, 0, 1)
 bones/4/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="SaltBertha/Salt Block/Skeleton3D"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ryhm1")
 skin = SubResource("Skin_w6m4q")
 blend_shapes/anger = 0.0
 blend_shapes/surprise = 0.0
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="SaltBertha/Salt Block/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40466, 5.30854e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.300037, 5.30854e-08)
 bone_name = "Body_1"
 bone_idx = 3
 
@@ -1079,7 +1078,7 @@ show_percentage = false
 transform = Transform3D(0.516796, 0, 1.77636e-15, 0, 0.516796, 0, -1.77636e-15, 0, 0.516796, 0, -0.435438, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaltBertha/Salt Block/Skeleton3D/BoneAttachment3D/HitBox"]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.0232365, 2.33515, 0.0984879)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0.0232365, 1.95773, 0.0984879)
 shape = SubResource("BoxShape3D_cwhln")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SaltBertha"]
@@ -1091,7 +1090,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16415e-10, 0, 0.809714)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaltBertha/AttackRange"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0162454, 0.466453, 1.37721)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0162451, 0.466453, 1.10764)
 shape = SubResource("BoxShape3D_8tycy")
 
 [node name="DetectionRange" type="Area3D" parent="SaltBertha"]
@@ -1128,41 +1127,17 @@ transform = Transform3D(-2.68825e-08, 0.615, 2.68825e-08, 0, -2.68825e-08, 0.615
 visible = false
 texture = ExtResource("9_of8bc")
 
-[node name="DamageCooldown" type="Timer" parent="SaltBertha"]
-one_shot = true
-
 [node name="saltEnemyDev" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.08778, 0.884418, 1.42038)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.08778, 0.884418, 0.368309)
 
 [node name="saltEnemyDev2" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-0.907316, 0, -0.42045, 0, 1, 0, 0.42045, 0, -0.907316, 8.70727, 1.02597, 3.69435)
-
-[node name="saltEnemyDev3" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(0.945717, 0, -0.32499, 0, 1, 0, 0.32499, 0, 0.945717, 8.63372, 0.983823, -1.21307)
+transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 35.8448, 1.07579, 5.238)
 
 [node name="saltEnemyDev4" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 44.8059, 1.23954, 9.23775)
+transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 41.0148, 1.07579, 5.238)
 
-[node name="saltEnemyDev5" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(0.964202, 0, 0.265169, 0, 1, 0, -0.265169, 0, 0.964202, 34.1309, 1.13346, -3.334)
-
-[node name="saltEnemyDev6" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3733, 1.28009, -7.28283)
-
-[node name="saltEnemyDev7" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(0.280164, 0, -0.959952, 0, 1, 0, 0.959952, 0, 0.280164, 38.312, 1.22337, 8.87595)
-
-[node name="saltEnemyDev8" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(0.229778, 0, -0.973243, 0, 1, 0, 0.973243, 0, 0.229778, 42.9063, 1.07579, -0.827825)
-
-[node name="saltEnemyDev9" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2868, 1.30093, -7.43082)
-
-[node name="saltEnemyDev10" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-0.909512, 0, -0.415678, 0, 1, 0, 0.415678, 0, -0.909512, 31.8335, 1.23799, 9.70428)
-
-[node name="saltEnemyDev11" parent="." instance=ExtResource("5_xjynl")]
-transform = Transform3D(-0.990557, 0, -0.137099, 0, 1, 0, 0.137099, 0, -0.990557, 37.6026, 1.07579, 1.01034)
+[node name="saltEnemyDev3" parent="." instance=ExtResource("5_xjynl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5448, 1.07579, -0.830784)
 
 [node name="CaveEnterArea3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -19.7524, 7.4474, 2.48085)
@@ -1209,11 +1184,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.465, 3.00653, -2.238)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46512, 1.85954, -2.23837)
 
 [node name="pile" type="MeshInstance3D" parent="salt1"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_utwo4")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1233,11 +1207,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5468, 3.00653, 5.41359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5468, 1.81724, 5.41359)
 
 [node name="pile" type="MeshInstance3D" parent="salt2"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_srmxl")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1257,11 +1230,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.807, 3.00653, -7.16014)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.807, 1.817, -8.842)
 
 [node name="pile" type="MeshInstance3D" parent="salt3"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_01m7d")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1281,11 +1253,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.642, 3.00653, 0.776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.642, 1.817, 0.776)
 
 [node name="pile" type="MeshInstance3D" parent="salt4"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_efnj3")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1305,11 +1276,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt5" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.806, 3.00653, 9.374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.806, 1.817, 9.374)
 
 [node name="pile" type="MeshInstance3D" parent="salt5"]
-transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, -0.797504)
-layers = 3
+transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ihrmj")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1329,11 +1299,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt6" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.647, 3.00653, -6.56781)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.647, 1.817, -7.559)
 
 [node name="pile" type="MeshInstance3D" parent="salt6"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_4fgap")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1353,11 +1322,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt7" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.105, 3.00653, 1.378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.105, 1.817, 1.378)
 
 [node name="pile" type="MeshInstance3D" parent="salt7"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_c63ny")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0
@@ -1377,11 +1345,10 @@ transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -3.48
 shape = SubResource("CapsuleShape3D_16hfy")
 
 [node name="salt8" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.518, 3.00653, 9.604)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.518, 1.817, 9.604)
 
 [node name="pile" type="MeshInstance3D" parent="salt8"]
 transform = Transform3D(-2.98959e-07, 0, 4.766, 0, 3.48, 0, -1.835, 0, -7.7648e-07, 0, 0, 0)
-layers = 3
 mesh = SubResource("ArrayMesh_3phwh")
 skeleton = NodePath("")
 blend_shapes/Done = 0.0

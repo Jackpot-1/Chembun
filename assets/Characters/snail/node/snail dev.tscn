@@ -285,9 +285,6 @@ libraries = {
 autoplay = "idle_snail"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_g2srw")
-}
 tree_root = SubResource("AnimationNodeStateMachine_87drq")
 anim_player = NodePath("../AnimationPlayer")
 

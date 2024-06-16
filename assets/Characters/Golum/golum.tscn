@@ -432,9 +432,6 @@ shape = SubResource("SphereShape3D_jmep1")
 target_desired_distance = 0.1
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_k2p1f")
-}
 tree_root = SubResource("AnimationNodeStateMachine_7twk8")
 anim_player = NodePath("../AnimationPlayer")
 

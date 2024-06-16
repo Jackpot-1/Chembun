@@ -459,9 +459,6 @@ libraries = {
 autoplay = "spin"
 
 [node name="AnimationTree" type="AnimationTree" parent="blob/Icosphere_001"]
-libraries = {
-"": SubResource("AnimationLibrary_0o0hj")
-}
 tree_root = SubResource("AnimationNodeStateMachine_fyolg")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -503,9 +500,6 @@ disabled = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../explosion/Cube")
-libraries = {
-"": SubResource("AnimationLibrary_isoix")
-}
 tree_root = SubResource("AnimationNodeStateMachine_7nrpc")
 anim_player = NodePath("../explosion/Cube/AnimationPlayer")
 

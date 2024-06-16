@@ -54,12 +54,12 @@ func _on_blob_body_entered(body):
 		for n in 20:
 			await get_tree().create_timer(.025).timeout
 			$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .05) - 1)
-		await get_tree().create_timer(1).timeout
+		#await get_tree().create_timer(1).timeout
 		for n in 200:
 			await get_tree().create_timer(.001).timeout
 			$splashRadius/GloopPart.set("blend_shapes/Key 1", (n * .005) )
 			#self.position += Vector3(0, -.00125, 0)
-		await get_tree().create_timer(3).timeout
+		#await get_tree().create_timer(3).timeout
 		$".".queue_free()
 
 func changeColor():

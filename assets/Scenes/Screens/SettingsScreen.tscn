@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://qcokiesg0mbc" path="res://fonts/Chembun/TitanOne-Regular.ttf" id="1_lddx8"]
 [ext_resource type="Script" path="res://assets/scripts/SettingsScreen.gd" id="1_p34g7"]
 [ext_resource type="Texture2D" uid="uid://bk70kopuble5b" path="res://assets/images/gui/chembuntitlescreen.png" id="1_ytww7"]
-[ext_resource type="Texture2D" uid="uid://ve54bl3r7ljc" path="res://addons/ggs/assets/reload.svg" id="4_7jlgt"]
+[ext_resource type="Texture2D" uid="uid://pdyof2qxasnb" path="res://assets/images/gui/reload.svg" id="4_p21dw"]
 
 [sub_resource type="Environment" id="Environment_f72vq"]
 background_mode = 3
@@ -105,7 +105,7 @@ alignment = 1
 visible = false
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer"]
@@ -137,7 +137,7 @@ alignment = 1
 visible = false
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer2"]
@@ -166,7 +166,7 @@ size_flags_horizontal = 10
 visible = false
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer3"]
@@ -196,7 +196,7 @@ size_flags_horizontal = 10
 visible = false
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer4"]
@@ -227,7 +227,7 @@ size_flags_horizontal = 10
 visible = false
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/HBoxContainer5"]
@@ -317,7 +317,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/ForwardButton/GridContainer"]
@@ -364,7 +364,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/LeftButton/GridContainer"]
@@ -411,7 +411,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/BackButton/GridContainer"]
@@ -458,7 +458,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/RightButton/GridContainer"]
@@ -505,7 +505,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/JumpButton/GridContainer"]
@@ -552,7 +552,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/ShiftButton/GridContainer"]
@@ -599,7 +599,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/ElementButton/GridContainer"]
@@ -646,7 +646,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/AimButton/GridContainer"]
@@ -693,7 +693,7 @@ clip_contents = true
 custom_minimum_size = Vector2(30.735, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-texture_normal = ExtResource("4_7jlgt")
+texture_normal = ExtResource("4_p21dw")
 stretch_mode = 3
 
 [node name="input" type="Label" parent="TabContainer/Controls/ScrollContainer/MarginContainer/GridContainer/ThrowButton/GridContainer"]
