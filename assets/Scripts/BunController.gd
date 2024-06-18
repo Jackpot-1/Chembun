@@ -83,6 +83,7 @@ var acceleration: int
 var jump_counter: int
 var knockback: Vector3
 var Ystopper = false
+var isKnockbackPlaySound = false #used to play the "oof" sfx when you land on the ground in knockback
 
 func _ready():
 	Globals.player = $"."
@@ -149,6 +150,14 @@ func _physics_process(delta):
 		#$DoubleJumpTimer.start()
 		#Ystopper = true
 		#vertical_velocity = Vector3(0, 0, 0)
+		
+	if isKnockbackPlaySound:
+		var offTheGround = false
+		if not states.grounded: offTheGround = true
+		if states.grounded and offTheGround: 
+			isKnockbackPlaySound = false
+			$Oof.play()
+		
 	if velocity.y < 0:
 		states.falling = true
 		if animations.doublejump not in pb_node:
@@ -368,12 +377,7 @@ func knockback_enter(direction:Vector3, strength: Vector3):
 	knockback = strength.rotated(Vector3.UP, direction.y)
 	states.knockback = true
 	playback.travel(animations.knockback)
-	var offTheGround = false
-	while true:
-		await get_tree().create_timer(get_process_delta_time()).timeout
-		if not states.grounded: offTheGround = true
-		elif states.grounded and offTheGround: break
-	$Oof.play()
+	isKnockbackPlaySound = true
 
 func knockback_exit():
 	states.knockback = false

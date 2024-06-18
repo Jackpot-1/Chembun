@@ -16,6 +16,7 @@ var justLookAt = false
 var runOnce = false
 var hasDived = false
 var invulnerable = false
+var isCharge = false
 
 @export var vulnerable_to = "Water"
 
@@ -25,12 +26,22 @@ var invulnerable = false
 var current_health: float = total_health
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 var rng = RandomNumberGenerator.new()
+var chargeVelocity: Vector3
 
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
+	if isCharge:
+		_on_velocity_computed(chargeVelocity)
+		if $DashTimer.is_stopped():
+			playerTargeting = true
+			movement_speed = 2
+			invulnerable = false
+			isCharge = false
+		#$"Salt Block/Skeleton3D/Cube".get_surface_override_material(0).albedo_color = "ffffff"
+		$"Salt Block/Skeleton3D/Cube".set("blend_shapes/anger", 0)
 	if Input.is_action_just_pressed("skip"): charge_attack()
 	if hasDived:
 		if animations.attack2 in playback.get_current_node():
@@ -92,17 +103,11 @@ func charge_attack():
 	#dashLocation = $SpringArm3D/Marker3D.global_position
 	#velocity = Vector3(10, 0, 0)
 	movement_speed = 20
-	var new_velocity: Vector3 = global_position.direction_to($DashMarker3D.global_position) * movement_speed
+	chargeVelocity = global_position.direction_to($DashMarker3D.global_position) * movement_speed
 	$DashTimer.start()
-	while(true):
-		await get_tree().create_timer(get_process_delta_time()).timeout
-		_on_velocity_computed(new_velocity)
-		if $DashTimer.is_stopped(): break
-	playerTargeting = true
-	movement_speed = 2
-	invulnerable = false
-	#$"Salt Block/Skeleton3D/Cube".get_surface_override_material(0).albedo_color = "ffffff"
-	$"Salt Block/Skeleton3D/Cube".set("blend_shapes/anger", 0)
+	isCharge = true
+	
+	
 	
 	#dashTargeting = true
 
