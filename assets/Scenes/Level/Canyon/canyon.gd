@@ -35,7 +35,7 @@ func _on_area_3d_body_entered(body):
 	AudioServer.set_bus_effect_enabled(0, 1, true)
 	$ChemBun.gravity = 7
 	$ChemBun.walk_speed = 3.5
-	$ChemBun.knockback.x = 3
+	#$ChemBun.knockback.x = 3
 
 func _on_area_3d_body_exited(body):
 	if body != Globals.player: return
@@ -44,7 +44,7 @@ func _on_area_3d_body_exited(body):
 	$ChemBun.gravity = 9.8
 	$ChemBun.walk_speed = 4
 	$ChemBun.run_speed = 6
-	$ChemBun.knockback.x = 0
+	#$ChemBun.knockback.x = 0
 
 
 func _on_area_3d_area_entered(area):
